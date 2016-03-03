@@ -1,0 +1,153 @@
+﻿/*
+* pancheng
+* commen css
+* 2015.11.20
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	padding: 0;
+}
+html {
+  height: 100%;
+}
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+body {
+	margin: 0;
+	padding: 0;
+/*  font-family: "FZLTXHJW";*/
+}
+img {
+	border: 0 none;
+	vertical-align: top;
+}
+em {
+	font-style:normal;
+}
+button::-moz-focus-inner {
+	padding:0;
+	border:none;
+}
+button {
+  -webkit-appearance: none;
+  border: 0;
+  outline: 0;
+}
+a {
+	overflow: hidden;
+  text-decoration: none;
+}
+.wrapper {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.fontFz {
+	font-family: "FZLTXHJW";
+}
+.hide {
+	display: none;
+}
+.show {
+	display: block;
+}
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+.clearfix:after {
+	display: block;content:".";
+	height: 0;
+	visibility: hidden;
+	clear: both;
+	font-size: 0;
+	line-height: 0;
+}
+.clearfix {
+	overflow: hidden;
+}
+.clearfix{
+	*zoom:1;
+}
+.line2only {
+  overflow: hidden;
+  word-wrap:break-word;
+  text-overflow:ellipsis; 
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.block {
+  display: block;
+}
+.cover {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, .5);
+	z-index: 10100;
+}
+.row-flex {
+  -moz-box-orient: horizontal;
+  -webkit-box-orient: horizontal;
+  -moz-box-direction: normal;
+  -webkit-box-direction: normal;
+  -moz-box-lines: multiple;
+  -webkit-box-lines: multiple;
+  -ms-flex-flow: row wrap;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+.col-flex{
+  -moz-box-orient: vertical;
+  -webkit-box-orient: vertical;
+  -moz-box-direction: normal;
+	-webkit-box-direction: normal;
+  -moz-box-lines: multiple;
+  -webkit-box-lines: multiple;
+  -webkit-flex-flow: column wrap;
+  -ms-flex-flow: column wrap;
+  flex-flow: column wrap;
+}
+.flex{
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+.center{
+  -moz-box-pack: center;
+  -webkit-box-pack: center;
+  box-pack:center;
+  -moz-box-align: center;
+  -webkit-box-align: center;
+  box-align: center;
+  box-pack:center;
+  -ms-flex-pack:center;
+  display: -ms-flexbox;
+  -ms-flex-align:center;
+  justify-content:center;
+  align-items: center;
+}
+
+/*
+@font-face {
+      font-family: 'FZLTXHJW';
+      src: url('../../css/fonts/FZLTXHJW.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+   }*/
