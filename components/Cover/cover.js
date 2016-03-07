@@ -1,11 +1,9 @@
 'use strict';
-var React = require('react')
-var classnames = require('classnames')
+import React from 'react';
+import classnames from 'classnames';
 
 class Cover extends React.Component {
-	constructor (props) {
-		super(props);
-	}
+
 	render() {
 		const display = this.props.cover ? "show" : "hide";
 		let coverClassName = classnames('cover', display );
@@ -13,7 +11,8 @@ class Cover extends React.Component {
 			<div className={coverClassName} onClick={this.props.ModifyCover}>
 				{this.props.children}
 			</div>
-    )
+    );
 	}
 }
-module.exports = Cover;
+
+export default Cover;

@@ -1,28 +1,28 @@
-var React = require('react');
-var $ = require('jquery')
+import React from 'react';
+import $ from 'jquery';
 
-var ShowCart = React.createClass({
-  ModifyCover: function() {
-    let ModifyCover = this.props.ModifyCover
-    //$("body").css("overflow", "hidden")
+class ShowCart extends React.Component {
+  ModifyCover() {
+    let ModifyCover = this.props.ModifyCover;
     ModifyCover();
-  },
-	render: function() {
-		const { data, ModifyCover} = this.props
+  }
+
+	render() {
+		const { data, ModifyCover} = this.props;
 		let num = 0 ; 
 	  data.map( item => {
-      num += parseInt(item.num, 10)
-	  })
+      num += parseInt(item.num, 10);
+	  });
 		if (num > 0) {
 			return (
-				<div className="shopping-cart" onClick={this.ModifyCover}>
+				<div className="shopping-cart" onClick={this.ModifyCover.bind(this)}>
 					<div className="goods-num">{num}</div>
 				</div>
-			)
+			);
 		}else {
-			return null
+			return null;
 		}
-	},
-})
+	}
+}
 
-module.exports = ShowCart
+export default ShowCart;

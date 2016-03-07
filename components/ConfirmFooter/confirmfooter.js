@@ -1,11 +1,12 @@
-var React = require('react');
+import React from 'react';
 
-var ConfirmFooter = React.createClass({
-	getMoneyForOne: function(item) {
-    return parseInt(item.price, 10) * parseInt(item.num ,10)
-	},
-	render: function() {
-    var money = 0, num = 0, data = this.props.data
+class ConfirmFooter extends React.Component {
+	getMoneyForOne(item) {
+    return parseInt(item.price, 10) * parseInt(item.num ,10);
+	}
+
+	render() {
+    var money = 0, num = 0, data = this.props.data;
     data.map( item => {
       money += parseInt(item.num, 10)*parseInt(item.price, 10);
       num += parseInt(item.num);
@@ -25,10 +26,8 @@ var ConfirmFooter = React.createClass({
 					<span>)</span>
 				</a>
 			</div>
-		)
+		);
 	}
-})
+}
 
-
-
-module.exports = ConfirmFooter;
+export default ConfirmFooter;

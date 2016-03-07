@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 export default function data(state = [] , action) {
 	switch(action.type) {
 		case "MODIFY_NUM":
@@ -13,6 +13,6 @@ export default function data(state = [] , action) {
 		case "RECEIVED_POSTS":
 		  return state.concat(action.data)
 		default:
-		  return state
+		  return state;
 	}
 }

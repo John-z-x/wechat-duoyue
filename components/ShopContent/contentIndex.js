@@ -1,18 +1,17 @@
-var React = require('react');
-
-import PageHeader from './page_header.js';
-import BannerArea from './banner_area.js';
-import SortNav from './sort_nav.js';
-import RecommendBook from './recommend_book.js';
-import SortBrowse from './sort_browse.js';
-import Slider from '../SliderUIComponent/slider.js'
+import React from 'react';
+import PageHeader from './PageHeader.js';
+import BannerArea from './BannerArea.js';
+import SortNav from './SortNav.js';
+import RecommendBookMoudle from './RecommendBookMoudle.js';
+import SortBrowse from './SortBrowse.js';
+import Slider from '../SliderUIComponent/Slider.js';
 
 var allData = {
 	hdData: {
 		title: '单品',
 		data: [
-						{clasName: 'book-store-menu', href: 'http://www.baidu.com'},
-					 	{clasName: 'good-store-menu', href: 'http://www.facebook.com'}
+						{className: 'book-store-menu', href: 'http://www.baidu.com'},
+					 	{className: 'good-store-menu', href: 'http://www.facebook.com'}
 				  ],
 	},
 	banData:  [
@@ -20,7 +19,6 @@ var allData = {
 					    {href: 2, imgSrc: '/images/2.png'},
 					    {href: 3, imgSrc: '/images/6.jpg'}
 					  ],
-
 	sortData: {
 		title: '热门分类',
 		data: [
@@ -53,21 +51,21 @@ var allData = {
 }
 
 
-var IndexPage = React.createClass({
-	render: function(){
+class IndexPage extends React.Component {
+	render() {
 		return (
 			<div className="main-wrap">
 				<PageHeader hdData={allData.hdData}/>
 				<Slider />
 				<SortNav sortData={allData.sortData}/>
-				<RecommendBook data={allData.newbksData}/>
-				<RecommendBook data={allData.newbksData}/>
+				<RecommendBookMoudle data={allData.newbksData}/>
+				<RecommendBookMoudle data={allData.newbksData}/>
 				<SortBrowse data={allData.sortBrowseData}></SortBrowse>
 			</div>
 		);
 	}
-})
+}
 
 
-export default IndexPage
+export default IndexPage;
 

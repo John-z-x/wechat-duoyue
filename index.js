@@ -1,17 +1,16 @@
-'use strict'
-var React = require('react');
-var ReactDom = require('react-dom');
-import 'babel-polyfill'
+'use strict';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import 'babel-polyfill';
+import ShopPage from './components/ShopPage/ShopPage.js';
+import ShopIndex from './components/ShopIndex/ShopIndex.js';
+import ShopContent from './components/ShopContent/ContentIndex.js';
+import configurestore from './store/configurestore.js';
+import { Provider } from 'react-redux';
 
-var ShopPage = require('./components/ShopPage/ShopPage.js')
-
-import configurestore from './store/configurestore.js'
-//import { Provider } from 'react-redux'
-
-var Provider = require('react-redux').Provider;
 const store = configurestore();
 
-ReactDom.render(
+ReactDOM.render( 
   <Provider store={store}>
     <ShopPage />
   </Provider>
@@ -84,5 +83,5 @@ ReactDom.render(
 //   <Provider store={store}>
 //     <App />
 //   </Provider>,
-//   document.getElementById('root')
+//   document.getElementById('cart')
 // )

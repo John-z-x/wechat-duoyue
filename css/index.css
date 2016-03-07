@@ -62,26 +62,26 @@ h1, h2, h3, h4, h5, h6 {
 }
 .book-store-menu .hd-btn-icon{
 	background: url(/images/top_icon.png) no-repeat 3px -120px;
-	background-size: 65px 300px
+	background-size: 65px 300px;
 }
 .book-store-menu-cur {
 	border-bottom: 2px solid #77cdb0;
 }
 .book-store-menu-cur .hd-btn-icon {
 	background: url(/images/top_icon.png) no-repeat 3px -120px;
-	background-size: 65px 300px
+	background-size: 65px 300px;
 }
 
 .good-store-menu .hd-btn-icon{
 	background: url(/images/top_icon.png) no-repeat 3px -66px;
-	background-size: 65px 300px
+	background-size: 65px 300px;
 }
 .good-store-menu-cur {
 	border-bottom: 2px solid #77cdb0;
 }
 .good-store-menu-cur .hd-btn-icon {
 	background: url(/images/top_icon.png) no-repeat 3px -66px;
-	background-size: 65px 300px
+	background-size: 65px 300px;
 }
 .main-wrap {
 	position: relative;

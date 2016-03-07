@@ -1,8 +1,8 @@
-import React from 'react'
-import ReactDom from 'react-dom'
-import $ from 'jquery'
-import SliderItem from './slideritem.js'
-import SliderDot from './sliderDot.js'
+import React from 'react';
+import ReactDom from 'react-dom';
+import $ from 'jquery';
+import SliderItem from './SliderItem.js';
+import SliderDot from './SliderDot.js';
 
 const sliderList = [
 	{"id": "1", "url": "images/first.jpg", "title": "长江出版社"},
@@ -13,20 +13,20 @@ const sliderList = [
 class Slider extends React.Component {
 	constructor (props) {
 		super(props);
-		let width = document.documentElement.clientWidth
+		let width = document.documentElement.clientWidth;
 		this.state =  {
 			index: 1,
 			left: -width,
-		}
-		this.isSlidering = false
-		this.SLIDER_TIME = 3000
+		};
+		this.isSlidering = false;
+		this.SLIDER_TIME = 3000;
 		//this.data = { touchstart , startX, marginLeft. isSlidering}
 	}
  
   touchStart(e) {
   	//console.log(this);
   	e.preventDefault();
-  	window.clearInterval(this.timer)
+  	window.clearInterval(this.timer);
     this.touchstart = e.targetTouches;
     this.startX = this.touchstart[0].pageX;
     this.marginLeft = this.state.left;
@@ -37,25 +37,25 @@ class Slider extends React.Component {
   	let touchmove = e.targetTouches;
   	if(this.isSlidering) return;
     this.moveX = touchmove[0].pageX - this.startX;
-    this.setState({left: this.marginLeft + this.moveX})
+    this.setState({left: this.marginLeft + this.moveX});
     //console.log(this.isSlidering);
   }
 
   touchEnd(e) {
   	e.preventDefault();
   	if(this.isSlidering) return;
-  	let moveX = this.moveX
-  	let width = document.documentElement.clientWidth
+  	let moveX = this.moveX;
+  	let width = document.documentElement.clientWidth;
   	//console.log(moveX);
 		if(moveX < 0 ) {
 			if(moveX < -50 ) {
 				let end = -(this.state.index + 1)*width;
 				if(this.state.index < sliderList.length) {
-					this.setState({index: this.state.index + 1})
+					this.setState({index: this.state.index + 1});
 				}else {
-					this.setState({index: 1})
+					this.setState({index: 1});
 				}
-				this.playAnimate("left", end)
+				this.playAnimate("left", end);
 			}else {
 				let end = -this.state.index*width;
 				this.playAnimate("right", end);
@@ -66,7 +66,7 @@ class Slider extends React.Component {
       	if(this.state.index > 1) {
       		this.setState({index: this.state.index - 1});
       	}else {
-      		this.setState({index: sliderList.length})
+      		this.setState({index: sliderList.length});
       	}
       	this.playAnimate("right", end);
       }else {
@@ -75,7 +75,7 @@ class Slider extends React.Component {
       }
 		}
 		//console.log(this.SLIDE_TIME);
-    this.timer = window.setInterval(this.autoPlay.bind(this), this.SLIDER_TIME)
+    this.timer = window.setInterval(this.autoPlay.bind(this), this.SLIDER_TIME);
   }
 
 	slide(node) {
@@ -84,22 +84,22 @@ class Slider extends React.Component {
 		node.addEventListener('touchmove', _self.touchMove.bind(_self), false);
 		node.addEventListener('touchend', _self.touchEnd.bind(_self), false);
 		//console.log(this.state);
-		this.timer = window.setInterval(_self.autoPlay.bind(this) , _self.SLIDER_TIME)
+		this.timer = window.setInterval(_self.autoPlay.bind(this) , _self.SLIDER_TIME);
 	} 
  
 	playAnimate(direction, end) {
 		//direction 图片滚动的方向
 		//console.log(direction + "" + end);
-    let speed, _self = this
-    let width = document.documentElement.clientWidth
+    let speed, _self = this;
+    let width = document.documentElement.clientWidth;
     function animate() {
       if( direction === "left") {
-     		speed = -20
+     		speed = -20;
 	    	if(_self.state.left + speed> end) {
 		    	_self.setState({left: _self.state.left + speed });
 		    	speed--;
 		    	_self.isSlidering = true;
-		    	setTimeout(animate, 10)
+		    	setTimeout(animate, 10);
 	      }else {
 	      	_self.setState({left: -_self.state.index*width});
 	      	_self.isSlidering = false;
@@ -110,10 +110,10 @@ class Slider extends React.Component {
         	_self.setState({left: _self.state.left + speed});
         	speed++;
         	_self.isSlidering = true;
-        	setTimeout(animate, 10)
+        	setTimeout(animate, 10);
 
         }else {
-        	_self.setState({left: -_self.state.index*width})
+        	_self.setState({left: -_self.state.index*width});
         	_self.isSlidering = false;
         	//console.log(_self.state.index);
         }
@@ -124,18 +124,18 @@ class Slider extends React.Component {
 	}
 
 	autoPlay() {
-		let width = document.documentElement.clientWidth, _self = this
-    let end = -(_self.state.index + 1)*width
+		let width = document.documentElement.clientWidth, _self = this;
+    let end = -(_self.state.index + 1)*width;
 		if(_self.state.index < sliderList.length) {
-			_self.setState({index: _self.state.index + 1})
+			_self.setState({index: _self.state.index + 1});
 		}else {
-			_self.setState({index: 1})
+			_self.setState({index: 1});
 		}
-		_self.playAnimate("left", end)
+		_self.playAnimate("left", end);
 	}
 
 	componentDidMount() {
-		this.slide(this.refs.slide)
+		this.slide(this.refs.slide);
 	}
 
 	componentWillUnMount() {
@@ -143,13 +143,13 @@ class Slider extends React.Component {
 	}
 	render() {
 		//console.log(sliderList.length)
-		let items, itemCode
+		let items, itemCode;
 		if( sliderList.length > 0) {
       items = sliderList.map( function(item, i) {
-	    	  return <SliderItem data={item} key={i + 1}/>
+	    	  return <SliderItem data={item} key={i + 1}/>;
 	    		} 
       	)
-      itemCode = [<SliderItem data={sliderList[sliderList.length - 1]} key="0"/>].concat(items).concat(<SliderItem data={sliderList[0]} key={sliderList.length + 1}/>)
+      itemCode = [<SliderItem data={sliderList[sliderList.length - 1]} key="0"/>].concat(items).concat(<SliderItem data={sliderList[0]} key={sliderList.length + 1}/>);
     }else {
     	itemCode = null;
     }
@@ -161,8 +161,8 @@ class Slider extends React.Component {
 				</ul>
 				<SliderDot nums={sliderList.length} index={this.state.index}/>
 			</section>
-		)
+		);
 	}
 } 
 
-export default Slider
+export default Slider;
