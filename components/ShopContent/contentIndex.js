@@ -2,7 +2,7 @@ import React from 'react';
 import PageHeader from './PageHeader.js';
 import BannerArea from './BannerArea.js';
 import SortNav from './SortNav.js';
-import RecommendBookMoudle from './RecommendBookMoudle.js';
+import RecommendBookMoudle from './RecommendBookModule.js';
 import SortBrowse from './SortBrowse.js';
 import Slider from '../SliderUIComponent/Slider.js';
 
@@ -51,7 +51,7 @@ var allData = {
 }
 
 
-class IndexPage extends React.Component {
+class ContentIndex extends React.Component {
 	render() {
 		return (
 			<div className="main-wrap">
@@ -67,5 +67,5 @@ class IndexPage extends React.Component {
 }
 
 
-export default IndexPage;
+export default ContentIndex;
 
