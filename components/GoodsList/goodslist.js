@@ -1,16 +1,16 @@
-var React = require('react');
-var GoodsItem = require('../GoodsItem/goodsitem.js');
+import React from 'react';
+import GoodsItem from '../GoodsItem/GoodsItem.js';
 
-var GoodsList = React.createClass({
+class GoodsList extends React.Component {
 	
-	render: function() {
-		const { data, actions } = this.props
+	render() {
+		const { data, actions } = this.props;
     //console.log(data);
 		let itemNodes = data.map(function(items) {
 				return (
 					<GoodsItem data={items}  actions={actions} id={items.id} key={items.id}/>
-				)
-		})
+				);
+		});
 		if( data.length < 1) {
 			itemNodes.push(<li className="nullBox" key="nullBox">您的购物车已经空了</li>)
 		}
@@ -19,7 +19,7 @@ var GoodsList = React.createClass({
 				{itemNodes}
 			</ul>
 		);
-	},
-})
+	}
+}
 
 module.exports = GoodsList;

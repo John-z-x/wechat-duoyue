@@ -1,22 +1,16 @@
-import React from 'react'
-
-import CartBox from '../CartBox/cartbox.js'
-
-import ShopContent from '../ShopContent/contentIndex.js'
+import React from 'react';
+import CartBox from '../CartBox/CartBox.js';
+import ShopContent from '../ShopContent/ContentIndex.js';
 
 class ShopPage extends React.Component {
-	constructor(props) {
-		super(props)
-	}
 	render() {
-    //console.log(this.props);
 		return (
       <div className="shop_page">
 				<CartBox />
 				<ShopContent />
       </div>
-		)
+		);
 	}
 }
 
-export default ShopPage
+export default ShopPage;

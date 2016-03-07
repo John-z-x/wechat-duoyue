@@ -1,6 +1,6 @@
 
 'use strict'
-import fetch from 'isomorphic-fetch'
+import fetch from 'isomorphic-fetch';
 
 export function ModifyNum(id, num) {
   return { "type": "MODIFY_NUM", id, num }
@@ -17,7 +17,7 @@ export function ModifyCover(text) {
 
 export function LoadData(text) {
 	return dispatch=> {
-	    dispatch(fetchPosts(text))
+	    dispatch(fetchPosts(text));
 	  }
 }
 
@@ -38,13 +38,13 @@ function receivePosts(text, json) {
 }
 
 function fetchPosts(text) {
-	let url
+	let url;
   return dispatch => {
   	//dispatch(requestPosts(text))
   	if(text === 1 ) {
-  		url = '/actions/dataTest.js'
+  		url = '/actions/dataTest.js';
   	}else {
-  		url = '/actions/data.js'
+  		url = '/actions/data.js';
   	}
   	return fetch(url)
       .then( response => response.json())

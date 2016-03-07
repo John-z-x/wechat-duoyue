@@ -1,15 +1,16 @@
-var React = require('react');
+import React from 'react';
 
 
-var ConfirmTop = React.createClass({
-	render: function() {
+class ConfirmTop extends React.Component {
+
+	render() {
 		return (
 			<div className="confirm-top clearfix">
 				<div className="confirm-title left" onClick={ ()=> this.props.LoadData(1) }>购物车</div>
 				<div className="cancel right" onClick={this.props.ModifyCover}></div>
 			</div>
-		)
-	},
-})
+		);
+	}
+}
 
-module.exports = ConfirmTop
+export default ConfirmTop;

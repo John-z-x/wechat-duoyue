@@ -1,13 +1,13 @@
-var React = require('react');
-var GoodsNumModify = require('../GoodsNumModify/goodsnummodify.js');
+import React from 'react';
+import GoodsNumModify from '../GoodsNumModify/GoodsNumModify.js';
 
-var GoodsItem = React.createClass({
-	deleteItem: function(event) {
+class GoodsItem extends React.Component {
+	deleteItem(event) {
 		//后台返回成功后继续。。
     this.props.actions.DeleteItem(this.props.data.id);
-	},
-	render: function() {
-		const { data, actions } = this.props
+	}
+	render() {
+		const { data, actions } = this.props;
 		//console.log(this.props.actions);
 		return (
 			<li className="goods-item flex">
@@ -24,8 +24,8 @@ var GoodsItem = React.createClass({
 					</div>
 				</div>
 			</li>
-		)
+		);
 	}
-})
+}
 
-module.exports = GoodsItem;
+export default GoodsItem;

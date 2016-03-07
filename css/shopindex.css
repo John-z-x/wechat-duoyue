@@ -1,0 +1,279 @@
+﻿/*
+* pancheng
+* shangcheng index
+*/
+
+/*header start*/
+.header {
+	position: fixed;
+	z-index: 10000;
+	top: 0;
+	left: 0;
+	height: 40px;
+	width: 100%;
+	background-color: #fff;
+	border-bottom: 1px solid #E0E0E0;
+}
+.header .search-box {
+	margin-top: 5px;
+	margin-left: 10px;
+	height: 29px;
+	width: 75%;
+	line-height: 40px;
+	border-radius: 4px;
+	background-color: #f6f6f6;
+}
+.header .search-img {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 7px;
+	margin-left: 14px;
+	height: 17px;
+	width: 17px;
+	background-image: url("../../images/shangcheng/search-img.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.header .search-input {
+	margin-left: 5px;
+	width: 70%;
+	height: 25px;
+	border: 0;
+	outline: none;
+	vertical-align: top;
+	background-color: transparent;
+}
+.header .shopping-cart {
+	position: relative;
+	margin-right: 8px;
+	margin-top: 10px;
+}
+.header .shopping-cart-img {
+	display: inline-block;
+	background: url("../../images/shangcheng/shoppingcart.png") no-repeat;
+	background-size: cover;
+	width: 35px;
+	height: 30px;
+}
+.header .goods-num {
+	position: absolute;
+	display: block;
+	top: -5px; 
+	right: 0; 
+	z-index: 100; 
+	width: 14px; 
+	height: 14px; 
+	text-align: center; 
+	font-size: 10px; 
+	line-height: 15px; 
+	border-radius:15px;  
+	background-color: #77cdb0; 
+	color: #fff;  
+}
+
+/*banner start*/
+#banner_cvs_WECHAT-SHANGCHENG .banner_dot_cvs .dot_over {
+  float: left;
+  width: 5px;
+  height: 5px;
+  border-radius: 5px;
+  border: 1px solid #62c3a2;
+  margin-right: 2px;
+  margin-top: -1px;
+  background: transparent;
+}
+.banner {
+	width: 100%;
+	height: 41px;
+}
+
+/* nav -start*/
+.nav {
+	height: 66px;
+	width: 100%;
+	height: 92px;
+	padding: 16px 0 2px 0;
+	overflow: scroll;
+}
+.nav-box {
+	min-width: 100%;
+}
+.nav .food {
+	width: 60px;
+	text-align: center;
+}
+.nav a {
+	display: inline-block;
+	height: 50px;
+}
+.food {
+	margin-left: 15px;
+}
+.food-box {
+	width: 50px;
+	padding: 5px;
+	background-color: #f595b8;
+	border-radius: 8px;
+}
+.food .food-icon {
+	background: url("../../images/shangcheng/fenlei.png") 0 0 no-repeat;
+}
+.nav span {
+	display: inline-block;
+	width: 100%;
+	margin-top: 10px;
+	text-align: center;
+	font-size: 14px;
+	font-family: 'FZLTXHJW';
+	overflow: hidden;
+}
+
+/* hear-news start*/
+.head-new {
+	width: 100%;
+	height: 40px;
+	border-top: 1px solid #E0E0E0;
+	border-bottom: 1px solid #E0E0E0;
+	position: relative;
+  overflow: hidden;
+}
+/*.head-new .head-icon {
+	position: relative;
+  display: inline-block;
+  margin-top: 13px;
+  margin-left: 15px;
+  height: 15px;
+  width: 65px;
+  background-image: url("../../images/shangcheng/chaopinhead.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.head-new .head-icon:after{
+	position: absolute;
+	top: -8px;
+	left: 80px;
+  content: "";
+  height: 30px;
+  width: 1px;
+  background-color: #dbdbdb;
+  visibility: inherit;
+}*/
+.head-new .remen {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 10px;
+	height: 18px;
+	width: 30px;
+	margin-left: 10px;
+	border: 1px solid #feb794;
+	padding-left: 5px;
+	border-radius: 4px;
+	font-size: 12px;
+	line-height: 18px;
+}
+.head-new .right-line{
+  border-right:1px solid #d5d5d5;
+  display:inline-block;
+  width:1px;
+  height:25px;
+  margin-top:8px;
+  margin-left:5px;
+  float:left;                
+}
+.head-new .news {
+	position: absolute;
+  top: 40px;
+  display: inline-block;
+  width: 75%;
+  padding: 0;
+  margin: 0;
+	margin-left: 8px;
+	-webkit-transform: translate3d(0, 0, 0);
+	
+}
+.head-new .news-list {
+  height: 100%;
+  width: 100%;
+}
+.head-new .news-item {
+	display: block;
+  font-size: 12px;
+  overflow: hidden;
+  width: 100%;
+  line-height: 40px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/*content start*/
+.content {
+  background-color: #f3f3f6;
+  background-image: url(../../images/shangcheng/shangcheng_bg.png) ;
+  background-repeat: repeat;
+  padding-bottom: 20px;
+}
+.content .jinpin-header {
+	margin: 10px 0px 0 0px;
+  padding-left: 10px;
+  padding-right: 10px;	
+  background-color: #e1e1e1;
+}
+.content jingping-pic{
+  width: 30px;
+  height: 30px;
+  display: block;  
+  margin-top: 5px;                    
+}
+.content .title {
+	padding: 10px 0;
+  padding-left: 10px;
+	font-size: 15px;
+	font-family: 'FZLTXHJW';
+}
+.content .more {
+  margin: 0 10px;
+  padding: 10px 0;
+  font-size: 12px;
+  color: #c4c4c4;
+}
+.content .more .more-text {
+  
+  color: #74cdaf;
+}
+.content .shop-item {
+	height: 200px;
+	width: 44%;
+	background-color: #fff;
+	border: 0;
+	border: 1px solid #e2e2e2;
+	box-shadow: 1px 1px 2px #ddd;
+	border-radius: 3px;
+}
+.shop-item:nth-child(odd) {
+	margin: 10px 3.3% 3px 1.6%;
+}
+.shop-item:nth-child(even) {
+	margin: 10px 1.6% 3px 3.3%;
+}
+.content .goods-title {
+	overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+	font-size: 14px;
+	line-height: 22px;
+	height: 40px;
+	margin: 5px;
+	font-family: 'FZLTXHJW';
+}
+.content .goods-price {
+	margin: 10px 5px 5px 5px;
+	font-size: 16px;
+	line-height: 1em;
+	color: #77cdb0;
+}
+.content .goods-img {
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+}
