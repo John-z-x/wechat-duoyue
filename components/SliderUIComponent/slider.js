@@ -4,11 +4,6 @@ import $ from 'jquery';
 import SliderItem from './SliderItem.js';
 import SliderDot from './SliderDot.js';
 
-const sliderList = [
-	{"id": "1", "url": "images/first.jpg", "title": "长江出版社"},
-	{"id": "2", "url": "images/second.jpg", "title": "哈尔冰出版社"},
-	{"id": "3", "url": "images/third.jpg", "title": "北京出版社"}
-]
 
 class Slider extends React.Component {
 	constructor (props) {
@@ -44,7 +39,7 @@ class Slider extends React.Component {
   touchEnd(e) {
   	e.preventDefault();
   	if(this.isSlidering) return;
-  	let moveX = this.moveX;
+  	let moveX = this.moveX, sliderList = this.props.data;
   	let width = document.documentElement.clientWidth;
   	//console.log(moveX);
 		if(moveX < 0 ) {
@@ -124,7 +119,7 @@ class Slider extends React.Component {
 	}
 
 	autoPlay() {
-		let width = document.documentElement.clientWidth, _self = this;
+		let width = document.documentElement.clientWidth, _self = this, sliderList = this.props.data;
     let end = -(_self.state.index + 1)*width;
 		if(_self.state.index < sliderList.length) {
 			_self.setState({index: _self.state.index + 1});
@@ -142,7 +137,8 @@ class Slider extends React.Component {
     
 	}
 	render() {
-		//console.log(sliderList.length)
+		const sliderList = this.props.data;
+		//console.log(this.props.data);
 		let items, itemCode;
 		if( sliderList.length > 0) {
       items = sliderList.map( function(item, i) {

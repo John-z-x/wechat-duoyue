@@ -6,6 +6,7 @@ import PageHeaderTabBtn from './PageHeaderTabBtn.js';
 
 class PageHeader extends React.Component {
 	render() {
+		console.log(this.props.hdData);
 		return (
 			<div className="hd-content bg-white clearfix">
 				<a className="left hd-btn user-menu" href=""></a>

@@ -6,6 +6,7 @@ class GoodsItem extends React.Component {
 		//后台返回成功后继续。。
     this.props.actions.DeleteItem(this.props.data.id);
 	}
+
 	render() {
 		const { data, actions } = this.props;
 		//console.log(this.props.actions);
@@ -19,7 +20,7 @@ class GoodsItem extends React.Component {
 					<div className="goods-size">{data.size}</div>
 					<div className="goods-price clearfix">
 						<div className="oneprice left">¥{data.price}</div>
-						<div className="cancel-goods right" onClick={this.deleteItem}>删除</div>
+						<div className="cancel-goods right" onClick={this.deleteItem.bind(this)}>删除</div>
 						<GoodsNumModify num={data.num} id={data.id} ModifyNum={actions.ModifyNum}/>
 					</div>
 				</div>
