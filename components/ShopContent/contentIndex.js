@@ -46,8 +46,13 @@ var allData = {
 						{href: 'http://www.baidu.com', src: '/images/6.jpg', sortTitle: '经典文学', num: '5', bkTitle: '品书会让生活染上香气'},
 						{href: 'http://www.baidu.com', src: '/images/6.jpg', sortTitle: '经典文学', num: '5', bkTitle: '品书会让生活染上香气'}
 
-		],
-	}
+		]
+	},
+	SliderList: [
+		{"id": "1", "url": "images/first.jpg", "title": "长江出版社"},
+		{"id": "2", "url": "images/second.jpg", "title": "哈尔冰出版社"},
+		{"id": "3", "url": "images/third.jpg", "title": "北京出版社"}
+	]
 }
 
 
@@ -56,7 +61,7 @@ class ContentIndex extends React.Component {
 		return (
 			<div className="main-wrap">
 				<PageHeader hdData={allData.hdData}/>
-				<Slider />
+				<Slider data={allData.SliderList}/>
 				<SortNav sortData={allData.sortData}/>
 				<RecommendBookMoudle data={allData.newbksData}/>
 				<RecommendBookMoudle data={allData.newbksData}/>

@@ -89,39 +89,21 @@
 
 /* nav -start*/
 .nav {
-	height: 66px;
 	width: 100%;
-	height: 92px;
 	padding: 16px 0 2px 0;
 	overflow: scroll;
 }
 .nav-box {
-	min-width: 100%;
+	width: 100%;
 }
-.nav .food {
-	width: 60px;
+.nav .nav-item{
+	width: 25%;
 	text-align: center;
+	display: block;
 }
-.nav a {
-	display: inline-block;
-	height: 50px;
-}
-.food {
-	margin-left: 15px;
-}
-.food-box {
-	width: 50px;
-	padding: 5px;
-	background-color: #f595b8;
-	border-radius: 8px;
-}
-.food .food-icon {
-	background: url("../../images/shangcheng/fenlei.png") 0 0 no-repeat;
-}
-.nav span {
+.nav .category-name {
 	display: inline-block;
 	width: 100%;
-	margin-top: 10px;
 	text-align: center;
 	font-size: 14px;
 	font-family: 'FZLTXHJW';
@@ -129,7 +111,7 @@
 }
 
 /* hear-news start*/
-.head-new {
+.hot-news {
 	width: 100%;
 	height: 40px;
 	border-top: 1px solid #E0E0E0;
@@ -137,65 +119,49 @@
 	position: relative;
   overflow: hidden;
 }
-/*.head-new .head-icon {
-	position: relative;
-  display: inline-block;
-  margin-top: 13px;
-  margin-left: 15px;
-  height: 15px;
-  width: 65px;
-  background-image: url("../../images/shangcheng/chaopinhead.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.head-new .head-icon:after{
+
+.hot-news:after{
 	position: absolute;
-	top: -8px;
-	left: 80px;
+	top: 4px;
+	left: 15%;
   content: "";
   height: 30px;
   width: 1px;
   background-color: #dbdbdb;
   visibility: inherit;
-}*/
-.head-new .remen {
+}
+.hot-news .hot-box {
 	display: inline-block;
-	vertical-align: top;
-	margin-top: 10px;
+	width: 15%;
+	text-align: center;
+	height: 100%;
+	line-height: 35px;
+}
+.hot-news .hot {
 	height: 18px;
 	width: 30px;
-	margin-left: 10px;
 	border: 1px solid #feb794;
-	padding-left: 5px;
+	padding: 3px 5px;
 	border-radius: 4px;
 	font-size: 12px;
-	line-height: 18px;
 }
-.head-new .right-line{
-  border-right:1px solid #d5d5d5;
-  display:inline-block;
-  width:1px;
-  height:25px;
-  margin-top:8px;
-  margin-left:5px;
-  float:left;                
-}
-.head-new .news {
+
+.hot-news .news {
 	position: absolute;
-  top: 40px;
+  /*top: 40px;*/
   display: inline-block;
-  width: 75%;
-  padding: 0;
-  margin: 0;
+  box-sizing: border-box;
+  padding: 0 3%;
+  width: 85%;
 	margin-left: 8px;
 	-webkit-transform: translate3d(0, 0, 0);
 	
 }
-.head-new .news-list {
+.hot-news .news-item {
   height: 100%;
   width: 100%;
 }
-.head-new .news-item {
+.hot-news .news-content {
 	display: block;
   font-size: 12px;
   overflow: hidden;
@@ -208,53 +174,47 @@
 /*content start*/
 .content {
   background-color: #f3f3f6;
-  background-image: url(../../images/shangcheng/shangcheng_bg.png) ;
+  background-image: url(http://www.duoyue.me/wechat/1018/3021/images/shangcheng/shangcheng_bg.png) ;
   background-repeat: repeat;
   padding-bottom: 20px;
 }
-.content .jinpin-header {
+.content .category-header {
 	margin: 10px 0px 0 0px;
   padding-left: 10px;
   padding-right: 10px;	
   background-color: #e1e1e1;
 }
-.content jingping-pic{
-  width: 30px;
-  height: 30px;
-  display: block;  
-  margin-top: 5px;                    
-}
-.content .title {
+.content .category-title {
 	padding: 10px 0;
-  padding-left: 10px;
+  padding-left: 40px;
 	font-size: 15px;
 	font-family: 'FZLTXHJW';
+	background-repeat: no-repeat;
+	background-size: auto 70%;
+	background-position: left center;
 }
 .content .more {
-  margin: 0 10px;
-  padding: 10px 0;
-  font-size: 12px;
-  color: #c4c4c4;
+	width: 20px;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-size: 100% 50%;
+  background-position: center;
 }
 .content .more .more-text {
   
   color: #74cdaf;
 }
 .content .shop-item {
+	box-sizing: border-box;
+	margin: 10px 0 3px 3%;
 	height: 200px;
-	width: 44%;
+	width: 45.5%;
 	background-color: #fff;
-	border: 0;
 	border: 1px solid #e2e2e2;
 	box-shadow: 1px 1px 2px #ddd;
 	border-radius: 3px;
 }
-.shop-item:nth-child(odd) {
-	margin: 10px 3.3% 3px 1.6%;
-}
-.shop-item:nth-child(even) {
-	margin: 10px 1.6% 3px 3.3%;
-}
+
 .content .goods-title {
 	overflow: hidden;
   text-overflow: ellipsis;
