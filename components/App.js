@@ -9,7 +9,7 @@ var allData = {
     title: '单品',
     data: [
             {className: 'book-store-menu', href: '/danpin'},
-            {className: 'good-store-menu', href: '/shop'}
+            {className: 'good-store-menu', href: '/everyday'}
           ],
   }
 
