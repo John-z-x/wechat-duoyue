@@ -6,9 +6,9 @@ import ShopPage from './pages/ShopPage';
 import ShopIndexPage from './pages/ShopIndexPage';
 import EverydayPage from './pages/EverydayPage';
 import SourcePage from './pages/SourcePage';
+import UserMenuPage from './pages/UserMenuPage';
 
 import ArticleDisplay from './components/ArticleDisplay/ArticleDisplay';
-
 
 export default (
   <Route path="/" component={App}>
@@ -19,6 +19,6 @@ export default (
     <Route path="/everyday" component={EverydayPage}>
       <Route  path="/everyday/:id" commponent={ArticleDisplay} />
     </Route>
-    <Route path="/usermenu" component={SourcePage}/>
+    <Route path="/usermenu" component={UserMenuPage}/>
   </Route>
 )

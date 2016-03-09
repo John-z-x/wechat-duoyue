@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Cart from '../components/CartUIComponent/Cart';
 import Slider from '../components/SliderUIComponent/Slider';
 import Nav from '../components/PageShopIndex/Nav';
 import HotNews from '../components/PageShopIndex/HotNews';
@@ -59,6 +60,7 @@ class ShopIndexPage extends React.Component {
         <ul className="content">
         	{categoryCode}
         </ul>
+				<Cart />
       </div>
 		);
 	}

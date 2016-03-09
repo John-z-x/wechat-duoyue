@@ -1,6 +1,7 @@
 //每天列表
 import React from 'react';
 import { Link } from 'react-router';
+import Cart from '../components/CartUIComponent/Cart';
 import Slider from '../components/SliderUIComponent/Slider';
 
 import EverydayContent from '../components/PageEveryDay/EverydayContent';
@@ -43,6 +44,7 @@ class EverydayPage extends React.Component {
             })
           }
           {this.props.children}
+          <Cart />
         </div>
       )
     }

@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Cart from '../components/CartUIComponent/Cart';
 import Slider from '../components/SliderUIComponent/Slider';
 import SortNav from '../components/PageShop/SortNav';
 import RecommendBookModule from '../components/PageShop/RecommendBookModule';
@@ -53,6 +54,7 @@ class ShopPage extends React.Component {
 				<RecommendBookModule data={shopData.newbksData}/>
 				<SortBrowse data={shopData.sortBrowseData}></SortBrowse>
 
+				<Cart />
       </div>
 		);
 	}

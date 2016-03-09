@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Cart from '../components/CartUIComponent/Cart';
 import Slider from '../components/SliderUIComponent/Slider';
 
 let sourceData = {
@@ -15,6 +16,7 @@ class SourcePage extends React.Component {
 				<Slider data={sourceData.SliderList}/>
 				<h2>TODO</h2>
 				<h3>Source Page</h3>
+				<Cart />
       </div>
 		);
 	}
