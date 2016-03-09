@@ -1,20 +1,17 @@
 'use strict';
+import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'babel-polyfill';
-import ShopPage from './components/ShopPage/ShopPage.js';
-import ShopIndex from './components/ShopIndex/ShopIndex.js';
-import ShopContent from './components/ShopContent/ContentIndex.js';
+import { browserHistory} from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
+
 import configurestore from './store/configurestore.js';
-import { Provider } from 'react-redux';
+import Root from './containers/Root.js';
 
 const store = configurestore();
+const history = syncHistoryWithStore(browserHistory, store);
 
-ReactDOM.render( 
-  <Provider store={store}>
-    <ShopPage />
-  </Provider>
-  ,
-  document.getElementById('cart')
-) 
-
+ReactDOM.render(
+    <Root store={store} history={history} />,
+    document.getElementById('cart')
+)

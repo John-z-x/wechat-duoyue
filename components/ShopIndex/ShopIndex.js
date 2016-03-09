@@ -7,13 +7,6 @@ import HotNews from './HotNews.js';
 import Category from './Category.js';
 
 var allData = {
-	hdData: {
-		title: "商城",
-		data: [
-						{clasName: 'book-store-menu', href: 'http://www.baidu.com'},
-					 	{clasName: 'good-store-menu', href: 'http://www.facebook.com'}
-				  ],
-	},
 	Navs: [
     
 	],
@@ -64,7 +57,6 @@ class ShopIndex extends React.Component {
 		);
 		return (
       <div className="">
-				<PageHeader hdData={allData.hdData}/>
 				<Slider data={allData.SliderList}/>
         <Nav url={"default"}/>
         <HotNews />
