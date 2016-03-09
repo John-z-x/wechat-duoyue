@@ -1,5 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
+
 //相关阅读
 class ContentRelate extends React.Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class ContentRelate extends React.Component {
 
   contentRelateList() {
     $.ajax({
-      url: "/components/ArticleDisplay/content_relate.js",
+      url: "/MockData/content_relate_data.js",
       dataType:"json",
       success:function(datalist) {
         this.setState({

@@ -1,8 +1,7 @@
 import React from 'react';
-import ReactDom from 'react-dom';
-import $ from 'jquery';
-import SliderItem from './SliderItem.js';
-import SliderDot from './SliderDot.js';
+
+import SliderItem from './SliderItem';
+import SliderDot from './SliderDot';
 
 
 class Slider extends React.Component {
@@ -94,7 +93,7 @@ class Slider extends React.Component {
 		    	_self.setState({left: _self.state.left + speed });
 		    	speed--;
 		    	_self.isSlidering = true;
-		    	setTimeout(animate, 10);
+					_self.animate = setTimeout(animate, 10);
 	      }else {
 	      	_self.setState({left: -_self.state.index*width});
 	      	_self.isSlidering = false;
@@ -105,7 +104,7 @@ class Slider extends React.Component {
         	_self.setState({left: _self.state.left + speed});
         	speed++;
         	_self.isSlidering = true;
-        	setTimeout(animate, 10);
+					_self.animate = setTimeout(animate, 10);
 
         }else {
         	_self.setState({left: -_self.state.index*width});
@@ -130,11 +129,16 @@ class Slider extends React.Component {
 	}
 
 	componentDidMount() {
-		//this.slide(this.refs.slide);
+		this.slide(this.refs.slide);
 	}
 
-	componentWillUnMount() {
-    
+	componentWillUnmount() {
+		let node = this.refs.slide;
+		node.removeEventListener("touchstart", this.touchStart.bind(this), false);
+		node.removeEventListener('touchmove', this.touchMove.bind(this), false);
+		node.removeEventListener('touchend', this.touchEnd.bind(this), false);
+		window.clearTimeout(this.timer);
+		window.clearTimeout(this.animate);
 	}
 	render() {
 		const sliderList = this.props.data;

@@ -28,7 +28,7 @@
 	height: 30px;
 	text-align: left;
 	font-size: 15px;
-	color: red;
+	color: rgb(170, 170, 170);;
 	line-height: 30px;
 	z-index: 10001;
 	background-color: rgba(0, 0, 0, .5)
