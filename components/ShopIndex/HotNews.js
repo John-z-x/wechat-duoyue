@@ -56,7 +56,7 @@ class HotNews extends React.Component {
 		this.setState({
 			news: news,
 		});
-		setTimeout(function() {this.slider(sliderBox)}.bind(this), 3000);
+		//setTimeout(function() {this.slider(sliderBox)}.bind(this), 3000);
   }
 
 	render() {

@@ -130,7 +130,7 @@ class Slider extends React.Component {
 	}
 
 	componentDidMount() {
-		this.slide(this.refs.slide);
+		//this.slide(this.refs.slide);
 	}
 
 	componentWillUnMount() {

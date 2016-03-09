@@ -6,7 +6,7 @@ class Category extends React.Component {
    	const server = this.props.data.server;
    	const local = this.props.data.local;
    	let goodsCode = server.items.map( (item, i) =>
-   		<CategoryItem data={item} key={i}/>
+   		<CategoryItem data={item} key={ 'categoryItem' + i}/>
    	);
    
  	  return (

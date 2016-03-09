@@ -5,8 +5,12 @@ import createLogger from 'redux-logger';
 
 export default function(initialState) {
 
-  const store = createStore(rootReducer, initialState, applyMiddleware(thunkMiddleware, createLogger()) );
+  const store = createStore(
+  	rootReducer,
+  	initialState,
+  	applyMiddleware(thunkMiddleware, createLogger()) );
   //console.log(store);
+
   if(module.hot) {
 
     module.hot.accept('../reducer', () => {

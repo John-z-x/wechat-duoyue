@@ -10,8 +10,8 @@ var allData = {
 	hdData: {
 		title: '单品',
 		data: [
-						{className: 'book-store-menu', href: 'http://www.baidu.com'},
-					 	{className: 'good-store-menu', href: 'http://www.facebook.com'}
+						{className: 'book-store-menu', href: '/danpin'},
+					 	{className: 'good-store-menu', href: '/shop'}
 				  ],
 	},
 	banData:  [
@@ -60,7 +60,6 @@ class ContentIndex extends React.Component {
 	render() {
 		return (
 			<div className="main-wrap">
-				<PageHeader hdData={allData.hdData}/>
 				<Slider data={allData.SliderList}/>
 				<SortNav sortData={allData.sortData}/>
 				<RecommendBookMoudle data={allData.newbksData}/>
