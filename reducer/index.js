@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import cover from './cover.js';
-import data from './data.js';
+import cover from './cover';
+import data from './data';
 import { routerReducer as routing } from 'react-router-redux';
 
 

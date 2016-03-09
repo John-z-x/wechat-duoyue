@@ -15,12 +15,11 @@ class Article extends React.Component {
 
   loadArticle() {
     $.ajax({
-      url: "/components/ArticleDisplay/articleData.js",
+      url: "/MockData/article_data.js",
       dataType: 'json',
       success: function(articledata) {
         //console.log(articledata);
         this.setState({articleInfo:articledata});
-       console.log(articledata)
       }.bind(this),
       error:function(xhr) {
        // console.log(xhr)

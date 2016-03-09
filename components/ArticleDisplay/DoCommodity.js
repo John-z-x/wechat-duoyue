@@ -1,4 +1,5 @@
 import React from 'react';
+
 //立即购买 加入购物车
 class DoCommodity extends React.Component {
   render() {

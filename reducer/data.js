@@ -11,7 +11,7 @@ export default function data(state = [] , action) {
 				item.id !== action.id
 		  )
 		case "RECEIVED_POSTS":
-		  return state.concat(action.data)
+		  return action.data
 		default:
 		  return state;
 	}

@@ -1,7 +1,7 @@
 import React from 'react';
-import ConfirmTop from '../ConfirmTop/ConfirmTop.js';
-import GoodsList from '../GoodsList/GoodsList.js';
-import ConfirmFooter from '../ConfirmFooter/ConfirmFooter.js';
+import ConfirmTop from './ConfirmTop';
+import GoodsList from './GoodsList';
+import ConfirmFooter from './ConfirmFooter';
 
 class GoodsBox extends React.Component {
 	render() {

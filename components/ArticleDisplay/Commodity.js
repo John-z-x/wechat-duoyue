@@ -1,6 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
-import CommoditysItem from './CommoditysItem.js';
+import CommodityItem from './CommodityItem';
 
 //相关商品
 class Commodity extends React.Component {
@@ -17,7 +17,7 @@ class Commodity extends React.Component {
 
   loadGoodsList() {
     $.ajax({
-      url: "/components/ArticleDisplay/commodity_data.js",
+      url: "/MockData/commodity_data.js",
       dataType: 'json',
       success: function(data) {
         this.setState({commoditys: data});
@@ -32,7 +32,7 @@ class Commodity extends React.Component {
     var commoditys = this.state.commoditys;
     var itemNodes = commoditys.map(function(items) {
         return (
-          <CommoditysItem data={items}  id={items.id} key={items.id}/>
+          <CommodityItem data={items}  id={items.id} key={items.id}/>
         )
     });
     return (
