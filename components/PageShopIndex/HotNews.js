@@ -13,11 +13,12 @@ class HotNews extends React.Component {
 			news: [],
 			top: 0,
 			index: 0
-		} 
+		}
+		this.SETOUT_TIME = 2500; 
 	}
   
 	slider(node) {
-		let height = node.parentNode.offsetHeight, count = this.state.news.length, SETOUT_TIME = 2500;
+		let height = node.parentNode.offsetHeight, count = this.state.news.length;
 
 		let animate = function(end) {
 			let speed = -1, Timer, ANIMATE_TIME = 10;
@@ -45,9 +46,8 @@ class HotNews extends React.Component {
       }else {
       	this.setState({index: 0});
       }
-      this.timer = setTimeout(play, SETOUT_TIME);
+      this.timer = setTimeout(play, this.SETOUT_TIME);
 		}.bind(this);
-
 		play();
 	}
 
@@ -56,7 +56,7 @@ class HotNews extends React.Component {
 		this.setState({
 			news: news,
 		});
-		//setTimeout(function() {this.slider(sliderBox)}.bind(this), 3000);
+		this.timer = setTimeout(function() {this.slider(sliderBox)}.bind(this), this.SETOUT_TIME);
   }
 
 	componentWillUnmount() {
