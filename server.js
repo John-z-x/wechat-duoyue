@@ -5,6 +5,7 @@ var config = require('./webpack.config');
 var port = 8082;
 var compiler = webpack(config);
 new WebpackDevServer(compiler, {
+	publicPath: config.output.publicPath,
 	hot: true,
 	stats: {
 		colors: true

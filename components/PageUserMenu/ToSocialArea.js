@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from 'react-router';
 
-class SocialArea extends React.Component{
+class ToSocialArea extends React.Component{
 			render(){
 				return (
 						<div  className="menu-bottom" id="menu-bottom">
 			        <div style={{padding:'5px 20px 0px 20px',margin: '5px 0 0 0'}}>
-				        <a href={'socialArea.html'} className="link">
+								<Link to="/socialarea"  className="link">
 					        <div  style={{height:'40px'}}>
 			            		<div className="shequ"></div>
 				            	<div className="menu-bottom-td">社区 &nbsp; 
@@ -14,10 +15,10 @@ class SocialArea extends React.Component{
 
 			            		<div className="arrow_go"></div>
 					        </div>
-				        </a>
+				        </Link>
 			        </div>
 			    	</div>
     		);
     	}
 		};
-		export default SocialArea;
+		export default ToSocialArea;

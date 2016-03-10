@@ -2,6 +2,8 @@
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 import { Link } from 'react-router';
+import withStyles from '../../decorators/withStyles';
+import styles from './PageHeader.scss';
 
 const headerData = [
 	{'headerId': 1,'headerText':'每天', 'headerClassName': 'juhe_menu_meitian', 'headerHref': '/everyday'},
@@ -10,6 +12,7 @@ const headerData = [
 	{'headerId': 4,'headerText':'书城', 'headerClassName': 'juhe_menu_shucheng', 'headerHref': '/danpin'},
 ];
 
+@withStyles(styles)
 class PageHeader extends React.Component {
 	constructor(props) {
 		super(props);

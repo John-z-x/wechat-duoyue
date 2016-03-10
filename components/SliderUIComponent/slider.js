@@ -3,7 +3,10 @@ import React from 'react';
 import SliderItem from './SliderItem';
 import SliderDot from './SliderDot';
 
+import withStyles from '../../decorators/withStyles';
+import styles from './Slider.scss';
 
+@withStyles(styles)
 class Slider extends React.Component {
 	constructor (props) {
 		super(props);
@@ -155,7 +158,7 @@ class Slider extends React.Component {
     }
 
 		return (
-			<section className="slider_box" ref='slide' >
+			<section className="Slider" ref='slide' >
 				<ul className="slider_ul" style={{ "marginLeft": this.state.left + "px"}}>
 					{itemCode}
 				</ul>

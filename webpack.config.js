@@ -1,47 +1,56 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
-	devtool: 'eval',
-	entry: [
-		'webpack-dev-server/client?http://localhost:8082',
-		'webpack/hot/dev-server',
-		'./index'
-	],
-	output: {
-		path: path.join(__dirname, 'dist'),
-		filename: 'bundle.js'
-	},
-	plugins: [
-		new webpack.optimize.OccurenceOrderPlugin(),
-		new webpack.HotModuleReplacementPlugin(),
-		new webpack.NoErrorsPlugin()
-	],
-	    resolve: {
-      extensions: ['', '.js', '.jsx']
-    },
-	module: {
-		loaders: [{
-			test: /\.js$/,
-			loaders: ['react-hot', 'babel'],
-			exclude: /node_modules/,
-			include: __dirname
-		},{
-			test: /\.css$/,
-			loaders: 'style!css'
-		}, {
-			test: /\.scss$/,
-			loaders: 'style!css!sass'
-		}, {
-			test: /\.(jpe?g|png|gif|svg)$/i,
-			loaders: ['image?{bypassOnDebug: true, progressive:true, \
-                    optimizationLevel: 3, pngquant:{quality: "65-80", speed: 4}}',
-                'url?limit=10000&name=img/[hash:8].[name].[ext]'
-                ]
-		}, {
-       test: /\.(woff|eot|ttf)$/i,
-       loader: 'url?limit=10000&name=fonts/[hash:8].[name].[ext]'
-     }
-		]
-	}
+  devtool: 'inline-source-map',
+  entry: [
+    'webpack-dev-server/client?http://localhost:8082',
+    'webpack/hot/dev-server',
+    './index'
+  ],
+  output: {
+    filename: 'bundle.js',
+    path: path.join(__dirname, 'public'),
+    publicPath: '/public/'
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        loaders: ['react-hot', 'babel'],
+        exclude: /node_modules/,
+        include: __dirname
+      },
+
+      {
+        test: /\.css$/i,
+        exclude: /\.useable\.css$/,
+        loader:  'style-loader/useable!css-loader!postcss-loader',
+      },
+      { test: /\.useable\.css$/, loader: "style/useable!css" },
+      {
+        test: /\.scss$/,
+        loader: 'style-loader/useable!css-loader!postcss-loader!sass-loader',
+      },  {
+        test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
+        loader: 'url-loader?limit=10000',
+      }, {
+        test: /\.(eot|ttf|wav|mp3)$/,
+        loader: 'file-loader',
+      },
+    ]
+  },
+  postcss: [
+    autoprefixer({ browsers: ['last 2 versions'] })
+  ],
+  plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
+  ],
+  resolve: {
+    extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx', '.json'],
+  },
+
 };

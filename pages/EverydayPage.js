@@ -7,6 +7,9 @@ import Slider from '../components/SliderUIComponent/Slider';
 import EverydayContent from '../components/PageEveryDay/EverydayContent';
 import EveryDayDates from '../components/PageEveryDay/EveryDayDates';
 
+import withStyles from '../decorators/withStyles';
+import styles from '../components/PageEveryDay/PageEveryDay.scss';
+
 let everyData = [
   {"id":"1","src":"/imagesforarticle/6.png","title": "青春文学","desc":"这个测试这个测试这个测试这个测试这个测试这个测试这个测试这个测试","day":"三天前","peoplenum":"17"},
   {"id":"2","src":"/imagesforarticle/6.png","title": "职场进阶","desc":"这个测试这个测试这个测试这个测试这个测试这个测试这个测试这个测试","day":"四天前","peoplenum":"18"},
@@ -21,6 +24,7 @@ let EverydayData ={
   ]
 };
 
+@withStyles(styles)
 class EverydayPage extends React.Component {
     render() {
 
