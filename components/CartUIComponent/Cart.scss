@@ -1,0 +1,201 @@
+/*
+* PanCheng
+* 2015.12.2
+* css for shoppingcart
+*/
+
+.Cart {
+  .shopping-cart {
+    position: fixed;
+    right: 15px;
+    bottom: 50px;
+    z-index: 10001;
+    width: 36px;
+    height: 36px;
+    opacity: 0.8;
+    display: block;
+    background-image: url("/images/cart_icon.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  .shopping-cart .goods-num {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #62c3a2;
+    text-align: center;
+    font-size: 10px;
+    line-height: 15px;
+    border-radius: 15px;
+    background-color: #62c3a2;
+    color: #FFF;
+    z-index: 100;
+    display: block;
+  }
+  .shopping-goods {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 11001;
+  }
+  .shopping-goods-transition {
+    -webkit-transition: height 0.5s;
+  }
+  .shopping-goods .confirm-top {
+    width: 100%;
+    height: 40px;
+    background-color: #f6f6f6;
+    line-height: 40px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  .shopping-goods .confirm-title {
+    width: 50px;
+    height: 40px;
+    margin-left: 20px;
+    font-size: 15px;
+    line-height: 40px;
+  }
+  .shopping-goods .cancel {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    margin-top: 7.5px;
+    background-image: url("/images/cancel.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+  /* head end */
+
+  /* body start */
+  .cart-goods {
+    width: 100%;
+    max-height: 330px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+  }
+  .cart-goods .goods-item {
+    width: 100%;
+    height: 90px;
+    margin-top: 20px;
+    background: #fff;
+  }
+  .cart-goods .goods-img {
+    margin-left: 20px;
+  }
+  .cart-goods .goods-detail {
+    margin-left: 10px;
+    flex: 1;
+    margin-right: 20px;
+  }
+  .cart-goods .goods-title {
+    font-size: 12px;
+    line-height: 14px;
+    color: #333333;
+    font-family: "FZLTXHJW";
+    height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  .cart-goods .goods-size {
+    font-size: 9px;
+    color: #666666;
+    height: 15px;
+    line-height: 15px;
+    font-family: "FZLTXHJW";
+  }
+  .cart-goods .oneprice {
+    padding-top: 7px;
+    font-size: 12px;
+    color: #77cdb0;
+    text-align: left;
+  }
+  .cart-goods .cancel-goods {
+    color: #999;
+    width: 30px;
+    padding-top: 8px;
+    font-size: 12px;
+  }
+  .cart-goods .classify-price {
+    padding-top: 4px;
+    margin-right: 10px;
+  }
+  .cart-goods .goods-classify {
+    padding: 0;
+    margin: 0;
+    color: #7da0b4;
+    height: 21px;
+    width: 21px;
+    text-align: center;
+    line-height: 21px;
+    font-size: 12px;
+    border: 1px solid #CCC;
+  }
+  .cart-goods .goods-classify:nth-child(2) {
+    border-left: 0;
+    border-right: 0;
+  }
+  .nullBox {
+    text-align: center;
+    height: 40px;
+    width: 100%;
+    line-height: 40px;
+    color: red;
+  }
+  /* body end */
+
+  /* footer start */
+  .shopping-goods .confirm-footer {
+    width: 100%;
+  }
+  .shopping-goods .confirm-footer-left {
+    height: 50px;
+    width: 60%;
+    background-color: #7da1b4;
+  }
+  .shopping-goods .total {
+    margin-top: 5px;
+    margin-left: 10px;
+    text-align: left;
+    font-size: 15px;
+    color: white;
+  }
+  .shopping-goods .total-money {
+    font-size: 18px;
+  }
+  .shopping-goods .carriage {
+    margin-left: 10px;
+    font-size: 12px;
+    color: white;
+  }
+  .shopping-goods .confirm-footer-right {
+    height: 50px;
+    width: 40%;
+    line-height: 50px;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    background-color: #76ceb0;
+  }
+  .shopping-goods .confirm-num {
+    font-size: 18px;
+    color: white;
+  }
+  .shopping-goods .empty-shoppingcart {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #76ceb0;
+  }
+}
+  /* footer end*/

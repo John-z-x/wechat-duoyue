@@ -10,6 +10,10 @@ import Cover from '../Cover/Cover';
 import ShowCart from '../ShowCart/ShowCart';
 import GoodsBox from '../GoodsBox/GoodsBox';
 
+import withStyles from '../../decorators/withStyles';
+import styles from './Cart.scss';
+
+@withStyles(styles)
 class Cart extends React.Component {
 
   componentDidMount() {
@@ -19,14 +23,11 @@ class Cart extends React.Component {
 	render() {
     const { cover, data, actions } = this.props;
 		return (
-			<div className="cartbox">
-
+			<div className="Cart">
 				<Cover cover={cover}>
           <GoodsBox data={data} actions={actions} />
         </Cover>
-
         <ShowCart data={data} ModifyCover={actions.ModifyCover}/>
-				
 			</div>
 		);
 	}

@@ -6,6 +6,9 @@ import Nav from '../components/PageShopIndex/Nav';
 import HotNews from '../components/PageShopIndex/HotNews';
 import Category from '../components/PageShopIndex/Category';
 
+import withStyles from '../decorators/withStyles';
+import styles from '../components/PageShopIndex/PageShopIndex.scss';
+
 let shopIndexData = {
 	Navs: [
     
@@ -46,6 +49,8 @@ let shopIndexData = {
 			{"id": "1", "url": "images/third.jpg", "title": "长江出版社"}
 		]
 };
+
+@withStyles(styles)
 class ShopIndexPage extends React.Component {
 
 	render() {

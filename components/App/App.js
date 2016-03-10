@@ -1,11 +1,16 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import PageHeader from './PageHeader/PageHeader';
+import PageHeader from '../PageHeader/PageHeader';
 
+import withStyles from '../../decorators/withStyles';
+import styles from './App.css';
 
+@withStyles(styles)
 class App extends React.Component {
-
+  static propTypes = {
+  children: PropTypes.element.isRequired
+}
    render() {
       const {children} = this.props;
       return (
@@ -19,8 +24,12 @@ class App extends React.Component {
   }
 }
 
-App.propTypes = {
-    children: PropTypes.element.isRequired
+
+
+function mapStateToProps(state) {
+  //console.log(state)
+  return {
+
+  }
 }
-;
-export default connect()(App);
+export default connect(mapStateToProps)(App);

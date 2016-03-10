@@ -6,6 +6,9 @@ import SortNav from '../components/PageShop/SortNav';
 import RecommendBookModule from '../components/PageShop/RecommendBookModule';
 import SortBrowse from '../components/PageShop/SortBrowse';
 
+import withStyles from '../decorators/withStyles';
+import styles from '../components/PageShop/PageShop.scss';
+
 let shopData = {
 
 	sortData: {
@@ -44,6 +47,7 @@ let shopData = {
 	]
 }
 
+@withStyles(styles)
 class ShopPage extends React.Component {
 	render() {
 		return (

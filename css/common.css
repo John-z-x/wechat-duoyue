@@ -3,6 +3,19 @@
 * commen css
 * 2015.11.20
 */
+
+* {
+  box-sizing: border-box;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: #f8f8f8;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: lighter;
+}
+
 h1,
 h2,
 h3,
@@ -145,6 +158,26 @@ a {
   align-items: center;
 }
 
+/*common visual css*/
+.bdr-mg {
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  margin: 10px 0;
+}
+.bg-white {
+  background-color: #fff;
+}
+.f-level-title {
+  margin-top: 1em;
+  font-size: 14px;
+  font-weight: lighter;
+  line-height: 3em;
+  color: #62c3a2;
+  text-align: center;
+}
+.rem::before {
+  content: '￥';
+}
 /*
 @font-face {
       font-family: 'FZLTXHJW';
