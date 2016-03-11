@@ -149,8 +149,8 @@ class Slider extends React.Component {
 		let items, itemCode;
 		if( sliderList.length > 0) {
       items = sliderList.map( function(item, i) {
-	    	  return <SliderItem data={item} key={i + 1}/>;
-	    		} 
+          return <SliderItem data={item} key={i + 1}/>;
+          }
       	)
       itemCode = [<SliderItem data={sliderList[sliderList.length - 1]} key="0"/>].concat(items).concat(<SliderItem data={sliderList[0]} key={sliderList.length + 1}/>);
     }else {
@@ -158,7 +158,7 @@ class Slider extends React.Component {
     }
 
 		return (
-			<section className="Slider" ref='slide' >
+			<section className="Slider" ref='slide'>
 				<ul className="slider_ul" style={{ "marginLeft": this.state.left + "px"}}>
 					{itemCode}
 				</ul>
