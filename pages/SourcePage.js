@@ -16,7 +16,7 @@ import styles from '../components/PageSource/SourcePage.scss';
 
 let sourceData = {
 	SliderList: [
-		{"id": "1", "url": "images/fourth.jpg", "title": "长江出版社"},
+		{"id": "1", "url": "/images/fourth.jpg", "title": "长江出版社"},
 	]
 }
 @withStyle(styles)
