@@ -41,9 +41,9 @@ let shopData = {
 		]
 	},
 	SliderList: [
-		{"id": "1", "url": "images/first.jpg", "title": "长江出版社"},
-		{"id": "2", "url": "images/second.jpg", "title": "哈尔冰出版社"},
-		{"id": "3", "url": "images/third.jpg", "title": "北京出版社"}
+		{"id": "1", "url": "/images/first.jpg", "title": "长江出版社"},
+		{"id": "2", "url": "/images/second.jpg", "title": "哈尔冰出版社"},
+		{"id": "3", "url": "/images/third.jpg", "title": "北京出版社"}
 	]
 }
 

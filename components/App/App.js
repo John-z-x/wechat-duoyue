@@ -15,7 +15,7 @@ class App extends React.Component {
       const {children} = this.props;
       return (
         <div className="app">
-          <PageHeader className="Header-nav"/>
+          <PageHeader className="Header-nav" defaultNav={location.pathname}/>
           <div className="wrapper">
            {children}
           </div>

@@ -19,8 +19,8 @@ let everyData = [
 
 let EverydayData ={
   SliderList: [
-    {"id": "1", "url": "images/fifth.jpg", "title": "长江出版社"},
-    {"id": "2", "url": "images/sixth.jpg", "title": "哈尔冰出版社"},
+    {"id": "1", "url": "/images/fifth.jpg", "title": "长江出版社"},
+    {"id": "2", "url": "/images/sixth.jpg", "title": "哈尔冰出版社"},
   ]
 };
 

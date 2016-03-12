@@ -13,7 +13,7 @@ import ArticleDisplay from './components/ArticleDisplay/ArticleDisplay';
 
 export default (
   <Route path="/" component={App}>
-  	<IndexRoute component={SourcePage}/>
+  	<IndexRoute component={ShopPage}/>
     <Route path="/danpin" component={ShopPage} />
     <Route path="/shop" component={ShopIndexPage}/>
     <Route path="/source" component={SourcePage}/>

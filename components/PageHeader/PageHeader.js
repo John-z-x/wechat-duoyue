@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import { Link } from 'react-router';
 import withStyles from '../../decorators/withStyles';
 import styles from './PageHeader.scss';
+import _ from 'lodash';
 
 const headerData = [
 	{'headerId': 1,'headerText':'每天', 'headerClassName': 'juhe_menu_meitian', 'headerHref': '/everyday'},
@@ -16,9 +17,13 @@ const headerData = [
 class PageHeader extends React.Component {
 	constructor(props) {
 		super(props);
+		let self = this;
+		let juheIndex = _.findIndex(headerData, function(header){
+			return header.headerHref === self.props.defaultNav;
+		});
 		this.state = {
-			juheIndex: 4,
-			headerText: headerData[3].headerText
+			juheIndex: juheIndex + 1,
+			headerText: headerData[juheIndex].headerText
 		}
 		this.activeNavigationLink = this.activeNavigationLink.bind(this);
 	}
@@ -32,23 +37,23 @@ class PageHeader extends React.Component {
 	render() {
 		let linkClassName, spanClassName;
 		return (
-			<div className="PageHeader bg-white clearfix">
-				<Link to='usermenu' className="left header-btn user-menu"></Link>
-				<span className="header-title">{this.state.headerText}</span>
-				<div className={classnames(this.props.className, 'Navigation')} role="navigation">
-					{
-						headerData.map((item) => {
-							linkClassName = this.state.juheIndex === item.headerId ? 'Navigation-link_over': 'Navigation-link';
-							spanClassName = classnames("juhe_menu_txt", item.headerClassName);
-							return (
-									<Link to={item.headerHref} className={linkClassName} key={'navigation'+item.headerId} onClick={() => {this.activeNavigationLink(item.headerId);}} >
-										<span className={spanClassName}>{item.headerText}</span>
-									</Link>
-							);
-						})
-					}
+				<div className="PageHeader bg-white clearfix">
+					<Link to='usermenu' className="left header-btn user-menu"></Link>
+					<span className="header-title">{this.state.headerText}</span>
+					<div className={classnames(this.props.className, 'Navigation')} role="navigation">
+						{
+							headerData.map((item) => {
+								linkClassName = this.state.juheIndex === item.headerId ? 'Navigation-link_over': 'Navigation-link';
+								spanClassName = classnames("juhe_menu_txt", item.headerClassName);
+								return (
+										<Link to={item.headerHref} className={linkClassName} key={'navigation'+item.headerId} onClick={() => {this.activeNavigationLink(item.headerId);}} >
+											<span className={spanClassName}>{item.headerText}</span>
+										</Link>
+								);
+							})
+						}
 					</div>
-			</div>
+				</div>
 		);
 	}
 }

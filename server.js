@@ -9,7 +9,10 @@ new WebpackDevServer(compiler, {
 	hot: true,
 	stats: {
 		colors: true
-	}
+	},
+	historyApiFallback: true,
+	open: true,
+	noInfo: true,
 }).listen(port, 'localhost', function(err) {
 			if(err) {
 				console.log(err);
