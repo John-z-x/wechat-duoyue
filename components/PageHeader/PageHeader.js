@@ -18,9 +18,14 @@ class PageHeader extends React.Component {
 	constructor(props) {
 		super(props);
 		let self = this;
-		let juheIndex = _.findIndex(headerData, function(header){
-			return header.headerHref === self.props.defaultNav;
-		});
+    let juheIndex;
+    if(self.props.defaultNav === '/') {
+      juheIndex = 3;
+    }else {
+      juheIndex = _.findIndex(headerData, function(header) {
+        return header.headerHref === self.props.defaultNav;
+      });
+    }
 		this.state = {
 			juheIndex: juheIndex + 1,
 			headerText: headerData[juheIndex].headerText
