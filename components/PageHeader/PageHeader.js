@@ -7,10 +7,10 @@ import styles from './PageHeader.scss';
 import _ from 'lodash';
 
 const headerData = [
-	{'headerId': 1,'headerText':'每天', 'headerClassName': 'juhe_menu_meitian', 'headerHref': '/everyday/'},
-	{'headerId': 2,'headerText':'资源', 'headerClassName': 'juhe_menu_source', 'headerHref': '/source/'},
-	{'headerId': 3,'headerText':'商城', 'headerClassName': 'juhe_menu_shangcheng', 'headerHref': '/shop/'},
-	{'headerId': 4,'headerText':'书城', 'headerClassName': 'juhe_menu_shucheng', 'headerHref': '/danpin/'},
+	{'headerId': 1,'headerText':'每天', 'headerClassName': 'juhe_menu_meitian', 'headerHref': '/everyday'},
+	{'headerId': 2,'headerText':'资源', 'headerClassName': 'juhe_menu_source', 'headerHref': '/source'},
+	{'headerId': 3,'headerText':'商城', 'headerClassName': 'juhe_menu_shangcheng', 'headerHref': '/shop'},
+	{'headerId': 4,'headerText':'书城', 'headerClassName': 'juhe_menu_shucheng', 'headerHref': '/danpin'},
 ];
 
 @withStyles(styles)
@@ -18,15 +18,14 @@ class PageHeader extends React.Component {
 	constructor(props) {
 		super(props);
 		let self = this;
-    let juheIndex;
-    if(self.props.defaultNav === '/') {
-      juheIndex = 3;
-    }else {
-      juheIndex = _.findIndex(headerData, function(header) {
-        return header.headerHref === self.props.defaultNav;
-      });
-    }
-		console.log(juheIndex)
+		let defaultNav = '/' + self.props.defaultNav.split('/')[1];
+		console.log(defaultNav);
+    let juheIndex = _.findIndex(headerData, function(header) {
+			return header.headerHref === defaultNav;
+		});
+   if(juheIndex === undefined) {
+		 juheIndex = 3;
+	 }
 		this.state = {
 			juheIndex: juheIndex + 1,
 			headerText: headerData[juheIndex] && headerData[juheIndex].headerText || headerData[3].headerText

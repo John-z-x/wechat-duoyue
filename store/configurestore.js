@@ -4,15 +4,14 @@ import rootReducer from '../reducer';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 
-export default function configurestore(history, initialState) {
+export default function configurestore(history) {
 
   const store = createStore(
   	rootReducer,
-  	initialState,
     compose(
         applyMiddleware(
             thunkMiddleware,
-            createLogger(),
+            //createLogger(),
             routerMiddleware(history)
         ) )
     )

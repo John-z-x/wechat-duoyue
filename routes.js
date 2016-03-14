@@ -11,20 +11,23 @@ import SocialArea from './components/SocialArea/SocialArea';
 import BookList from './components/BookList/BookList';
 
 import ArticleDisplay from './components/ArticleDisplay/ArticleDisplay';
+import EverydayPageIndex from './components/PageEveryDay/index';
+import BookDetail from './components/BookDetail/BookDetail';
 
 export default (
-  <Route path="/" component={App}>
+
+  <Route path="/" component={App} >
   	<IndexRoute component={ShopPage}/>
-    <Route path="/danpin" component={ShopPage} />
+    <Route path="/danpin" component={ShopPage}/>
     <Route path="/shop" component={ShopIndexPage}/>
     <Route path="/source" component={SourcePage}/>
-    <Route path="/everyday/:id" component={ArticleDisplay}>
-    </Route>
+
     <Route path="/everyday" component={EverydayPage}>
-      <Route  path="/:id/" commponent={ArticleDisplay} />
+      <IndexRoute component={EverydayPageIndex}/>
+      <Route path=":id/display" component={ArticleDisplay} />
     </Route>
+
     <Route path="/usermenu" component={UserMenuPage}/>
     <Route path="/socialarea" component={SocialArea}/>
-
   </Route>
 )

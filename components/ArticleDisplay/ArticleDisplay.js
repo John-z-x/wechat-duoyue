@@ -9,7 +9,7 @@ import styles from './ArticleDisplay.scss';
 @withStyles(styles)
 class ArticleDisplay extends React.Component {
   render() {
-   //console.log(this.props.parmas.id);
+   console.log(this.props.params.id);
   	return(
   		<div className="ArticleDisplay">
         <Article/>
