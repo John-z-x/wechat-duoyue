@@ -7,6 +7,7 @@ import Slider from '../components/SliderUIComponent/Slider';
 
 import SourceSearch from '../components/PageSource/SourceSearch';
 import SourceClassify from '../components/PageSource/SourceClassify';
+import Tab from '../components/TabUIComponent/Tab';
 import SourceBox from '../components/PageSource/SourceBox';
 
 import * as sourceActions from '../actions/SourceActions';
@@ -14,11 +15,24 @@ import * as sourceActions from '../actions/SourceActions';
 import withStyle from '../decorators/withStyles';
 import styles from '../components/PageSource/SourcePage.scss';
 
+
 let sourceData = {
 	SliderList: [
 		{"id": "1", "url": "/images/fourth.jpg", "title": "长江出版社"},
 	]
 }
+
+let TabItemsData = {
+  content: [
+    "全部", "视频", "音频", "PDF", "相册"
+  ],
+  tabClass: {
+    tabBox: "source-calssify clearfix",
+    tabItemOn: "source-type-over",
+    tabItemDefault: "source-type"
+  }
+}
+
 @withStyle(styles)
 class SourcePage extends React.Component {
   componentDidMount() {
@@ -31,7 +45,7 @@ class SourcePage extends React.Component {
       <div className="SourcePage">
 				<Slider data={sourceData.SliderList}/>
 				<SourceSearch/>
-        <SourceClassify/>
+        <Tab TabItemsData={TabItemsData}/>
         <SourceBox LazyLoad={actions.LazyLoad} list={list}/>
 				<Cart />
       </div>
