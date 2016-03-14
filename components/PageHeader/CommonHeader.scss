@@ -1,0 +1,16 @@
+.CommonHeader {
+  .header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 11000;
+    width: 100%;
+    height: 40px;
+    background-color: white;
+    border-bottom: 1px solid #cdcdcd;
+  }
+  .replace-header-fixed-place {
+    width: 100%;
+    height: 40px;
+  }
+}

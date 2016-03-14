@@ -1,20 +1,19 @@
 import React from 'react';
 import withStyles from '../../decorators/withStyles';
-import styles from './ReturnButton.css';
+import styles from './ReturnButton.scss';
 
 @withStyles(styles)
 class ReturnButton extends React.Component{
-		handle(){
-				window.history.back();
-			};
-		render(){
-			return (
-					<div className="ReturnButton topbox">
-						<div className="back-check" onClick={this.handle} >
-							<img src={'../images/back.png'} />
-						</div>
-					</div>
-				);
-		}
-	};
+
+  handleBack(){
+    window.history.back();
+  }
+
+  render(){
+    return (
+      <span className="ReturnButton left"></span>
+    );
+  }
+};
+
 export default ReturnButton;

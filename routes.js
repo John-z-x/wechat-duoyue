@@ -8,6 +8,7 @@ import EverydayPage from './pages/EverydayPage';
 import SourcePage from './pages/SourcePage';
 import UserMenuPage from './pages/UserMenuPage';
 import SocialArea from './components/SocialArea/SocialArea';
+import BookList from './components/BookList/BookList';
 
 import ArticleDisplay from './components/ArticleDisplay/ArticleDisplay';
 
