@@ -7,7 +7,8 @@
 'use strict';
 import React from 'react';
 
-import ReturnButton  from '../components/ReturnButton/ReturnButton';
+import CommonHeader from '../components/HeaderComponents/CommonHeader';
+import ReturnButton  from '../components/HeaderComponents/ReturnButton';
 
 import BookShelf from '../components/PageUserMenu/BookShelf';
 import UserInfo from '../components/PageUserMenu/UserInfo';
@@ -15,6 +16,7 @@ import ToSocialArea from '../components/PageUserMenu/ToSocialArea';
 
 import withStyles from '../decorators/withStyles';
 import styles from '../components/PageUserMenu/PageUserMenu.scss';
+
 var dataArray = {
   userData: {
     src: "../images/user-avatar.png",
@@ -35,7 +37,9 @@ class UserMenuPage extends React.Component {
   render(){
     return (
         <div className='UserMenuPage'>
-          <ReturnButton />
+          <CommonHeader>
+            <ReturnButton />
+          </CommonHeader>
           <UserInfo data={dataArray.userData}/>
           <div className="border-style"></div>
           <BookShelf data={dataArray}/>
