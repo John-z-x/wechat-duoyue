@@ -18,17 +18,17 @@ class PageHeader extends React.Component {
 	constructor(props) {
 		super(props);
 		let self = this;
-    let juheIndex;
-    if(self.props.defaultNav === '/') {
-      juheIndex = 3;
-    }else {
-      juheIndex = _.findIndex(headerData, function(header) {
-        return header.headerHref === self.props.defaultNav;
-      });
-    }
+		let defaultNav = '/' + self.props.defaultNav.split('/')[1];
+		console.log(defaultNav);
+    let juheIndex = _.findIndex(headerData, function(header) {
+			return header.headerHref === defaultNav;
+		});
+   if(juheIndex === undefined) {
+		 juheIndex = 3;
+	 }
 		this.state = {
 			juheIndex: juheIndex + 1,
-			headerText: headerData[juheIndex].headerText
+			headerText: headerData[juheIndex] && headerData[juheIndex].headerText || headerData[3].headerText
 		}
 		this.activeNavigationLink = this.activeNavigationLink.bind(this);
 	}
@@ -43,7 +43,7 @@ class PageHeader extends React.Component {
 		let linkClassName, spanClassName;
 		return (
 				<div className="PageHeader bg-white clearfix">
-					<Link to='usermenu' className="left header-btn user-menu"></Link>
+					<Link to='/usermenu' className="left header-btn user-menu"></Link>
 					<span className="header-title">{this.state.headerText}</span>
 					<div className={classnames(this.props.className, 'Navigation')} role="navigation">
 						{

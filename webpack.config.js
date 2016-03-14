@@ -3,17 +3,17 @@ const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
-  devtool: 'inline-source-map',
+  devtool: 'cheap-module-eval-source-map',
   entry: [
     'webpack-dev-server/client?http://localhost:8082',
     'webpack/hot/dev-server',
     './index'
   ],
   output: {
-    path: __dirname,
-    //path.join(__dirname, 'public'),
+    //path: __dirname,
+    path: path.join(__dirname, 'public'),
     filename: 'bundle.js',
-    //publicPath: '/public/'
+    publicPath: '/public'
   },
   module: {
     loaders: [
@@ -52,6 +52,9 @@ module.exports = {
   ],
   resolve: {
     extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx', '.json'],
+  },
+  devServer: {
+    historyApiFallback: true
   }
 
 };
