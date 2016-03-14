@@ -46,7 +46,7 @@ let shopIndexData = {
     }
 	],
 	SliderList: [
-			{"id": "1", "url": "images/third.jpg", "title": "长江出版社"}
+			{"id": "1", "url": "/images/third.jpg", "title": "长江出版社"}
 		]
 };
 

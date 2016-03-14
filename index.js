@@ -13,7 +13,7 @@ import Root from './containers/Root';
 const store = configurestore(browserHistory);
 const createScrollHistory = useScroll(createBrowserHistory);
 const appHistory = useRouterHistory(createScrollHistory)();
-const history = syncHistoryWithStore(appHistory, store);
+const history = syncHistoryWithStore(browserHistory, store);
 
 ReactDOM.render(
     <Root store={store} history={history} />,

@@ -8,9 +8,9 @@ import styles from './App.css';
 
 @withStyles(styles)
 class App extends React.Component {
-  static propTypes = {
-  children: PropTypes.element.isRequired
-}
+//  static propTypes = {
+//  children: PropTypes.element.isRequired
+//}
    render() {
       const {children} = this.props;
       return (
