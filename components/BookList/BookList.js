@@ -3,8 +3,8 @@ import React from 'react';
 import withStyles from '../../decorators/withStyles';
 import styles from './BookList.scss';
 
-import CommonHeader from '../PageHeader/CommonHeader';
-import ReturnButton from '../ReturnButton/ReturnButton';
+import CommonHeader from '../HeaderComponents/CommonHeader';
+import ReturnButton from '../HeaderComponents/ReturnButton';
 import Tab from '../TabUIComponent/Tab';
 import BookListRight from './BookListRight';
 
