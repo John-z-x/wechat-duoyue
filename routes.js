@@ -22,8 +22,11 @@ import ArticleDisplay from './components/ArticleDisplay/ArticleDisplay';
 import BookDetail from './components/BookDetail/BookDetail';
 
 import GoodsList from './components/GoodsList/GoodsList';
-
 import CommodityDetail from './components/CommodityDetail/CommodityDetail';
+
+import Favorites from './components/Favorites/Favorites';
+
+import VideoModule from './components/SourceModules/VideoModule/VideoModule';
 
 export default (
 
@@ -37,7 +40,8 @@ export default (
       </Route>
     <Route path="/shop" component={ShopIndexPage}>
       <IndexRoute component={ShopPageIndexHome} />
-      <Route path="goodlist/:typeId" component={CommodityDetail}/>
+      <Route path="goodslist/:typeId" component={GoodsList}/>
+      <Route path="goodsbuy/:id" component={CommodityDetail}/>
     </Route>
     <Route path="/source" component={SourcePage}/>
 
@@ -47,8 +51,8 @@ export default (
     </Route>
 
     <Route path="/usermenu" component={UserMenuPage}/>
+    <Route path="/favorites" component={Favorites}/>
     <Route path="/socialarea" component={SocialArea}/>
-
 
   </Route>
 )

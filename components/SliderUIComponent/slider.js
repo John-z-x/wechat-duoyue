@@ -145,6 +145,7 @@ class Slider extends React.Component {
 	}
 	render() {
 		const sliderList = this.props.data;
+		const sliderDot = this.props.sliderDot;
 		//console.log(this.props.data);
 		let items, itemCode;
 		if( sliderList.length > 0) {
@@ -158,11 +159,11 @@ class Slider extends React.Component {
     }
 
 		return (
-			<section className="Slider" ref='slide'>
+			<section className="Slider" ref='slide' style={this.props.style}>
 				<ul className="slider_ul" style={{ "marginLeft": this.state.left + "px"}}>
 					{itemCode}
 				</ul>
-				<SliderDot nums={sliderList.length} index={this.state.index}/>
+				{ sliderDot && <SliderDot nums={sliderList.length} index={this.state.index}/>}
 			</section>
 		);
 	}
