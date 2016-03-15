@@ -22,13 +22,34 @@ var dataArray = {
     src: "../images/user-avatar.png",
     name: "陈陈陈陈陈长"
   },
-  bookItem: 7,
-  bookData: [
-    {src:'../images/book1.jpg',bookName:'销魂殿'},
-    {src:'../images/book2.jpg',bookName:'华胥引'},
-    {src:'../images/book1.jpg',bookName:'销魂殿'},
-    {src:'../images/book2.jpg',bookName:'华胥引'},
-    {src:'../images/book2.jpg',bookName:'华胥引华胥引华胥引华胥引'}
+  bookCount: 18,
+  bookData: 
+  [
+    [
+      {src:'../images/book1.jpg',bookName:'销魂殿'},
+      {src:'../images/book2.jpg',bookName:'华胥引'},
+      {src:'../images/book1.jpg',bookName:'销魂殿'},
+      {src:'../images/book2.jpg',bookName:'华胥引'},
+      {src:'../images/book1.jpg',bookName:'销魂殿'},
+      {src:'../images/book2.jpg',bookName:'华胥引'}
+    ],    
+    [
+      {src:'../images/book1.jpg',bookName:'销魂殿'},
+      {src:'../images/book2.jpg',bookName:'华胥引'},
+      {src:'../images/book1.jpg',bookName:'销魂殿'},
+      {src:'../images/book2.jpg',bookName:'华胥引'},
+      {src:'../images/book1.jpg',bookName:'销魂殿'},
+      {src:'../images/book2.jpg',bookName:'华胥引'}
+    ],
+    [
+      {src:'../images/book2.jpg',bookName:'华胥引华胥引华胥引华胥引'},
+      {src:'../images/book1.jpg',bookName:'销魂殿'},
+      {src:'../images/book2.jpg',bookName:'华胥引'},
+      {src:'../images/book1.jpg',bookName:'销魂殿'},
+      {src:'../images/book1.jpg',bookName:'销魂殿'},
+      {src:'../images/book2.jpg',bookName:'华胥引'}
+    ],
+    [{src:'../images/more-img.png',bookName:''}]
   ]
 };
 

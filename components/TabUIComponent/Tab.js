@@ -31,7 +31,6 @@ class Tab extends React.Component {
       <ul className={tabClass.tabBox}>
         {
           content.map( (item, index) => {
-            debugger;
             itemClassName = this.state.index == index ? tabClass.tabItemOn : tabClass.tabItemDefault;
             if(item.pic) {
               picUrl = this.state.index == index ? item.pic.on : item.pic.default;
