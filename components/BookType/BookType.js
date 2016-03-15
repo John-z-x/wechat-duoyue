@@ -21,6 +21,55 @@ let TabItemsData = {
   }
 }
 
+const BookTypeData = [
+  {
+    "title": "新书推荐",
+    "booklist": [
+      {id:1,Src: 'http://file.duoyue.me/upload/book/book/20151103/2015_11_03_213307947_cut_c.png',Poster: '/wechat/1018/3021/books/bookbuy.aspx?browseuid=31574&w=3021&s=1018&id=6223',Title: '华胥引 ', Price: '10'},
+      {id:2,Src: 'http://file.duoyue.me/upload/book/book/20151207/2015_12_07_095558591_cut_c.jpg',Poster: '/wechat/1018/3021/books/bookbuy.aspx?browseuid=31574&w=3021&s=1018&id=6223',Title: '致我们终将逝去的青春 ', Price: '12'},
+      {id:3,Src: 'http://file.duoyue.me/upload/book/book/20151214/2015_12_14_170654945_cut_c.jpg',Poster: '/wechat/1018/3021/books/bookbuy.aspx?browseuid=31574&w=3021&s=1018&id=6223',Title: '致我们终将逝去的青春 ', Price: '14'},
+      {id:4,Src: 'http://file.duoyue.me/upload/book/book/20151118/2015_11_18_135906207_cut_c.jpg',Poster: '/wechat/1018/3021/books/bookbuy.aspx?browseuid=31574&w=3021&s=1018&id=6223',Title: '华胥引 ', Price: '16'},
+      {id:5,Src: 'http://file.duoyue.me/upload/book/book/20151214/2015_12_14_170654945_cut_c.jpg',Poster: '/wechat/1018/3021/books/bookbuy.aspx?browseuid=31574&w=3021&s=1018&id=6223',Title: '致我们终将逝去的青春 ', Price: '18'},
+      {id:6,Src: 'http://file.duoyue.me/upload/book/book/20151103/2015_11_03_213307947_cut_c.png',Poster: '/wechat/1018/3021/books/bookbuy.aspx?browseuid=31574&w=3021&s=1018&id=6223',Title: '当代昆曲 ', Price: '20'}
+    ]
+  },
+  {
+    "title": "热点推荐",
+    "booklist": [
+      {id:1,Src: 'http://file.duoyue.me/upload/book/book/20151103/2015_11_03_213307947_cut_c.png',Poster: '/wechat/1018/3021/books/bookbuy.aspx?browseuid=31574&w=3021&s=1018&id=6223',Title: '华胥引 ', Price: '10'},
+      {id:2,Src: 'http://file.duoyue.me/upload/book/book/20151207/2015_12_07_095558591_cut_c.jpg',Poster: '/wechat/1018/3021/books/bookbuy.aspx?browseuid=31574&w=3021&s=1018&id=6223',Title: '致我们终将逝去的青春 ', Price: '12'},
+      {id:3,Src: 'http://file.duoyue.me/upload/book/book/20151214/2015_12_14_170654945_cut_c.jpg',Poster: '/wechat/1018/3021/books/bookbuy.aspx?browseuid=31574&w=3021&s=1018&id=6223',Title: '致我们终将逝去的青春 ', Price: '14'},
+      {id:4,Src: 'http://file.duoyue.me/upload/book/book/20151118/2015_11_18_135906207_cut_c.jpg',Poster: '/wechat/1018/3021/books/bookbuy.aspx?browseuid=31574&w=3021&s=1018&id=6223',Title: '华胥引 ', Price: '16'},
+      {id:5,Src: 'http://file.duoyue.me/upload/book/book/20151214/2015_12_14_170654945_cut_c.jpg',Poster: '/wechat/1018/3021/books/bookbuy.aspx?browseuid=31574&w=3021&s=1018&id=6223',Title: '致我们终将逝去的青春 ', Price: '18'},
+      {id:6,Src: 'http://file.duoyue.me/upload/book/book/20151103/2015_11_03_213307947_cut_c.png',Poster: '/wechat/1018/3021/books/bookbuy.aspx?browseuid=31574&w=3021&s=1018&id=6223',Title: '当代昆曲 ', Price: '20'}
+    ]
+  },
+]
+
+const BookTypeData2 = [
+  {
+    "title": "畅销榜",
+    "booklist": [
+      {id:1,Src: 'http://file.duoyue.me/upload/book/book/20151103/2015_11_03_213307947_cut_c.png',Poster: '/wechat/1018/3021/books/bookbuy.aspx?browseuid=31574&w=3021&s=1018&id=6223',Title: '华胥引 ', Price: '10'},
+      {id:2,Src: 'http://file.duoyue.me/upload/book/book/20151207/2015_12_07_095558591_cut_c.jpg',Poster: '/wechat/1018/3021/books/bookbuy.aspx?browseuid=31574&w=3021&s=1018&id=6223',Title: '致我们终将逝去的青春 ', Price: '12'},
+      {id:3,Src: 'http://file.duoyue.me/upload/book/book/20151214/2015_12_14_170654945_cut_c.jpg',Poster: '/wechat/1018/3021/books/bookbuy.aspx?browseuid=31574&w=3021&s=1018&id=6223',Title: '致我们终将逝去的青春 ', Price: '14'},
+      {id:4,Src: 'http://file.duoyue.me/upload/book/book/20151118/2015_11_18_135906207_cut_c.jpg',Poster: '/wechat/1018/3021/books/bookbuy.aspx?browseuid=31574&w=3021&s=1018&id=6223',Title: '华胥引 ', Price: '16'},
+      {id:5,Src: 'http://file.duoyue.me/upload/book/book/20151214/2015_12_14_170654945_cut_c.jpg',Poster: '/wechat/1018/3021/books/bookbuy.aspx?browseuid=31574&w=3021&s=1018&id=6223',Title: '致我们终将逝去的青春 ', Price: '18'},
+      {id:6,Src: 'http://file.duoyue.me/upload/book/book/20151103/2015_11_03_213307947_cut_c.png',Poster: '/wechat/1018/3021/books/bookbuy.aspx?browseuid=31574&w=3021&s=1018&id=6223',Title: '当代昆曲 ', Price: '20'}
+    ]
+  },
+  {
+    "title": "好评榜",
+    "booklist": [
+      {id:1,Src: 'http://file.duoyue.me/upload/book/book/20151103/2015_11_03_213307947_cut_c.png',Poster: '/wechat/1018/3021/books/bookbuy.aspx?browseuid=31574&w=3021&s=1018&id=6223',Title: '华胥引 ', Price: '10'},
+      {id:2,Src: 'http://file.duoyue.me/upload/book/book/20151207/2015_12_07_095558591_cut_c.jpg',Poster: '/wechat/1018/3021/books/bookbuy.aspx?browseuid=31574&w=3021&s=1018&id=6223',Title: '致我们终将逝去的青春 ', Price: '12'},
+      {id:3,Src: 'http://file.duoyue.me/upload/book/book/20151214/2015_12_14_170654945_cut_c.jpg',Poster: '/wechat/1018/3021/books/bookbuy.aspx?browseuid=31574&w=3021&s=1018&id=6223',Title: '致我们终将逝去的青春 ', Price: '14'},
+      {id:4,Src: 'http://file.duoyue.me/upload/book/book/20151118/2015_11_18_135906207_cut_c.jpg',Poster: '/wechat/1018/3021/books/bookbuy.aspx?browseuid=31574&w=3021&s=1018&id=6223',Title: '华胥引 ', Price: '16'},
+      {id:5,Src: 'http://file.duoyue.me/upload/book/book/20151214/2015_12_14_170654945_cut_c.jpg',Poster: '/wechat/1018/3021/books/bookbuy.aspx?browseuid=31574&w=3021&s=1018&id=6223',Title: '致我们终将逝去的青春 ', Price: '18'},
+      {id:6,Src: 'http://file.duoyue.me/upload/book/book/20151103/2015_11_03_213307947_cut_c.png',Poster: '/wechat/1018/3021/books/bookbuy.aspx?browseuid=31574&w=3021&s=1018&id=6223',Title: '当代昆曲 ', Price: '20'}
+    ]
+  },
+]
 @withStyles(styles)
 class BookType extends React.Component {
   constructor(props) {
@@ -40,9 +89,9 @@ class BookType extends React.Component {
   render() {
     let ContentCode, state = this.state.type;
     if( state == 0) {
-      ContentCode = <BookListContent />;
+      ContentCode = <BookListContent data={BookTypeData}/>;
     }else if( state == 1) {
-      ContentCode = <BookListContent />;
+      ContentCode = <BookListContent data={BookTypeData2}/>;
     }else if( state == 2) {
       ContentCode = <BookClassify />;
     }

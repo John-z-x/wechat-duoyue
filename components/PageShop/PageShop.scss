@@ -66,6 +66,10 @@
   }
   .sort-browse-content {
 	padding: 5%;
+
+	* {
+	  box-sizing: border-box;
+	}
   }
   .sort-browse-content > .cell {
 	display: inline-block;

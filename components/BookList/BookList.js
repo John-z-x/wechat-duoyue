@@ -83,9 +83,11 @@ const BookListData = [
 class BookList extends React.Component {
   constructor(props) {
     super(props);
-    this.type = 0;
+    this.type = this.props.params.typeIndex;
+    console.log(this.type);
     this.state = {
-      typeList: []
+      typeList: [],
+      type: this.type
     }
     this.onTypeChange = this.onTypeChange.bind(this);
   }
@@ -111,7 +113,7 @@ class BookList extends React.Component {
         <CommonHeader>
           <ReturnButton />
         </CommonHeader>
-        <Tab TabItemsData={TabItemsData} onTypeChange={this.onTypeChange}/>
+        <Tab TabItemsData={TabItemsData} onTypeChange={this.onTypeChange} typeIndex={this.state.type}/>
         <BookListRight booklistdata = {this.state.typeList}/>
       </div>
     );

@@ -1,5 +1,6 @@
 'use strict';
 import React, { PropTypes } from 'react';
+import { Link } from 'react-router';
 
 class SortNav extends React.Component {
 	render() {
@@ -11,10 +12,10 @@ class SortNav extends React.Component {
 					this.props.sortData.data.map(function(item,i){
 						return (
 							<li className="cell" key={i}>
-								<a href="">
+								<Link to={item.href}>
 									<img className="sort-icon" src={item.src} alt={item.title}/>
 									<h4 className="sort-title">{item.title}</h4>
-								</a>
+								</Link>
 							</li>
 						)
 					})

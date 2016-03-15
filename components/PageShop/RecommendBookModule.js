@@ -1,5 +1,6 @@
 'use strict';
 import React, { PropTypes }from 'react';
+import { Link } from 'react-router';
 
 class RecommendBookModule extends React.Component {
 	render() {
@@ -11,11 +12,11 @@ class RecommendBookModule extends React.Component {
 					this.props.data.data.map(function(item,i){
 						return (
 							<li className="cell" key={i}>
-								<a href={item.href}>
+								<Link to={item.href}>
 									<img className="bk-cover" src={item.src} alt={item.title}/>
 									<h4 className="bk-title">{item.title}</h4>
 									<span className="bk-price rem">{item.price}</span>
-								</a>
+								</Link>
 							</li>
 						)
 					})

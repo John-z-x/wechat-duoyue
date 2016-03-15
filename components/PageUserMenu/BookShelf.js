@@ -1,5 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
+import { Link } from 'react-router';
 
 class BookShelf extends React.Component{
 		  componentDidMount(){
@@ -71,9 +72,9 @@ class BookShelf extends React.Component{
 												}
 												)
 											}
-											<a  >
+											<Link to="/danpin/books">
 						              <img src={"../images/more-img.png"} width="100%" alt="book-img" />
-						          </a>
+						          </Link>
 					          </div>
 
 						      <div style={{clear:"both"}}></div>

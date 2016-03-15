@@ -3,10 +3,13 @@ import React from 'react';
 import withStyles from '../../decorators/withStyles';
 import styles from './BookDetail.scss';
 
-import TopMenu from './TopMenu';
+import CommonHeader from '../HeaderComponents/CommonHeader';
+import ReturnButton from '../HeaderComponents/ReturnButton';
+
+import TopMenu from './TopMenu'; //TODO 需要合并
 import BookInfo from './BookInfo';
 import RecList from './RecList';
-import BottomLink from "./BottomLink";
+import ToDanpin from "./ToDanpin";
 
 const Recdata = [
   {"id": "1", "imgUrl": "/images/pic1.jpg", "href": "https://www.baidu.com?id=", "title": "落花时节又逢君", "price": "28.00"},
@@ -31,11 +34,13 @@ class BookDetail extends React.Component {
   render() {
     return (
         <div className="BookDetail">
-          <TopMenu />
+          <CommonHeader>
+            <ReturnButton />
+          </CommonHeader>
           <BookInfo data={Bookdata}/>
           <RecList title="相关图书" data={Recdata} classname="green-title"/>
           <div className="bottom-blank"></div>
-          <BottomLink title="书城"/>
+          <ToDanpin title="书城"/>
         </div>
     );
   }

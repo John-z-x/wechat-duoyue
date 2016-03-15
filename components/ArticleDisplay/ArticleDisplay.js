@@ -3,6 +3,10 @@ import Article from './Article';
 import Commodity from './Commodity';
 import ContentRelate from './ContentRelate';
 import ToEveryday from './ToEveryday';
+
+import CommonHeader from '../HeaderComponents/CommonHeader';
+import ReturnButton  from '../HeaderComponents/ReturnButton';
+
 import withStyles from '../../decorators/withStyles';
 import styles from './ArticleDisplay.scss';
 
@@ -12,6 +16,9 @@ class ArticleDisplay extends React.Component {
    console.log(this.props.params.id);
   	return(
   		<div className="ArticleDisplay">
+        <CommonHeader>
+          <ReturnButton />
+        </CommonHeader>
         <Article/>
         <Commodity/>
         <ContentRelate/>
