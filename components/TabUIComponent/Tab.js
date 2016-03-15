@@ -3,8 +3,12 @@ import React from 'react';
 class Tab extends React.Component {
   constructor(props) {
     super(props);
+    let typeIndex = 0;
+    if(this.props.params) {
+      typeIndex = this.props.params.typeIndex ? this.props.params.typeIndex : 0;
+    }
     this.state = {
-      index: 0
+      index: typeIndex
     }
   }
 
@@ -13,6 +17,10 @@ class Tab extends React.Component {
       index: index
     })
     this.props.onTypeChange && this.props.onTypeChange(index);
+  }
+
+  componentWillMount() {
+    this.props.onTypeChange && this.props.onTypeChange(this.state.index);
   }
 
   render() {
