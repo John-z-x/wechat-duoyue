@@ -4,9 +4,10 @@ class Tab extends React.Component {
   constructor(props) {
     super(props);
     let typeIndex = 0;
-    if(this.props.params) {
-      typeIndex = this.props.params.typeIndex ? this.props.params.typeIndex : 0;
+    if(this.props.typeIndex) {
+      typeIndex = this.props.typeIndex ? this.props.typeIndex : 0;
     }
+
     this.state = {
       index: typeIndex
     }
@@ -25,23 +26,24 @@ class Tab extends React.Component {
 
   render() {
     const { content, tabClass } = this.props.TabItemsData;
-    let picCode , picUrl, title, itemClassName;
+    let picCode , picUrl, titleCode, itemClassName;
     return (
       <ul className={tabClass.tabBox}>
         {
           content.map( (item, index) => {
-            itemClassName = this.state.index === index ? tabClass.tabItemOn : tabClass.tabItemDefault;
+            debugger;
+            itemClassName = this.state.index == index ? tabClass.tabItemOn : tabClass.tabItemDefault;
             if(item.pic) {
-              picUrl = this.state.index === index ? item.pic.on : item.pic.default;
+              picUrl = this.state.index == index ? item.pic.on : item.pic.default;
               picCode = <span className='tab-item-pic' style={{ 'backgroundImage' : picUrl }}></span>;
             }else {
               picCode = null;
             }
-            title = item.title ? item.title : item;
+            titleCode = item.title ?  <span className="tab-title">{item.title}</span> : item;
             return (
               <li className={itemClassName} onClick={ () => this.handleClick(index) } key={index}>
                 {picCode}
-                <span className="tab-title">{title}</span>
+                {titleCode}
               </li>
             );
           })

@@ -37,6 +37,9 @@ class UserMenuPage extends React.Component {
   render(){
     return (
         <div className='UserMenuPage'>
+          <CommonHeader>
+            <ReturnButton />
+          </CommonHeader>
           <UserInfo data={dataArray.userData}/>
           <div className="border-style"></div>
           <BookShelf data={dataArray}/>

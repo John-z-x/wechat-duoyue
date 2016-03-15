@@ -24,7 +24,7 @@ let EverydayData ={
 };
 
 @withStyles(styles)
-class EverydayPageIndex extends React.Component {
+class EverydayPageHome extends React.Component {
   static propTypes = {
     children: PropTypes.any
   };
@@ -55,4 +55,4 @@ class EverydayPageIndex extends React.Component {
   }
 }
 
-export default EverydayPageIndex;
+export default EverydayPageHome;

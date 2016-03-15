@@ -23,7 +23,7 @@ class PageHeader extends React.Component {
     let juheIndex = _.findIndex(headerData, function(header) {
 			return header.headerHref === defaultNav;
 		});
-   if(juheIndex === undefined) {
+   if(juheIndex === -1) {
 		 juheIndex = 3;
 	 }
 		this.state = {
