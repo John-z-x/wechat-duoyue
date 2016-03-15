@@ -24,10 +24,10 @@ let shopIndexData = {
       server: {
         title: "精品热卖",
         items: [
-          {"id": "1","name": "加入色影无忌", "imgUrl": "http://file.duoyue.me/upload/product/20151208/2015_12_08_212851760.jpg", "price": 300.00},
-          {"id": "2","name": "[翩翩]刺绣手镯｜大赢刺绣", "imgUrl": "http://file.duoyue.me/upload/product/20151201/2015_12_01_204655415.jpg", "price": 398.00},
-          {"id": "3","name": "真亚麻小包", "imgUrl": "http://file.duoyue.me/upload/product/20151201/2015_12_01_203701224.jpg", "price": 175.00},
-          {"id": "4","name": "[lollipop] 项链|春风十里", "imgUrl": "http://file.duoyue.me/upload/product/20151201/2015_12_01_204854611.jpg", "price": 460.00}
+          {"id": "1","name": "木质纹理，丝丝入心", "href": "/shop/goodsbuy/1", "imgUrl": "http://file.duoyue.me/upload/product/20160224/2016_02_24_203735155_b.jpg", "price": 52.80},
+          {"id": "2","name": "[翩翩]刺绣手镯｜大赢刺绣", "href": "/shop/goodsbuy/1","imgUrl": "http://file.duoyue.me/upload/product/20151201/2015_12_01_204655415.jpg", "price": 398.00},
+          {"id": "3","name": "真亚麻小包","href": "/shop/goodsbuy/1", "imgUrl": "http://file.duoyue.me/upload/product/20151201/2015_12_01_203701224.jpg", "price": 175.00},
+          {"id": "4","name": "[lollipop] 项链|春风十里", "href": "/shop/goodsbuy/1","imgUrl": "http://file.duoyue.me/upload/product/20151201/2015_12_01_204854611.jpg", "price": 460.00}
         ]
       },
       local: {
@@ -39,10 +39,10 @@ let shopIndexData = {
       server: {
         title: "重磅推荐",
         items: [
-          {"id": "1","name": "加入色影无忌", "imgUrl": "http://file.duoyue.me/upload/product/20151208/2015_12_08_212851760.jpg", "price": 300.00},
-          {"id": "2","name": "加入色影无忌", "imgUrl": "http://file.duoyue.me/upload/product/20151201/2015_12_01_204655415.jpg", "price": 398.00},
-          {"id": "3","name": "加入色影无忌", "imgUrl": "http://file.duoyue.me/upload/product/20151201/2015_12_01_203701224.jpg", "price": 175.00},
-          {"id": "4","name": "加入色影无忌", "imgUrl": "http://file.duoyue.me/upload/product/20151201/2015_12_01_204854611.jpg", "price": 460.00}
+          {"id": "1","name": "加入色影无忌", "href": "/shop/goodsbuy/1","imgUrl": "http://file.duoyue.me/upload/product/20151208/2015_12_08_212851760.jpg", "price": 300.00},
+          {"id": "2","name": "加入色影无忌", "href": "/shop/goodsbuy/1","imgUrl": "http://file.duoyue.me/upload/product/20151201/2015_12_01_204655415.jpg", "price": 398.00},
+          {"id": "3","name": "加入色影无忌", "href": "/shop/goodsbuy/1","imgUrl": "http://file.duoyue.me/upload/product/20151201/2015_12_01_203701224.jpg", "price": 175.00},
+          {"id": "4","name": "加入色影无忌", "href": "/shop/goodsbuy/1","imgUrl": "http://file.duoyue.me/upload/product/20151201/2015_12_01_204854611.jpg", "price": 460.00}
         ]
       },
       local: {
