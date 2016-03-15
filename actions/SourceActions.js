@@ -15,3 +15,10 @@ function received(list) {
 		list
 	}
 }
+
+export function FilterSourceType(typeIndex) {
+  return {
+    type: "FILTER_SOURCE_TYPE",
+    typeIndex
+  }
+}

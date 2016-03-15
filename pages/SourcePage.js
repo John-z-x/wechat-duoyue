@@ -6,7 +6,6 @@ import Cart from '../components/CartUIComponent/Cart';
 import Slider from '../components/SliderUIComponent/Slider';
 
 import SourceSearch from '../components/PageSource/SourceSearch';
-import SourceClassify from '../components/PageSource/SourceClassify';
 import Tab from '../components/TabUIComponent/Tab';
 import SourceBox from '../components/PageSource/SourceBox';
 
@@ -35,17 +34,24 @@ let TabItemsData = {
 
 @withStyle(styles)
 class SourcePage extends React.Component {
+
   componentDidMount() {
     this.props.actions.LazyLoad();
   }
 
+  onTypeChange(index) {
+    let filterSourceType = this.props.actions.FilterSourceType;
+    filterSourceType && filterSourceType(index)
+  }
+
 	render() {
     const { list, actions } = this.props;
+
 		return (
       <div className="SourcePage">
 				<Slider data={sourceData.SliderList}/>
 				<SourceSearch/>
-        <Tab TabItemsData={TabItemsData}/>
+        <Tab TabItemsData={TabItemsData} onTypeChange={this.onTypeChange.bind(this)}/>
         <SourceBox LazyLoad={actions.LazyLoad} list={list}/>
 				<Cart />
       </div>
