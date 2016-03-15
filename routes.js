@@ -9,6 +9,7 @@ import SourcePage from './pages/SourcePage';
 import UserMenuPage from './pages/UserMenuPage';
 import SocialArea from './components/SocialArea/SocialArea';
 import BookList from './components/BookList/BookList';
+import BookType from './components/BookType/BookType';
 
 import ArticleDisplay from './components/ArticleDisplay/ArticleDisplay';
 import EverydayPageIndex from './components/PageEveryDay/index';

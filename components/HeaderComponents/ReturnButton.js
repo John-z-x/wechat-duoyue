@@ -1,8 +1,5 @@
 import React from 'react';
-import withStyles from '../../decorators/withStyles';
-import styles from './ReturnButton.scss';
 
-@withStyles(styles)
 class ReturnButton extends React.Component{
 
   handleBack(){

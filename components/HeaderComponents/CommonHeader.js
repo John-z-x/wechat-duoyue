@@ -7,7 +7,7 @@ import styles from './CommonHeader.scss';
 class CommonHeader extends React.Component {
   render() {
     return (
-      <header className="CommonHeader">
+      <header className="CommonHeader clearfix">
         <div className="header">
           {this.props.children}
         </div>

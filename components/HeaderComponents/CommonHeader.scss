@@ -13,4 +13,20 @@
     width: 100%;
     height: 40px;
   }
+  .ReturnButton {
+    height: 40px;
+    width: 40px;
+    margin: 0 10px;
+    background: url('/images/back.png') center no-repeat;
+    background-size: 25px 23px;
+  }
+
+  .SearchButton {
+    height: 40px;
+    width: 40px;
+    margin: 0 10px;
+    background: url(/images/CommodityDetailImage/icon_Search.png) center no-repeat;
+    background-size: 28px 28px;
+  }
+
 }
