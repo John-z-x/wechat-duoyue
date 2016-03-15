@@ -1,5 +1,5 @@
 import React from 'react';
-import CommodityDetailTop from '../CommodityDetail/CommodityDetailTop';
+
 import BookListContent from './BookListContent';
 import withStyles from '../../decorators/withStyles';
 import styles from './BookType.scss';

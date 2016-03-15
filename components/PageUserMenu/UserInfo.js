@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 class UserInfor extends React.Component{
 			render(){
@@ -13,10 +14,10 @@ class UserInfor extends React.Component{
 				    <div  className="right user-table">
 				      <div style={{width: "100%", border: "0"}}>
 				              <div className="user-table-td">
-				              		<a href="">
+				              		<Link to="/favorites">
 				              		<div style={{fontSize: '14px'}}>6</div>
 				                    <div className="word">收藏</div>
-				                    </a>
+				                    </Link>
 				              </div>
 				              <div className="user-table-td" style={{borderLeft:'1px solid #eee',borderRight:'1px solid #eee'}}>
 				              		<a href="">

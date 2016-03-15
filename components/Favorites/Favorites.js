@@ -6,7 +6,6 @@ import CommonHeader from '../../components/HeaderComponents/CommonHeader';
 import Tab from '../../components/TabUIComponent/Tab';
 import ReturnButton from '../HeaderComponents/ReturnButton';
 
-
 import withstyles from '../../decorators/withStyles';
 import styles from './Favorites.scss';
 
@@ -25,16 +24,16 @@ let TabItemsData = {
 
 let dataArray = {
   bookData: [
-    {src:'http://file.duoyue.me/upload/book/book/20151118/2015_11_18_135906207_cut_c.jpg',bookName:'销魂殿'},
-    {src:'http://file.duoyue.me/upload/book/book/20151118/2015_11_18_135906207_cut_c.jpg',bookName:'华胥引'},
-    {src:'http://file.duoyue.me/upload/book/book/20151128/2015_11_28_094742682_cut_c.jpg',bookName:'销魂殿'},
-    {src:'http://file.duoyue.me/upload/book/book/20151128/2015_11_28_094742682_cut_c.jpg',bookName:'华胥引'},
-    {src:'http://file.duoyue.me/upload/book/book/20151214/2015_12_14_170654945_cut_c.jpg',bookName:'华胥引华胥引华胥引华胥引'}
+    {"bookId": 1, src:'http://file.duoyue.me/upload/book/book/20151118/2015_11_18_135906207_cut_c.jpg',bookName:'销魂殿'},
+    {"bookId": 2, src:'http://file.duoyue.me/upload/book/book/20151118/2015_11_18_135906207_cut_c.jpg',bookName:'华胥引'},
+    {"bookId": 3, src:'http://file.duoyue.me/upload/book/book/20151128/2015_11_28_094742682_cut_c.jpg',bookName:'销魂殿'},
+    {"bookId": 4, src:'http://file.duoyue.me/upload/book/book/20151128/2015_11_28_094742682_cut_c.jpg',bookName:'华胥引'},
+    {"bookId": 5, src:'http://file.duoyue.me/upload/book/book/20151214/2015_12_14_170654945_cut_c.jpg',bookName:'华胥引华胥引华胥引华胥引'}
   ],
   articleData: [
-    {title:"【实用】这份年终总结PPT称第二，没人敢称第一"},
-    {title:"【实用】这份年终总结PPT称第二，没人敢称第一"},
-    {title:"【实用】这份年终总结PPT称第二，没人敢称第一"}
+    {"articleId": 1,title:"【实用】这份年终总结PPT称第二，没人敢称第一"},
+    {"articleId": 2,title:"【实用】这份年终总结PPT称第二，没人敢称第一"},
+    {"articleId": 3,title:"【实用】这份年终总结PPT称第二，没人敢称第一"}
   ]
 };
 
