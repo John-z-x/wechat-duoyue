@@ -14,7 +14,7 @@ import EverydayPageHome from './components/PageEveryDay/home';
 import ShopPageHome from './components/PageShop/home';
 import ShopPageIndexHome from './components/PageShopIndex/home';
 
-import SocialArea from './components/SocialArea/SocialArea';
+
 import BookList from './components/BookList/BookList';
 import BookType from './components/BookType/BookType';
 import NewBookList from './components/NewBookList/NewBookList';
@@ -28,12 +28,19 @@ import CommodityDetail from './components/CommodityDetail/CommodityDetail';
 import Favorites from './components/Favorites/Favorites';
 
 import VideoModule from './components/SourceModules/VideoModule/VideoModule';
+
+import OrderList from './components/OrderList/OrderList';
+import OrderListHome from './components/OrderList/home';
 import OrderDisplay from './components/OrderDisplay/OrderDisplay';
+
+import SocialArea from './components/SocialArea/SocialArea';
+import SocialAreaHome from './components/SocialArea/home';
+import SocialDetail from './components/SocialArea/SocialDetail';
 
 export default (
 
   <Route path="/" component={App} >
-  	<IndexRoute component={OrderDisplay}/>
+  	<IndexRoute component={ShopPageHome}/>
     <Route path="/danpin" component={ShopPage}>
       <IndexRoute component={ShopPageHome}/>
       <Route path="books" component={BookType}/>
@@ -55,7 +62,15 @@ export default (
 
     <Route path="/usermenu" component={UserMenuPage}/>
     <Route path="/favorites" component={Favorites}/>
-    <Route path="/socialarea" component={SocialArea}/>
 
+    <Route path="/orderlist" component={OrderList}>
+      <IndexRoute component={OrderListHome} />
+      <Route path=":id/display" component={OrderDisplay}/>
+    </Route>
+
+    <Route path="/socialarea" component={SocialArea}>
+      <IndexRoute component={SocialAreaHome} />
+      <Route path=":id/display" component={SocialDetail}/>
+    </Route>
   </Route>
 )

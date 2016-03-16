@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 class SocialAreaItem extends React.Component {
  	render() {
  		 let data = this.props.data;
 		    return (
 				 	<div className="SocialAreaItem">
-						<a href={data.href}>
+						<Link to={`/socialarea/${data.id}/display`}>
 				    	<div className="title">
 				    		{data.title}
 				    	</div>
@@ -28,7 +29,7 @@ class SocialAreaItem extends React.Component {
 				        	{data.time}
 				        </div>
 				    	</div>
-						</a>
+						</Link>
 				    <div className="end"></div>
 				  </div>
 				 );
