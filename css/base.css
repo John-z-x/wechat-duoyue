@@ -64,6 +64,9 @@ button, img {
 }
 
 /* globe css */
+* {
+  box-sizing: border-box;
+}
 html,
 body {
   height: 100%;

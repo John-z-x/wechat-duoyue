@@ -5,6 +5,12 @@ import VideoDescription from './VideoDescription.js';
 import VideoCollection from './VideoCollection.js';
 import BrowseMoreBtn from './BrowseMoreBtn.js';
 import RelevantCommentTitle from './RelevantCommentTitle.js';
+import CommonHeader from '../../HeaderComponents/CommonHeader.js';
+import ReturnButton from '../../HeaderComponents/ReturnButton';
+import CommentButton from '../../HeaderComponents/CommentButton';
+import DownLoadButton from '../../HeaderComponents/DownLoadButton';
+import CollectButton from '../../HeaderComponents/CollectButton';
+import CommentBox from '../../CommentBox/CommentBox';
 import withStyles from '../../../decorators/withStyles';
 import styles from './VideoModule.scss';
 
@@ -38,13 +44,25 @@ const sourceVideoData = {
 @withStyles(styles)
 class VideoModule extends React.Component {
 	render() {
+		let commentBoxOptions = {
+			commentHeader: 'on',
+			commentItem: 'on',
+			commentWriteGuide: 'off',
+			commentForm: 'Community-Pen',
+		};
 		return (
 			<div className="VideoModule main-wrap">
+				<CommonHeader>
+					<ReturnButton/>
+					<CommentButton funcs={CommentBox.toggleCommentForm}/>
+					<DownLoadButton></DownLoadButton>
+					<CollectButton></CollectButton>
+				</CommonHeader>
 				<VideoPoster data={sourceVideoData.videoPosterData}/>
 				<VideoDescription data={sourceVideoData.videoDescData}/>
 				<VideoCollection data={sourceVideoData.videoCollectionData}/>
 				<BrowseMoreBtn data={sourceVideoData.BrowseMoreBtnData}/>
-				{/*<RelevantCommentTitle/>*/}
+				<CommentBox options={commentBoxOptions}></CommentBox>
 			</div>
 		);
 	}
