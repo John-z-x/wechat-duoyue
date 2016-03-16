@@ -26,30 +26,30 @@ var dataArray = {
   bookData: 
   [
     [
-      {src:'../images/book1.jpg',bookName:'销魂殿'},
-      {src:'../images/book2.jpg',bookName:'华胥引'},
-      {src:'../images/book1.jpg',bookName:'销魂殿'},
-      {src:'../images/book2.jpg',bookName:'华胥引'},
-      {src:'../images/book1.jpg',bookName:'销魂殿'},
-      {src:'../images/book2.jpg',bookName:'华胥引'}
+      {src:'../images/book1.jpg',bookName:'销魂殿', href: "/danpin/bookbuy/1"},
+      {src:'../images/book2.jpg',bookName:'华胥引', href: "/danpin/bookbuy/1"},
+      {src:'../images/book1.jpg',bookName:'销魂殿', href: "/danpin/bookbuy/1"},
+      {src:'../images/book2.jpg',bookName:'华胥引' , href: "/danpin/bookbuy/1"},
+      {src:'../images/book1.jpg',bookName:'销魂殿', href: "/danpin/bookbuy/1"},
+      {src:'../images/book2.jpg',bookName:'华胥引', href: "/danpin/bookbuy/1"}
     ],    
     [
-      {src:'../images/book1.jpg',bookName:'销魂殿'},
-      {src:'../images/book2.jpg',bookName:'华胥引'},
-      {src:'../images/book1.jpg',bookName:'销魂殿'},
-      {src:'../images/book2.jpg',bookName:'华胥引'},
-      {src:'../images/book1.jpg',bookName:'销魂殿'},
-      {src:'../images/book2.jpg',bookName:'华胥引'}
+      {src:'../images/book1.jpg',bookName:'销魂殿', href: "/danpin/bookbuy/1"},
+      {src:'../images/book2.jpg',bookName:'华胥引', href: "/danpin/bookbuy/1"},
+      {src:'../images/book1.jpg',bookName:'销魂殿', href: "/danpin/bookbuy/1"},
+      {src:'../images/book2.jpg',bookName:'华胥引', href: "/danpin/bookbuy/1"},
+      {src:'../images/book1.jpg',bookName:'销魂殿', href: "/danpin/bookbuy/1"},
+      {src:'../images/book2.jpg',bookName:'华胥引', href: "/danpin/bookbuy/1"}
     ],
     [
-      {src:'../images/book2.jpg',bookName:'华胥引华胥引华胥引华胥引'},
-      {src:'../images/book1.jpg',bookName:'销魂殿'},
-      {src:'../images/book2.jpg',bookName:'华胥引'},
-      {src:'../images/book1.jpg',bookName:'销魂殿'},
-      {src:'../images/book1.jpg',bookName:'销魂殿'},
-      {src:'../images/book2.jpg',bookName:'华胥引'}
+      {src:'../images/book2.jpg',bookName:'华胥引华胥引华胥引华胥引', href: "/danpin/bookbuy/1"},
+      {src:'../images/book1.jpg',bookName:'销魂殿', href: "/danpin/bookbuy/1"},
+      {src:'../images/book2.jpg',bookName:'华胥引', href: "/danpin/bookbuy/1"},
+      {src:'../images/book1.jpg',bookName:'销魂殿', href: "/danpin/bookbuy/1"},
+      {src:'../images/book1.jpg',bookName:'销魂殿', href: "/danpin/bookbuy/1"},
+      {src:'../images/book2.jpg',bookName:'华胥引', href: "/danpin/bookbuy/1"}
     ],
-    [{src:'../images/more-img.png',bookName:''}]
+    [{src:'../images/more-img.png',bookName:'', href: "/danpin/books"}]
   ]
 };
 

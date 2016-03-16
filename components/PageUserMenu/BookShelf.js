@@ -129,10 +129,10 @@ componentWillUnmount (){
 							{ 
 								bookItems[bookItems.length-1].map(function(item,i){
 									return (
-									  <a href="" key={i}>
+									  <Link to={item.href} key={i}>
 				               <img src={item.src} alt="book-img" className="book-img"/>
 				               <div className="book-name">{item.bookName}</div>
-				            </a>
+				            </Link>
 									);
 								}
 								)

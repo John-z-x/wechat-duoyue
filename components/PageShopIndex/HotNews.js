@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const news = [
 	{"id": "1", "content": "同样的温度，为什么在诶方式狼，在南方却冻成狗"},
@@ -67,8 +68,10 @@ class HotNews extends React.Component {
 		const news = this.state.news;
 		let totalItemCode;
 		let itemCode = news.map( (item, i) => 
-			<li className="news-content" key={i}>
-        {item.content}
+			<li className="news-content" key={`news${item.id}`}>
+				<Link to={`/everyday/${item.id}/display`}>
+        	{item.content}
+				</Link>
 			</li>
 		);
 		totalItemCode = itemCode;
