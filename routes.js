@@ -28,11 +28,12 @@ import CommodityDetail from './components/CommodityDetail/CommodityDetail';
 import Favorites from './components/Favorites/Favorites';
 
 import VideoModule from './components/SourceModules/VideoModule/VideoModule';
+import OrderDisplay from './components/OrderDisplay/OrderDisplay';
 
 export default (
 
   <Route path="/" component={App} >
-  	<IndexRoute component={ShopPageHome}/>
+  	<IndexRoute component={OrderDisplay}/>
     <Route path="/danpin" component={ShopPage}>
       <IndexRoute component={ShopPageHome}/>
       <Route path="books" component={BookType}/>
