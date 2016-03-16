@@ -1,0 +1,38 @@
+body {
+	background-color: #fff;
+  font-size: 14px;
+  line-height: 22px;
+  table-layout: fixed;
+  word-break: break-all;
+  font-family: '微软雅黑',Arial, Helvetica, sans-serif;
+}
+.SourceBuy {
+	.CommonHeader .header {
+		border: 0;
+	}
+	.source-buy-title {
+		padding: 5px 10px 5px 10px;
+		border-bottom: 1px solid #ddd; 
+	}
+	.source-buy-description {
+		padding: 10px; 
+		color: #777; 
+		font-size: 12px; 
+		border-bottom: 1px solid #ddd;
+	}
+	.source-buy-point {
+		padding: 20px 0px 20px 0px; 
+		text-align: center;
+	}
+
+	.buy-button {
+		width: 60%;
+		height: 42px;
+		margin: auto; 
+		margin-top: 20px;
+		background: #F30;
+		color: #fff;
+		text-align: center;
+		line-height: 42px;
+	}
+}
