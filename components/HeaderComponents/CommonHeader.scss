@@ -13,6 +13,17 @@
     width: 100%;
     height: 40px;
   }
+  .btn {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 48px;
+    .icon {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+    }
+  }
   .ReturnButton {
     height: 40px;
     width: 40px;
@@ -27,6 +38,25 @@
     margin: 0 10px;
     background: url(/images/CommodityDetailImage/icon_Search.png) center no-repeat;
     background-size: 28px 28px;
+  }
+
+  .CommentButton {
+    .icon {
+      background: url(/images/top/top_icon.png) no-repeat 0 -22px;
+      background-size: 25px 250px;
+    }
+  }
+  .DownLoadButton {
+    .icon {
+      background: url(/images/top/top_icon.png) no-repeat 0 1px;
+      background-size: 25px 250px;
+    }
+  }
+  .CollectButton {
+    .icon {
+      background: url(/images/top/top_icon.png) no-repeat 0 -45px;
+      background-size: 25px 250px;
+    }
   }
 
 }
