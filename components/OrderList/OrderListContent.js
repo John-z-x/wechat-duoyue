@@ -24,7 +24,7 @@ class OrderListContent extends React.Component {
  						  {
  						  	orderItem.orderList.map((item) =>{
  						  		return (
- 						  			<OrderCommodityItem data={item} key={item.id}/>
+ 						  			<OrderCommodityItem data={item} key={item.id} hasPrice={false}/>
  						  		);
  						  	})
  						  }
