@@ -3,6 +3,14 @@ import React from 'react';
 class OrderCommodityItem extends React.Component {
 	render() {
 		let data = this.props.data;
+		let hasPrice = this.props.hasPrice;
+		let showPrice;
+
+		if (hasPrice) {
+					showPrice = <div className='show-price'>数量：{data.commodityNum}&nbsp;&nbsp;金额：{data.commodityPrice}</div>;
+				}else {
+					showPrice = null;
+				}
 		return (
 		  <li className=" OrderCommodityItem clearfix" key={data.id}>
 				<div className="commodity-image">
@@ -10,6 +18,7 @@ class OrderCommodityItem extends React.Component {
 				</div>
 				<div className="commodity-title">
 				  {data.title}
+				  {showPrice}
 				</div>
 			</li>
 		);
