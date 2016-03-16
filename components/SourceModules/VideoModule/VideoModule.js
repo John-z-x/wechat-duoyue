@@ -46,9 +46,11 @@ class VideoModule extends React.Component {
 	render() {
 		let commentBoxOptions = {
 			commentHeader: 'on',
-			commentItem: 'on',
+			commentItem: 'PurchaseAdvice',
 			commentWriteGuide: 'off',
 			commentForm: 'Community-Pen',
+			headerText: '相关评论',
+			hdCommentAmount: 'on',
 		};
 		return (
 			<div className="VideoModule main-wrap">

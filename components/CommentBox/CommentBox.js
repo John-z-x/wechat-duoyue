@@ -5,7 +5,7 @@ import CommentForm from './CommentForm.js';
 import CommentFormCommunity from './CommentFormCommunity';
 import CommonHeader from '../HeaderComponents/CommonHeader';
 import ReturnButton from '../HeaderComponents/ReturnButton';
-import CommentWonderfulHeader from './CommentWonderfulHeader';
+import CommentCommonHeader from './CommentCommonHeader';
 import CommentWriteGuide from './CommentWriteGuide';
 import withStyles from '../../decorators/withStyles';
 import styles from './CommentBox.scss';
@@ -39,7 +39,7 @@ class CommentBox extends React.Component {
   }
 	handleCommentSubmit(comment) {
     let comments = this.state.data;
-  	let	newComments = [comment].concat(comments);
+  	let	newComments = this.props.options.commentItem !== 'PurchaseAdvice' ? [comment].concat(comments) : comments.concat([comment]);
     this.setState({data: newComments});
     // $.ajax({
     //   url: this.props.url,
@@ -90,14 +90,16 @@ class CommentBox extends React.Component {
     let 
       commentHeader,
       commentWriteGuide,
-      commentForm;
+      commentForm,
+      hdCommentAmount = this.props.options.hdCommentAmount == 'on' ? this.state.data.length : '';
     if (this.props.options.commentHeader !== '') {
       switch(this.props.options.commentHeader) {
         case 'off':
           commentHeader = null;
           break;
+
         default:
-          commentHeader = <CommentWonderfulHeader data={this.state.data.length}/>;
+          commentHeader = <CommentCommonHeader data={hdCommentAmount} title={this.props.options.headerText}/>;
       }
     }
     if (this.props.options.commentWriteGuide !== '') {
@@ -179,6 +181,8 @@ export default CommentBox;
 //   评论引导项，默认资源评论模块的样式。
 //   commentForm: 'Community-Pen',
 //   评论输入框样式，资源模块(默认)、社区评论样式(Community)、购买咨询评论样式(Community-Pen)
+//   headerText: '',
+//   hdCommentAmount: '',
 // 必须
 // Code Example:
 //   let commentBoxOptions = {

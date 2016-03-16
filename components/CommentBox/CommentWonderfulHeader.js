@@ -6,7 +6,7 @@ class CommentWonderfulHeader extends React.Component {
 	render() {
 		return (
 			<h4 className="wonderful-header clearfix">
-				<span className="left">精彩评论</span>
+				<span className="left">{this.props.text}</span>
 				<span className="amount left">{this.props.data}条</span>
 			</h4>
 		);
