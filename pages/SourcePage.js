@@ -46,7 +46,6 @@ class SourcePage extends React.Component {
 
 	render() {
     const { list, actions } = this.props;
-
 		return (
       <div className="SourcePage">
 				<Slider data={sourceData.SliderList}/>

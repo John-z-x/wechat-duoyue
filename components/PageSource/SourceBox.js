@@ -6,22 +6,22 @@ class SourceBox extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      type: 1,
       left: [],
       right: []
     }
-    this.index = 1;
+    this.type = 0;
     this.finishLoading = true;
     this.distribution = this.distribution.bind(this);
     this.ifNeedLazyLoad = this.ifNeedLazyLoad.bind(this);
   }
 
   componentDidMount() {
-    window.addEventListener("scroll", this.ifNeedLazyLoad, false)
+    //window.addEventListener("scroll", this.ifNeedLazyLoad, false)
     this.distribution();
   }
+
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.ifNeedLazyLoad, false)
+    //window.removeEventListener("scroll", this.ifNeedLazyLoad, false)
   }
 
   ifNeedLazyLoad() {
@@ -41,8 +41,14 @@ class SourceBox extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.distribution(nextProps);
     this.finishLoading = true;
+    this.setState({
+      left: []
+    })
+    this.setState({
+      right: []
+    })
+    this.distribution(nextProps);
   }
 
   componentWillUpdate(nextProps, nextState) {
@@ -52,18 +58,27 @@ class SourceBox extends React.Component {
 
   distribution(nextProps) {
     let list  = nextProps == undefined ? this.props.list : nextProps.list, parentBox, _self = this;
+    console.log(list);
     list.map( (item) =>  {
       var img = new Image();
       img.src = item.pic;
       if(img.complete) {
         loadImg(item);
-      }
-      img.onload = function() {
-        loadImg(item);
+      }else {
+        img.onload = function() {
+          loadImg(item);
+        }
       }
     })
 
     function loadImg(item) {
+      console.log(item.pic)
+
+
+
+
+
+
       parentBox = _self.getBox();
       if(parentBox.indexOf("left") > -1) {
         _self.setState({
