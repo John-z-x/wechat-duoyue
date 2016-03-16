@@ -2,12 +2,11 @@
 import React from 'react';
 import classNames from 'classnames';
 
-class Comment extends React.Component {
+class CommentItemCommunity extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			avatarState: false,
-			likeIconState: this.props.comment.likeIconState,
 		};
 	}
 	showSelf() {
@@ -17,7 +16,7 @@ class Comment extends React.Component {
 	}
 	render() {
 		return (
-			<div className="comment-cell">
+			<div className="CommentItemCommunity">
 				<div className="info-wrap clearfix">
 					<div className="user-avatar left">
 						<img className={classNames('one',{'avatar': this.state.avatarState})} src={this.props.comment.userAvatar} alt="" onLoad={this.showSelf.bind(this)}/>
@@ -25,15 +24,12 @@ class Comment extends React.Component {
 					<div className="user-info left">
 						<h4 className="user-name a-line ">{this.props.comment.userName}</h4>
 						<time className="comment-time a-line">{this.props.comment.commentTime}</time>
-					</div>
-					<div className="like right clearfix">
-						<em className={classNames('like-icon',{'on': this.state.likeIconState})}></em>
-						<span className="like-num right">{this.props.comment.likeNum}</span>
+						<p className="text">{this.props.comment.commentText}</p>
 					</div>
 				</div>
-				<p className="text">{this.props.comment.commentText}</p>
+				
 			</div>
 		);
 	}
 }
-export default Comment;
+export default CommentItemCommunity;
