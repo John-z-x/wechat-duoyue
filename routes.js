@@ -17,6 +17,7 @@ import ShopPageIndexHome from './components/PageShopIndex/home';
 import SocialArea from './components/SocialArea/SocialArea';
 import BookList from './components/BookList/BookList';
 import BookType from './components/BookType/BookType';
+import NewBookList from './components/NewBookList/NewBookList';
 
 import ArticleDisplay from './components/ArticleDisplay/ArticleDisplay';
 import BookDetail from './components/BookDetail/BookDetail';
@@ -37,7 +38,8 @@ export default (
       <Route path="books" component={BookType}/>
       <Route path="booklist/:typeIndex" component={BookList}/>
       <Route path="bookbuy/:id" component={BookDetail}/>
-      </Route>
+      <Route path="newbooklist/:type" component={NewBookList}/>
+    </Route>
     <Route path="/shop" component={ShopIndexPage}>
       <IndexRoute component={ShopPageIndexHome} />
       <Route path="goodslist/:typeId" component={GoodsList}/>
