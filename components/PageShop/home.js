@@ -37,9 +37,11 @@ let shopData = {
       {href: '/danpin/bookbuy/6227', src: '/images/5.jpg', title: '微微一笑倾人城', price: 17.34}
     ],
     recmdText: '查看更多新书',
+    href: "/danpin/newbooklist/0"
   },
   hotbksData: {
     title: "本周热点推荐",
+    href: "/danpin/newbooklist/1",
     data: [
       {href: '/danpin/bookbuy/6227', src: 'http://file.duoyue.me/upload/book/book/20151207/2015_12_07_095558591_cut_c.jpg', title: '他来了请闭眼', price: 31.50},
       {href: '/danpin/bookbuy/6227', src: '/images/6.jpg', title: '那些年我们追过的女孩', price: 17.34},

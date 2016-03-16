@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 
 class RecommendBookModule extends React.Component {
 	render() {
+
 		return (
 			<div className="recmd-box bdr-mg bg-white">
 				<h2 className="f-level-title">{this.props.data.title}</h2>
@@ -22,10 +23,10 @@ class RecommendBookModule extends React.Component {
 					})
 				}
 				</ul>
-				<a className="find-more" href="">
-					<h4>{this.props.data.recmdText}</h4>
-					<em className="fd-more-btn"></em>
-				</a>
+        <Link to={this.props.data.href} className="find-more">
+          <h4>{this.props.data.recmdText}</h4>
+          <em className="fd-more-btn"></em>
+        </Link>
 			</div>
 		);
 	}
