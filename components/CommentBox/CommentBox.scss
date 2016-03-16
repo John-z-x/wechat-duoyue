@@ -4,8 +4,15 @@
 		background-color: #f7f7f7;
 	  -webkit-tap-highlight-color: transparent;
 	}
+	input {
+		border: none;
+		outline: none;
+		background-color: transparent;
+	}
+	.text {
+		word-break: break-all;
+	}
 	.comment-list {
-		padding-left: 15px;
 		padding-bottom: 44px;
 	}
 	.wonderful-header {
@@ -20,8 +27,9 @@
 		}
 
 	}
-	.comment-cell {
+	.CommentItem {
 		padding: 10px 15px 10px 0;
+		margin-left: 15px;
 		border-bottom: 1px solid #e5e5e5;
 		.user-avatar {
 			width: 30px;
@@ -72,6 +80,7 @@
 		}
 		.text {
 			font-size: 12px;
+			word-break: break-all;
 		}
 	}
 
@@ -114,35 +123,185 @@
 	.comment-form {
 		display: none;
 	}*/
-	.comment-form-content {
-		position: fixed;
-		left: 0;
-		bottom: 0;
-		z-index: 10002;
-		width: 100%;
-		padding: 0 10px 20px;
-		background-color: #fff;
-		.btn-wrap {
-			input {
-				border: none;
-				outline: none;
-				background-color: #fff;
-				font-size: 12px;
-				line-height: 2.5em;
-				color: #333;
+	.CommentForm {
+		.comment-form-content {
+			position: fixed;
+			left: 0;
+			bottom: 0;
+			z-index: 10002;
+			width: 100%;
+			padding: 0 10px 20px;
+			background-color: #fff;
+			.btn-wrap {
+				input {
+					border: none;
+					outline: none;
+					background-color: #fff;
+					font-size: 12px;
+					line-height: 2.5em;
+					color: #333;
+				}
+				.submit-btn {
+					color: #77cdb0;
+				}
+
 			}
-			.submit-btn {
-				color: #77cdb0;
+			.input-box {
+				display: block;
+				width: 100%;
+				height: 79px;
+				border: 1px solid #cbcbcb;
+				border-radius: 5px;
+				resize: none;
+			}
+		}
+	}
+	
+
+	.CommentItemCommunity {
+		padding: 10px 15px 10px 10px;
+		border-bottom: 1px solid #e5e5e5;
+		background-color: #fff;
+		.user-avatar {
+			width: 30px;
+			height: 30px;
+			border: 1px solid #e5e5e5;
+			border-radius: 100%;
+			overflow: hidden;
+			background: url(/images/avatar_default.png) no-repeat;
+			background-size: 100% 100%;
+			img {
+				display: none;
+				width: 100%;
+				height: 100%;
+			}
+			.avatar {
+				display: inline-block;
+			}
+		}
+		.user-info {
+			max-width: 89%;
+			padding-left: 10px;
+			color: #333;
+			.user-name {
+				font-size: 12px;
+			}
+			.comment-time {
+				font-size: 10px;
+				color: #666;
+				vertical-align: super;
+			}
+		}
+		.text {
+			font-size: 12px;
+			word-break: break-all;
+		}
+	}
+	.CommentItemPurchaseAdvice {
+		background-color: #fff;
+		padding: 10px;
+		.question-wrap {
+			.question-avatar {
+				float: left;
+				width: 25px;
+				height: 100%;
+				color: #fff;
+				.avatar {
+					display: inline-block;
+					width: 25px;
+					height: 25px;
+					border-radius: 100%;
+					background-color: #fd6e2c;
+					text-align: center;
+				}
+			}
+			.text {
+				float: left;
+				width: 90%;
+				padding-left: 10px;
+			}
+		}
+	}
+	.CommentFormCommunity {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		.comment-form-content {
+			width: 100%;
+			height: 43px;
+			padding-top: 5px;
+			background-color: #f8f8f8;
+			table-layout: initial;
+			.icon-btn-wrap {
+				width: 18%;
+				height: 40px;
+				background: url(/images/icon_set.png) no-repeat -55px 6px;
+				background-size: 100px 250px;
+			}
+			.input-box-wrap {
+				.input-box {
+					width: 100%;
+					height: 34px;
+					border: 1px solid #ddd;
+					margin-top: 3px;
+					border-radius: 3px;
+					background-color: #fff;
+					resize: none;
+				}
+			}
+			.submit-btn-wrap {
+				width: 18%;
+				text-align: center;
+				.submit-btn {
+					width: 100%;
+					font-size: 14px;
+					color: #777;
+					line-height: 31px;
+				}
 			}
 
 		}
-		.input-box {
-			display: block;
+	}
+	.Pen {
+		.comment-form-content {
 			width: 100%;
-			height: 79px;
-			border: 1px solid #cbcbcb;
-			border-radius: 5px;
-			resize: none;
+			height: 45px;
+			background-color: #f0f0f0;
+			table-layout: initial;
+			.icon-btn-wrap {
+				width: 10%;
+				height: 40px;
+				background: url(/images/icon_set.png) no-repeat -134px -83px;
+				background-size: 180px 450px;
+			}
+			.input-box-wrap {
+				.input-box {
+					width: 100%;
+					height: 34px;
+					border: 1px solid #ddd;
+					margin-top: 5px;
+					border-radius: 3px;
+					background-color: transparent;
+					resize: none;
+				}
+			}
+			.submit-btn-wrap {
+				position: relative;
+				width: 25%;
+				padding-right: 2%;
+				.submit-btn {
+					display: block;
+					width: 90%;
+					margin-bottom: 4px;
+					border-radius: 3px;
+					font-size: 14px;
+					color: #777;
+					line-height: 24px;
+					background-color: #ddd;
+				}
+			}
+
 		}
 	}
 

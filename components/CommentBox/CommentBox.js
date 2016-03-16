@@ -1,8 +1,10 @@
 'use strict';
-import React from 'react';
+import React, { PropTypes }from 'react';
 import CommentList from './CommentList.js';
 import CommentForm from './CommentForm.js';
-import ReturnButton from '../ReturnButton/ReturnButton';
+import CommentFormCommunity from './CommentFormCommunity';
+import CommonHeader from '../HeaderComponents/CommonHeader';
+import ReturnButton from '../HeaderComponents/ReturnButton';
 import CommentWonderfulHeader from './CommentWonderfulHeader';
 import CommentWriteGuide from './CommentWriteGuide';
 import withStyles from '../../decorators/withStyles';
@@ -18,6 +20,7 @@ class CommentBox extends React.Component {
 				{userAvatar: 'http://wx.qlogo.cn/mmopen/kofjCXITdCCehjLb2FuuBcaQicDlaiaZqHXT6cRHdVkpH02GjvnT9yK1clDFYrqST5yIDZ9FT5TqzVibHRRUcS3NbZ3MT6eGN52/0', userName: 'Smile_Boy', commentTime: ' 2016/3/7 14:11:20', likeNum: 12, likeIconState: false, commentText: '我们在海天相接处挥手'},
 				{userAvatar: 'http://wx.qlogo.cn/mmopen/kofjCXITdCCehjLb2FuuBcaQicDlaiaZqHXT6cRHdVkpH02GjvnT9yK1clDFYrqST5yIDZ9FT5TqzVibHRRUcS3NbZ3MT6eGN52/0', userName: 'Smile_Boy', commentTime: ' 2016/3/7 14:11:20', likeNum: 12, likeIconState: true, commentText: '我们在海天相接处挥手'},
 			],
+      myData: {myAvatar: 'http://wx.qlogo.cn/mmopen/4v9DqJtCqotKkQzOMdlgsQXWvBQuxYibbiaezbvqUrvDx1fIcLYVE2CANez05uKLsXghFWUuXuynFBS5ACOmTRjxibuibO8p02rO/132', myName: 'And One', myLikeIconState: true}
 		};
 		this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
 	}
@@ -36,7 +39,7 @@ class CommentBox extends React.Component {
   }
 	handleCommentSubmit(comment) {
     let comments = this.state.data;
-  	let	newComments = comments.concat([comment]);
+  	let	newComments = [comment].concat(comments);
     this.setState({data: newComments});
     // $.ajax({
     //   url: this.props.url,
@@ -45,6 +48,7 @@ class CommentBox extends React.Component {
     //   data: comment,
     //   success: function(data) {
     //     this.setState({data: data});
+    //     this.setState({myData: myData});
     //   }.bind(this),
     //   error: function(xhr, status, err) {
     //     this.setState({data: comments});
@@ -75,27 +79,116 @@ class CommentBox extends React.Component {
   	// this.loadCommentsFromServer();
    //  setInterval(this.loadCommentsFromServer, this.props.pollInterval);
   }
+  swichUserComment() {
+
+  }
 	render() {
 		const _funcs = {
 			onCommentSubmit: this.handleCommentSubmit, 
 			toggleCommentForm: this.toggleCommentForm,
 		};
+    let 
+      commentHeader,
+      commentWriteGuide,
+      commentForm;
+    if (this.props.options.commentHeader !== '') {
+      switch(this.props.options.commentHeader) {
+        case 'off':
+          commentHeader = null;
+          break;
+        default:
+          commentHeader = <CommentWonderfulHeader data={this.state.data.length}/>;
+      }
+    }
+    if (this.props.options.commentWriteGuide !== '') {
+      switch(this.props.options.commentWriteGuide) {
+        case 'off':
+          commentWriteGuide = null;
+          break;
+        default:
+          commentWriteGuide = <CommentWriteGuide funcs={_funcs}/>;
+      }
+    }
+    // if (this.props.options.commentForm !== '') {
+    //   switch(this.props.options.commentForm) {
+    //     case 'off':
+    //       commentForm = null;
+    //       break;
+    //     case 
+    //     case 'Community':
+    //       commentForm = <CommentFormCommunity funcs={_funcs} myData={this.state.myData} />;
+    //       break;
+    //     default:
+    //       commentForm = <CommentForm funcs={_funcs} myData={this.state.myData} />;
+    //   }
+    // }
+    if (this.props.options.commentForm !== '') {
+      let patternForm = this.props.options.commentForm;
+      if (patternForm == 'off') {
+        commentForm = null;
+      } 
+      else if (patternForm.indexOf('Community') != -1) {
+        if (patternForm == 'Community-Pen') {
+          commentForm = <CommentFormCommunity funcs={_funcs} myData={this.state.myData} mode="Pen"/>;
+        } else {
+          commentForm = <CommentFormCommunity funcs={_funcs} myData={this.state.myData}/>;
+        }
+      }
+      else {
+        commentForm = <CommentForm funcs={_funcs} myData={this.state.myData} />;
+      }
+    }
 		return (
 			<div className="CommentBox">
-				<ReturnButton/>
-				<CommentWonderfulHeader data={this.state.data.length}/>
-				<CommentList data={this.state.data}/>
-				<CommentWriteGuide funcs={_funcs}/>
-				<CommentForm funcs={_funcs}/>
+				{commentHeader}
+				<CommentList data={this.state.data} options={this.props.options.commentItem}/>
+				{commentWriteGuide}
+				{commentForm}
 			</div>
 		);
 	}
+}
+
+CommentBox.propTypes = {
+  options: PropTypes.object,
 }
 
 
 export default CommentBox;
 
 // ReactDOM.render(
-//   <CommentBox url="/api/comments" pollInterval={2000} />,
+//   <CommentBox url="/api/comments" pollInterval={2000} options={}/>,
 //   document.getElementById('content')
 // );
+
+/********************************/
+// CommentBox调用说明：
+// url:
+// 必须
+// pollInterval:
+// 非必需
+
+// options用做配置选项
+//   统一配置值为off不显示。
+//   commentHeader: 'off',
+//   评论页面头部
+
+//   commentItem: 'PurchaseAdvice',
+//   评论项的样式，资源模块评论样式(默认)、社区评论样式(Community)、购买咨询评论样式(PurchaseAdvice)
+//   commentWriteGuide: 'off',
+//   评论引导项，默认资源评论模块的样式。
+//   commentForm: 'Community-Pen',
+//   评论输入框样式，资源模块(默认)、社区评论样式(Community)、购买咨询评论样式(Community-Pen)
+// 必须
+// Code Example:
+//   let commentBoxOptions = {
+//     commentHeader: 'off',
+//     commentItem: 'PurchaseAdvice',
+//     commentWriteGuide: 'off',
+//     commentForm: 'Community-Pen',
+//   };
+//   <CommentBox options={commentBoxOptions}></CommentBox>
+/******************************/
+
+
+
