@@ -21,6 +21,8 @@ import NewBookList from './components/NewBookList/NewBookList';
 
 import ArticleDisplay from './components/ArticleDisplay/ArticleDisplay';
 import BookDetail from './components/BookDetail/BookDetail';
+import BookConsult from './components/BookDetail/BookConsult';
+import BookSourceList from './components/BookDetail/BookSourceList';
 
 import GoodsList from './components/GoodsList/GoodsList';
 import CommodityDetail from './components/CommodityDetail/CommodityDetail';
@@ -39,36 +41,38 @@ import SocialDetail from './components/SocialArea/SocialDetail';
 
 export default (
 
-  <Route path="/" component={App} >
-  	<IndexRoute component={ShopPageHome}/>
-    <Route path="/danpin" component={ShopPage}>
+  <Route component={App} >
+  	<Route path="/" component={ShopPageHome}/>
+    <Route path="danpin" component={ShopPage}>
       <IndexRoute component={ShopPageHome}/>
       <Route path="books" component={BookType}/>
       <Route path="booklist/:typeIndex" component={BookList}/>
       <Route path="bookbuy/:id" component={BookDetail}/>
+      <Route path="bookconsult/:id" component={BookConsult}/>
+      <Route path="booksource/:id" component={BookSourceList}/>
       <Route path="newbooklist/:type" component={NewBookList}/>
     </Route>
-    <Route path="/shop" component={ShopIndexPage}>
+    <Route path="shop" component={ShopIndexPage}>
       <IndexRoute component={ShopPageIndexHome} />
       <Route path="goodslist/:typeId" component={GoodsList}/>
       <Route path="goodsbuy/:id" component={CommodityDetail}/>
     </Route>
-    <Route path="/source" component={SourcePage}/>
+    <Route path="source" component={SourcePage}/>
 
-    <Route path="/everyday" component={EverydayPage}>
+    <Route path="everyday" component={EverydayPage}>
       <IndexRoute component={EverydayPageHome}/>
       <Route path=":id/display" component={ArticleDisplay} />
     </Route>
 
-    <Route path="/usermenu" component={UserMenuPage}/>
-    <Route path="/favorites" component={Favorites}/>
+    <Route path="usermenu" component={UserMenuPage}/>
+    <Route path="favorites" component={Favorites}/>
 
-    <Route path="/orderlist" component={OrderList}>
+    <Route path="orderlist" component={OrderList}>
       <IndexRoute component={OrderListHome} />
       <Route path=":id/display" component={OrderDisplay}/>
     </Route>
 
-    <Route path="/socialarea" component={SocialArea}>
+    <Route path="socialarea" component={SocialArea}>
       <IndexRoute component={SocialAreaHome} />
       <Route path=":id/display" component={SocialDetail}/>
     </Route>

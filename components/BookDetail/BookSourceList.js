@@ -1,8 +1,10 @@
 import React from 'react';
-import SourceBox from './SourceBox';
+import BookSourceBox from './BookSourceBox';
+import CommonHeader from '../HeaderComponents/CommonHeader';
+import ReturnButton from '../HeaderComponents/ReturnButton';
 
 import withStyles from '../../decorators/withStyles';
-import styles from './SourceList.scss';
+import styles from './BookSourceList.scss';
 
 var dataArray =
 [
@@ -49,16 +51,19 @@ var dataArray =
 ];
 
 @withStyles(styles)
-class SourceList extends React.Component {
+class BookSourceList extends React.Component {
 	render(){
 		let SourceBoxes = dataArray.map((item) =>{
 				return (
-					<SourceBox data={item} key={item.id}/>
+					<BookSourceBox data={item} key={item.id}/>
 				);
 			}
 		);
 		return (
 						<div className="SourceList">
+							<CommonHeader>
+								<ReturnButton />
+							</CommonHeader>
 							<div className="title">配套资源</div>
 							{SourceBoxes}
 							<div className="bottom">
@@ -72,4 +77,4 @@ class SourceList extends React.Component {
 				}
 			}
 
-			export default SourceList;
+			export default BookSourceList;
