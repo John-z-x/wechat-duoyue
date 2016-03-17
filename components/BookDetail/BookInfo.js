@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 class BookInfo extends React.Component {
 	render() {
@@ -17,16 +18,16 @@ class BookInfo extends React.Component {
 		            <tbody>
 			            <tr>
 			              <td>
-			              	<div className="icon-box">
+			              	<Link to={`/danpin/booksource/${this.props.data.bookData.id}`} className="icon-box">
 		                    <div className="book-buy-icon"></div>
 		                  	<div className="icon-box-title">购买</div>
-			                </div>
+			                </Link>
 			              </td>
 			              <td>
-			              	<div className="icon-box">
+			              	<Link to={`/danpin/bookconsult/${this.props.data.bookData.id}`} className="icon-box">
 				              	<div className="book-consult-icon"></div>
 			              		<div className="icon-box-title">客服</div>
-			                </div>
+			                </Link>
 			              </td>
 			            </tr>
 		          	</tbody>
@@ -46,6 +47,8 @@ class BookInfo extends React.Component {
 	            <div className="book-read-btn">
 	                在线阅读&nbsp;<span>￥{this.props.data.bookData.readPrice}</span>
 	            </div>
+
+							<Link to={`/danpin/booksource/${this.props.data.bookData.id}`} className="book-read-btn"><span>配套资源</span></Link>
 	          </div>   
         	</div>
 

@@ -121,6 +121,7 @@
     border-top: 1px solid #eee;
   }
   .book-read-btn {
+    display: block;
     width: 160px;
     margin: auto;
     padding: 8px 0 8px 0;
@@ -128,6 +129,7 @@
     border-radius: 25px;
     color: #62c3a2;
     text-align: center;
+    margin-top: 5px;
   }
   .book-buy-box {
     padding: 20px 0 10px 0;

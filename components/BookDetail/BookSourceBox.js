@@ -1,6 +1,6 @@
 import React from 'react';
 
-class SourceBox extends React.Component {
+class BookSourceBox extends React.Component {
  	render() {
  		let data = this.props.data;
 			return (
@@ -29,4 +29,4 @@ class SourceBox extends React.Component {
 				);
 			}
 		}
-		export default SourceBox;
+		export default BookSourceBox;
