@@ -3,7 +3,6 @@ import React from 'react';
 import classnames from 'classnames';
 
 class Cover extends React.Component {
-
 	render() {
 		const display = this.props.cover ? "show" : "hide";
 		let coverClassName = classnames('cover', display );

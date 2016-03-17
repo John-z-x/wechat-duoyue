@@ -1,11 +1,34 @@
 import React from 'react';
 
+let defaultClass = {
+  "Favor": "Favor",
+  "noFavor": "noFavor"
+}
+
 class CollectButton extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      isFavor: false
+    }
+    this.toggleFavor = this.toggleFavor.bind(this);
+  }
+
+  toggleFavor() {
+    this.setState({
+      isFavor: !this.state.isFavor
+    })
+    this.props.onFavorChange && this.props.onFavorChange(this.state.isFavor);
+  }
+
   render() {
+    let imgsClass = this.props.imgsClass , classnames, onClass, notonClass;
+    onClass = imgsClass ? defaultClass.Favor +" "+imgsClass.Favor : defaultClass.Favor ;
+    notonClass = imgsClass ? defaultClass.noFavor + " " +imgsClass.noFavor : defaultClass.noFavor;
+    classnames = this.state.isFavor ? onClass : notonClass ;
     return (
-      <span className="CollectButton btn right">
-      	<em className="icon"></em>
-      </span>
+      <span className={classnames +" right"} onClick={this.toggleFavor}></span>
     );
   }
 }
