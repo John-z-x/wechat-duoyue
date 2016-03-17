@@ -17,7 +17,6 @@ class GoodsNumModify extends React.Component {
 
 	render() {
 		const { num, ModifyNum }  = this.props;
-		//console.log(this.props);
 		return (
 			<div className="classify-price right">
 				<a className="goods-classify left change-item-number" onClick={this.modifyNum.bind(this)}> - </a>

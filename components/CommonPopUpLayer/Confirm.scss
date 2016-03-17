@@ -1,0 +1,41 @@
+.Confirm {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  z-index: 11101;
+  width: 200px;
+  height: 105px;
+  border: 1px solid #62c3a2;
+  font-size: 14px;
+  line-height: 22px;
+  border-radius: 7px;
+  margin-left: -100px;
+  background-color: #fff;
+  font-family: 'Microsoft Yahei';
+  .content {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    color: #333;
+  }
+  .text{
+    margin-top: 20px;
+    text-align: center;
+  }
+  .no,
+  .yes {
+    margin: 0 10px;
+    width: 50px;
+    height: 25px;
+    border: 1px solid #62c3a2;
+    border-radius: 3px;
+    font-family: 'Microsoft Yahei';
+  }
+  .no {
+    color: #62c3a2;
+  }
+  .yes {
+    background-color: #62c3a2;
+    color: #fff;
+  }
+}

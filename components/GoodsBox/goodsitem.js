@@ -1,5 +1,4 @@
 import React from 'react';
-import GoodsNumModify from './GoodsNumModify';
 
 class GoodsItem extends React.Component {
 
@@ -22,7 +21,7 @@ class GoodsItem extends React.Component {
 					<div className="goods-price clearfix">
 						<div className="oneprice left">¥{data.price}</div>
 						<div className="cancel-goods right" onClick={this.deleteItem.bind(this)}>删除</div>
-						<GoodsNumModify num={data.num} id={data.id} ModifyNum={actions.ModifyNum}/>
+            {this.props.children}
 					</div>
 				</div>
 			</li>

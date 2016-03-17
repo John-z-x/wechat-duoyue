@@ -1,0 +1,28 @@
+.Alert {
+  position: fixed;
+  left: 15%;
+  top: 20%;
+  z-index: 11003;
+  width: 70%;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, .5);
+
+  .img {
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin: 20px auto;
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+  .content {
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    font-family: 'Microsoft Yahei';
+    margin: 20px 0;
+  }
+}
+
