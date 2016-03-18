@@ -1,12 +1,8 @@
 import React from 'react';
 
 class ConfirmFooter extends React.Component {
-	getMoneyForOne(item) {
-    return parseInt(item.price, 10) * parseInt(item.num ,10);
-	}
-
 	render() {
-    var money = 0, num = 0, data = this.props.data;
+    let money = 0, num = 0, data = this.props.data;
     data.map( item => {
       money += parseInt(item.num, 10)*parseInt(item.price, 10);
       num += parseInt(item.num);

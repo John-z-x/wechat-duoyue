@@ -11,3 +11,4 @@ export default function (state = cover, actions) {
 		  return state
 	}
 }
+

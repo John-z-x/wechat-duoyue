@@ -5,18 +5,21 @@ class CommoditysNumModify extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      num: this.props.num,
+      num: 1
     }
   }
-  modifyNum() {
-    var type = event.target.innerHTML, num = this.state.num;
-    //提交后台并返回成功后继续。。
-    //console.log(type)
+
+  modifyNum(event) {
+    let type = event.target.innerHTML, num = this.state.num;
     if (type.indexOf("+") > -1) {
       this.setState({num: parseInt(num, 10) + 1});
     }else if (num > 1){
       this.setState({num: parseInt(num, 10) - 1})
     }
+  }
+
+  getNum() {
+    return this.state.num;
   }
   
   render() {

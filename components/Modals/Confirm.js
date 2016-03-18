@@ -11,12 +11,12 @@ class Confirm extends React.Component {
   }
 
   confirmResult(result) {
-    this.props.confirmAction && this.props.confirmAction(result);
+    this.props.confirmResult && this.props.confirmResult(result);
   }
 
   render() {
     return (
-      <div className="Confirm">
+      <div className={"Confirm "}>
         <span className="content">{this.props.content}</span>
         <div className="text">
           <button className="no" onClick={ ()=> { return this.confirmResult(false); }}>取消</button>
