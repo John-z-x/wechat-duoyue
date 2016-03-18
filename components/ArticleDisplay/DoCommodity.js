@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -14,7 +14,9 @@ class DoCommodity extends React.Component {
   render() {
     return(
       <div className="doCommodity clearfix">
-        <div className="buy-immediate left">立即购买</div>
+        <Link to="/confirmorder" >
+          <div className="buy-immediate left">立即购买</div>
+        </Link>
         <div className="addto-shopcart right" onClick={this.addToCart.bind(this)}>加入购物车</div>
       </div>
     );
