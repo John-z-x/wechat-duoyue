@@ -3,7 +3,7 @@
     position: fixed;
     left: 0;
     top: 0;
-    z-index: 11000;
+    z-index: 10010;
     width: 100%;
     height: 40px;
     background-color: white;
@@ -56,5 +56,17 @@
     width: 40px;
     background: url(http://www.duoyue.me/images/album/icon_download.png) center no-repeat ;
     background-size: 21px 21px;
+  }
+
+  .HeaderTitle {
+    position: fixed;
+    width: 60%;
+    top: 0;
+    left: 20%;
+    text-align: center;
+    font-size: 16px;
+    color: #333333;
+    height: 100%;
+    line-height: 40px;
   }
 }

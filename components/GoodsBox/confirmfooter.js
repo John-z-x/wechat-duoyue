@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 class ConfirmFooter extends React.Component {
 	render() {
@@ -16,11 +17,11 @@ class ConfirmFooter extends React.Component {
 					</div>
 					<div className="carriage">5.00</div>
 				</div>
-				<a className="confirm-footer-right right" >
+				<Link to="/confirmorder" className="confirm-footer-right right" >
 					<span>去结算(</span>
 					  <span className="confirm-num">{num}</span>
 					<span>)</span>
-				</a>
+				</Link>
 			</div>
 		);
 	}
