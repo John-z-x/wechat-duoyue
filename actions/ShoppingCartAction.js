@@ -29,6 +29,7 @@ function requestPosts(reddit) {
 }
 
 function receivePosts(text, json) {
+  console.log(json);
   return {
   	type: "RECEIVED_POSTS",
     text: text,

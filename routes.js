@@ -39,6 +39,8 @@ import SocialArea from './components/SocialArea/SocialArea';
 import SocialAreaHome from './components/SocialArea/home';
 import SocialDetail from './components/SocialArea/SocialDetail';
 
+import ConfirmOrder from './components/ConfirmOrder/ConfirmOrder';
+
 export default (
 
   <Route component={App} >
@@ -75,6 +77,9 @@ export default (
     <Route path="socialarea" component={SocialArea}>
       <IndexRoute component={SocialAreaHome} />
       <Route path=":id/display" component={SocialDetail}/>
+    </Route>
+
+    <Route path="confirmorder" component={ConfirmOrder}>
     </Route>
   </Route>
 )
