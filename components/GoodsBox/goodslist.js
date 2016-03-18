@@ -1,23 +1,13 @@
 import React from 'react';
 import GoodsItem from './GoodsItem';
-import Confirm from '../CommonPopUpLayer/Confirm';
 import GoodsNumModify from './GoodsNumModify';
 
 class GoodsList extends React.Component {
-
-  constructor(props) {
-    super(props);
-  }
-
-  confirmAction(index) {
-
-  }
-
 	render() {
 		const { data, actions } = this.props;
-		let itemNodes = data.map( (item) => {
+		let itemNodes = data.map( (item, index) => {
 				return (
-					<GoodsItem data={item}  actions={actions} id={item.id} key={item.id}>
+					<GoodsItem data={item}  showConfirm={actions.showConfirm} key={index}>
             <GoodsNumModify num={item.num} id={item.id} ModifyNum={actions.ModifyNum}/>
           </GoodsItem>
 				);
@@ -28,7 +18,6 @@ class GoodsList extends React.Component {
 		return (
 			<ul className="cart-goods" >
 				{itemNodes}
-        <Confirm ConfirmAction={this.confirmAction.bind(this)}/>
 			</ul>
 		);
 	}

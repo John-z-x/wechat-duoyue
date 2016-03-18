@@ -1,15 +1,8 @@
 import React from 'react';
 
 class GoodsItem extends React.Component {
-
-	deleteItem(event) {
-		//后台返回成功后继续。。
-    this.props.actions.DeleteItem(this.props.data.id);
-	}
-
 	render() {
-		const { data, actions } = this.props;
-		//console.log(this.props.actions);
+		const { data } = this.props;
 		return (
 			<li className="goods-item flex">
 				<div className="goods-img left">
@@ -20,7 +13,7 @@ class GoodsItem extends React.Component {
 					<div className="goods-size">{data.size}</div>
 					<div className="goods-price clearfix">
 						<div className="oneprice left">¥{data.price}</div>
-						<div className="cancel-goods right" onClick={this.deleteItem.bind(this)}>删除</div>
+						<div className="cancel-goods right" onClick={ () => this.props.showConfirm(data.id)}>删除</div>
             {this.props.children}
 					</div>
 				</div>

@@ -10,8 +10,14 @@ export default function data(state = [] , action) {
 		  return state.filter(item =>
 				item.id !== action.id
 		  )
+
+    case "ADD_GOODS":
+      action.json.num = action.num;
+      return [action.json].concat(state)
+
 		case "RECEIVED_POSTS":
 		  return action.data
+
 		default:
 		  return state;
 	}

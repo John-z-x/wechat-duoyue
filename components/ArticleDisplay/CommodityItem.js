@@ -4,9 +4,16 @@ import DoCommodity from './DoCommodity';
 
 //商品列表
 class CommoditysItem extends React.Component {
+
+  getNum() {
+    return {
+      id: this.props.data.id,
+      num: this.refs.num.getNum()
+    }
+  }
+
   render() {
-    var data = this.props.data;
-    //console.log(data.id);
+    let data = this.props.data;
     return (
       <li className="commoditys-item clearfix flex">
         <div className="commoditys-img left">
@@ -14,12 +21,11 @@ class CommoditysItem extends React.Component {
         </div>
         <div className="commoditys-detail left">
           <div className="commoditys-title">{data.title}</div>
-          <div className="commoditys-size">{data.size}</div>
           <div className="commoditys-price clearfix">
             <div className="oneprice left">¥{data.price}</div>
-            <CommodityNumModify num={data.num} id={data.id}/>
+            <CommodityNumModify id={data.id} ref="num"/>
           </div>
-          <DoCommodity/>
+          <DoCommodity getNum={this.getNum.bind(this)}/>
         </div>
       </li>
     );

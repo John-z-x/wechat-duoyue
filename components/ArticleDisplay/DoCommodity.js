@@ -1,15 +1,37 @@
 import React from 'react';
 
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import * as addGoodsActions from '../../actions/AddGoodsToCartActions';
 //立即购买 加入购物车
 class DoCommodity extends React.Component {
+
+  addToCart() {
+    const { num, id } = this.props.getNum();
+    this.props.actions.addGoods(id, num);
+  }
   render() {
     return(
       <div className="doCommodity clearfix">
         <div className="buy-immediate left">立即购买</div>
-        <div className="addto-shopcar right">加入购物车</div>
+        <div className="addto-shopcart right" onClick={this.addToCart.bind(this)}>加入购物车</div>
       </div>
     );
   }
 }
 
-export default DoCommodity;
+function mapStateToProps(state) {
+  return {};
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+     actions: bindActionCreators(addGoodsActions, dispatch)
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(DoCommodity);

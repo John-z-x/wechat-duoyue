@@ -10,7 +10,7 @@ class Alert extends React.Component {
     let imgCode = content.img ? <span className="img" style={{backgroundImage: `url(${content.img})` }}> </span> : null;
     let contentCode = content.content ? <span className="content">{content.content}</span>: null ;
     return (
-      <div className={"Alert "+ShowOrHide}>
+      <div className={"Alert "+ ShowOrHide}>
         {imgCode}
       {contentCode}
       </div>
