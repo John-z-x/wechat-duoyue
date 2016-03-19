@@ -12,18 +12,18 @@
   margin-left: -100px;
   background-color: #fff;
   font-family: 'Microsoft Yahei';
-  .content {
+  .confirm-content {
     display: block;
     margin-top: 20px;
     text-align: center;
     color: #333;
   }
-  .text{
+  .confirm-text{
     margin-top: 20px;
     text-align: center;
   }
-  .no,
-  .yes {
+  .confirm-no,
+  .confirm-yes {
     margin: 0 10px;
     width: 50px;
     height: 25px;
@@ -31,10 +31,10 @@
     border-radius: 3px;
     font-family: 'Microsoft Yahei';
   }
-  .no {
+  .confirm-no {
     color: #62c3a2;
   }
-  .yes {
+  .confirm-yes {
     background-color: #62c3a2;
     color: #fff;
   }

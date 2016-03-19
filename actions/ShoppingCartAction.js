@@ -7,7 +7,6 @@ export function ModifyNum(id, num) {
 }
 
 export function DeleteItem(id) {
-	//console.log("delete");
   return { "type": "DELETE_ITEM", id}
 }
 
@@ -29,7 +28,6 @@ function requestPosts(reddit) {
 }
 
 function receivePosts(text, json) {
-  console.log(json);
   return {
   	type: "RECEIVED_POSTS",
     text: text,

@@ -24,9 +24,11 @@ class Cart extends React.Component {
     const { cover, data, actions } = this.props;
 		return (
 			<div className="Cart">
-				<Cover cover={cover}>
+      { this.props.cover &&
+        <Cover>
           <GoodsBox data={data} actions={actions} />
         </Cover>
+      }
         <ShowCart data={data} ModifyCover={actions.ModifyCover}/>
 			</div>
 		);
