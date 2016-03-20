@@ -17,7 +17,7 @@ class GoodsList extends React.Component {
 		}
 		return (
 			<ul className="cart-goods" >
-				{itemNodes}
+          {itemNodes}
 			</ul>
 		);
 	}

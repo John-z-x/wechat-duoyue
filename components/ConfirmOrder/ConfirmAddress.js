@@ -1,26 +1,21 @@
 import React from 'react';
 
 class ConfirmAddress extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isHaveAddress: 0,
-    }
-  }
   render() {
-    let addressRow = this.state.isHaveAddress ?
+    let addressInfo = this.props.addressInfo;
+    let addressRow = addressInfo ?
       (<div className="address">
         <div className="location-icon"></div>
         <ul className="address-info clearfix">
           <li>
-            <span className="address-name">范宇阳</span>
-            <span className="address-phone">18672980526</span>
+            <span className="address-name">{addressInfo.name}</span>
+            <span className="address-phone">{addressInfo.phoneNumber}</span>
           </li>
           <li>
-            <span className="address-location">武汉理工大学</span> 
+            <span className="address-location">{addressInfo.address}</span>
           </li>
         </ul>  
-        <div className="address-arrow" data-reactid=".0.1.0.0.0.1"></div>
+        <div className="address-arrow"></div>
       </div>)
       :
       (<div className="address-null">
@@ -28,7 +23,7 @@ class ConfirmAddress extends React.Component {
         <div className="address-null-arrow"></div>         
       </div>);
     return(
-      <div className="ConfirmAddress">
+      <div className="ConfirmAddress" onClick={this.props.showAddressEditor}>
         {addressRow}
       </div>
     );

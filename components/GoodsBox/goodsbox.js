@@ -17,14 +17,11 @@ class GoodsBox extends React.Component {
   confirmResult(result) {
     this.setState({
       modalDisplay: false
-
-
     })
     result && this.props.actions.DeleteItem(this.id);
   }
 
   showConfirm(id) {
-    console.log(1);
     this.setState({
       modalDisplay: true
     })
@@ -39,9 +36,12 @@ class GoodsBox extends React.Component {
 				<ConfirmTop ModifyCover={actions.ModifyCover} LoadData={actions.LoadData}/>
 				<GoodsList data={data} actions={actions} />
 				<ConfirmFooter data={data} />
-        <Modal display={this.state.modalDisplay}>
+      {
+        this.state.modalDisplay &&
+        <Modal>
           <Confirm confirmResult={this.confirmResult} content="确认删除?"/>
         </Modal>
+      }
 			</div>
 		);
 	}

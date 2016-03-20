@@ -16,11 +16,11 @@ class Confirm extends React.Component {
 
   render() {
     return (
-      <div className={"Confirm "}>
-        <span className="content">{this.props.content}</span>
-        <div className="text">
-          <button className="no" onClick={ ()=> { return this.confirmResult(false); }}>取消</button>
-          <button className="yes" onClick={ ()=> { return this.confirmResult(true); }}>好</button>
+      <div className={"Confirm"}>
+        <span className="confirm-content">{this.props.content}</span>
+        <div className="confirm-text">
+          <button className="confirm-no" onClick={ ()=> { return this.confirmResult(false); }}>取消</button>
+          <button className="confirm-yes" onClick={ ()=> { return this.confirmResult(true); }}>好</button>
         </div>
       </div>
     );
