@@ -50,4 +50,20 @@
     background-size: 400px;
     vertical-align: middle;
   }
+  .scrollPage{
+    position: fixed; 
+    bottom: 20px; 
+    left: 50%;
+    margin-left: -20px;
+    padding: 0 7px;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+  }
+  .nodata{
+    height: 50px; 
+    line-height: 50px; 
+    text-align: center; 
+    background: #f2f2f2;
+  }
 }
