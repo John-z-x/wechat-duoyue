@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { PropTypes} from 'react';
 
 import Cart from '../components/CartUIComponent/Cart';
 
 class ShopIndexPage extends React.Component {
 
-	render() {
+	static propTypes = {
+		children: PropTypes.any
+	};
 
+	render() {
 		return (
       <div className="ShopIndexPage">
 				<Cart />

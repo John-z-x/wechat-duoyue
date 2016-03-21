@@ -62,9 +62,9 @@ let shopData = {
     ]
   },
   SliderList: [
-    {"id": "1", href: '/danpin/bookbuy/6227',"url": "/images/first.jpg", "title": "长江出版社"},
-    {"id": "2", href: '/danpin/bookbuy/6227',"url": "/images/second.jpg", "title": "哈尔冰出版社"},
-    {"id": "3", href: '/danpin/bookbuy/6227',"url": "/images/third.jpg", "title": "北京出版社"}
+    {"id": "1", href: '/danpin/bookbuy/6227',"url": "/images/first.jpg", "title": ""},
+    {"id": "2", href: '/danpin/bookbuy/6227',"url": "/images/second.jpg", "title": ""},
+    {"id": "3", href: '/danpin/bookbuy/6227',"url": "/images/third.jpg", "title": ""}
   ]
 }
 

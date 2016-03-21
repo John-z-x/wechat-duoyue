@@ -7,7 +7,6 @@ var port = 8082;
 var compiler = webpack(config);
 var server = new WebpackDevServer(compiler, {
 	publicPath: config.output.publicPath,
-	hot: true,
 	stats: {
 		colors: true
 	},
@@ -21,9 +20,9 @@ var server = new WebpackDevServer(compiler, {
 server.use('/', function(req, res) {
 	res.sendFile(path.join(__dirname+'/index.html'));
 });
-		server.listen(port, 'localhost', function(err) {
+		server.listen(port, 'localhost', (err) => {
 			if(err) {
 				console.log(err);
 			}
-			console.log('Listening at localhost:' + port);
+			console.log(`Listening at localhost: ${port}`);
 		});
