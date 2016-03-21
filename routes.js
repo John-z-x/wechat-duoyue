@@ -13,7 +13,7 @@ import UserMenuPage from './pages/UserMenuPage';
 import EverydayPageHome from './components/PageEveryDay/home';
 import ShopPageHome from './components/PageShop/home';
 import ShopPageIndexHome from './components/PageShopIndex/home';
-
+import SourcePageHome from './components/PageSource/home';
 
 import BookList from './components/BookList/BookList';
 import BookType from './components/BookType/BookType';
@@ -35,6 +35,8 @@ import IntegrationConsumeList from './components/UserIntegration/IntegrationCons
 import TotalIntegrationList from './components/UserIntegration/TotalIntegrationList';
 
 import VideoModule from './components/SourceModules/VideoModule/VideoModule';
+import AudioModule from './components/SourceModules/AudioModule/AudioModule';
+import PhotoGallery from './components/SourceModules/PhotoGallery/PhotoGallery';
 
 import OrderList from './components/OrderList/OrderList';
 import OrderListHome from './components/OrderList/home';
@@ -58,12 +60,20 @@ export default (
       <Route path="booksource/:id" component={BookSourceList}/>
       <Route path="newbooklist/:type" component={NewBookList}/>
     </Route>
+
     <Route path="shop" component={ShopIndexPage}>
       <IndexRoute component={ShopPageIndexHome} />
       <Route path="goodslist/:typeId" component={GoodsList}/>
       <Route path="goodsbuy/:id" component={CommodityDetail}/>
     </Route>
-    <Route path="source" component={SourcePage}/>
+
+    <Route path="source" component={SourcePage}>
+      <IndexRoute component={SourcePageHome} />
+      <Route path="audio/:id" component={AudioModule}/>
+      <Route path="video/:id" component={VideoModule}/>
+      <Route path="photo/:id" component={PhotoGallery}/>
+      <Route path="pdf/:id" component={PhotoGallery}/>
+    </Route>
 
     <Route path="everyday" component={EverydayPage}>
       <IndexRoute component={EverydayPageHome}/>

@@ -58,7 +58,7 @@ class SourceBox extends React.Component {
 
   distribution(nextProps) {
     let list  = nextProps == undefined ? this.props.list : nextProps.list, parentBox, _self = this;
-    console.log(list);
+    //console.log(list);
     list.map( (item) =>  {
       var img = new Image();
       img.src = item.pic;
@@ -72,13 +72,7 @@ class SourceBox extends React.Component {
     })
 
     function loadImg(item) {
-      console.log(item.pic)
-
-
-
-
-
-
+      //console.log(item.pic)
       parentBox = _self.getBox();
       if(parentBox.indexOf("left") > -1) {
         _self.setState({
