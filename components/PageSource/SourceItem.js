@@ -1,19 +1,33 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const sourceTypeIcons = [
-  "http://www.duoyue.me/images/mobile/icon_svideo.png",
-  "http://www.duoyue.me/images/mobile/icon_smusic.png",
-  "http://www.duoyue.me/images/mobile/icon_spdf.png",
-  "http://www.duoyue.me/images/mobile/icon_spic.png"
-]
+  {
+    "flag": "http://www.duoyue.me/images/mobile/icon_svideo.png",
+    "to": "video"
+  },
+  {
+    "flag": "http://www.duoyue.me/images/mobile/icon_smusic.png",
+    "to": "audio"
+  },
+  {
+    "flag": "http://www.duoyue.me/images/mobile/icon_spdf.png",
+    "to": "pdf"
+  },
+  {
+    "flag": "http://www.duoyue.me/images/mobile/icon_spic.png",
+    "to": "photo"
+  }
+];
 
 class SourceItem extends React.Component {
 	render() {
 		let data = this.props.data;
-    let sourceTypeSrc = sourceTypeIcons[data.type-1];
+    let sourceTypeSrc = sourceTypeIcons[data.type-1].flag;
+    let to = "/source/" + sourceTypeIcons[data.type-1].to + "/"+data.id;
 		return (
 			<div className="item">
-        <a  className="source-box">
+        <Link to={to} className="source-box">
           <div className="source-img-box" >
             <img src={sourceTypeSrc} className="source-img" alt="data.type"/>
           </div>
@@ -28,7 +42,7 @@ class SourceItem extends React.Component {
             <img src="../images/look.png" alt="look-num" className="source-count-img2"/>
             <div className="source-count-font">浏览<span>{data.penSize}</span></div>
           </div>
-        </a>
+        </Link>
       </div>
 		);
 	}
