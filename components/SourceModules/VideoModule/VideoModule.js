@@ -46,7 +46,7 @@ class VideoModule extends React.Component {
 	render() {
 		let commentBoxOptions = {
 			commentHeader: 'on',
-			commentItem: 'PurchaseAdvice',
+			commentItem: 'on',
 			commentWriteGuide: 'off',
 			commentForm: 'Community-Pen',
 			headerText: '相关评论',
@@ -56,7 +56,7 @@ class VideoModule extends React.Component {
 			<div className="VideoModule main-wrap">
 				<CommonHeader>
 					<ReturnButton/>
-					<CommentButton funcs={CommentBox.toggleCommentForm}/>
+					<CommentButton />
 					<DownLoadButton></DownLoadButton>
 					<CollectButton></CollectButton>
 				</CommonHeader>

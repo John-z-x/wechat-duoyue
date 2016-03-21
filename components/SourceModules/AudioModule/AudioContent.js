@@ -1,5 +1,5 @@
 import React from 'react';
-import AudioTopMenu from './AudioTopMenu';
+
 
 class AudioContent extends React.Component {
    constructor(props) {
@@ -48,7 +48,7 @@ class AudioContent extends React.Component {
                   <img id="isGood" src="/images/mobile/audio/musicFav.png" alt="点赞" />
                 </div>
                 <div id="favNum" className="fav-num">{this.props.data.fav}</div>
-                <div className="list-controls" onClick={}>
+                <div className="list-controls">
                   <div id="listNum" className="list-num">{this.props.now+1}/{this.props.adata}</div>
                   <div id="listBtn" className="list-btn">
                     <img src="/images/mobile/audio/musicList.png" alt="列表" />
