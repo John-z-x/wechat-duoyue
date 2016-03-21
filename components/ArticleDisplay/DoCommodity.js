@@ -10,7 +10,7 @@ import Alert from '../Modals/Alert';
 import * as addGoodsActions from '../../actions/AddGoodsToCartActions';
 
 const alertContentSuccess = {
-  "img": "http://www.duoyue.me/wechat/1018/3021/images/top/save.png",
+  "img": "/images/top/save.png",
   "content": "添加成功"
 };
 

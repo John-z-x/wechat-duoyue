@@ -76,7 +76,7 @@ class ConfirmOrder extends React.Component {
       {
         this.state.addressModal &&
         <Modal>
-          <AddressEditor info={this.state.address} submitAddress={this.submitAddress}/>
+          <AddressEditor info={this.state.addressInfo} submitAddress={this.submitAddress}/>
         </Modal>
       }
       </div>

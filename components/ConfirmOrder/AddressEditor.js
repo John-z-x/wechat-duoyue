@@ -14,8 +14,9 @@ class AddressEditor extends React.Component {
       submit(false);
     }
   }
+
   render() {
-    const data = this.props.info ? this.props.info : {};
+    const data = this.props.info || {};
     let name = data.name || null,
         phoneNumber = data.phoneNumber || null,
         address = data.address || null;
@@ -28,15 +29,15 @@ class AddressEditor extends React.Component {
         <form className="address-form">
           <div className="address-item">
             <label htmlFor="fullname">收货人</label>
-            <input className="address-editor-name" ref="name" type="text" name="fullname" placeholder="请输入收货人姓名" value={name}/>
+            <input className="address-editor-name" ref="name" type="text" name="fullname" placeholder="请输入收货人姓名" defaultValue={name}/>
           </div>
           <div className="address-item">
             <label htmlFor="telephone">联系电话</label>
-            <input className="address-editor-phone" ref="phoneNumber" type="text" name="telephone" placeholder="请输入联系电话" value={phoneNumber}/>
+            <input className="address-editor-phone" ref="phoneNumber" type="text" name="telephone" placeholder="请输入联系电话" defaultValue={phoneNumber}/>
           </div>
           <div className="address-item">
             <label htmlFor="addressDetail">地址</label>
-            <input className="address-editor-location" ref="address" type="text" name="addressDetail" placeholder="请输入收货地址" value={address}/>
+            <input className="address-editor-location" ref="address" type="text" name="addressDetail" placeholder="请输入收货地址" defaultValue={address}/>
           </div>
         </form>
         <div className="address-submit">
