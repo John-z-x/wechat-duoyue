@@ -1,8 +1,19 @@
 {
    "presets": [ "react", "es2015", "stage-0" ],
-   "plugins": [
-      "transform-es2015-modules-commonjs",
-      "transform-react-constant-elements",
-      'transform-decorators-legacy'
-   ]
+   "plugins": ['transform-decorators-legacy'],
+   "env": {
+       "development": {
+         "plugins": [["react-transform", {
+           "transforms": [{
+             "transform": "react-transform-hmr",
+             "imports": ["react"],
+             "locals": ["module"]
+           },
+           {
+            "transform": "react-transform-catch-errors",
+            "imports": ["react", "redbox-react"]
+           }]
+         }]]
+       }
+     }
 }

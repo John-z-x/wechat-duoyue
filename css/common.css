@@ -8,7 +8,6 @@
 html, body {
   width: 100%;
   height: 100%;
-  background-color: #f8f8f8;
 }
 h1, h2, h3, h4, h5, h6 {
   font-weight: lighter;
@@ -56,6 +55,7 @@ button {
 a {
 	overflow: hidden;
   text-decoration: none;
+  color: #333;
 }
 .wrapper {
   margin: 0;

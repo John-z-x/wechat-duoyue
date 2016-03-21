@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, IndexRoute, Link } from 'react-router';
+import { Route, IndexRoute } from 'react-router';
 
 /* Five header modules */
 import App from './components/App/App';
@@ -49,9 +49,8 @@ import SocialDetail from './components/SocialArea/SocialDetail';
 import ConfirmOrder from './components/ConfirmOrder/ConfirmOrder';
 
 export default (
-
   <Route component={App} >
-  	<Route path="/" component={ShopPageHome}/>
+    <Route path="/" component={ShopPageHome} />
     <Route path="danpin" component={ShopPage}>
       <IndexRoute component={ShopPageHome}/>
       <Route path="books" component={BookType}/>

@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 //const AUTOPREFIXER_BROWSERS = [
 //  'Android 2.3',
@@ -14,17 +15,14 @@ const autoprefixer = require('autoprefixer');
 //];
 
 module.exports = {
-  devtool: 'cheap-module-eval-source-map',
   entry: [
     'babel-polyfill',
-    'webpack-dev-server/client?http://localhost:8082',
-    'webpack/hot/dev-server',
     './index'
   ],
   output: {
-    filename: 'bundle.js',
+    filename: '[name].min.js',
     path: path.join(__dirname, 'public'),
-    publicPath: '/public'
+    publicPath: ''
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
@@ -32,9 +30,15 @@ module.exports = {
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('development')
+        'NODE_ENV': JSON.stringify('production')
       }
     }),
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        warnings: false
+      }
+    }),
+    new ExtractTextPlugin('app.css', { allChunks: true})
   ],
   module: {
     loaders: [
@@ -54,11 +58,12 @@ module.exports = {
       {
         test: /\.scss$/,
         loader: 'style-loader/useable!css-loader!postcss-loader!sass-loader',
+        include: `includePaths[]=${encodeURIComponent(path.resolve(__dirname, "./sass"))}`
       },  {
         test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
         loader: 'url-loader?limit=10000',
       }, {
-        test: /\.(eot|ttf|wav|mp3|mp4)$/,
+        test: /\.(eot|ttf|wav|mp3)$/,
         loader: 'file-loader',
       },
     ]
@@ -66,7 +71,6 @@ module.exports = {
   postcss: [
     autoprefixer({ browsers: ["last 2 versions"] })
   ],
-
   resolve: {
     extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx', '.json'],
   },
