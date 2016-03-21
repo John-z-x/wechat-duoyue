@@ -1,15 +1,10 @@
 import React from 'react';
-import ReturnButton from '../HeaderComponents/ReturnButton';
-import CommonHeader from '../HeaderComponents/CommonHeader';
 import IntegrationTitle from './IntegrationTitle';
 
 class TotalIntegrationList extends React.Component{
 	render(){
 		return (
 			<div className="TotalIntegrationList">
-				<CommonHeader>
-					<ReturnButton />
-				</CommonHeader>
 				<IntegrationTitle>积分记录</IntegrationTitle>
 				<div className="total-integration-container">
 					<div className="total-integration-item">
