@@ -29,6 +29,11 @@ import CommodityDetail from './components/CommodityDetail/CommodityDetail';
 
 import Favorites from './components/Favorites/Favorites';
 
+import UserIntegration from './components/UserIntegration/UserIntegration';
+import UserIntegrationHome from './components/UserIntegration/home';
+import IntegrationConsumeList from './components/UserIntegration/IntegrationConsumeList';
+import TotalIntegrationList from './components/UserIntegration/TotalIntegrationList';
+
 import VideoModule from './components/SourceModules/VideoModule/VideoModule';
 
 import OrderList from './components/OrderList/OrderList';
@@ -68,6 +73,11 @@ export default (
 
     <Route path="usermenu" component={UserMenuPage}/>
     <Route path="favorites" component={Favorites}/>
+    <Route path="userintegration" component={UserIntegration}>
+      <IndexRoute component={UserIntegrationHome} />
+      <Route path="used" component={IntegrationConsumeList}/>
+      <Route path="total" component={TotalIntegrationList}/>
+    </Route>
 
     <Route path="orderlist" component={OrderList}>
       <IndexRoute component={OrderListHome} />
