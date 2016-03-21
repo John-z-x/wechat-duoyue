@@ -9,7 +9,7 @@
 const Utils = {
   bindMethods(thisObject,...methods){
     methods.forEach((method)=> {
-      thisObject[method] = thisObject[Method].bind(thisObject);
+      thisObject[method] = thisObject[method].bind(thisObject);
     });
   }
 };
