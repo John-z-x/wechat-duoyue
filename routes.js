@@ -37,6 +37,9 @@ import TotalIntegrationList from './components/UserIntegration/TotalIntegrationL
 import VideoModule from './components/SourceModules/VideoModule/VideoModule';
 import AudioModule from './components/SourceModules/AudioModule/AudioModule';
 import PhotoGallery from './components/SourceModules/PhotoGallery/PhotoGallery';
+import SourcePdf from './components/SourceModules/SourcePdf/SourcePdf';
+import SourcePdfHome from './components/SourceModules/SourcePdf/SourcePdfHome';
+import SourcePdfCatalogPage from './components/SourceModules/SourcePdf/SourcePdfCatalogPage';
 
 import OrderList from './components/OrderList/OrderList';
 import OrderListHome from './components/OrderList/home';
@@ -72,7 +75,10 @@ export default (
       <Route path="audio/:id" component={AudioModule}/>
       <Route path="video/:id" component={VideoModule}/>
       <Route path="photo/:id" component={PhotoGallery}/>
-      <Route path="pdf/:id" component={PhotoGallery}/>
+      <Route path="pdf/:id" component={SourcePdf}>
+        <IndexRoute component={SourcePdfHome} />
+        <Route path="pdfcatalog" component={SourcePdfCatalogPage}/>
+      </Route>
     </Route>
 
     <Route path="everyday" component={EverydayPage}>

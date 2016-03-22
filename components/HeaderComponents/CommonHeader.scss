@@ -69,4 +69,22 @@
     height: 40px;
     line-height: 40px;
   }
+  .btn {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    .icon {
+      display: inline-block;
+      width: 21px;
+      height: 21px;
+    }
+  }
+
+  .MenuButton {
+    line-height: 48px;
+    .icon {
+      background: url(/images/top/top_icon.png) no-repeat 0px -164px;
+      background-size: 25px 250px;
+    }
+  }
 }

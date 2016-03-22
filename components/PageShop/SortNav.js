@@ -7,7 +7,7 @@ class SortNav extends React.Component {
 		return (
 			<div className="hot-sort-box bdr-mg bg-white">
 				<h2 className="f-level-title">{this.props.sortData.title}</h2>
-				<ul className="hot-sort-content">
+				<ul className="hot-sort-content dis-flex">
 				{
 					this.props.sortData.data.map(function(item,i){
 						return (

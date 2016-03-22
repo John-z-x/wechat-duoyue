@@ -79,9 +79,6 @@ class CommentBox extends React.Component {
   	// this.loadCommentsFromServer();
    //  setInterval(this.loadCommentsFromServer, this.props.pollInterval);
   }
-  swichUserComment() {
-
-  }
 	render() {
 		const _funcs = {
 			onCommentSubmit: this.handleCommentSubmit, 
