@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, IndexRoute, Link } from 'react-router';
+import { Route, IndexRoute } from 'react-router';
 
 /* Five header modules */
 import App from './components/App/App';
@@ -37,6 +37,9 @@ import TotalIntegrationList from './components/UserIntegration/TotalIntegrationL
 import VideoModule from './components/SourceModules/VideoModule/VideoModule';
 import AudioModule from './components/SourceModules/AudioModule/AudioModule';
 import PhotoGallery from './components/SourceModules/PhotoGallery/PhotoGallery';
+import SourcePdf from './components/SourceModules/SourcePdf/SourcePdf';
+import SourcePdfHome from './components/SourceModules/SourcePdf/SourcePdfHome';
+import SourcePdfCatalogPage from './components/SourceModules/SourcePdf/SourcePdfCatalogPage';
 
 import OrderList from './components/OrderList/OrderList';
 import OrderListHome from './components/OrderList/home';
@@ -49,9 +52,8 @@ import SocialDetail from './components/SocialArea/SocialDetail';
 import ConfirmOrder from './components/ConfirmOrder/ConfirmOrder';
 
 export default (
-
   <Route component={App} >
-  	<Route path="/" component={ShopPageHome}/>
+    <Route path="/" component={ShopPageHome} />
     <Route path="danpin" component={ShopPage}>
       <IndexRoute component={ShopPageHome}/>
       <Route path="books" component={BookType}/>
@@ -73,7 +75,10 @@ export default (
       <Route path="audio/:id" component={AudioModule}/>
       <Route path="video/:id" component={VideoModule}/>
       <Route path="photo/:id" component={PhotoGallery}/>
-      <Route path="pdf/:id" component={PhotoGallery}/>
+      <Route path="pdf/:id" component={SourcePdf}>
+        <IndexRoute component={SourcePdfHome} />
+        <Route path="pdfcatalog" component={SourcePdfCatalogPage}/>
+      </Route>
     </Route>
 
     <Route path="everyday" component={EverydayPage}>

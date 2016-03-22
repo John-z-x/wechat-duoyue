@@ -56,19 +56,22 @@ class SourcePdfHome extends React.Component {
 		console.log(me);
 	}
 	componentDidMount() {
-		document.getElementById('SourcePdfZoomBox').addEventListener('touchstart', this.changePages,true)
+		document.getElementById('SourcePdfZoomBox').addEventListener('touchstart', this.changePages,true);
+	}
+	componentWillUnmount() {
+			document.getElementById('SourcePdfZoomBox').removeEventListener('touchstart', this.changePages,true);
 	}
 	render() {
 		let funcs = {
-			// slideMove: {
-			// 	normal: this.one,
-			// 	overflow: this.one,
-			// 	loss: this.one,
-			// },
-			slideEnd: {
+			slideMove: {
 				normal: this.one,
-				overflow: null,
+				overflow: this.one,
 				loss: this.one,
+			},
+			slideEnd: {
+				normal: null,
+				overflow: null,
+				loss: this.one
 			}
 		};
 		return (

@@ -15,5 +15,5 @@ npm-debug.log
 .tmp/
 
 # build
-build/
+public/
 

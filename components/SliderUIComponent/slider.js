@@ -145,7 +145,7 @@ class Slider extends React.Component {
 	}
 	render() {
 		const sliderList = this.props.data;
-		const sliderDot = this.props.sliderDot;
+		const sliderDot = this.props.sliderDot || true;
 		//console.log(this.props.data);
 		let items, itemCode;
 		if( sliderList.length > 0) {
