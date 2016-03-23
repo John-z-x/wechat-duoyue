@@ -15,7 +15,8 @@ class CollectButton extends React.Component {
     this.toggleFavor = this.toggleFavor.bind(this);
   }
 
-  toggleFavor() {
+  toggleFavor(event) {
+    event.stopPropagation();
     this.setState({
       isFavor: !this.state.isFavor
     })

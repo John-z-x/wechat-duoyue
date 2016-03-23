@@ -2,7 +2,8 @@ import React from 'react';
 
 class ReturnButton extends React.Component{
 
-  handleBack(){
+  handleBack(event){
+    event.stopPropagation();
     window.history.back();
   }
 
