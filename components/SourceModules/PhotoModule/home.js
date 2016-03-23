@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import  GalleryFrontCover from './GalleryFrontCover';
 import CommonHeader from '../../HeaderComponents/CommonHeader';
 import ReturnButton from '../../HeaderComponents/ReturnButton';
@@ -8,8 +9,7 @@ import CommentButton from '../../HeaderComponents/CommentButton';
 
 
 import withStyles from '../../../decorators/withStyles';
-import styles from './photoGallery.scss';
-
+import styles from './PhotoModule.scss';
 
 const photoGalleryData = {
 	'src':'http://file.duoyue.me/upload/source/20160122/2016_01_22_144904760.jpg',
@@ -19,20 +19,26 @@ const photoGalleryData = {
 }
 
 @withStyles(styles)
-class PhotoGallery extends React.Component {
+class PhotoModuleHome extends React.Component {
 	render() {
 		return(
-			<div className="PhotoGallery">
+			<div className="PhotoModuleHome">
 				<CommonHeader>
 				  <ReturnButton/>
-				  <DownLoadButton/>
-				  <CommentButton/>
+				  <Link to="/source/downloadpage">			
+						<DownLoadButton/>
+					</Link>
+				  <Link to="/source/commentpage">			
+						<CommentButton/>
+					</Link>
 					<CollectButton/>					
 				</CommonHeader>
-				<GalleryFrontCover data={photoGalleryData}/>
+				<Link to="/source/photo/2/photolist">
+					<GalleryFrontCover data={photoGalleryData}/>
+				</Link>
 			</div>
 		);
 	}
 }
 
-export default PhotoGallery;
+export default PhotoModuleHome;

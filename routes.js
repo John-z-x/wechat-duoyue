@@ -38,7 +38,10 @@ import VideoModule from './components/SourceModules/VideoModule/VideoModule';
 import VideoModuleHome from './components/SourceModules/VideoModule/VideoModuleHome';
 import VideoList from './components/SourceModules/VideoModule/VideoList';
 import AudioModule from './components/SourceModules/AudioModule/AudioModule';
-import PhotoGallery from './components/SourceModules/PhotoGallery/PhotoGallery';
+import PhotoModuleHome from './components/SourceModules/PhotoModule/home';
+import PhotoModule from './components/SourceModules/PhotoModule/PhotoModule';
+import PhotoList from './components/SourceModules/PhotoModule/PhotoList';
+import AlbumShow from './components/SourceModules/PhotoModule/AlbumShow';
 import SourcePdf from './components/SourceModules/SourcePdf/SourcePdf';
 import SourcePdfHome from './components/SourceModules/SourcePdf/SourcePdfHome';
 import SourcePdfCatalogPage from './components/SourceModules/SourcePdf/SourcePdfCatalogPage';
@@ -81,7 +84,11 @@ export default (
         <IndexRoute component={VideoModuleHome}/>
         <Route path="videolist" component={VideoList}/>
       </Route>
-      <Route path="photo/:id" component={PhotoGallery}/>
+      <Route path="photo/:id" component={PhotoModule}>
+        <IndexRoute component={PhotoModuleHome} />
+        <Route path="photolist" component={PhotoList}/>
+        <Route path="albumshow" component={AlbumShow}/>
+      </Route>
       <Route path="pdf/:id" component={SourcePdf}>
         <IndexRoute component={SourcePdfHome} />
         <Route path="pdfcatalog" component={SourcePdfCatalogPage}/>
