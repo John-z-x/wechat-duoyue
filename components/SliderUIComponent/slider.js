@@ -43,7 +43,8 @@ class Slider extends React.Component {
   	if(this.isSlidering) return;
   	let moveX = this.moveX, sliderList = this.props.data;
   	let width = document.documentElement.clientWidth;
-  	//console.log(moveX);
+
+  	this.moveX = 0;
 		if(moveX < 0 ) {
 			if(moveX < -50 ) {
 				let end = -(this.state.index + 1)*width;
