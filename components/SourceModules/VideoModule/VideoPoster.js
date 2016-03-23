@@ -10,7 +10,6 @@ class VideoPoster extends React.Component {
   }
   togglePlay() {
   	let myVideo = this.refs.myVideo;
-  	console.log(myVideo)
   	if (myVideo.paused) {
   		myVideo.play();
   	} else {

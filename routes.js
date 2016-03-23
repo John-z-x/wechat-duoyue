@@ -35,11 +35,15 @@ import IntegrationConsumeList from './components/UserIntegration/IntegrationCons
 import TotalIntegrationList from './components/UserIntegration/TotalIntegrationList';
 
 import VideoModule from './components/SourceModules/VideoModule/VideoModule';
+import VideoModuleHome from './components/SourceModules/VideoModule/VideoModuleHome';
+import VideoList from './components/SourceModules/VideoModule/VideoList';
 import AudioModule from './components/SourceModules/AudioModule/AudioModule';
 import PhotoGallery from './components/SourceModules/PhotoGallery/PhotoGallery';
 import SourcePdf from './components/SourceModules/SourcePdf/SourcePdf';
 import SourcePdfHome from './components/SourceModules/SourcePdf/SourcePdfHome';
 import SourcePdfCatalogPage from './components/SourceModules/SourcePdf/SourcePdfCatalogPage';
+import SourceDownLoad from './components/SourceModules/SourceDownLoad/SourceDownLoad';
+import SourceComment from './components/SourceModules/SourceComment/SourceComment';
 
 import OrderList from './components/OrderList/OrderList';
 import OrderListHome from './components/OrderList/home';
@@ -73,12 +77,17 @@ export default (
     <Route path="source" component={SourcePage}>
       <IndexRoute component={SourcePageHome} />
       <Route path="audio/:id" component={AudioModule}/>
-      <Route path="video/:id" component={VideoModule}/>
+      <Route path="video/:id" component={VideoModule}>
+        <IndexRoute component={VideoModuleHome}/>
+        <Route path="videolist" component={VideoList}/>
+      </Route>
       <Route path="photo/:id" component={PhotoGallery}/>
       <Route path="pdf/:id" component={SourcePdf}>
         <IndexRoute component={SourcePdfHome} />
         <Route path="pdfcatalog" component={SourcePdfCatalogPage}/>
       </Route>
+      <Route path="commentpage" components={SourceComment}/>
+      <Route path="downloadpage" components={SourceDownLoad}/>
     </Route>
 
     <Route path="everyday" component={EverydayPage}>

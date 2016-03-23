@@ -12,6 +12,26 @@ class CommentFormCommunity extends React.Component {
 			commentText: '',
 		};
 	}
+  getTime() {
+    let date = new Date();
+    let 
+      year = date.getFullYear(),
+      month = date.getMonth() + 1,
+      day = date.getDate(),
+      hours = date.getHours(),
+      minutes = date.getMinutes(),
+      seconds = date.getSeconds(),
+      millseconds = date.getMilliseconds();
+    return {
+      Y: year,
+      M: month,
+      D: day,
+      h: hours,
+      min: minutes,
+      s: seconds,
+      ms: millseconds,
+    };
+  }
 	handleTextChange(e) {
     this.setState({commentText: e.target.value});
   }
@@ -28,8 +48,7 @@ class CommentFormCommunity extends React.Component {
     let tourist = arr[parseInt(Math.random()*arr.length)];
     let 
     	commentText = this.state.commentText.trim(),
-    	myDate = new Date(),
-  		commentTime = myDate.toLocaleString(),
+  		commentTime = this.getTime().Y + '/' + this.getTime().M + '/' + this.getTime().D + ' ' + this.getTime().h + ':' + this.getTime().min + ':' + this.getTime().s,
   		myAvatar = this.state.myAvatar,
 			myName = this.state.myName || '路人' + tourist;
     if (!commentText) {
@@ -65,7 +84,7 @@ class CommentFormCommunity extends React.Component {
 		let formStyle = {display: 'block'};
     let mode = this.props.mode || '';
 		return (
-			<form className={classNames("CommentFormCommunity",mode)} id="js-comment-form" style={formStyle} onSubmit={this.handleSubmit.bind(this)}>
+			<form className={classNames("CommentFormCommunity",mode)} id="js-comment-form" style={formStyle}>
 				<table className="comment-form-content">
           <tbody>
           <tr>
@@ -76,7 +95,7 @@ class CommentFormCommunity extends React.Component {
               <textarea className="input-box left" value={this.state.commentText} onChange={this.handleTextChange.bind(this)} autofocus placeholder="说点什么吧" ref="commentText"></textarea>
             </td>
             <td className="submit-btn-wrap">
-              <input className="submit-btn right" type="submit" value="发送"/>
+              <span className="submit-btn right" onClick={this.handleSubmit.bind(this)}>发送</span>
             </td>
           </tr>
           </tbody>

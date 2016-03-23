@@ -14,7 +14,7 @@ class SourcePdf extends React.Component {
 
 	render() {
 		return (
-			<div className="SourcePdf">
+			<div className="SourcePdf" id="SourcePdf">
 				{this.props.children}			
 			</div>
 		);

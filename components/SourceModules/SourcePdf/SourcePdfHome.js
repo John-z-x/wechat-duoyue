@@ -22,6 +22,7 @@ class SourcePdfHome extends React.Component {
 	constructor(props) {
 		super(props);
 		this.changePages = this.changePages.bind(this);
+		this.toggleShow = this.toggleShow.bind(this);
 	}
 
 	toggleShow() {
@@ -36,11 +37,8 @@ class SourcePdfHome extends React.Component {
 		const
 			pageWidth = window.innerWidth,
 			pageHeight = window.innerHeight;
-		let 
-			startX0 = e.targetTouches[0].clientX,
-			touchesNum = e.targetTouches.length; 
-
-		if (touchesNum == 1) {
+		let startX0 = e.pageX;
+			e.preventDefault();
     	if (startX0 < (pageWidth * 0.3)) {
 				alert('pre');
 			}
@@ -50,16 +48,17 @@ class SourcePdfHome extends React.Component {
       if (startX0 > (pageWidth * 0.6)) {	
 				alert('next');
 			}
-	  }
 	}
 	one(me) {
 		console.log(me);
 	}
 	componentDidMount() {
-		document.getElementById('SourcePdfZoomBox').addEventListener('touchstart', this.changePages,true);
+		//document.body.onclick = this.changePages;
+		//document.body.addEventListener('click',this.changePages)
+		document.getElementById('SourcePdfZoomBox').addEventListener('click', this.changePages.bind(this),false);
 	}
 	componentWillUnmount() {
-			document.getElementById('SourcePdfZoomBox').removeEventListener('touchstart', this.changePages,true);
+		document.getElementById('SourcePdfZoomBox').removeEventListener('click', this.changePages.bind(this),false);
 	}
 	render() {
 		let funcs = {
@@ -79,11 +78,13 @@ class SourcePdfHome extends React.Component {
 				<CommonHeader>
 					<Link to="/source/pdf/3/pdfcatalog">
 						<MenuButton/>
-					</Link>					
-					<CommentButton/>
+					</Link>
+					<Link to="/source/commentpage">			
+						<CommentButton/>
+					</Link>
 				</CommonHeader>
 				<SourcePdfZoomBox/>
-				<ProgressController funcs={funcs}/>
+				<ProgressController funcs={funcs} data={{overPages: 300, totalPages: 400}}/>
 			</div>
 		);
 	}

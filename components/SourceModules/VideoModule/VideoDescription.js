@@ -54,10 +54,10 @@ class VideoDescription extends React.Component {
 	render() {
 		return (
 			<div className="video-description">
-        <h3 className="title">{this.props.data.title}</h3>
+        <h3 className="title">{this.props.data.videoTitle}</h3>
         <section className="desc-wrap" ref="descWrap">
           <article className="desc" ref="desc">
-            {this.props.data.text}
+            {this.props.data.videoDesc}
           </article>
         </section>
         <a href="javascript:void(0)" className="toggle-text-btn" onClick={this.toggleShowDesc.bind(this)} ref="toggleBtn">

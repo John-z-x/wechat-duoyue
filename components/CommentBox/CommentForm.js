@@ -15,6 +15,26 @@ class CommentForm extends React.Component {
 		};
     console.log(this.props.myData.myAvatar)
 	}
+  getTime() {
+    let date = new Date();
+    let 
+      year = date.getFullYear(),
+      month = date.getMonth() + 1,
+      day = date.getDate(),
+      hours = date.getHours(),
+      minutes = date.getMinutes(),
+      seconds = date.getSeconds(),
+      millseconds = date.getMilliseconds();
+    return {
+      Y: year,
+      M: month,
+      D: day,
+      h: hours,
+      min: minutes,
+      s: seconds,
+      ms: millseconds,
+    };
+  }
 	handleTextChange(e) {
     this.setState({commentText: e.target.value});
   }
@@ -33,8 +53,7 @@ class CommentForm extends React.Component {
     let tourist = arr[parseInt(Math.random()*arr.length)];
     let 
     	commentText = this.state.commentText.trim(),
-    	myDate = new Date(),
-  		commentTime = myDate.toLocaleString(),
+  		commentTime = this.getTime().Y + '/' + this.getTime().M + '/' + this.getTime().D + ' ' + this.getTime().h + ':' + this.getTime().min + ':' + this.getTime().s,
       myAvatar = this.state.myAvatar,
 			myName = this.state.myName || '路人' + tourist;
     if (!commentText) {
@@ -69,13 +88,13 @@ class CommentForm extends React.Component {
 
   }
 	render() {
-		let formStyle = {display: 'block'};
+		let formStyle = {display: 'none'};
 		return (
-			<form className="CommentForm" id="js-comment-form" style={formStyle} onSubmit={this.handleSubmit.bind(this)}>
+			<form className="CommentForm" id="js-comment-form" style={formStyle}>
 				<div className="comment-form-content">
 					<section className="btn-wrap clearfix">
-						<input className="cancel-btn left" type="button" value="取消" onClick={this.handleCancel.bind(this)}/>
-						<input className="submit-btn right" type="submit" value="发送"/>
+						<a className="cancel-btn left" onClick={this.handleCancel.bind(this)}>取消</a>
+						<a className="submit-btn right" onClick={this.handleSubmit.bind(this)}>发送</a>
 					</section>
 					<textarea className="input-box" value={this.state.commentText} onChange={this.handleTextChange.bind(this)} autofocus placeholder="说点什么吧" ref="commentText"></textarea>
 				</div>

@@ -71,15 +71,18 @@ body {
 	}
 	.video-list-wrap {
 		width: 100%;
+		padding-bottom: .8em;
 		overflow-x: scroll;
 	}
 	.video-list {
 		white-space: nowrap;
+		flex-wrap: nowrap;
 	}
 	.video-list-cell {
 		display: inline-block;
 		width: 37.5%;
 		margin-left: 10px;
+		vertical-align: baseline;
 	}
 	.video-list-cell:last-child {
 		margin-right: 10px;
@@ -93,7 +96,8 @@ body {
 		height: 100%;
 	}
 	.video-list-cell>.desc {
-		height: 3em;
+		float: left;
+		height: 42px;
 		padding-top: .5em;
 		overflow: hidden;
 		font-size: 12px;
@@ -119,17 +123,14 @@ body {
 		background: url(/images/arrow_icon.png) -56px 0;
 		background-size: 100px 300px;
 	}
-
-
-	/*video-list-page*/
-	.v-collection-page {
-		position: relative;
-		padding: 10px;
-		white-space: normal;
-	}
+}
+.VideoList {
+		/*video-list-page*/
+	position: relative;
+	padding: 10px;
+	white-space: normal;
 	.v-col-page-cell {
 		position: relative;
-		display: inline-block;
 		width: 50%;
 		padding-top: .5em;
 		padding-bottom: .5em;
