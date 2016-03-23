@@ -54,14 +54,19 @@ class SourcePdfCatalogPage extends React.Component {
 		super(props);
 	}
 
-
+	componentDidMount() {
+		//document.removeEventListener('touchmove', function (e) { e.preventDefault();}, false);
+	}
+	componentWillUnmount() {
+		//document.addEventListener('touchmove', function (e) { e.preventDefault();}, false);
+	}
 	render() {
 		let thumbnailItems = data.map((item, i) => {
 			return (
-				<a className={classNames('item', {'cur': nowIndex === i + 1})} href="" key={i}>
+				<Link to="/source/pdf/3" className={classNames('item', {'cur': nowIndex === i + 1})} key={i}>
 					<img className="thumbnail" src={item.imgSrc} alt=""/>
 					<p className="thumbnail-index">{i + 1}</p>
-				</a>
+				</Link>
 			)
 		})
 		return (

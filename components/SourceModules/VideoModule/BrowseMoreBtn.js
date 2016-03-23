@@ -1,5 +1,6 @@
 'use strict';
 import React from 'react';
+import { Link } from 'react-router';
 
 class BrowseMoreBtn extends React.Component {
   constructor(props) {
@@ -10,9 +11,9 @@ class BrowseMoreBtn extends React.Component {
   }
 	render() {
 		return (
-      <a href={this.props.data.href} className="browse-more-btn">
+      <Link to="/source/video/4/videolist" className="browse-more-btn">
         <span className="text">查看更多精彩栏目</span>
-      </a>
+      </Link>
 		);
 	}
 }

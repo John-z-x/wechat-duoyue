@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import { Link } from 'react-router';
 import withStyles from '../../../decorators/withStyles';
-import styles from './SourcePdf.scss';
+import styles from './ProgressController.scss';
 import _ from 'lodash';
 
 
@@ -13,7 +13,8 @@ class ProgressController extends React.Component {
 		super(props);
 		this.clientWidth = window.innerWidth;
 		this.state={
-			totalPages: 60,
+			overPages: this.props.data.overPages,
+			totalPages: this.props.data.totalPages,
 		};
 	}
 
@@ -129,15 +130,20 @@ class ProgressController extends React.Component {
 		controllerBox.addEventListener('touchmove', slideEvent.slideMove, false);
 		controllerBox.addEventListener('touchend', slideEvent.slideEnd, false);
 	}
-
+	componentWillUnmount() {
+		let slideEvent = this.slideProgress();
+		let controllerBox = document.getElementById('controller-box');
+		controllerBox.addEventListener('touchstart', slideEvent.slideStart, false);
+		controllerBox.addEventListener('touchmove', slideEvent.slideMove, false);
+		controllerBox.addEventListener('touchend', slideEvent.slideEnd, false);
+	}
 
 	render() {
-		const page= {
-			now: 4,
-			total: 60,
-			percent: (4 / 60)*100, 
-		};
-		let pageProgress = page.now + '/' + page.total;
+		const 
+			overPages = this.state.overPages,
+			totalPages = this.state.totalPages,
+			precent = overPages / totalPages * 100;
+		let pageProgress = overPages + '/' + totalPages;
 		return (
 			<div className="ProgressController">
 				<div className="max-progress-num" id="max-progress-num" style={{display: 'none'}}>
@@ -145,7 +151,7 @@ class ProgressController extends React.Component {
 				</div>
 				<div className="controller-box" id="controller-box">
 					<div className="progress-holder" id="progress-holder">
-						<div className="load-progress clearfix" id="load-progress" style={{width: page.percent + '%'}}>
+						<div className="load-progress clearfix" id="load-progress" style={{width:precent + '%'}}>
 							<em className="progress-dot"></em>
 						</div>
 					</div>
