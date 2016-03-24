@@ -2,10 +2,10 @@ import React from 'react';
 
 class PlayControlPanel extends React.Component {
 
-
   onControllClick(type) {
     this.props.onControllClick(type);
   }
+
   render() {
     let playBtnClass = this.props.isPlaying ? "audio-play" : "audio-stop";
     return (

@@ -3,7 +3,7 @@ import React from 'react';
 import TopMaskerLayer from './TopMaskerLayer';
 import AudioContent from './AudioContent';
 import PlayControlPanel from './PlayControlPanel';
-import AudioList from './AudioList';
+import AudioList from './audioList';
 import RelateRecommend from './RelateRecommend';
 
 import CommonHeader from '../../HeaderComponents/CommonHeader';
@@ -20,7 +20,7 @@ import styles from './AudioModule.scss';
 const alertContent = {
   "img": "http://www.duoyue.me/wechat/1018/3021/images/top/save.png",
   "content": "此资源暂时不提供下载功能"
-}
+};
 
 const soundList = [
   {
@@ -81,8 +81,8 @@ class AudioModule extends React.Component {
     this.state = {
       soundIndex: 0,  //正在播放的歌曲
       downLoadModal: false, //下载框的显示隐藏
-      audioList: false, //搜索歌曲显示隐藏
-      timeLong: 0, // 歌曲的时常
+      audioListDisplay: false, //搜索歌曲显示隐藏
+      duration: 0, // 歌曲的时常
       progressValue: 0, //歌曲的进度
       isPlaying: true //是否正在播放
     };
@@ -107,12 +107,12 @@ class AudioModule extends React.Component {
     if(!isNaN(audio.duration)) {
       progressValue = audio.currentTime/audio.duration;
       this.setState({
-        timeLong: audio.duration,
+        duration: audio.duration,
         progressValue: progressValue
       });
-      //console.log(this.state.progressValue);
     }
   }
+  
   //下载功能
   onDownLoadClick() {
     this.setState({
@@ -125,7 +125,7 @@ class AudioModule extends React.Component {
     }, 2000 )
   }
  //切歌自动播放
-  componentDidUpdate(prevPorps, prevState) {
+  componentDidUpdate(prevProps, prevState) {
     if(prevState.soundIndex != this.state.soundIndex) {
       this.refs.audio.play();
       this.setState({
@@ -165,21 +165,23 @@ class AudioModule extends React.Component {
   }
 
   onCommentClick() {
-
+    window.location.href="/source/commentpage";
   }
 
   componentWillUnmount() {
+    let audio = this.refs.audio, _self = this;
     window.clearTimeout(this.downLoadTimer);
+    audio.removeEventListener("timeupdate", _self.updateProgress.bind(this), false);
+    audio.removeEventListener("ended", () =>  _self.onControllClick("next") , false);
   }
   //显示隐藏搜索列表
   onListClick() {
     this.setState({
-      audioList: !this.state.audioList
+      audioListDisplay: !this.state.audioListDisplay
     });
   }
   //搜索列表选择歌曲
   onChooseClick(index) {
-    console.log(index+"out");
     this.setState({
       soundIndex: index
     });
@@ -201,9 +203,6 @@ class AudioModule extends React.Component {
           isPlaying: true,
           progressValue: progressValue
         });
-
-
-
       default :
         return null;
     }
@@ -216,16 +215,16 @@ class AudioModule extends React.Component {
         <CommonHeader>
           <ReturnButton />
           <CollectButton />
-          <CommentButton />
+          <CommentButton OnCommentClick={this.onCommentClick}/>
           <DownLoadButton OnDownLoadClick={this.onDownLoadClick}/>
         </CommonHeader>
 
         <div className="sound-page" style={{height: soundPageHeight}}>
           <audio className="mysound" ref="audio" src={soundList[this.state.soundIndex].path}></audio>
-          <AudioContent index={this.state.soundIndex} data={soundList} onListClick={this.onListClick.bind(this)} timeLong={this.state.timeLong}
+          <AudioContent index={this.state.soundIndex} data={soundList} onListClick={this.onListClick.bind(this)} duration={this.state.duration}
               progressValue={this.state.progressValue} isPlaying={this.state.isPlaying} onProgressControll={this.onProgressControll.bind(this)}/>
           {
-            this.state.audioList &&  <AudioList data={soundList} onListClick={this.onListClick.bind(this)} index={this.state.soundIndex} onChooseClick={this.onChooseClick.bind(this)} isPlaying={this.state.isPlaying}/>
+            this.state.audioListDisplay &&  <AudioList data={soundList} onListClick={this.onListClick.bind(this)} index={this.state.soundIndex} onChooseClick={this.onChooseClick.bind(this)} isPlaying={this.state.isPlaying}/>
           }
         </div>
 
