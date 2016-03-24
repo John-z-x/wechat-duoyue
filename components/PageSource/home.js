@@ -35,13 +35,42 @@ let TabItemsData = {
 @withStyle(styles)
 class SourcePageHome extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.type = -1; //记录当前资源类型
+    this.changed = true; //判断是否资源类型发生变化
+    this.state = {
+      sourceBox: true
+    }
+  }
+
   componentDidMount() {
-    this.props.actions.LazyLoad();
+    this.props.actions.LazyLoad(0);
   }
 
   onTypeChange(index) {
-    let filterSourceType = this.props.actions.FilterSourceType;
+    let filterSourceType;
+    if(this.type == index) {
+      this.changed = false;
+      return;
+    } else {
+      this.type = index;
+      this.changed = true;
+    }
+    filterSourceType = this.props.actions.FilterSourceType;
     filterSourceType && filterSourceType(index)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(!this.changed) return;
+    this.changed = false;
+    this.setState({
+      sourceBox: null
+    }, () => {
+      this.setState({
+        sourceBox: true
+      });
+    });
   }
 
 	render() {
@@ -51,7 +80,12 @@ class SourcePageHome extends React.Component {
 				<Slider data={sourceData.SliderList}/>
 				<SourceSearch/>
         <Tab TabItemsData={TabItemsData} onTypeChange={this.onTypeChange.bind(this)}/>
-        <SourceBox LazyLoad={actions.LazyLoad} list={list}/>
+        {
+            this.state.sourceBox ?
+                <SourceBox LazyLoad={actions.LazyLoad} list={list} typeIndex={this.type}/>
+                :
+                null
+            }
 				<Cart />
         { this.props.children }
       </div>
