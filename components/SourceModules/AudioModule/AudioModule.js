@@ -104,6 +104,7 @@ class AudioModule extends React.Component {
   //歌曲进度条控制
   updateProgress() {
     let audio = this.refs.audio,progressValue;
+    if(!audio) return;
     if(!isNaN(audio.duration)) {
       progressValue = audio.currentTime/audio.duration;
       this.setState({
