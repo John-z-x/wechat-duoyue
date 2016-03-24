@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router';
 import  GalleryFrontCover from './GalleryFrontCover';
+import  ShowDown from './ShowDown';
 import CommonHeader from '../../HeaderComponents/CommonHeader';
 import ReturnButton from '../../HeaderComponents/ReturnButton';
 import CollectButton from '../../HeaderComponents/CollectButton';
 import DownLoadButton from '../../HeaderComponents/DownLoadButton';
 import CommentButton from '../../HeaderComponents/CommentButton';
+
 
 
 import withStyles from '../../../decorators/withStyles';
@@ -18,21 +20,39 @@ const photoGalleryData = {
 	'pageNum':'7'
 }
 
+
+
 @withStyles(styles)
 class PhotoModuleHome extends React.Component {
+constructor(props) {
+    super(props);
+    this.state = {
+    	ifShow: false,
+    }
+    this.toShowDown = this.toShowDown.bind(this);
+  }
+
+  toShowDown() {
+  	 this.setState({
+      ifShow: !this.state.ifShow,
+    })
+  }
+
+  OnDownLoadClick
 	render() {
 		return(
 			<div className="PhotoModuleHome">
 				<CommonHeader>
-				  <ReturnButton/>
-				  <Link to="/source/downloadpage">			
-						<DownLoadButton/>
-					</Link>
+				  <ReturnButton/>			
+						<DownLoadButton  OnDownLoadClick={this.toShowDown}/>
 				  <Link to="/source/commentpage">			
 						<CommentButton/>
 					</Link>
 					<CollectButton/>					
 				</CommonHeader>
+				{
+					this.state.ifShow && <ShowDown ifShow={this.state.ifShow} toShowDown={this.toShowDown}/>
+				}
 				<Link to="/source/photo/2/photolist">
 					<GalleryFrontCover data={photoGalleryData}/>
 				</Link>
