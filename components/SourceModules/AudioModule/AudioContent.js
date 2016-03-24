@@ -28,6 +28,7 @@ class AudioContent extends React.Component {
     });
   }
 
+  //点赞功能并且数量增加
   onZanClick() {
     if(this.state.isFavor) return;
     this.setState({
@@ -36,16 +37,31 @@ class AudioContent extends React.Component {
     });
   }
 
+  componentDidUpdate(prevProps) {
+    let data = prevProps.data[prevProps.index], DEFAULT_INFO_HEIGHT = 85;
+    if(data.id == this.props.data[this.props.index].id) return;
+    //切换歌曲时判断信息描述内容长度是否超出
+    if(this.refs.info.offsetHeight > DEFAULT_INFO_HEIGHT ) {
+      this.setState({
+        overInfo: true
+      });
+    }else {
+      this.setState({
+        overInfo: false
+      });
+    }
+  }
+
   componentDidMount() {
-    let container = this.refs.container, progressDot = this.refs.progressDot;
+    let container = this.refs.container, progressDot = this.refs.progressDot, DEFAULT_INFO_HEIGHT = 85;
     let data = this.props.data[this.props.index];
     //屏幕滑动
     this.slide(container);
     this.moveProgress(progressDot);
     //计算歌曲进度条总长度
     this.progressLong = this.refs.progress.offsetWidth;
-    //判断信息描述内容长度是否超出
-    if(this.refs.info.offsetHeight > 85 ) {
+    //加载完毕时判断信息描述内容长度是否超出
+    if(this.refs.info.offsetHeight > DEFAULT_INFO_HEIGHT ) {
       this.setState({
         overInfo: true
       })
@@ -90,7 +106,6 @@ class AudioContent extends React.Component {
     this.setState({
       progressControlling: false
     });
-    console.log(progressValue);
     this.props.onProgressControll("end", progressValue);
   }
 
@@ -102,9 +117,9 @@ class AudioContent extends React.Component {
   }
 
   componentWillReceiveProps(np) {
-    let data = np.data[np.index];
-    //判断是否赞过和赞的数量
+    let data = np.data[np.index], DEFAULT_INFO_HEIGHT = 85;
     if(data.id == this.props.data[this.props.index].id) return;
+    //判断是否赞过和赞的数量
     if(data.isFav) {
       this.setState({
         isFavor: true
@@ -116,7 +131,12 @@ class AudioContent extends React.Component {
     }
     this.setState({
       favorNum: data.fav
-    })
+    });
+    if(this.refs.info.offsetHeight > DEFAULT_INFO_HEIGHT ) {
+      this.setState({
+        overInfo: true
+      })
+    }
   }
 
   touchStart(e) {
@@ -179,10 +199,20 @@ class AudioContent extends React.Component {
     node.addEventListener('touchend', _self.touchEnd.bind(_self), false);
   }
 
+  componentWillUnmount() {
+    let container = this.refs.container, progressDot = this.refs.progressDot, _self = this;
+    container.removeEventListener("touchstart", _self.touchStart.bind(_self), false);
+    container.removeEventListener('touchmove', _self.touchMove.bind(_self), false);
+    container.removeEventListener('touchend', _self.touchEnd.bind(_self), false);
+    progressDot.removeEventListener("touchstart", _self.touchStartProgress.bind(_self), false);
+    progressDot.removeEventListener('touchmove', _self.touchMoveProgress.bind(_self), false);
+    progressDot.removeEventListener("touchend", _self.touchEndProgress.bind(_self), false);
+  }
+
   render() {
     let data = this.props.data[this.props.index], dataList = this.props.data;
     let width = this.props.progressValue*this.progressLong;
-    let time = utils.timeFormat(this.props.timeLong);
+    let time = utils.timeFormat(this.props.duration);
     let ab = this.props.isPlaying ? "running" : "paused" ;
     let infoClassname = this.state.showInfo ? "music-info-open" : "music-info" ;
     let infoControllClass = this.state.showInfo ? "dis-desc-btn-hide" : "dis-desc-btn-show";
