@@ -104,18 +104,14 @@ class PhotoFlow extends React.Component {
 					<div className="left-box photo-box" id="left_box" ref="left">
             {
               left.map( (list, index) =>
-                <Link to="/source/photo/2/albumshow" key={`source_${list.index}${index}`}>
-                  <PhotoItem data={list} />
-                </Link>
+                <PhotoItem data={list}  key={`source_${list.index}${index}`} />
               )
             }
           </div>
           <div className="right-box photo-box" id="right_box" ref="right">
             {
               right.map( (list, index) =>
-                <Link to="/source/photo/2/albumshow" key={`source_${list.index}${index}`}>
-                  <PhotoItem data={list} />
-                </Link>
+                <PhotoItem data={list}  key={`source_${list.index}${index}`}/>
               )
             }
           </div>		

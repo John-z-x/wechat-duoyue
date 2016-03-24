@@ -6,7 +6,7 @@ import CollectButton from '../../HeaderComponents/CollectButton';
 import DownLoadButton from '../../HeaderComponents/DownLoadButton';
 import CommentButton from '../../HeaderComponents/CommentButton';
 import AlbumShowPic from './AlbumShowPic';
-
+import  ShowDown from './ShowDown';
 
 import withStyles from '../../../decorators/withStyles';
 import styles from './PhotoModule.scss';
@@ -28,9 +28,17 @@ class AlbumShow extends React.Component {
 		super(props);
 		this.state =  {
 			display:"block",
+			ifShow: false,
 		};
+		this.toShowDown = this.toShowDown.bind(this);
 	}
 
+
+  toShowDown() {
+  	 this.setState({
+      ifShow: !this.state.ifShow,
+    })
+  }
 	handlerClick(){
 	// let e=event||windows.event;
   // e.stopPropagation();
@@ -50,20 +58,23 @@ class AlbumShow extends React.Component {
 			this.setState({display: "block"});
 		}
 	}
+
+
 	render() {
 		return(
 			<div className="AlbumShow" onClick={() => this.handlerClick()}>
 			 <div id="header" style={{"display":this.state.display}}>
 					<CommonHeader>
 					  <ReturnButton/>
-					  <DownLoadButton/>
-					  <Link to="/source/commentpage">			
-							<CommentButton/>
-						</Link>
+					  <DownLoadButton  OnDownLoadClick={this.toShowDown}/>	
+							<CommentButton />
 						<CollectButton/>					
 					</CommonHeader>
 				</div>
-				<AlbumShowPic data={AlbumShowData} count={count} display={this.state.display}/>
+				{
+					this.state.ifShow && <ShowDown ifShow={this.state.ifShow} toShowDown={this.toShowDown}/>
+				}
+				<AlbumShowPic data={AlbumShowData} count={count} display={this.state.display} paramsId={this.props.params.indexid}/>
 			</div>
 		);
 	}

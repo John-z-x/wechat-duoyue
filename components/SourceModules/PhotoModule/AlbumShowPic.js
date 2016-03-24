@@ -7,21 +7,24 @@ class AlbumShowPic extends React.Component {
 	constructor (props) {
 		super(props);
 		let width = document.documentElement.clientWidth;
-		let originIndex = this.props.index;
+		let paramsId = parseInt(this.props.paramsId);
+		let paramsLeft = width*(paramsId-1);
+		console.log(paramsLeft)
 		this.state =  {
-			index:1,
-			left: -width,
+			index: paramsId,
+			left: -paramsLeft,
 			top:0,
 		};
+		
 		this.isscale=false;
 		this.scale=1;
 		this.imgWidth=width;
-		this.moveXone=0;
+		this.moveXone=0; 
 		//this.data = { touchstart,touchmove,touchstartLength, startX, startY,marginLeft.marginTop, moveX,moveY}
 	}
 	 
   touchStart(e) {
-  	e.preventDefault();
+  	//e.preventDefault();
     this.touchstart = e.targetTouches;
     this.touchstartLength = e.targetTouches.length;
     this.marginLeft = this.state.left;
@@ -39,7 +42,7 @@ class AlbumShowPic extends React.Component {
   }
 
   touchMove(e) {
-  	e.preventDefault();
+  //	e.preventDefault();
   	this.touchmove = e.targetTouches;
     this.moveX = this.touchmove[0].pageX - this.startX;
     this.moveY = this.touchmove[0].pageY - this.startY;
@@ -57,18 +60,18 @@ class AlbumShowPic extends React.Component {
 				}
     	}
     }else if(this.touchstartLength == 2){
-  		this.imsgeZoom(e);
+  		this.imageZoom(e);
     }  
   }
 
   touchEnd(e) {
-  	e.preventDefault();
+ // 	e.preventDefault();
   	let width = document.documentElement.clientWidth;
   	if(this.touchstartLength == 1){
 	  	let moveX = this.moveX, sliderList = this.props.data;
 	  	this.moveXone = parseInt(document.getElementById("AlbumShowPic").style.marginLeft) - ( -((this.state.index-1)*document.documentElement.offsetWidth) - ((this.centerX/this.imgWidth)*parseInt(document.getElementById("mobAlbumImg"+this.state.index).offsetWidth) - this.centerX));
 	  	// console.log(sliderList);
-	  	console.log(moveX);
+	  	//console.log(moveX);
 			if(moveX < 0 ) {   //左滑
 				if(moveX < -50 ) {
 					let end ;
@@ -160,7 +163,7 @@ class AlbumShowPic extends React.Component {
 		 li[li.length - 1].style.marginLeft = "0";
   }
 
-  imsgeZoom(e){
+  imageZoom(e){
   	let touchDistance = [];
   	if(this.touchstart.length==this.touchmove.length){
   		let startDistance = 0;
@@ -172,6 +175,7 @@ class AlbumShowPic extends React.Component {
 				let y4 = this.touchmove[i].pageY;
 				moveDistance += parseInt( Math.sqrt( (x4-x3)*(x4-x3) + (y4-y3)*(y4-y3) ));
 			}
+			document.title("1")
 			this.centerX = (x3 + x4)/2;
 			this.centerY = (y3 + y4)/2;
 			startDistance=this.startDistance;

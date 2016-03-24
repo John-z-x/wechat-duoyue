@@ -87,7 +87,7 @@ export default (
       <Route path="photo/:id" component={PhotoModule}>
         <IndexRoute component={PhotoModuleHome} />
         <Route path="photolist" component={PhotoList}/>
-        <Route path="albumshow" component={AlbumShow}/>
+        <Route path="albumshow/:indexid" component={AlbumShow}/>
       </Route>
       <Route path="pdf/:id" component={SourcePdf}>
         <IndexRoute component={SourcePdfHome} />
