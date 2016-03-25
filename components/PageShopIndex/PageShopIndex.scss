@@ -92,7 +92,8 @@
   .nav {
 	width: 100%;
 	padding: 16px 0 2px 0;
-	overflow: scroll;
+	overflow-x: scroll;
+    overflow-y: hidden;
   }
   .nav-box {
 	width: 100%;

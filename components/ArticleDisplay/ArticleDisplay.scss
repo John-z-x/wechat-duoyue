@@ -44,7 +44,7 @@ a:hover {
 .article-content {
 	padding-left: 15px;
     padding-right: 15px;
-    margin-bottom: 40px;
+    padding-bottom: 40px;
     font-size: 16px;
     line-height: 26px;
     word-break: normal;
@@ -80,9 +80,9 @@ a:hover {
 
 /*相关阅读*/
 .content-relate  {
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
 }
 .content-relate .title .relate-img {
     display: inline-block;

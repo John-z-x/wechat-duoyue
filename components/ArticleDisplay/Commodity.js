@@ -24,19 +24,22 @@ class Commodity extends React.Component {
       }.bind(this),
       error: function(xhr) {
         console.log(xhr instanceof Array);
-      }.bind(this),
+      }.bind(this)
     })
   }
 
   render() {
-    var commoditys = this.state.commoditys;
-    var itemNodes = commoditys.map(function(items) {
+    let color = this.props.color;
+    let bgColor = color == "white" ? "white" : "#333";
+    let fontColor = color == "white" ? "black" : "#ccc";
+    let commoditys = this.state.commoditys;
+    let itemNodes = commoditys.map(function(items) {
         return (
           <CommodityItem data={items}  id={items.id} key={items.id}/>
         )
     });
     return (
-      <ul className="cart-commoditys" key={"y"}>
+      <ul className="cart-commoditys" key={"y"} style={{backgroundColor: bgColor, color: fontColor}}>
         {itemNodes}
       </ul>
     );
