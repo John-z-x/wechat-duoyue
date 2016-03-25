@@ -45,18 +45,15 @@ class PhotoFlow extends React.Component {
   }
   
   lazyLoad() {
-   let listNew = [];
    let listTwo = this.props.listTwo;
    let list = this.state.list;
    this.setState({
      list: list.concat(listTwo),
-    })
+    });
    this.setState({
-      left: []
-    })
-    this.setState({
+      left: [],
       right: []
-    })
+    });
     this.distribution();
   }
 
@@ -65,17 +62,14 @@ class PhotoFlow extends React.Component {
     list.map( (item) =>  {
       var img = new Image();
       img.src = item.src;
-      if(img.complete) {
+      img.onload = function() {
         loadImg(item);
-      }else {
-        img.onload = function() {
-          loadImg(item);
-        }
       }
-    })
+    });
 
     function loadImg(item) {
       parentBox = _self.getBox();
+      if(!parentBox) return;
       if(parentBox.indexOf("left") > -1) {
         _self.setState({
           left: [..._self.state.left, item]
@@ -89,15 +83,14 @@ class PhotoFlow extends React.Component {
   }
 
   getBox() {
-    let left  = this.refs.left.offsetHeight,
-        right = this.refs.right.offsetHeight;
-    return (left <= right) ? "left" : "right";
+    if(!this.refs.left) return null;
+    let leftHeight  = this.refs.left.offsetHeight,
+        rightHeight = this.refs.right.offsetHeight;
+    return (leftHeight <= rightHeight) ? "left" : "right";
   }
 
 	render() {
 		let left = this.state.left, right = this.state.right;
-    let list = this.state.list;
-    
 		return(
 			<div className="PhotoFlow">
 				<div className="photo-content clearfix" ref="photoContent">
