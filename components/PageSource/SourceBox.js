@@ -53,6 +53,13 @@ class SourceBox extends React.Component {
     //return nextState.id !==
   }
 
+  componentWillUnmount() {
+    //TODO
+    //1.数据加载
+    //2.返回数据重新加载但是不刷新
+    //3.判断底部的显示
+  }
+
   distribution(nextProps) {
     let list  = nextProps == undefined ? this.props.list : nextProps.list, parentBox, _self = this;
     list.map( (item) =>  {

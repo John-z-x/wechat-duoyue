@@ -30,16 +30,20 @@ class ContentRelate extends React.Component {
   }
 
   render() {
+    let color = this.props.color;
+    let bgColor = color == "white" ? "white" : "#333";
+    let fontColor = color == "white" ? "black" : "#ccc";
     return(
-      <div className="content-relate">
+      <div className="content-relate" style={{backgroundColor: bgColor}}>
         <div className="title">
           <i className="relate-img"></i>
-          <span>相关阅读</span>
+
+          <span style={{color: fontColor}}>相关阅读</span>
         </div>
       {
         this.state.contentlist.map(function(list) {
           return(
-            <div className="relate-title" key={list.id}>{list.relateTitle}</div> 
+            <div className="relate-title" key={list.id} style={{color: fontColor}}>{list.relateTitle}</div>
           );
         })
       }
