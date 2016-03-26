@@ -44,10 +44,6 @@ class SourcePageHome extends React.Component {
     }
   }
 
-  componentDidMount() {
-    this.props.actions.LazyLoad(0);
-  }
-
   onTypeChange(index) {
     let filterSourceType;
     if(this.type == index) {

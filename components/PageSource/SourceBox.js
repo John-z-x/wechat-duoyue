@@ -1,6 +1,7 @@
 //资源展示瀑布流;
 import React from 'react';
 import SourceItem from './SourceItem';
+import utils from '../../utils/utils';
 
 class SourceBox extends React.Component {
   constructor(props) {
@@ -10,54 +11,52 @@ class SourceBox extends React.Component {
       right: []
     };
     this.finishLoading = true;
-    this.distribution = this.distribution.bind(this);
-    this.ifNeedLazyLoad = this.ifNeedLazyLoad.bind(this);
+    this.index = 1;
+    this.LOAD_DELAY = 1000;
+    utils.bindMethods(this, "distribution", "ifNeedLazyLoad");
   }
 
   componentDidMount() {
-   // window.addEventListener("scroll", this.ifNeedLazyLoad, false)
+    window.addEventListener("scroll", this.ifNeedLazyLoad, false)
     this.distribution();
+    this.props.LazyLoad(this.props.typeIndex, 0);
   }
 
   componentWillUnmount() {
-    //window.removeEventListener("scroll", this.ifNeedLazyLoad, false)
+    window.clearTimeout(this.loadDeffer);
+    window.removeEventListener("scroll", this.ifNeedLazyLoad, false);
+    //TODO
+    //1.数据加载
+    //2.返回数据重新加载但是不刷新
+    //3.判断底部的显示
   }
 
   ifNeedLazyLoad() {
     const { LazyLoad } = this.props;
     if(this.checkScrollSide() && this.finishLoading) {
       this.finishLoading = false;
-      LazyLoad(this.props.typeIndex);
+      LazyLoad(this.props.typeIndex, this.index);
+      this.index++;
     }
   }
 
   checkScrollSide() {
-    var oParent = document.getElementById('main');
-    var mostHeight = oParent.offsetHeight;
-    var scrollTop = document.documentElement.scrollTop + document.body.scrollTop;
-    var documentH = document.documentElement.clientHeight;
-    return (mostHeight*(4/5) < scrollTop + documentH) ? true : false;
+    let oParent = document.getElementById('main');
+    if(!oParent) return false;
+    let mostHeight = oParent.offsetHeight;
+    let scrollTop = document.documentElement.scrollTop + document.body.scrollTop;
+    let documentH = document.documentElement.clientHeight;
+    return (mostHeight*(7/8) < scrollTop + documentH) ? true : false;
   }
 
   componentWillReceiveProps(nextProps) {
-    //this.finishLoading = true;
-    this.setState({
-      left: [],
-      right: []
-    });
+    this.finishLoading = true ;
     this.distribution(nextProps);
   }
 
   componentWillUpdate(nextProps, nextState) {
     //TODO
-    //return nextState.id !==
-  }
-
-  componentWillUnmount() {
-    //TODO
-    //1.数据加载
-    //2.返回数据重新加载但是不刷新
-    //3.判断底部的显示
+    //1.优化加载显示
   }
 
   distribution(nextProps) {
@@ -65,7 +64,7 @@ class SourceBox extends React.Component {
     list.map( (item) =>  {
       var img = new Image();
       img.src = item.pic;
-      img.onload = function() {
+      img.onload = () => {
         loadImg(item);
       }
     });
@@ -86,7 +85,7 @@ class SourceBox extends React.Component {
   }
 
   getBox() {
-    if(!this.refs.left) return false;
+    if(!this.refs.left) return null;
     let leftHeight  = this.refs.left.offsetHeight,
         rightHeight = this.refs.right.offsetHeight;
     return (leftHeight <= rightHeight) ? "left" : "right";
