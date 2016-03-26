@@ -62,7 +62,7 @@ class EverydayPageHome extends React.Component {
     let arrPrePage = this.state.arrPrePage;
     arrPrePage.push(document.documentElement.scrollHeight);
   }
-
+  
   render() {
     let everyData = this.state.everyData;
     return(
