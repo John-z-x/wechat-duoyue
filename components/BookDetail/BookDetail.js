@@ -5,6 +5,9 @@ import styles from './BookDetail.scss';
 
 import CommonHeader from '../HeaderComponents/CommonHeader';
 import ReturnButton from '../HeaderComponents/ReturnButton';
+import CollectButton from '../HeaderComponents/CollectButton';
+
+import Alert from '../Modals/Alert';
 
 import BookInfo from './BookInfo';
 import RecList from './RecList';
@@ -28,18 +31,51 @@ const Bookdata = {
   ]
 };
 
+const alertContent = {
+  "img": "http://www.duoyue.me/wechat/1018/3021/images/top/save.png",
+  "content": "收藏成功"
+};
+
 @withStyles(styles)
 class BookDetail extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      sucessModal: false
+    }
+  }
+  //下载功能
+  onFavorChange() {
+    this.setState({
+      sucessModal: true
+    });
+    this.sucessModalTimer = setTimeout( ()=> {
+      this.setState({
+        sucessModal: false
+      })
+    }, 2000 )
+  }
+
+  componentWillUnmount() {
+    window.clearTimeout(this.sucessModalTimer);
+  }
+
   render() {
     return (
         <div className="BookDetail">
           <CommonHeader>
             <ReturnButton />
+            <CollectButton onFavorChange={this.onFavorChange.bind(this)}/>
           </CommonHeader>
           <BookInfo data={Bookdata}/>
           <RecList title="相关图书" data={Recdata} classname="green-title"/>
           <div className="bottom-blank"></div>
           <ToDanpin title="书城"/>
+          {
+            this.state.sucessModal &&
+              <Alert content={alertContent} />
+          }
         </div>
     );
   }

@@ -15,11 +15,19 @@ class CollectButton extends React.Component {
     this.toggleFavor = this.toggleFavor.bind(this);
   }
 
+  componentWillMount() {
+    if(this.props.isFovored) {
+      this.setState({
+        isFavor: true
+      });
+    }
+  }
+
   toggleFavor(event) {
     event.stopPropagation();
     this.setState({
       isFavor: !this.state.isFavor
-    })
+    });
     this.props.onFavorChange && this.props.onFavorChange(this.state.isFavor);
   }
 

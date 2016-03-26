@@ -141,7 +141,7 @@ class Slider extends React.Component {
 		node.removeEventListener("touchstart", this.touchStart.bind(this), false);
 		node.removeEventListener('touchmove', this.touchMove.bind(this), false);
 		node.removeEventListener('touchend', this.touchEnd.bind(this), false);
-		window.clearTimeout(this.timer);
+		window.clearInterval(this.timer);
 		window.clearTimeout(this.animate);
 	}
 	render() {
