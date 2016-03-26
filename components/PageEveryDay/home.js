@@ -5,9 +5,8 @@ import Slider from '../SliderUIComponent/Slider';
 
 import EverydayContent from './EverydayContent';
 import EveryDayDates from './EveryDayDates';
-import EveryDayPageNum from './EveryDayPageNum';
+import ScrollPage from './ScrollPage';
 import EveryDayScrollBottom from './EveryDayScrollBottom';
-
 import Utils from '../../utils/utils.js';
 
 import withStyles from '../../decorators/withStyles';
@@ -36,128 +35,32 @@ class EverydayPageHome extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      everyData: everyData,
-      pageDisplay: false,
-      bottomDisplay: false,
-      prePage: 0,
-      arrPrePage: [0],
-      everyPage: 0,
-      totalPage: 3,
+      everyData: everyData, //页面数据
+      everyPage: 1, //当前页码
+      totalPage: 3, //总页码
+      prePage: 0, //上次页面滚动的高度
+      arrPrePage: [0], //获取每页滚动高度
+      bottomDisplay: false, //页面加载完底部显示判断
     }
-
-    Utils.bindMethods(this, "onScrollPage", "isScrollUpDown", "onScrollData", "onScrollListAdd" );
+    Utils.bindMethods(this, "onChildChanged");
   }
 
-  onScrollPage(){
-    let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    if(scrollTop>50){
-      this.setState({
-        pageDisplay: true,
-      })
-    }else{
-      this.setState({
-        pageDisplay: false,
-      })
-    }
-  }
-
-  isScrollUpDown(isUpDown,arrPrePage){
-    let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    let windowH = document.documentElement.clientHeight;
-    let everyPage = this.state.everyPage;
-    let arrPrePageNum = arrPrePage.length;
-
-    if (isUpDown === 'down') {
-      for (let i = 0; i < arrPrePageNum; i++) {
-        if (scrollTop + windowH  < arrPrePage[i]) {
-          this.setState({
-            everyPage:i,
-          });
-          break;
-        }
-      }
-    } else {
-      for (let i = 0; i < arrPrePageNum; i++) {
-        if (scrollTop < arrPrePage[i]) {
-          this.setState({
-            everyPage:i,
-          });
-          break;
-        }
-      }
-    }
-  }
-
-  onScrollData(){
+  //每页数据加载
+  onChildChanged(){
     let everyData = this.state.everyData;
     let everyDayTotalItem = [];
-    let totalPage = this.state.totalPage;
-    let everyPage = this.state.everyPage;
 
     everyData.map( (item,index)=>
       everyDayTotalItem[index] = item
     );
+    
     this.setState({
       everyData: everyDayTotalItem.concat(everyData[0]),
     });
 
-    if(everyPage >= totalPage){
-      this.setState({
-        everyData: everyData,
-        everyPage: totalPage,
-        bottomDisplay: true,
-      });
-    }
-
+    //获取保存每次滚动高度，以判断当前进入第几页
     let arrPrePage = this.state.arrPrePage;
     arrPrePage.push(document.documentElement.scrollHeight);
-  }
-
-  onScrollListAdd(){
-    let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    let windowH = document.documentElement.clientHeight;
-
-    let prePage = this.state.prePage;
-    let arrPrePage = this.state.arrPrePage;
-
-    if (scrollTop > prePage) {
-      this.isScrollUpDown('down',arrPrePage);
-    } else {
-      this.isScrollUpDown('up',arrPrePage);
-    }
-    prePage = scrollTop;
-
-    if (windowH + prePage + windowH/10 > document.body.scrollHeight) {
-        this.onScrollData();
-    }
-    this.onScrollPage();
-  }
-
-  componentWillMount(){
-    let everyData = this.state.everyData;
-    this.setState({
-      everyData: everyData,
-    });
-    window.removeEventListener("scroll", this.onScrollListAdd, false);
-  }
-
-  componentDidMount(){
-    let oBox = document.getElementById("EverydayTopic");
-    let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    let windowH = document.documentElement.clientHeight;
-
-    let arrPrePage = this.state.arrPrePage;
-    let prePage = this.state.prePage;
-    arrPrePage.push(document.documentElement.scrollHeight + oBox.offsetHeight/2);
-
-    if(scrollTop > prePage) {
-      this.isScrollUpDown('down',arrPrePage);
-    } else {
-      this.isScrollUpDown('up',arrPrePage);
-    }
-    prePage = scrollTop;
-
-    window.addEventListener("scroll", this.onScrollListAdd, false);
   }
 
   render() {
@@ -183,8 +86,12 @@ class EverydayPageHome extends React.Component {
             })
           }
           </div>
-          <EveryDayPageNum pageDisplay={this.state.pageDisplay} onScrollPage={this.onScrollPage} everyPage={this.state.everyPage} totalPage={this.state.totalPage} />
-          <EveryDayScrollBottom bottomDisplay={this.state.bottomDisplay}/>
+          <ScrollPage callbackParent={this.onChildChanged} 
+            everyData={this.state.everyData} 
+            everyPage={this.state.everyPage} 
+            totalPage={this.state.totalPage} 
+            prePage={this.state.prePage} 
+            arrPrePage={this.state.arrPrePage} />
         </div>
     )
   }

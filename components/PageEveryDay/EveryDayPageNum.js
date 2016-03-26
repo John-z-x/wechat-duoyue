@@ -9,7 +9,7 @@ class EveryDayPageNum extends React.Component {
     }
     return(
       <div className="scrollPage"  style={styleObj}>
-        <span className="sCurrentPage">{this.props.everyPage}</span>/<span className="sTotalPage">{this.props.totalPage}</span>
+        <span className="sCurrentPage" id="sCurrentPage">{this.props.everyPage}</span>/<span className="sTotalPage" id="sTotalPage">{this.props.totalPage}</span>
       </div>
     )
   }
