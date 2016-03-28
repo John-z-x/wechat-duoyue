@@ -217,6 +217,7 @@ class AudioContent extends React.Component {
     progressDot.removeEventListener("touchstart", _self.touchStartProgress.bind(_self), false);
     progressDot.removeEventListener('touchmove', _self.touchMoveProgress.bind(_self), false);
     progressDot.removeEventListener("touchend", _self.touchEndProgress.bind(_self), false);
+    LrcScroll.stop();
   }
 
   render() {

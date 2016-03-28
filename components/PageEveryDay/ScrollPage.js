@@ -98,6 +98,9 @@ class ScrollPage extends React.Component {
     this.setState({
       everyData: everyData,
     });
+  }
+
+  componentWillUnmount() {
     window.removeEventListener("scroll", this.onScrollListAdd, false);
   }
 

@@ -18,7 +18,7 @@ class BookInfo extends React.Component {
 		            <tbody>
 			            <tr>
 			              <td>
-			              	<Link to={`/danpin/booksource/${this.props.data.bookData.id}`} className="icon-box">
+			              	<Link to='/confirmorder' className="icon-box">
 		                    <div className="book-buy-icon"></div>
 		                  	<div className="icon-box-title">购买</div>
 			                </Link>

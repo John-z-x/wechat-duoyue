@@ -1,28 +1,32 @@
-var webpack = require('webpack');
-var WebpackDevServer = require('webpack-dev-server');
-var config = require('./webpack.config');
+
 var path = require('path');
+var express = require('express');
+var webpack = require('webpack');
+var config = require('./webpack.config');
 
-var port = 8082;
+var app = express();
+
 var compiler = webpack(config);
-var server = new WebpackDevServer(compiler, {
-	publicPath: config.output.publicPath,
-	stats: {
-		colors: true
-	},
-	historyApiFallback: {
-		index: '/'
-	},
-	open: true,
+app.set('port', (process.env.PORT || 8082));
+app.use(require('webpack-dev-middleware')(compiler, {
 	noInfo: true,
+	publicPath: config.output.publicPath
+}));
+
+app.use(require('webpack-hot-middleware')(compiler));
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('*', function (req, res) {
+	console.log(req.url);
+	res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 
-server.use('/', function(req, res) {
-	res.sendFile(path.join(__dirname+'/index.html'));
+app.listen(app.get('port'), 'localhost', function (err) {
+	if (err) {
+		console.error(err);
+		return;
+	}
+
+	console.log('Listening at http://localhost:%s', app.get('port'));
 });
-		server.listen(port, 'localhost', (err) => {
-			if(err) {
-				console.log(err);
-			}
-			console.log(`Listening at localhost: ${port}`);
-		});

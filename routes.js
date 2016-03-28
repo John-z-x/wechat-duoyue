@@ -58,9 +58,11 @@ import SocialDetail from './components/SocialArea/SocialDetail';
 
 import ConfirmOrder from './components/ConfirmOrder/ConfirmOrder';
 
+import NotFound from './components/NotFound/NotFound';
+
 export default (
-  <Route component={App} >
-    <Route path="/" component={ShopPageHome} />
+  <Route path="/" component={App} >
+    <IndexRoute component={ShopPageHome} />
     <Route path="danpin" component={ShopPage}>
       <IndexRoute component={ShopPageHome}/>
       <Route path="books" component={BookType}/>
@@ -122,5 +124,7 @@ export default (
 
     <Route path="confirmorder" component={ConfirmOrder}>
     </Route>
+
+    <Route path="*" component={NotFound} />
   </Route>
 )

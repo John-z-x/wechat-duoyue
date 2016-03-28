@@ -34,6 +34,7 @@ module.exports = {
       }
     }),
     new webpack.optimize.UglifyJsPlugin({
+      test: /(\.jsx|\.js)$/,
       compressor: {
         warnings: false
       }
