@@ -1,0 +1,79 @@
+//
+// Colors
+// -----------------------------------------------------------------------------
+
+$white:                 hsl(100, 100, 100);
+
+$yellow:                hsl(40, 94, 55);               // #f8b020
+$yellow-dark:           hsl(40, 75, 48);
+
+$red:                   hsl(0.3, 85.2, 54.9);          // #ee2b2a
+
+$gray-base:             hsl(0, 0, 0);
+
+$gray-darker:           lighten($gray-base, 25.1%);    // #404040
+$gray-dark:             lighten($gray-base, 46.7%);    // #777777
+$gray:                  lighten($gray-base, 63.5%);    // #a2a2a2
+$gray-light:            lighten($gray-base, 85.9%);    // #dbdbdb
+$gray-lighter:          lighten($gray-base, 96.1%);    // #f5f5f5
+$gray-lightest:         lighten($gray-base, 98%);      // #fafafa
+
+//
+// Typography
+// -----------------------------------------------------------------------------
+
+$font-family-base:      '\5FAE\8F6F\96C5\9ED1', Arial, Helvetica, sans-serif;
+
+//
+// Layout
+// -----------------------------------------------------------------------------
+
+$max-content-width:     62.5rem;
+$max-z-index:           9999;
+$min-z-index:           -9999;
+
+//
+// Media queries breakpoints
+// -----------------------------------------------------------------------------
+
+$screen-xs-min:         480px;  // Extra small screen / phone
+$screen-sm-min:         768px;  // Small screen / tablet
+$screen-md-min:         992px;  // Medium screen / desktop
+$screen-lg-min:         1200px; // Large screen / wide desktop
+
+//
+// Animations
+// -----------------------------------------------------------------------------
+
+$animation-swift-out:   .45s cubic-bezier(0.3, 1, 0.4, 1) 0s;
+
+//
+// Fonts
+// -----------------------------------------------------------------------------
+$font-family-noto-sans-cjk: 'Noto Sans CJK';
+$font-family-noto-sans:     'Noto Sans', $font-family-noto-sans-cjk;
+
+//
+// Images
+// -----------------------------------------------------------------------------
+//$small-logo:            url("/images/logo.png") no-repeat 0 -222px;
+//$small-logo-length:     52px;
+//
+$medium-logo:           url("../../../assets/images/logo.png") no-repeat;
+$medium-logo-length:    72px;
+//
+//$large-logo:            url("/images/logo.png") no-repeat 1px 0;
+//$large-logo-length:     122px;
+
+// Header
+// -----------------------------------------------------------------------------
+$header-height:         4rem;
+
+// Footer
+// -----------------------------------------------------------------------------
+//$footer-height:
+
+//
+// Sidebar
+// -----------------------------------------------------------------------------
+$sidebar-width:         2.25rem;

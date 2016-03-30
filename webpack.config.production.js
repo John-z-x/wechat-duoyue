@@ -1,27 +1,18 @@
 const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-//const AUTOPREFIXER_BROWSERS = [
-//  'Android 2.3',
-//  'Android >= 4',
-//  'Chrome >= 20',
-//  'Firefox >= 24',
-//  'Explorer >= 8',
-//  'iOS >= 6',
-//  'Opera >= 12',
-//  'Safari >= 6'
-//];
+const outputDir = './public';
 
 module.exports = {
   entry: [
     'babel-polyfill',
-    './index'
+    './src/index.js'
   ],
   output: {
     filename: '[name].min.js',
-    path: path.join(__dirname, 'public'),
+    path: path.join(__dirname, outputDir),
     publicPath: ''
   },
   plugins: [
@@ -34,9 +25,30 @@ module.exports = {
       }
     }),
     new webpack.optimize.UglifyJsPlugin({
+      test: /(\.jsx|\.js)$/,
       compressor: {
         warnings: false
       }
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Wechat Duoyue',
+      filename: 'index.html',
+      template: 'index.template.html',
+      //"files": {
+      //  "css": [ "common.css" ],
+      //  "js": [ "common.js", "bundle.js"],
+      //  "chunks": {
+      //    "head": {
+      //      "entry": "common.js",
+      //      "css": [ "style.css" ]
+      //    },
+      //    "main": {
+      //      "entry": "bundle.js",
+      //      "css": []
+      //    },
+      //  }
+      //}
+
     }),
     new ExtractTextPlugin('app.css', { allChunks: true})
   ],
@@ -44,9 +56,9 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        loaders: ['react-hot', 'babel'],
+        loaders: ['babel'],
         exclude: /node_modules/,
-        include: __dirname
+        include: path.join(__dirname, 'src')
       },
 
       {
@@ -55,27 +67,30 @@ module.exports = {
         loader:  'style-loader/useable!css-loader!postcss-loader',
       },
       { test: /\.useable\.css$/, loader: "style/useable!css" },
+
       {
         test: /\.scss$/,
-        loader: 'style-loader/useable!css-loader!postcss-loader!sass-loader',
-        include: `includePaths[]=${encodeURIComponent(path.resolve(__dirname, "./sass"))}`
-      },  {
-        test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
-        loader: 'url-loader?limit=10000',
-      }, {
-        test: /\.(eot|ttf|wav|mp3)$/,
-        loader: 'file-loader',
+        loaders: ['style-loader/useable', 'css?root='+__dirname+'/assets/', 'resolve-url', 'sass']
       },
+      {
+        test: /\.(png|jpe?g|gif|svg|)$/,
+        loader: 'url-loader?limit=8192&name=images/[name].[ext]'
+      },
+      {
+        test: /\.(woff2?|otf|eot|ttf|wav|mp3|mp4)$/,
+        loader: 'url'
+      },
+      {
+        test: /\.json$/,
+        loader: 'json?name=MockData/[name].[ext]',
+      }
     ]
   },
   postcss: [
     autoprefixer({ browsers: ["last 2 versions"] })
   ],
-  resolve: {
-    extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx', '.json'],
-  },
-  devServer: {
-    historyApiFallback: true
-  }
 
+  resolve: {
+    extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx'],
+  }
 };

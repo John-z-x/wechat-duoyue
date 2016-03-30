@@ -1,30 +1,22 @@
 const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
-
-//const AUTOPREFIXER_BROWSERS = [
-//  'Android 2.3',
-//  'Android >= 4',
-//  'Chrome >= 20',
-//  'Firefox >= 24',
-//  'Explorer >= 8',
-//  'iOS >= 6',
-//  'Opera >= 12',
-//  'Safari >= 6'
-//];
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const outputDir = './dist';
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
+  target: 'web',
   entry: [
     'babel-polyfill',
-    'webpack-dev-server/client?http://localhost:8082',
-    'webpack/hot/dev-server',
-    './index'
+    'webpack-hot-middleware/client',
+    './src/index'
   ],
   output: {
     filename: 'bundle.js',
-    path: path.join(__dirname, 'public'),
-    publicPath: '/public'
+    path: path.join(__dirname, outputDir),
+    publicPath: '/assets/'
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
@@ -35,32 +27,61 @@ module.exports = {
         'NODE_ENV': JSON.stringify('development')
       }
     }),
+    new HtmlWebpackPlugin({
+      title: 'Wechat Duoyue',
+      filename: 'index.html',
+      template: 'index.template.html',
+      "files": {
+        "css": [ "common.css" ],
+        "js": [ "common.js", "bundle.js"],
+        "chunks": {
+          "head": {
+            "entry": "common.js",
+            "css": [ "app.scss" ]
+          },
+          "main": {
+            "entry": "bundle.js",
+            "css": []
+          },
+        }
+      }
+
+    }),
+    new webpack.optimize.CommonsChunkPlugin('common.js'),
   ],
   module: {
     loaders: [
       {
         test: /\.js$/,
         loaders: ['react-hot', 'babel'],
-        exclude: /node_modules/,
-        include: __dirname
+        exclude: /node_modules/
       },
 
       {
         test: /\.css$/i,
         exclude: /\.useable\.css$/,
         loader:  'style-loader/useable!css-loader!postcss-loader',
+        include: path.join(__dirname, 'assets', 'css')
       },
       { test: /\.useable\.css$/, loader: "style/useable!css" },
+
       {
         test: /\.scss$/,
-        loader: 'style-loader/useable!css-loader!postcss-loader!sass-loader',
-      },  {
-        test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
-        loader: 'url-loader?limit=10000',
-      }, {
-        test: /\.(eot|ttf|wav|mp3|mp4)$/,
-        loader: 'file-loader',
+        loaders: ['style-loader/useable', 'css?root='+__dirname+'/assets', 'resolve-url', 'sass']
       },
+      {
+        test: /\.(png|jpe?g|gif|svg|)$/,
+        loader: 'url-loader?limit=8192&name=images/[name].[ext]'
+      },
+      {
+        test: /\.(woff2?|otf|eot|ttf|wav|mp3|mp4)$/,
+        loader: 'url'
+      }
+      ,
+      {
+        test: /\.json$/,
+        loader: 'json',
+      }
     ]
   },
   postcss: [
@@ -68,7 +89,7 @@ module.exports = {
   ],
 
   resolve: {
-    extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx', '.json'],
+    extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx', 'json'],
   },
   devServer: {
     historyApiFallback: true

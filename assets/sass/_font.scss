@@ -1,0 +1,32 @@
+/*
+@font-face {
+      font-family: 'FZLTXHJW';
+      src: url('../../css/fonts/FZLTXHJW.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+   }*/
+
+@mixin dy-font-face($font-name) {
+  font: {
+    family: $font-name;
+    src: url('../../../assets/fonts/#{$font-name}.ttf') format('truetype');
+    style:  normal;
+    weight: normal;
+  }
+}
+
+@font-face {
+  @include  dy-font-face('FZLTXHJW');  //方正兰亭纤黑简体
+}
+
+@font-face {
+  @include  dy-font-face('FZQKBYSJW'); //方正清刻本悦宋简体
+}
+
+@font-face {
+  @include  dy-font-face('FZSSJW');  //方正书宋简体
+}
+
+@font-face {
+  @include dy-font-face('FZLTXH_GBK'); //方正兰亭纤黑_GBK
+}

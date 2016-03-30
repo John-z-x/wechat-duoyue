@@ -1,0 +1,34 @@
+.CatalogArea {
+	width:100%; 
+	height:100%; 
+	z-index:11000; 
+	background-color:#FFF; 
+	position:absolute; 
+	top: 0; 
+	left:0; 
+	overflow: scroll;
+	display: none;
+
+	.articleIndex {
+    padding: 10px;
+    margin-top: 40px;
+	}
+	.articleIndex a {
+		color: #333;
+    text-decoration: none;
+	}	
+	.articleIndex a:active {
+		color: rgb(151, 215, 192);
+	}
+	.showIndex{
+		height:40px; 
+		line-height:30px; 
+		width:95%; 
+		overflow:hidden; 
+		white-space:nowrap; 
+		text-overflow:ellipsis; 
+		padding:5px 2%;
+		border-bottom:1px solid #ddd;
+		font-size: 14px;
+	}
+}
