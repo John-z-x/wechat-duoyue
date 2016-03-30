@@ -5,8 +5,8 @@ import Slider from '../UIComponent/Slider/Slider';
 
 import EverydayContent from './EverydayContent';
 import EveryDayDates from './EveryDayDates';
-import ScrollPage from './ScrollPage';
-import EveryDayScrollBottom from './EveryDayScrollBottom';
+import ScrollPage from '../UIComponent/ScrollPage/ScrollPage';
+
 import Utils from '../../utils/utils.js';
 
 import withStyles from '../../decorators/withStyles';
@@ -53,7 +53,7 @@ class EverydayPageHome extends React.Component {
     everyData.map( (item,index)=>
       everyDayTotalItem[index] = item
     );
-    
+
     this.setState({
       everyData: everyDayTotalItem.concat(everyData[0]),
     });
@@ -62,11 +62,11 @@ class EverydayPageHome extends React.Component {
     let arrPrePage = this.state.arrPrePage;
     arrPrePage.push(document.documentElement.scrollHeight);
   }
-  
+
   render() {
     let everyData = this.state.everyData;
     return(
-        <div className="EverydayPage">
+        <div className="EverydayPageHome">
           <Slider data={EverydayData.SliderList}/>
           <div id="EverydayTopic">
           {
@@ -87,11 +87,11 @@ class EverydayPageHome extends React.Component {
             })
           }
           </div>
-          <ScrollPage callbackParent={this.onChildChanged} 
-            everyData={this.state.everyData} 
-            everyPage={this.state.everyPage} 
-            totalPage={this.state.totalPage} 
-            prePage={this.state.prePage} 
+          <ScrollPage callbackParent={this.onChildChanged}
+            everyData={this.state.everyData}
+            everyPage={this.state.everyPage}
+            totalPage={this.state.totalPage}
+            prePage={this.state.prePage}
             arrPrePage={this.state.arrPrePage} />
         </div>
     )

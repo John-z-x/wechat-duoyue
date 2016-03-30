@@ -67,7 +67,7 @@ class AlbumShow extends React.Component {
 					<CommonHeader>
 					  <ReturnButton/>
 					  <DownLoadButton  OnDownLoadClick={this.toShowDown}/>	
-							<CommentButton />
+						<CommentButton />
 						<CollectButton/>					
 					</CommonHeader>
 				</div>

@@ -21,6 +21,7 @@ import NewBookList from './components/NewBookList/NewBookList';
 
 import ArticleDisplay from './components/ArticleDisplay/ArticleDisplay';
 import BookDetail from './components/BookDetail/BookDetail';
+import BookRead from './components/BookRead/BookRead';
 import BookConsult from './components/BookDetail/BookConsult';
 import BookSourceList from './components/BookDetail/BookSourceList';
 
@@ -68,6 +69,7 @@ export default (
       <Route path="books" component={BookType}/>
       <Route path="booklist/:typeIndex" component={BookList}/>
       <Route path="bookbuy/:id" component={BookDetail}/>
+      <Route path="bookread/:id" component={BookRead}/>
       <Route path="bookconsult/:id" component={BookConsult}/>
       <Route path="booksource/:id" component={BookSourceList}/>
       <Route path="newbooklist/:type" component={NewBookList}/>

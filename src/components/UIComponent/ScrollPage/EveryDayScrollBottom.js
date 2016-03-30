@@ -8,7 +8,7 @@ class EveryDayScrollBottom extends React.Component {
       display: bottomDisplay ? 'block': 'none',
     }
     return(
-      <div className="nodata"  style={ styleObj }>别滚动了，已经到底了。。。</div>
+      <div className="EveryDayScrollBottom"  style={ styleObj }>别滚动了，已经到底了。。。</div>
     )
   }
 }

@@ -2,8 +2,11 @@ import React from 'react';
 import EveryDayPageNum from './EveryDayPageNum';
 import EveryDayScrollBottom from './EveryDayScrollBottom';
 
-import Utils from '../../utils/utils.js';
+import Utils from '../../../utils/utils.js';
+import withStyles from '../../../decorators/withStyles';
+import styles from './ScrollPage.scss';
 
+@withStyles(styles)
 class ScrollPage extends React.Component {
   constructor(props) {
     super(props);
@@ -131,7 +134,7 @@ class ScrollPage extends React.Component {
         arrPrePage = this.state.arrPrePage,
         everyData = this.state.everyData;
     return (
-      <div>
+      <div className="ScrollPage">
         <EveryDayPageNum everyData={everyData} pageDisplay={pageDisplay} everyPage={everyPage} totalPage={totalPage} prePage={prePage} arrPrePage={arrPrePage} />
         <EveryDayScrollBottom  bottomDisplay={this.state.bottomDisplay}/>
       </div>

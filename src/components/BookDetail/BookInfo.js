@@ -44,9 +44,9 @@ class BookInfo extends React.Component {
 
         	<div className="book-desc">
         		<div className="book-read-box">
-	            <div className="book-read-btn">
+	            <Link to={`/danpin/bookread/${this.props.data.bookData.id}`} className="book-read-btn">
 	                在线阅读&nbsp;<span>￥{this.props.data.bookData.readPrice}</span>
-	            </div>
+	            </Link>
 
 							<Link to={`/danpin/booksource/${this.props.data.bookData.id}`} className="book-read-btn"><span>配套资源</span></Link>
 	          </div>   
