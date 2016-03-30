@@ -1,0 +1,92 @@
+.CommonHeader {
+  .header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10010;
+    width: 100%;
+    height: 40px;
+    background-color: white;
+    border-bottom: 1px solid #cdcdcd;
+  }
+  .replace-header-fixed-place {
+    width: 100%;
+    height: 40px;
+  }
+
+  .ReturnButton {
+    height: 40px;
+    width: 40px;
+    margin: 0 10px;
+    background: url('/images/back.png') center no-repeat;
+    background-size: 25px 23px;
+  }
+
+  .SearchButton {
+    height: 40px;
+    width: 40px;
+    background: url(/images/CommodityDetailImage/icon_Search.png) center no-repeat;
+    background-size: 25px 25px;
+  }
+
+  .Favor {
+    height: 40px;
+    width: 40px;
+    background: url(http://www.duoyue.me/wechat/1018/3021/images/like_yes_new.png) center no-repeat;
+    background-size: 21px 21px;
+  }
+
+  .noFavor {
+    height: 40px;
+    width: 40px;
+    background: url(http://www.duoyue.me/wechat/1018/3021/images/like_new.png) center no-repeat;
+    background-size: 21px 21px;
+  }
+
+  .CommentButton {
+    background: url(http://www.duoyue.me/images/album/comment.png) center no-repeat;
+  }
+
+  .DownLoadButton {
+    background: url(http://www.duoyue.me/images/album/icon_download.png) center no-repeat ;
+  }
+  .HeaderStyleModify {
+    background: url(http://www.duoyue.me/images/mobile/articleImages/font.png) center no-repeat;
+  }
+
+  .HeaderTitle {
+    position: fixed;
+    width: 60%;
+    top: 0;
+    left: 20%;
+    text-align: center;
+    font-size: 16px;
+    color: #333333;
+    height: 40px;
+    line-height: 40px;
+  }
+  .btn {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    .icon {
+      display: inline-block;
+      width: 21px;
+      height: 21px;
+    }
+  }
+
+  .head-btn {
+    height: 40px;
+    width: 40px;
+    background-size: 21px 21px;
+  }
+
+  .MenuButton {
+    line-height: 48px;
+    .icon {
+      background: url(/images/top/top_icon.png) no-repeat 0px -164px;
+      background-size: 25px 250px;
+    }
+  }
+}

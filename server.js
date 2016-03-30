@@ -5,8 +5,11 @@ var webpack = require('webpack');
 var config = require('./webpack.config');
 
 var app = express();
-
+var debug = process.env.NODE_ENV !== 'production';
+var viewDir = debug ? 'dist': 'public';
 var compiler = webpack(config);
+console.log(viewDir);
+
 app.set('port', (process.env.PORT || 8082));
 app.use(require('webpack-dev-middleware')(compiler, {
 	noInfo: true,
@@ -15,11 +18,11 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, viewDir, 'public')));
 
 app.get('*', function (req, res) {
 	console.log(req.url);
-	res.sendFile(path.join(__dirname, '/public/index.html'));
+	res.sendFile(path.join(__dirname, viewDir, 'index.html'));
 });
 
 app.listen(app.get('port'), 'localhost', function (err) {
