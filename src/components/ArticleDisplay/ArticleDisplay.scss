@@ -1,205 +1,207 @@
-a:hover {
-    color: #333;
-    text-decoration: none;
-}
-.article-head {
-	width: 100%;
+.ArticleDisplay {
 
-}
-.article-head .title {
-	padding: 23px 17px 27px 17px;
-    text-align: left;
-    font-size: 28px;
-    line-height: 32px;
-    color: #fff;
-    background-color: transparent;
-    font-family: 'SourceHanSansCN-Normal';
-}
+  /*font-color*/
+  $fontColor3: #333;
+  $fontColorF: #fff;
+  $fontColor61c3a2: #61c3a2;
+  $fontColor7da0b4: #7da0b4;
+  
+  /*font-size*/
+  $fontSize16: 16px;
+  $fontSize14: 14px;
+  $fontSize12: 12px;
+  
+  /*常用border*/
+  $borderColor3: 1px solid #333;
+  $borderColorD: 1px solid #ddd;
+  $borderColorE4: 1px solid #e4e4e4;
 
-.article-head .time {
-    padding-left: 17px;
-    padding-bottom: 12px;
- }
- .article-head .time span {
-    display: inline-block;
-    font: 10px;
-    color: white;
-    margin-right: 5px;
-}
-.article-desc .desc {
-    margin-bottom: 40px;
-}
-.article-desc .desc span {
-    display: inline-block;
-    padding: 0 15px 25px 15px;
-}
-.article-desc img {
-	width: 100%;
-}
-.article-desc span{
-	font-size: 18px; 
-	line-height: 30px; 
-	color: rgb(51, 51, 51);
-}
-.article-content {
-	padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 40px;
-    font-size: 16px;
-    line-height: 26px;
-    word-break: normal;
-    word-wrap: break-word;
-    text-align: justify;
-}
-
-.to-everyday {
-    padding: 10px 20px; 
-    display: block;
-    border-top-width: 1px; 
-    border-top-style: solid; 
-    border-top-color: rgb(238, 238, 238); 
-    background: rgb(255, 255, 255);
-}
-.everyday-word {
-    border-left: 5px solid #62c3a2;
-    padding: 0px 0px 0px 10px;
-    font-size: 16px;
-    height: 29px;
-    line-height: 29px;
-    color: #333;
-}
-
-.to-everyday .icon img {
-    width: 29px;
-}
-.commodity{
-     border-top: 1px solid #ddd;  
-     border-bottom: 1px solid #ddd;
-     padding: 15px 10px 15px 10px;
-}
-
-/*相关阅读*/
-.content-relate  {
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-}
-.content-relate .title .relate-img {
-    display: inline-block;
-    height: 20px;
-    width: 15px;
-    background: url("../../../assets/images/imagesforarticle/wenzhang_relateread.png") no-repeat;
-    background-size: cover;
-    vertical-align: bottom;
-  }
-  .content-relate .title span {
-    display: inline-block;
-    margin-left: 10px;
-    font-size: 20px;
-    color: #333;
-  }
-.content-relate .title{
-    border-bottom: 1px solid #333;
-    padding-bottom: 14px;
-}
-
-.content-relate .relate-title {
-    font-size: 15px;
+  /*font-family*/
+  $fontFamilySHS: 'SourceHanSansCN-Normal';
+  
+  /*bg-color*/
+  $backgroundColorF: #fff;
+  $backgroundColor61c3a2: #61c3a2;
+  $backgroundColor7da1b4: #7da1b4;
+ 
+  /*购买or加入购物车button*/
+  .buy-way-button {
+    width: 47%; 
+    height: 25px;
+    font-size: $fontSize12;
+    color: $fontColorF;
     line-height: 25px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    color: #333;
-    border-bottom: 1px dashed #a1a1a1;}
-
-.detail-header {
-    height: 39px;
-    width: 100%;
-    background-color: #fff;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 3;
-    border-bottom: 1px solid #eee;
-}
-.cart-commoditys {
-  border-top:1px solid #ddd;  
-  padding: 0;
-}
-.cart-commoditys .commoditys-item {
- padding:15px 10px 15px 10px;
- border-bottom:1px solid #ddd;  
-}
-.cart-commoditys .commoditys-img {
-  width: 90px;
-}
-.cart-commoditys .commoditys-img img{
-
-}
-.cart-commoditys .commoditys-detail {
-  margin-left: 10px;
-  margin-right: 20px;
-  flex: 1;
-}
-.cart-commoditys .commoditys-title {
-    color: #333;
-    line-height: 18px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 14px;
-    white-space: nowrap;
-}
-.cart-commoditys .commoditys-size {
-    font-size: 14px;
-    line-height: 18px;
+    text-align: center;    
+  }
+  /*一行*/
+  @mixin a-line {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-}
-.cart-commoditys .oneprice {
-    color: #61c3a2;
-    font-size: 14px;
-    line-height: 24px;
-}
-.commoditys-price {
-   padding: 17px 0;
-}
-.cart-commoditys .classify-price {
-  width:72px;
-}
-.cart-commoditys .commoditys-classify {
-  padding: 0;
-  margin: 0;
-  color: #7da0b4;
-  height: 22px;
-  width: 21px;
-  text-align: center;
-  line-height: 22px;
-  font-size: 14px;
-  border: 1px solid #ddd;
-}
-.cart-commoditys .commoditys-classify:nth-child(2) {
-  border-left: 0;
-  border-right: 0;
+  }
+
+
+  a:hover {
+    color: $fontColor3;
+    text-decoration: none;
+  }
+  .Article {
+    .article-head {
+      width: 100%;
+      .title {
+        padding: 23px 17px 27px 17px;
+        text-align: left;
+        font-size: 28px;
+        line-height: 32px;
+        color: $fontColorF;
+        background-color: transparent;
+        font-family: $fontFamilySHS;
+      }
+      .time {
+        padding-left: 17px;
+        padding-bottom: 12px;
+        span {
+          display: inline-block;
+          margin-right: 5px;
+          font-size: $fontSize14;
+          color: $fontColorF;
+        }
+      }
+    }
+    .article-desc {
+      .desc {
+        margin-bottom: 40px;
+        padding-top: 20px;
+        span {
+          display: inline-block;
+          font-size: $fontSize16; 
+          line-height: 30px; 
+          padding: 0 15px 25px 15px;
+          color: $fontColor3;
+        }
+         img {
+          width: 100%;
+         }
+      }
+    }
+    .article-content {
+      padding: 0 15px 40px;
+      font-size: $fontSize16;
+      line-height: 26px;
+      word-break: normal;
+      word-wrap: break-word;
+      text-align: justify;
+    }
+  }
+  .Commodity {
+    border-top: $borderColorD;  
+    padding: 0;
+    .CommoditysItem {
+      padding: 15px 0;
+      margin: 0 10px;
+      border-bottom: $borderColorD; 
+      .item-img {
+        width: 90px;
+      }
+      .item-detail {
+        margin-left: 10px;
+        margin-right: 20px;
+        overflow: hidden;
+        flex: 1;
+        .title,.desc {
+          color: $fontColor3;
+          line-height: 18px;
+          font-size: $fontSize14;
+          @include a-line();
+        }
+        .price-number {
+          padding: 17px 0;
+          .oneprice {
+            color: $fontColor61c3a2;
+            font-size: $fontSize14;
+            line-height: 24px;
+          }
+          .CommoditysNumModify {
+            width:72px;
+            .commoditys-classify {
+              padding: 0;
+              margin: 0;
+              height: 22px;
+              width: 21px;
+              color: $fontColor7da0b4;
+              text-align: center;
+              line-height: 22px;
+              font-size: $fontSize14;
+              border: $borderColorD;
+              &:nth-child(2) {
+                border-left: 0;
+                border-right: 0;
+              };
+            }
+          }
+        }
+      }
+    }
+    .DoCommodity {
+      padding: 0;
+      .buy-immediate {
+        @extend .buy-way-button;
+        background-color: $backgroundColor7da1b4; 
+      }
+      .addto-shopcart {
+        @extend .buy-way-button;
+        background-color: $backgroundColor61c3a2;
+      }
+    }
+  }
+  .ContentRelate {
+    padding: 10px 20px 0 20px;
+    .title {
+      border-bottom: $borderColor3;
+      padding-bottom: 14px;
+      span {
+        display: inline-block;
+        margin-left: 10px;
+        font-size: 20px;
+        color: $fontColor3;
+      }
+      .icon-img {
+        display: inline-block;
+        width: 15px;
+        height: 20px;
+        background: url("../../../assets/images/imagesforarticle/wenzhang_relateread.png") no-repeat;
+        background-size: cover;
+        vertical-align: bottom;
+      }
+    }
+    .relate-title {
+      padding: 10px 0;
+      border-bottom: 1px dashed #a1a1a1;
+      font-size: 15px;
+      line-height: 25px;
+      color: $fontColor3;
+    }
+  }
+
+
+  .ToEveryday {
+    display: block;
+    padding: 10px 20px; 
+    border-top: $borderColorE4;
+    background: $backgroundColorF;
+    .everyday-word {
+      border-left: 5px solid #62c3a2;
+      padding-left: 10px;
+      font-size: $fontSize16;
+      height: 29px;
+      line-height: 29px;
+      color: $fontColor3;
+    }
+    .icon {
+      img {
+        width: 29px;
+      }
+    }
+  }
 }
 
-.doCommodity {
-  padding: 0;
-}
-.buy-immediate{
-  background-color:#7da1b4; 
-  font-size:12px; 
-  color:#fff;
-  line-height:25px; 
-  text-align:center;
-  width:47%; 
-  height:25px;
-}
-.addto-shopcart {
-  background-color: #61c3a2;
-  font-size: 12px;
-  color: #fff;
-  line-height: 25px;
-  text-align: center;
-  width:47%; 
-  height:25px;
-}

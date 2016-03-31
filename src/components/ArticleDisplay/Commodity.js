@@ -36,13 +36,13 @@ class Commodity extends React.Component {
     let bgColor = color == "white" ? "white" : "#333";
     let fontColor = color == "white" ? "black" : "#ccc";
     let commoditys = this.state.commoditys;
-    let itemNodes = commoditys.map(function(items) {
+    let itemNodes = commoditys.map((items) => {
         return (
           <CommodityItem data={items}  id={items.id} key={items.id}/>
         )
     });
     return (
-      <ul className="cart-commoditys" key={"y"} style={{backgroundColor: bgColor, color: fontColor}}>
+      <ul className="Commodity" key={"y"} style={{backgroundColor: bgColor, color: fontColor}}>
         {itemNodes}
       </ul>
     );

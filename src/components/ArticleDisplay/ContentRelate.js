@@ -38,9 +38,9 @@ class ContentRelate extends React.Component {
     let bgColor = color == "white" ? "white" : "#333";
     let fontColor = color == "white" ? "black" : "#ccc";
     return(
-      <div className="content-relate" style={{backgroundColor: bgColor}}>
+      <div className="ContentRelate" style={{backgroundColor: bgColor}}>
         <div className="title">
-          <i className="relate-img"></i>
+          <i className="icon-img"></i>
 
           <span style={{color: fontColor}}>相关阅读</span>
         </div>

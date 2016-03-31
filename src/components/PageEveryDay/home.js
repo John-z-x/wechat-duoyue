@@ -70,13 +70,13 @@ class EverydayPageHome extends React.Component {
           <Slider data={EverydayData.SliderList}/>
           <div id="EverydayTopic">
           {
-            everyData.map(function(everyday,index){
+            everyData.map((everyday,index) => {
               let src = require("../../../assets/images/imagesforarticle/null.gif");
               return(
                   <Link to={`/everyday/${index}/display`} key={`everyday${index}`}>
                     <div className="everyday-box">
                       <div className="item-title">
-                        <img src={src} className="juhe-icon-wenzhang"/>
+                        <span className="article-icon"></span>
                         · 文章 ·
                       </div>
                       <EverydayContent data={everyday}/>

@@ -4,11 +4,10 @@ import React from 'react';
 class EveryDayDates extends React.Component {
   render() {
     const data = this.props.data;
-    let src = require("../../../assets/images/imagesforarticle/null.gif");
     return (
-      <div className="dates">
+      <div className="EveryDayDates">
         {data.day}
-        <img src={src} className="juhe-icon-liulan"/>
+        <span className="eye-icon"></span>
         {data.peoplenum}
       </div>
     );
