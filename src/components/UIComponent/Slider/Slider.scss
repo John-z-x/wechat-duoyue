@@ -1,4 +1,6 @@
+@charset "UTF-8";
 
+@import "../../../../assets/sass/_common";
 .Slider {
 	position: relative;
 	height: 200px;
@@ -43,6 +45,11 @@
 		width: 100%;
 		background: transparent;
 	    text-align: center;
+	}
+
+	.dot {
+		text-indent: -10px;
+		overflow: hidden;
 	}
 
 	.slider_dot_item {
