@@ -10,11 +10,10 @@ class ToEveryday extends React.Component{
     let src = require("../../../assets/images/imagesforarticle/arrow_info.png");
 
     return(
-      <Link to="/everyday/" className="to-everyday clearfix" style={{backgroundColor: bgColor}}>
+      <Link to="/everyday/" className="ToEveryday clearfix" style={{backgroundColor: bgColor}}>
         <div className="everyday-word left" style={{color: fontColor}}>每天</div>
         <div className="icon right">
          <img src={src} alt=" "/>
-
         </div>
       </Link>
     );

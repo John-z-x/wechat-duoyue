@@ -24,10 +24,10 @@ class CommoditysNumModify extends React.Component {
   
   render() {
     return (
-      <div className="classify-price right">
-        <a className="commoditys-classify left change-item-number" onClick={this.modifyNum.bind(this)}> - </a>
+      <div className="CommoditysNumModify  right">
+        <a className="commoditys-classify left " onClick={this.modifyNum.bind(this)}> - </a>
         <a className="commoditys-classify left">{this.state.num}</a>
-        <a className="commoditys-classify left change-item-number" onClick={this.modifyNum.bind(this)}> + </a>
+        <a className="commoditys-classify left " onClick={this.modifyNum.bind(this)}> + </a>
       </div>
     )
   }

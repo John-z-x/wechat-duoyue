@@ -48,7 +48,7 @@ class DoCommodity extends React.Component {
 
   render() {
     return(
-      <div className="doCommodity clearfix">
+      <div className="DoCommodity clearfix">
         <Link to="/confirmorder" >
           <div className="buy-immediate left">立即购买</div>
         </Link>

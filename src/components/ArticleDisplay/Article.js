@@ -37,7 +37,7 @@ class Article extends React.Component {
     let fontColor = color == "white" ? "black" : "#ccc";
     if(articledata) {
   		return(
-    			<div className="article" style={{backgroundColor: bgColor, color: fontColor}}>
+    			<div className="Article" style={{backgroundColor: bgColor, color: fontColor}}>
             <div className="article-head" style={{backgroundColor:" #c29364"}}>
 			        <h1 className="title">
 			         {articledata.articleTitle}

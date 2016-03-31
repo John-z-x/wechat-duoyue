@@ -15,13 +15,14 @@ class CommoditysItem extends React.Component {
   render() {
     let data = this.props.data;
     return (
-      <li className="commoditys-item clearfix flex">
-        <div className="commoditys-img left">
+      <li className="CommoditysItem  flex clearfix">
+        <div className="item-img left">
           <img src={data.headurl} alt="图片" width="90" height="120"/>
         </div>
-        <div className="commoditys-detail left">
-          <div className="commoditys-title">{data.title}</div>
-          <div className="commoditys-price clearfix">
+        <div className="item-detail left">
+          <div className="title">{data.title}</div>
+          <div className="desc">{data.size}</div>
+          <div className="price-number clearfix">
             <div className="oneprice left">¥{data.price}</div>
             <CommodityNumModify id={data.id} ref="num"/>
           </div>
