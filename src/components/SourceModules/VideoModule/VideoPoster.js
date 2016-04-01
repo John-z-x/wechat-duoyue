@@ -2,12 +2,7 @@
 import React from 'react';
 
 class VideoPoster extends React.Component {
-	constructor(props) {
-    super(props);
-    // console.log(this)
-    this.state = {
-    };
-  }
+
   togglePlay() {
   	let myVideo = this.refs.myVideo;
   	if (myVideo.paused) {
@@ -16,14 +11,15 @@ class VideoPoster extends React.Component {
   		myVideo.pause();
   	}
   }
+
 	render() {
+		let { data } = this.props;
 		return (
-			<div className="video-poster" onClick={this.togglePlay.bind(this)}>
-				<video className="my-video" src={this.props.data.videoSrc} preload="none" poster={this.props.data.videoPoster} id="my-video" ref="myVideo"></video>
+			<div className="VideoPoster video-poster" onClick={::this.togglePlay}>
+				<video className="my-video" src={data.videoSrc} preload="none" poster={data.videoPoster} id="my-video" ref="myVideo" />
 			</div>
 		);
 	}
 }
-
 
 export default VideoPoster;

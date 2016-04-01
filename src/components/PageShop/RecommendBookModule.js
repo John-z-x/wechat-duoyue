@@ -3,14 +3,15 @@ import React, { PropTypes }from 'react';
 import { Link } from 'react-router';
 
 class RecommendBookModule extends React.Component {
-	render() {
 
+	render() {
+		let { data } = this.props;
 		return (
 			<div className="recmd-box bdr-mg bg-white">
-				<h2 className="f-level-title">{this.props.data.title}</h2>
+				<h2 className="f-level-title">{data.title}</h2>
 				<ul className="recmd-bks">
 				{
-					this.props.data.data.map(function(item,i){
+					data.data.map(function(item,i){
 						return (
 							<li className="cell" key={i}>
 								<Link to={item.href}>

@@ -78,7 +78,7 @@ class ShopPageHome extends React.Component {
           <SortNav sortData={shopData.sortData}/>
           <RecommendBookModule data={shopData.newbksData}/>
           <RecommendBookModule data={shopData.hotbksData}/>
-          <SortBrowse data={shopData.sortBrowseData}></SortBrowse>
+          <SortBrowse data={shopData.sortBrowseData}/>
         </div>
     );
   }

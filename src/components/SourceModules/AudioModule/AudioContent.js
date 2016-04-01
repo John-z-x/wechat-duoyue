@@ -54,7 +54,6 @@ class AudioContent extends React.Component {
         overInfo: false
       });
     }
-    //载入歌词
   }
 
   componentDidMount() {
