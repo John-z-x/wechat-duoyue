@@ -1,8 +1,6 @@
 'use strict';
 import React from 'react';
 import { Link } from 'react-router';
-import ReactDom from 'react-dom';
-import classNames from 'classnames';
 import CommonHeader from '../../HeaderComponents/CommonHeader.js';
 import ReturnButton from '../../HeaderComponents/ReturnButton';
 import withStyles from '../../../decorators/withStyles';
@@ -24,27 +22,21 @@ const data = [
   
   ];
 
-
+@withStyles(styles)
 class VideoList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    };
-  } 
 
 	render() {
-    let videoListItem = this.props.data.map((item, i) => {
+    let videoListItem = data.map((item, i) => {
       return (
         <Link to="/source/video/4" className="v-col-page-cell left" key={i}>
           <div className="poster">
-            <img src={item.poster} alt="poster"/>
+            <img src={item.poster} alt="poster" title="image"/>
             {/*<aside className="v-attr">视频时长：10</aside>*/}
           </div>
           <h3 className="desc">{item.desc}</h3>
         </Link>
       )
-    })
+    });
 		return (
 			<div className="VideoList">
         <CommonHeader>
@@ -53,17 +45,9 @@ class VideoList extends React.Component {
         <div className="video-list-content">
           {videoListItem}
         </div>
-        
       </div>
 		);
 	}
 }
-@withStyles(styles)
-class temp extends React.Component {
-  render() {
-    return (
-      <VideoList data={data}/>
-    );
-  }
-}
-export default temp;
+
+export default VideoList;
