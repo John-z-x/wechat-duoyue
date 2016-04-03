@@ -27,18 +27,17 @@ class PhotoModuleHome extends React.Component {
 constructor(props) {
     super(props);
     this.state = {
-    	ifShow: false,
-    }
+    	ifShow: false
+    };
     this.toShowDown = this.toShowDown.bind(this);
   }
 
   toShowDown() {
   	 this.setState({
-      ifShow: !this.state.ifShow,
+      ifShow: !this.state.ifShow
     })
   }
 
-  OnDownLoadClick
 	render() {
 		return(
 			<div className="PhotoModuleHome">

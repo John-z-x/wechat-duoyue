@@ -3,7 +3,7 @@ import React from 'react';
 import withStyles from '../../decorators/withStyles';
 import styles from './BookRead.scss';
 
-import ProgressController from '../SourceModules/SourcePdf/ProgressController';
+import ProgressController from '../UIComponent/ProgressController/ProgressController';
 import ArticleHeader from './ArticleHeader';
 import CatalogArea from './CatalogArea';
 import StyleBox from './StyleBox';
@@ -25,7 +25,6 @@ class BookRead extends React.Component{
 		this.opationCanvas ;
 		this.fontSize = 16;
 		this.lineHeight = 24;
-		this.clientHeight = 0; 
 		this.startX0;
 		this.startX1;
 		this.startY0;
@@ -44,7 +43,7 @@ class BookRead extends React.Component{
 
 	init(){
 		document.getElementsByClassName('PageHeader')[0].style.display='none';
-		document.getElementsByClassName('ProgressController')[0].style.display="none";
+		//document.getElementsByClassName('ProgressController')[0].style.display="none";
 		document.getElementById('ArticleHeader').style.display='none';
 		this.CanvasBg = document.getElementById('textCanvasBg');
 		this.CanvasBg.style.height = document.documentElement.clientHeight  + "px";
@@ -163,27 +162,27 @@ class BookRead extends React.Component{
 	}
 
 	touchEnd(e){
-		let element = document.getElementsByClassName('ProgressController');
-		element[0].id = 'ProgressController';
+		//let element = document.getElementsByClassName('ProgressController');
+		//element[0].id = 'ProgressController';
 		document.getElementById('StyleBox').style.display="none";
 		document.getElementById('FontBox').style.display="none";
 
 		if(!this.pageLock){
 			if(this.startX0 < document.documentElement.clientWidth/3)
 			{
-				document.getElementById('ProgressController').style.display="none";
+				//document.getElementById('ProgressController').style.display="none";
 				document.getElementById('ArticleHeader').style.display="none";
 				this.prevPage();
 			}
 			else if(this.startX0 > document.documentElement.clientWidth*2/3)
 			{
-				document.getElementById('ProgressController').style.display="none";
+				//document.getElementById('ProgressController').style.display="none";
 				document.getElementById('ArticleHeader').style.display="none";
 				console.log(this.pageOver);
 				this.nextPage();
 			}
 			else {
-				this.toggle('ProgressController');
+				//this.toggle('ProgressController');
 				this.toggle('ArticleHeader');
 			}
 			this.pageLock = true;
@@ -258,7 +257,6 @@ class BookRead extends React.Component{
 	      <div id="textCanvas" className="duoyue_read" >{dataArray.article}</div>
 	      <div id="opationCanvas" className="opationCanvas"></div>
 	    </div>
-	    <ProgressController funcs={funcs} data={{overPages: 1, totalPages: 5}} id="ProgressController"/>
 	  </div>);
 	}
 }

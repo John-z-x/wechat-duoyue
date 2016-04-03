@@ -1,48 +1,58 @@
 'use strict';
 import React, { PropTypes } from 'react';
-import classNames from 'classnames';
-import { Link } from 'react-router';
+import { findDOMNode } from 'react-dom';
 
 import withStyles from '../../../decorators/withStyles';
 import styles from './SourcePdf.scss';
-import _ from 'lodash';
-
 
 @withStyles(styles)
 class SourcePdfZoomBox extends React.Component {
 	constructor(props) {
 		super(props);
-	}
-
-	componentDidMount() {
-		var myScroll;
-	  function loaded() {
-			myScroll = new IScroll('#myZoom',{
-				preventDefault: false,
-				zoom: true,
-				scrollX: true,
-				scrollY: true,
-				mouseWheel: true,
-				wheelAction: 'zoom'
-			});
+		this.state = {
+			index: 1
 		}
-		document.getElementById('myZoom').addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-		loaded();
-		//document.addEventListener('load', loaded, false);
 	}
-	componentWillUnmount() {
-		document.getElementById('myZoom').removeEventListener('touchmove', function (e) { e.preventDefault();}, false);
+  
+	onImgClick(e) {
+		let pageWidth = window.innerWidth, type = "",
+				onImgClick = this.props.onImgClick;
+		let startX0 = e.pageX;
+		e.preventDefault();
+		if (startX0 < (pageWidth * 0.3)) {
+			type = "prev";
+		}else if ((startX0 > (pageWidth * 0.3)) && (startX0 < (pageWidth * 0.6))) {
+			type = "toggle"
+		}else if (startX0 > (pageWidth * 0.6)) {
+			type= "next";
+		}
+		onImgClick(type);
 	}
-	render() {
-		const pdfImg = 'http://file.duoyue.me/upload/source/pdfimages/2015_11_26_164847868/0000.Png';
+	
+	componentDidMount() {
+		let myZoom = findDOMNode(this.refs.myZoom);
+		let myScroll = new IScroll('#myZoom', {
+			preventDefault: false,
+			zoom: true,
+			scrollX: true,
+			scrollY: true,
+			mouseWheel: true,
+			wheelAction: 'zoom'
+		});
+		myZoom.addEventListener('touchmove', (e) => e.preventDefault() , false);
+	}
 
-		let bgImg = {
-			backgroundImage: 'url(' + pdfImg + ')',
-		};
+	componentWillUnmount() {
+		let myZoom = findDOMNode(this.refs.myZoom);
+		myZoom.removeEventListener('touchmove', (e) => e.preventDefault() , false);
+	}
+
+	render() {
+		let { zIndex, img } = this.props.zoomBox;
 		return (
-			<div className="SourcePdfZoomBox" id="SourcePdfZoomBox" style={{zIndex: 0}}>
-				<div className="zoom-box" id="myZoom">
-					<div className="content" style={bgImg}>
+			<div className="SourcePdfZoomBox" style={{zIndex: zIndex}}>
+				<div className="zoom-box" id="myZoom" ref="myZoom" onClick={::this.onImgClick}>
+					<div className="content" style={{backgroundImage: "url(" + img.src + ")"}}>
 					</div>
 				</div>
 			</div>

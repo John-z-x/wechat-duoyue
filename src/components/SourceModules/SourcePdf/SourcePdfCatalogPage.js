@@ -46,8 +46,6 @@ const data = [
 	];
 const nowIndex = 3;
 
-
-
 @withStyles(styles)
 class SourcePdfCatalogPage extends React.Component {
 	constructor(props) {
@@ -68,7 +66,7 @@ class SourcePdfCatalogPage extends React.Component {
 					<p className="thumbnail-index">{i + 1}</p>
 				</Link>
 			)
-		})
+		});
 		return (
 			<div className="SourcePdfCatalogPage">
 				<CommonHeader>
