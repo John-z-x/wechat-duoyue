@@ -3,7 +3,7 @@ import React from 'react';
 import withStyles from '../../decorators/withStyles';
 import styles from './CatalogArea.scss';
 
-import MenuHeader from './MenuHeader';
+import HeaderComponents from '../HeaderComponents/CommonHeader';
 
 let dataArray = [
   {'title':'第一章 的卡卡的就','id':1},
@@ -35,16 +35,20 @@ class CatalogArea extends React.Component{
   render(){
     let Link = dataArray.map(function(item){
     return (
-      <a href="" key={item.id} id={'showIndex'+item.id} className="showIndexLink">
+      <a key={item.id} id={'showIndex'+item.id} className="showIndexLink">
         <div className="showIndex" >{item.title}</div>
       </a>
       );
-    })
+    });
     return (
-        <div id="catalog_area" className="CatalogArea"> 
-          <MenuHeader/>
+        <div className="CatalogArea">
+          <header class="catalog-header">
+            <div className="article-return">
+              <span className="articleIcon-continue" onClick={this.hideCatalog}>虚度</span>
+            </div>
+          </header>
           <div className="catalog">
-              <div className="articleIndex" id="articleIndex">
+              <div className="articleIndex" >
               {Link}
               </div>
           </div>

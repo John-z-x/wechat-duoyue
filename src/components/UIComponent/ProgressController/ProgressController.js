@@ -49,7 +49,6 @@ class ProgressController extends React.Component {
 
   render() {
     let width = this.props.progressValue*this.progressLong;
-    //console.log(this.props.progressValue);
     return (
       <div className="ProgressController" id="ProgressController">
         <div id="progress_bg" className="music-progress-box" ref="progress">
