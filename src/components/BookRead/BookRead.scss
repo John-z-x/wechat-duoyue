@@ -72,10 +72,47 @@
     z-index: 10010;
     box-sizing: border-box;
     background-color: #fff;
-    padding: 10px 3% 0;
+    padding: 0 3%;
     border-top: 1px solid #ddd;
+    .controll-box {
+      width: 94%;
+      margin-top: 20px
+    }
   }
   .progress-num {
     text-align: center;
+  }
+  .FZSSJW {
+    font-family: "FZSSJW";
+  }
+  .FZLTXHJW {
+    font-family: "FZLTXHJW";
+  }
+  .YaHei {
+    font-family: "Microsoft Yahei";
+  }
+  .yellow {
+    color: #333 !important;
+    background-color: rgb(246, 240, 225) !important;
+  }
+  .white {
+    color: #333 !important;
+    background-color: white !important;
+  }
+  .black {
+    color: #ddd !important;
+    background-color: rgb(20, 20, 20) !important;
+  }
+  .green {
+    color: #333 !important;
+    background-color: rgb(199, 237, 204) !important;
+  }
+  .forColor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
   }
 }

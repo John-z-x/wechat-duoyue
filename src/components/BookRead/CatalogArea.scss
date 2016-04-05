@@ -29,5 +29,29 @@
     padding: 5px 2%;
     border-bottom: 1px solid #ddd;
     font-size: 14px;
+    color: #333;
+  }
+  .over {
+    color: #97d7c0;
+  }
+  .catalog-header {
+    position: fixed;
+    width: 100%;
+    height: 40px;
+    left: 0;
+    top: 0;
+    z-index: 11111;
+    border-bottom: 1px solid #ddd;
+  }
+  .articleIcon-continue {
+    line-height: 40px;
+    text-indent: 30px;
+    color: #97d7c0;
+    margin-left: 10px;
+  }
+  .articleIcon-continue::before {
+    content: "<";
+    color:#97d7c0 ;
+    margin-right: 5px;
   }
 }

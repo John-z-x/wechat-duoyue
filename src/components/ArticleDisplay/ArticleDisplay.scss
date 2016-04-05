@@ -203,5 +203,13 @@
       }
     }
   }
+  .white {
+    color: black;
+    background-color: white !important;
+  }
+  .black {
+    color: white;
+    background-color: black !important;
+  }
 }
 

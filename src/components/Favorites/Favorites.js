@@ -2,7 +2,7 @@ import React from 'react';
 import FavoritesBook from './FavoritesBook';
 import FavoritesArticle from './FavoritesArticle';
 
-import CommonHeader from '../../components/HeaderComponents/CommonHeader';
+import CommonHeader from '../HeaderComponents/CommonHeader';
 import Tab from '../UIComponent/Tab/Tab';
 import ReturnButton from '../HeaderComponents/ReturnButton';
 

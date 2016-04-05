@@ -1,0 +1,160 @@
+@import "../../../assets/sass/font.scss";
+.ArticleFontStyleModify {
+  .FontBox{
+    .articleStyle {
+      position: absolute;
+      z-index: 12000;
+      height: 150px;
+      width: 240px;
+      border: 1px solid #e5e5e5;
+      border-radius: 5px;
+      top: 10px;
+      right: 5px;
+      background-color: #ffffff;
+    }
+    .articleStyleTitle {
+      height: 29%;
+      width: 100%;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    .articleTitlePic {
+      height: 17px;
+      width: 44px;
+      margin: 17px 10px 0 10px;
+      float: left;
+    }
+    .return {
+      display: block;
+      height: 17px;
+      width: 44px;
+      background: url(../../../assets/images/ArticleImages/back.png) no-repeat center;
+      background-size: 100%;
+      text-indent: -100px;
+      overflow: hidden;
+    }
+    .articleTitleContent {
+      font-size: 16px;
+      margin-left: 45%;
+      line-height: 50px;
+    }
+    .articleStyleFont {
+      height: 22%;
+      width: 100%;
+    }
+    .articleFontPic {
+      display: inline-block;
+      height: 17px;
+      width: 17px;
+      margin: 10px 0px 10px 10px;
+      position: absolute;
+      left: 0;
+      background: url("../../../assets/images/ArticleImages/choose.png") no-repeat center;
+      background-size: 100%;
+    }
+    .articleFontContent {
+      width: 87%;
+      float: right;
+      font-size: 14px;
+      margin-left: 5%;
+      padding: 6.5px 10px;
+      border-bottom: 1px solid #e5e5e5;
+    }
+  }
+  .StyleBox{
+    .checkstyle {
+      height: 150px;
+      width: 240px;
+      position: fixed;
+      right: 5px;
+      top: 50px;
+      background-color: #ffffff;
+      border-radius: 5px;
+      border: 1px solid #f0f0f0;
+      z-index: 12000;
+    }
+
+    .top {
+      border-bottom: 1px solid #ddd;
+    }
+    .small {
+      border-right: 1px solid #ddd;
+      font-size: 15px;
+    }
+    .small, .big {
+      display: inline-block;
+      width: 48%;
+      font-size: 15px;
+      height: 35%;
+      line-height: 60px;
+      text-align: center;
+    }
+    .big {
+      font-size: 25px;
+    }
+    .middle {
+      height: 25%;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 14px;
+    }
+    .middleFont {
+      line-height: 40px;
+      padding-left: 10px;
+    }
+    .chooseFont {
+      float: right;
+      color: #888;
+      line-height: 40px;
+      padding-right: 10px;
+    }
+    .bottom {
+      padding-top: 7px;
+      margin-bottom: 17px;
+    }
+    .fontStyleItem {
+      display: inline-block;
+      height: 32px;
+      width: 32px;
+      border-radius: 50%;
+      line-height: 30px;
+      margin-left: 20px;
+      color: #1e1e1e;
+      text-align: center;
+    }
+    .whiteBox {
+      border: 1px solid #ccc;
+      background-color: #fbfbfb;
+    }
+
+  }
+  .tu-white {
+    position: absolute;
+    z-index: 1200;
+    height: 15px;
+    width: 36px;
+    background: url("../../../assets/images/ArticleImages/wenzhang_tu.png")no-repeat center;
+    background-size: cover;
+    right: -5px;
+    top: -14px;
+  }
+  .tu-black {
+    position: absolute;
+    z-index: 1200;
+    height: 15px;
+    width: 36px;
+    background: url("http://www.duoyue.me/images/mobile/zixun/wenzhang_tu_duck.png") no-repeat center;
+    background-size: cover;
+    right: -5px;
+    top: -14px;
+  }
+  .black {
+    color: #ddd !important;
+    background-color: rgb(20, 20, 20) !important;
+    //border: 1px solid #333 !important;
+  }
+  .white {
+    color: #333 !important;
+    background-color: white !important;
+
+    //border: 1px solid #e5e5e5 !important;
+  }
+}
