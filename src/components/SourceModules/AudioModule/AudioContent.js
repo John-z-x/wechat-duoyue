@@ -18,8 +18,6 @@ class AudioContent extends React.Component {
       showInfo: false, //是否显示全部描述信息
       isFavor: false, //是否点赞
       favorNum: 0, //点赞数量
-      progressControlling: false, //是否手动控制进度条
-      progressLeft: 0 //手动控制进度条的位置
     };
     this.SLIDER_TIME = 3000;
     //this.data = { touchstart , startX, marginLeft. isSlidering}
@@ -42,8 +40,8 @@ class AudioContent extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    let data = prevProps.data[prevProps.index], DEFAULT_INFO_HEIGHT = 85;
-    if(data.id == this.props.data[this.props.index].id) return;
+    let data = prevProps.audioData.data[prevProps.audioData.index], DEFAULT_INFO_HEIGHT = 85;
+    if(data.id == this.props.audioData.data[this.props.audioData.index].id) return;
     //切换歌曲时判断信息描述内容长度是否超出
     if(this.refs.info.offsetHeight > DEFAULT_INFO_HEIGHT ) {
       this.setState({
@@ -57,13 +55,10 @@ class AudioContent extends React.Component {
   }
 
   componentDidMount() {
-    let container = this.refs.container, progressDot = this.refs.progressDot, DEFAULT_INFO_HEIGHT = 85;
-    let data = this.props.data[this.props.index];
+    let container = this.refs.container,  DEFAULT_INFO_HEIGHT = 85;
+    let data = this.props.audioData.data[this.props.audioData.index];
     //屏幕滑动
     this.slide(container);
-    this.moveProgress(progressDot);
-    //计算歌曲进度条总长度
-    this.progressLong = this.refs.progress.offsetWidth;
     //加载完毕时判断信息描述内容长度是否超出
     if(this.refs.info.offsetHeight > DEFAULT_INFO_HEIGHT ) {
       this.setState({
@@ -86,48 +81,9 @@ class AudioContent extends React.Component {
     }
   }
 
-  touchStartProgress(e) {
-    e.stopPropagation();
-    this.setState({
-      progressControlling: true,
-      progressLeft: this.props.progressValue*this.progressLong
-    });
-    this.touchstartP = e.targetTouches;
-    this.startXP = this.touchstartP[0].pageX;
-    this.marginLeftP = this.state.progressLeft;
-    this.props.onProgressControll("start");
-  }
-
-  touchMoveProgress(e) {
-    e.stopPropagation();
-    let touchmove = e.targetTouches, left = this.state.progressLeft;
-    this.moveXP = touchmove[0].pageX - this.startXP;
-    if( left > 0 && left < this.progressLong ) {
-      this.setState({
-        progressLeft: this.marginLeftP + this.moveXP
-      });
-    }
-  }
-
-  touchEndProgress(e) {
-    e.stopImmediatePropagation();
-    let progressValue = this.state.progressLeft/this.progressLong;
-    this.setState({
-      progressControlling: false
-    });
-    this.props.onProgressControll("end", progressValue);
-  }
-
-  moveProgress(node) {
-    let _self = this;
-    node.addEventListener("touchstart", _self.touchStartProgress.bind(_self), false);
-    node.addEventListener('touchmove', _self.touchMoveProgress.bind(_self), false);
-    node.addEventListener("touchend", _self.touchEndProgress.bind(_self), false);
-  }
-
   componentWillReceiveProps(np) {
-    let data = np.data[np.index], DEFAULT_INFO_HEIGHT = 85;
-    if(data.id == this.props.data[this.props.index].id) return;
+    let data = np.audioData.data[np.audioData.index], DEFAULT_INFO_HEIGHT = 85;
+    if(data.id == this.props.audioData.data[this.props.audioData.index].id) return;
     //判断是否赞过和赞的数量
     if(data.isFav) {
       this.setState({
@@ -157,11 +113,13 @@ class AudioContent extends React.Component {
   touchMove(e) {
     let touchmove = e.targetTouches;
     this.moveX = touchmove[0].pageX - this.startX;
-    this.setState({left: this.marginLeft + this.moveX});
+    this.setState({
+      left: this.marginLeft + this.moveX
+    });
   }
 
   touchEnd(e) {
-    let moveX = this.moveX, sliderList = 3, end, index = this.state.index;
+    let moveX = this.moveX, index = this.state.index;
     let width = document.documentElement.clientWidth;
     this.moveX = 0;
     if(moveX < 0 ) {
@@ -202,36 +160,33 @@ class AudioContent extends React.Component {
   }
 
   slide(node) {
-    let _self = this;
-    node.addEventListener("touchstart", _self.touchStart.bind(_self), false);
-    node.addEventListener('touchmove', _self.touchMove.bind(_self), false);
-    node.addEventListener('touchend', _self.touchEnd.bind(_self), false);
+    node.addEventListener("touchstart", ::this.touchStart, false);
+    node.addEventListener('touchmove', ::this.touchMove, false);
+    node.addEventListener('touchend', ::this.touchEnd, false);
   }
 
   componentWillUnmount() {
-    let container = this.refs.container, progressDot = this.refs.progressDot, _self = this;
-    container.removeEventListener("touchstart", _self.touchStart.bind(_self), false);
-    container.removeEventListener('touchmove', _self.touchMove.bind(_self), false);
-    container.removeEventListener('touchend', _self.touchEnd.bind(_self), false);
-    progressDot.removeEventListener("touchstart", _self.touchStartProgress.bind(_self), false);
-    progressDot.removeEventListener('touchmove', _self.touchMoveProgress.bind(_self), false);
-    progressDot.removeEventListener("touchend", _self.touchEndProgress.bind(_self), false);
+    let container = this.refs.container, progressDot = this.refs.progressDot;
+    container.removeEventListener("touchstart", ::this.touchStart, false);
+    container.removeEventListener('touchmove', ::this.touchMove , false);
+    container.removeEventListener('touchend', ::this.touchEnd , false);
     LrcScroll.stop();
   }
 
   render() {
-    let data = this.props.data[this.props.index], dataList = this.props.data;
-    let width = this.props.progressValue*this.progressLong;
-    let time = utils.timeFormat(this.props.duration);
-    let ab = this.props.isPlaying ? "running" : "paused" ;
-    let infoClassname = this.state.showInfo ? "music-info-open" : "music-info" ;
-    let infoControllClass = this.state.showInfo ? "dis-desc-btn-hide" : "dis-desc-btn-show";
-    let favorSrc = this.state.isFavor ? require("../../../../assets/images/mobile/audio/musicFaved.png") :
+    let { audioData } = this.props,
+        { index, showInfo, isFavor, left } = this.state;
+    let data = audioData.data[audioData.index], dataList = audioData.data;
+    let time = utils.timeFormat(audioData.duration);
+    let ab = audioData.isPlaying ? "running" : "paused" ;
+    let infoClassname = showInfo ? "music-info-open" : "music-info" ;
+    let infoControllClass = showInfo ? "dis-desc-btn-hide" : "dis-desc-btn-show";
+    let favorSrc = isFavor ? require("../../../../assets/images/mobile/audio/musicFaved.png") :
         require("../../../../assets/images/mobile/audio/musicFav.png");
     let musicListSrc = require("../../../../assets/images/mobile/audio/musicList.png");
     return (
       <div className="AudioContent flex-container"ref="container">
-        <div className="slider-page" id="sliderPage" style={{marginLeft: this.state.left}}>
+        <div className="slider-page" id="sliderPage" style={{marginLeft: left}}>
           <div className="page-left" id="pageLeft" style={{width: this.width+"px"}}>
             <div className="music-detail">
               <div className="detail-pic">
@@ -266,35 +221,14 @@ class AudioContent extends React.Component {
                 </div>
                 <div className="fav-num">{this.state.favorNum}</div>
                 <div className="list-controls">
-                  <div id="listNum" className="list-num">{this.props.index + 1}/{this.props.data.length}</div>
+                  <div id="listNum" className="list-num">{audioData.index + 1}/{audioData.data.length}</div>
                   <div id="listBtn" className="list-btn" >
-                    <img src={musicListSrc} alt="列表" onClick={() => this.props.onListClick()}/>
+                    <img src={musicListSrc} alt="列表" onClick={() => audioFuns.onListClick()}/>
                   </div>
                 </div>
               </div>
               <div className="music-progress">
-                {
-                  this.state.progressControlling ?
-                    (
-                      <div id="progress_bg" className="music-progress-box" ref="progress">
-                        <div id="progress_buffer">
-                          <div id="progress" style={{width: this.state.progressLeft + "px"}}></div>
-                        </div>
-                        <div className ="progress-dot-bg"></div>
-                        <div id="progress_dot" ref="progressDot" style={{marginLeft: this.state.progressLeft + "px"}}></div>
-                      </div>
-                    )
-                    :
-                    (
-                      <div id="progress_bg" className="music-progress-box" ref="progress">
-                        <div id="progress_buffer">
-                        <div id="progress" style={{width: width + "px"}}></div>
-                        </div>
-                        <div className="progress-dot-bg"></div>
-                        <div id="progress_dot" ref="progressDot" style={{marginLeft: width + "px"}}></div>
-                      </div>
-                    )
-                }
+                {this.props.children}
                 <div id="musicTime" className="music-time">{time.minutes+":"+time.seconds}</div>
               </div>
             </div>
@@ -310,18 +244,18 @@ class AudioContent extends React.Component {
 
         <div className="unit-index-wrap" id="unit-index-wrap">
           <div className="unit-index-header clearfix">
-            <a className="back-btn" href="javascript:void(0)"></a>
-            <a className="close-btn" href="javascript:void(0)"></a>
+            <a className="back-btn" href="javascript:void(0)"/>
+            <a className="close-btn" href="javascript:void(0)"/>
           </div>
           <div className="unit-index-body" id="unit-index-body">
             <a className="unit-index-item clearfix" href="">
               <div className="unit-item-text a-line"></div>
-              <em className="item-next-btn"></em>
+              <em className="item-next-btn"/>
             </a>
           </div>
         </div>
 
-        <IndicatorArea index={this.state.index}/>
+        <IndicatorArea index={index}/>
         <textarea id="lrc_content"></textarea>
       </div>
     );

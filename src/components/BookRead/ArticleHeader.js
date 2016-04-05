@@ -24,7 +24,7 @@ class ArticleHeader extends React.Component{
 				menuSrc = require('../../../assets/images/articleImages/menu.png');
 		return (
 					<div className="ArticleHeader" id="ArticleHeader">
-					  <div className="article-top article-wrap" id="top">
+					  <div className="article-wrap" id="top">
 				      <div onclick="window.history.back();" className="article-return">
 				        <img src={backCheckImgSrc} className="articleIcon-return"/>
 				      </div>

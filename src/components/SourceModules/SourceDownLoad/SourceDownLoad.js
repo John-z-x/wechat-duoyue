@@ -23,9 +23,7 @@ class SourceDownLoad extends React.Component {
 	componentDidMount() {
 		this.reSizePoster();
 	}
-	componentWillUnmount() {
-		
-	}
+	
 	render() {
 		let poster = 'http://file.duoyue.me/upload/source/pdfimages/2015_11_26_164847868/0000.Png';
 		return (
