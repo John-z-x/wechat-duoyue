@@ -260,7 +260,7 @@ class BookRead extends React.Component{
 					<div id="opationCanvas" className="opationCanvas" ref="optionCanvas" onClick={::this.onOptionCanvasClick}></div>
 				</div>
 				<footer className={"footer "+color} style={{height: footerHeight}}>
-					<div style={{width: "94%", marginTop: 10}} className="controll-box">
+					<div className="controll-box">
 					<ProgressController progressValue={progressValue} onProgressControll={::this.onProgressControll}>
 						<p className="progress-num" id="progress-num">
 							{Math.ceil(pageOverValue)}/{pageTotal}
