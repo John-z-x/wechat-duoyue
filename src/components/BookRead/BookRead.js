@@ -11,11 +11,9 @@ import HeaderStyleModify from '../HeaderComponents/HeaderStyleModify';
 import MenuButton from '../HeaderComponents/MenuButton';
 import CommentButton from '../HeaderComponents/CommentButton';
 
+import ArticleFontStyleModify from '../Modals/ArticleFontStyleModify';
 import ProgressController from '../UIComponent/ProgressController/ProgressController';
-import ArticleHeader from './ArticleHeader';
 import CatalogArea from './CatalogArea';
-import StyleBox from './StyleBox';
-import FontBox from './FontBox';
 
 let data = {
 	'title': '有师兄的师妹像棵草',
@@ -35,60 +33,22 @@ class BookRead extends React.Component{
 			headerAndFooterShow: true, //显示头部和尾部
 			catalogAreaDisplay: false, //显示章节
 			color: "white", //控制颜色
-			zoomLevel: 0 //字体缩放的大小
+			zoomLevel: 0, //字体缩放的大小
+			fontFamily: "YaHei" //字体样式
 		};
 		this.zoomLevelMax = 2;
 		this.moveDistance = 0;
 	}
 
-	//加载数据后需调用此方法进行初始化视觉
-	//初始化滚动值
-	// rootView(type){
-	// 	this.Canvas.scrollTop = '0px';
-	// 	this.maybeHeight = document.documentElement.clientHeight - 40; 		//计算可用高度
-	//   this.maybeHeight = this.maybeHeight - (this.maybeHeight % this.lineHeight);		//消除高度影响
-	//   this.Canvas.style.height = this.maybeHeight + 'px';	  //文字容器高度设置
-	//   this.Canvas.style.fontSize = this.fontSize + 'px';
-	//   this.pageTotal = Math.ceil(this.Canvas.scrollHeight / this.Canvas.clientHeight);
-	// 	if(this.zoomTotal > 0)
-	// 	{
-	// 		this.pageOver = parseInt(this.zoomCurrentPage / this.zoomTotal * this.pageTotal);
-	// 	}
-	// 	this.pageOver = (this.pageOver == 0 ? 1 : this.pageOver);
-  //
-	// }
-
-	// zoomIn(){
-	// 	this.zoomLevel++;
-	// 	if(this.zoomLevel>=this.zoomLevelMax-1)
-	// 	{
-	// 		this.zoomLevel=this.zoomLevelMax-1;
-	// 	}
-	// 	this.zoomTotal = this.pageTotal;
-	// 	this.zoomCurrentPage = this.pageOver;
-	// 	this.setZoomLevel();
-	// }
-  //
-	// zoomOut(){
-	// 	this.zoomLevel--;
-	// 	if(this.zoomLevel<0)
-	// 	{
-	// 		this.zoomLevel=0;
-	// 	}
-	// 	this.zoomTotal = this.pageTotal;
-	// 	this.zoomCurrentPage = this.pageOver;
-	// 	this.setZoomLevel();
-	// }
-	//
 	touchStart(e){
-		let startX0 ,startY0, startX1, startY1;
-		startX0 = e.targetTouches[0].pageX;
-		startY0 = e.targetTouches[0].pageY;
-		if(e.targetTouches.length==2)
+		let startX0 ,startY0, startX1, startY1, target = e.targetTouches;
+		startX0 = target[0].pageX;
+		startY0 = target[0].pageY;
+		if(target.length==2)
 		{
 			e.preventDefault();
-			startX1 = e.targetTouches[1].pageX;
-			startY1 = e.targetTouches[1].pageY;
+			startX1 = target[1].pageX;
+			startY1 = target[1].pageY;
 			this.startDistance = Math.sqrt(Math.pow((startX0-startX1), 2) + Math.pow(startY0-startY1, 2));
 		}
 	}
@@ -96,23 +56,24 @@ class BookRead extends React.Component{
 	touchMove(e){
 		if(e.targetTouches.length==2)
 		{
-			let moveX0, moveY0, moveX1, moveY1;
+			let moveX0, moveY0, moveX1, moveY1, target = e.targetTouches;
 			e.preventDefault();
-			moveX0 = e.targetTouches[0].pageX;
-			moveY0 = e.targetTouches[0].pageY;
-			moveX1 = e.targetTouches[1].pageX;
-			moveY1 = e.targetTouches[1].pageY;
+			moveX0 = target[0].pageX;
+			moveY0 = target[0].pageY;
+			moveX1 = target[1].pageX;
+			moveY1 = target[1].pageY;
 			this.moveDistance = Math.sqrt(Math.pow((moveX0-moveX1),2) + Math.pow(moveY0-moveY1,2));
 		}
 	}
 
 	touchEnd(e){
+		const MOVEDISTACE_THRESHOLD = 20;
 		if(this.moveDistance == 0) return;
-		if(this.moveDistance > this.startDistance + 20)
+		if(this.moveDistance > this.startDistance + MOVEDISTACE_THRESHOLD)
 		{
 			::this.zoom("in");
 		}
-		else if(this.startDistance > this.moveDistance + 20)
+		else if(this.startDistance > this.moveDistance + MOVEDISTACE_THRESHOLD)
 		{
 			::this.zoom("out");
 		}
@@ -125,7 +86,7 @@ class BookRead extends React.Component{
 		optionCanvas.addEventListener('touchend', ::this.touchEnd, false);
 		this.reSize();
 		this.setState({
-			pageOver: 0
+			pageOver: 1
 		})
 	}
 
@@ -137,17 +98,20 @@ class BookRead extends React.Component{
 	}
 
 	onOptionCanvasClick(e) {
-		let pageWidth = window.innerWidth, type="";
+		let pageWidth = window.innerWidth, type="", PREV_TRESHOD = 0.3, NEXT_TRESHOD = 0.6;
 		let startX0 = e.pageX;
 		e.preventDefault();
-		if (startX0 < (pageWidth * 0.3)) {
+		if (startX0 < (pageWidth * PREV_TRESHOD)) {
 			type = "prev";
-		}else if ((startX0 > (pageWidth * 0.3)) && (startX0 < (pageWidth * 0.6))) {
+		}else if ((startX0 > (pageWidth * PREV_TRESHOD)) && (startX0 < (pageWidth * NEXT_TRESHOD))) {
 			type = "toggle";
-		}else if (startX0 > (pageWidth * 0.6)) {
+		}else if (startX0 > (pageWidth * NEXT_TRESHOD)) {
 			type= "next";
 		}
 		::this.goToPage(type);
+		this.setState({
+			fontChangeDisplay: false
+		})
 	}
 
 	onProgressControll(type, progressValue) {
@@ -168,24 +132,27 @@ class BookRead extends React.Component{
 	}
 
 	reSize() {
+		let textCanvas = findDOMNode(this.refs.textCanvas);
 		const HEADER_HEIGHT = 40,
 				  fontSize = [16, 20, 24],
 				  contentHeight = document.documentElement.clientHeight - HEADER_HEIGHT;
-    let lineHeight = fontSize[this.state.zoomLevel]*1.5;
+    let lineHeight = fontSize[this.state.zoomLevel]*1.5,
+				canvasHeight = contentHeight - Math.floor(contentHeight%lineHeight),
+				pageTotal = Math.ceil(textCanvas.offsetHeight/canvasHeight);
 		this.setState({
-			canvasHeight: contentHeight - Math.floor(contentHeight%lineHeight)
+			canvasHeight: canvasHeight,
+			pageTotal: pageTotal
 		});
 	}
 
 	goToPage(type, index) {
 		let { pageOver,headerAndFooterShow, pageTotal } = this.state;
-		console.log(type);
 		switch(type) {
 			case "prev":
-				pageOver > 0 &&
+				pageOver > 1 &&
 				this.setState({
 					pageOver: pageOver - 1,
-					progressValue: (pageOver - 1)/pageTotal
+					progressValue: (pageOver - 1) /pageTotal
 				});
 				break;
 			case "toggle":
@@ -194,10 +161,10 @@ class BookRead extends React.Component{
 				});
 				break;
 			case "next":
-					pageOver < pageTotal - 2 &&
+					pageOver < pageTotal &&
 				this.setState({
 					pageOver: pageOver + 1,
-					progressValue: (pageOver + 1)/pageTotal
+					progressValue: (pageOver + 1)/(pageTotal)
 				});
 				break;
 			case "jump":
@@ -215,7 +182,7 @@ class BookRead extends React.Component{
 		let { zoomLevel } = this.state;
 	  switch(type) {
 			case "in":
-				zoomLevel > 1 &&
+				zoomLevel > 0 &&
 				this.setState({
 					zoomLevel: zoomLevel - 1
 				}, ::this.reSize);
@@ -231,8 +198,10 @@ class BookRead extends React.Component{
 		}
 	}
 
-	onHeaderFontClick(type) {
-		::this.zoom("out");
+	onHeaderFontClick() {
+		this.setState({
+			fontChangeDisplay: !this.state.fontChangeDisplay
+		})
 	}
 
 	onMenuButtonClick() {
@@ -241,16 +210,38 @@ class BookRead extends React.Component{
 		})
 	}
 
+	onTypeChangeClick(type, value) {
+    console.log(type+" "+value);
+		if( type.indexOf("size") > -1) {
+			switch(value) {
+				case "big":
+					::this.zoom("out");
+					break;
+				case "small":
+					::this.zoom("in")
+					break;
+				default:
+					return null;
+			}
+		}else {
+			this.setState({
+				[type]: value
+			})
+		}
+
+	}
+
 	render(){
-		let { pageOver, pageTotal, headerAndFooterShow, progressValue, canvasHeight, catalogAreaDisplay, zoomLevel } = this.state;
+		let { pageOver, pageTotal, headerAndFooterShow, progressValue, canvasHeight, catalogAreaDisplay, zoomLevel,
+				fontChangeDisplay, color, fontFamily} = this.state;
 		let zoomClass = "font-size-"+zoomLevel;
+		let pageOverValue = progressValue*pageTotal;
 		let zIndex = headerAndFooterShow ? 10009 : 11002, footerHeight = headerAndFooterShow ? 50 : 0;
-		let scrollTop = -pageOver*canvasHeight || 0;
-		console.log(catalogAreaDisplay);
-		console.log(canvasHeight);
+		let scrollTop = -(pageOver-1)*canvasHeight || 0;
+
 		return (
 			<div className="BookRead" >
-				<HeaderComponents>
+				<HeaderComponents color={color}>
 					<ReturnButton />
 					<HeaderStyleModify onHeaderStyleModifyClick={::this.onHeaderFontClick}/>
 					<Link to="/source/commentpage">
@@ -262,20 +253,25 @@ class BookRead extends React.Component{
 					catalogAreaDisplay &&
 					<CatalogArea chapter={1} onReturn={::this.onMenuButtonClick}/>
 				}
-				<StyleBox/>
-				<FontBox/>
-				<div id="pageTitleShow" className="pageTitleShow" style={{zIndex: zIndex}}>{data.title}</div>
-				<div className="text_bg" id="textCanvasBg" style={{zIndex: zIndex, height: canvasHeight}}>
-					<div id="textCanvas" className={"duoyue_read "+ zoomClass} style={{marginTop: scrollTop}}>{data.article}</div>
+				<div className={"forColor "+color}></div>
+				<div id="pageTitleShow" className={"pageTitleShow "+color} style={{zIndex: zIndex}}>{data.title}</div>
+				<div className={"text_bg "+color} id="textCanvasBg" style={{zIndex: zIndex, height: canvasHeight}}>
+					<div id="textCanvas" className={"duoyue_read "+ zoomClass+" "+fontFamily+" "+color} style={{marginTop: scrollTop}} ref="textCanvas">{data.article}</div>
 					<div id="opationCanvas" className="opationCanvas" ref="optionCanvas" onClick={::this.onOptionCanvasClick}></div>
 				</div>
-				<footer className="footer" style={{height: footerHeight}}>
+				<footer className={"footer "+color} style={{height: footerHeight}}>
+					<div style={{width: "94%", marginTop: 10}} className="controll-box">
 					<ProgressController progressValue={progressValue} onProgressControll={::this.onProgressControll}>
 						<p className="progress-num" id="progress-num">
-							{pageOver}/{pageTotal}
+							{Math.ceil(pageOverValue)}/{pageTotal}
 						</p>
 					</ProgressController>
+						</div>
 				</footer>
+				{
+					fontChangeDisplay &&
+					<ArticleFontStyleModify onTypeChangeClick={::this.onTypeChangeClick} data={{color: color, fontFamily: fontFamily}}/>
+				}
 			</div>
 		);
 	}

@@ -47,7 +47,7 @@ class ArticleDisplay extends React.Component {
   }
   //点击选择样式
   onModifyClick(type) {
-    let fontsize, MaxFontSize = 24, MinFontSize = 14;
+    let fontsize, MaxFontSize = 22, MinFontSize = 16;
     switch(type) {
       case "white":
         this.setState({
@@ -61,14 +61,14 @@ class ArticleDisplay extends React.Component {
         break;
       case "big":
         fontsize = this.state.fontSize;
-        (fontsize < 22) &&
+        (fontsize < MaxFontSize) &&
         this.setState({
           fontSize: fontsize+2
         });
         break;
       case "small":
         fontsize = this.state.fontSize;
-        (fontsize > 16 ) &&
+        (fontsize > MinFontSize ) &&
         this.setState({
           fontSize: fontsize-2
         });
@@ -80,7 +80,7 @@ class ArticleDisplay extends React.Component {
   render() {
   	return(
   		<div className="ArticleDisplay">
-        <CommonHeader bgColor={this.state.color}>
+        <CommonHeader color={this.state.color}>
           <ReturnButton />
           <CollectButton />
           <CommentButton OnCommentClick={this.onCommentClick}/>

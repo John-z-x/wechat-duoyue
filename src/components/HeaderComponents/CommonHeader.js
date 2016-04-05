@@ -6,10 +6,10 @@ import styles from './CommonHeader.scss';
 @withstyles(styles)
 class CommonHeader extends React.Component {
   render() {
-    let bgColor = this.props.bgColor || "white";
+    let { color} = this.props;
     return (
       <header className="CommonHeader">
-        <div className="header clearfix" style={{backgroundColor: bgColor}}>
+        <div className={"header clearfix "+color}>
           {this.props.children}
         </div>
       </header>
