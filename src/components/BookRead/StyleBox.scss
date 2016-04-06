@@ -1,89 +1,104 @@
 .StyleBox{
+  /*font-color*/
+  $fontColor3: #333;
+  $fontColorF: #fff;
+  /*常用border*/
+  $borderColor3: 1px solid #333;
+  $borderColorD: 1px solid #ddd;
+  $borderColorE: 1px solid #eee;
+  $borderColorF0: 1px solid #f0f0f0;
+  /*bg-color*/
+  $backgroundColorF: #fff;
+
+  @mixin type-sizing($type,$sizing) {
+    display: $type;
+    width: $sizing;
+  }
+
+   @mixin border-bgcolor($borderColor,$bgColor) {
+    border: 1px solid $borderColor;
+    background-color: $bgColor;
+  }
 	.checkstyle {
     height: 150px;
     width: 240px;
     position: fixed;
     right: 5px;
     top: 55px;
-    background-color: #ffffff;
+    background-color: $backgroundColorF;
     border-radius: 5px;
-    border: 1px solid #f0f0f0;
+    border: $borderColorF0;
     z-index: 400;
+    .tu {
+      position: absolute;
+      z-index: 1200;
+      height: 15px;
+      width: 36px;
+      background-image: url("../../../assets/images/ArticleImages/wenzhang_tu.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      right: -5px;
+      top: -14px;
+    }
+    .top {
+      border-bottom: $borderColorD;
+      .small, .big {
+        @include type-sizing(inline-block,48%);
+        font-size: 15px;
+        height: 35%;
+        line-height: 60px;
+        text-align: center;
+      }
+      .small {
+        border-right: $borderColorD;
+        font-size: 15px;
+      }
+      .big {
+        font-size: 25px;
+      }
+    } 
+    .middle {
+      height: 25%;
+      border-bottom: $borderColorF0;
+      font-size: 14px;
+      .middleFont {
+        line-height: 40px;
+        padding-left: 10px;
+      }
+      .chooseFont {
+        float: right;
+        color: #888;
+        line-height: 40px;
+        padding-right: 10px;
+      }
+    }
+    .bottom {
+      padding-top: 7px;
+      margin-bottom: 17px;
+      .fontStyleItem {
+        display: inline-block;
+        height: 32px;
+        width: 32px;
+        border-radius: 50%;
+        line-height: 30px;
+        margin-left: 20px;
+        color: #1e1e1e;
+        text-align: center;
+      }
+      .white {
+        @include border-bgcolor(#ccc,#fbfbfb);
+      }
+      .yellow {
+        @include border-bgcolor(#f6f0e1,#f6f0e1);
+      }
+      .green {
+        @include border-bgcolor(#c7edcc,#c7edcc);
+      }
+      .black {
+        @include border-bgcolor(#1e1e1e,#1e1e1e);
+        color: $fontColorF;   
+      }
+    }
 /*    display: none;*/
-	}
-	.tu {
-	    position: absolute;
-	    z-index: 1200;
-	    height: 15px;
-	    width: 36px;
-	    background-image: url("../../../assets/images/ArticleImages/wenzhang_tu.png");
-	    background-repeat: no-repeat;
-	    background-size: cover;
-	    right: -5px;
-	    top: -14px;
-		}
-  .top {
-  	border-bottom: 1px solid #ddd;
-	}	
-  .small {
-    border-right: 1px solid #ddd;
-    font-size: 15px;
-	}
-  .small, .big {
-    display: inline-block;
-    width: 48%;
-    font-size: 15px;
-    height: 35%;
-    line-height: 60px;
-    text-align: center;
-	}
-  .big {
-    font-size: 25px;
-	}
-  .middle {
-    height: 25%;
-    border-bottom: 1px solid #f0f0f0;
-    font-size: 14px;
-	}
-	.middleFont {
-    line-height: 40px;
-    padding-left: 10px;
-	}
-	.chooseFont {
-    float: right;
-    color: #888;
-    line-height: 40px;
-    padding-right: 10px;
-	}
-  .bottom {
-    padding-top: 7px;
-    margin-bottom: 17px;
-	}
-	.fontStyleItem {
-		display: inline-block;
-    height: 32px;
-    width: 32px;
-    border-radius: 50%;
-    line-height: 30px;
-    margin-left: 20px;
-    color: #1e1e1e;
-    text-align: center;
-	}
-	.white {
-    border: 1px solid #ccc;
-    background-color: #fbfbfb;
-	}
-	.yellow {
-    border: 1px solid #f6f0e1;
-    background-color: #f6f0e1;
-	}
-	.green {
-    border: 1px solid #c7edcc;
-    background-color: #c7edcc;
-	}
-	.black {
-    border: 1px solid #1e1e1e;
-    background-color: #1e1e1e; 
-    color: #fff;   
 	}
 }

@@ -1,57 +1,76 @@
 .CatalogArea {
+
+  @mixin a-line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  /*常用border*/
+  $borderColorD: 1px solid #ddd;
+  /*bg-color*/
+  $backgroundColorF: #fff;
+  /*font-color*/
+  $fontColor3: #333;
+  $fontColor97d7c0: #97d7c0;
+
   width: 100%;
   height: 100%;
   z-index: 11111;
-  background-color: #FFF;
+  background-color: $backgroundColorF;
   position: fixed;
   top: 0;
   left: 0;
   overflow: scroll;
-
-  .articleIndex {
-    padding: 10px;
-    margin-top: 40px;
-  }
-  .articleIndex a {
-    color: #333;
-    text-decoration: none;
-  }
-  .articleIndex a:active {
-    color: rgb(151, 215, 192);
-  }
-  .showIndex {
-    height: 40px;
-    line-height: 30px;
-    width: 95%;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    padding: 5px 2%;
-    border-bottom: 1px solid #ddd;
-    font-size: 14px;
-    color: #333;
-  }
-  .over {
-    color: #97d7c0;
-  }
   .catalog-header {
     position: fixed;
     width: 100%;
     height: 40px;
     left: 0;
     top: 0;
+    background-color: $backgroundColorF;
     z-index: 11111;
-    border-bottom: 1px solid #ddd;
+    border-bottom: $borderColorD;
+    .articleIcon-continue {
+      line-height: 40px;
+      text-indent: 30px;
+      color: #97d7c0;
+      margin-left: 10px;
+        &:before {
+        content: "<";
+        color: $fontColor97d7c0;
+        margin-right: 5px;
+      }
+    }
   }
-  .articleIcon-continue {
-    line-height: 40px;
-    text-indent: 30px;
-    color: #97d7c0;
-    margin-left: 10px;
+  .catalog {
+    .articleIndex {
+      padding: 10px;
+      margin-top: 40px;
+      a {
+        color: $fontColor3;
+        text-decoration: none;
+        &:active {
+         color: $fontColor97d7c0;
+        }
+      }
+      .showIndex {
+        height: 40px;
+        line-height: 30px;
+        width: 95%;
+        @include a-line;
+        padding: 5px 2%;
+        border-bottom: $borderColorD;
+        font-size: 14px;
+        color: $fontColor3;
+      }
+      .over {
+        color: $fontColor97d7c0;
+      }
+    }
+    
   }
-  .articleIcon-continue::before {
-    content: "<";
-    color:#97d7c0 ;
-    margin-right: 5px;
-  }
+  
+  
+  
+  
 }
