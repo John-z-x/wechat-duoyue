@@ -15,7 +15,7 @@ let TabItemsData = {
     "出版", "榜单", "分类"
   ],
   tabClass: {
-    tabBox: "BookListType source-classify clearfix",
+    tabBox: "Tab  clearfix",
     tabItemOn: "source-type-over",
     tabItemDefault: "source-type"
   }
@@ -70,6 +70,14 @@ const BookTypeData2 = [
     ]
   },
 ]
+
+const BookTypeData3 = [
+  {title:"经典文学",num:5,desc:"品书会让生活染上香气",src:"http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_114515099_cut_c.jpg"},
+  {title:"青春文学",num:8,desc:"品书会让生活染上香气",src:"http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_114459939_cut_c.jpg"},
+  {title:"职场进阶",num:4,desc:"品书会让生活染上香气",src:"http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_114515099_cut_c.jpg"},
+  {title:"网络文学",num:5,desc:"品书会让生活染上香气",src:"http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_114515099_cut_c.jpg"}
+]
+
 @withStyles(styles)
 class BookType extends React.Component {
   constructor(props) {
@@ -93,7 +101,7 @@ class BookType extends React.Component {
     }else if( state == 1) {
       ContentCode = <BookListContent data={BookTypeData2}/>;
     }else if( state == 2) {
-      ContentCode = <BookClassify />;
+      ContentCode = <BookClassify data={BookTypeData3}/>;
     }
   	return(
   		<div className="BookType">

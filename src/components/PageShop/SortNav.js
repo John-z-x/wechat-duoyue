@@ -11,22 +11,24 @@ class SortNav extends React.Component {
 	render() {
 		const { sortData } = this.props;
 		return (
-			<div className="hot-sort-box bdr-mg bg-white">
-				<h2 className="f-level-title">{sortData.title}</h2>
-				<ul className="hot-sort-content dis-flex">
-				{
-					sortData.data.map(function(item,i){
-						return (
-							<li className="cell" key={i}>
-								<Link to={item.href}>
-									<img className="sort-icon" src={item.src} alt={item.title}/>
-									<h4 className="sort-title">{item.title}</h4>
-								</Link>
-							</li>
-						)
-					})
-				}
-				</ul>
+			<div className="SortNav">
+				<div className="hot-sort-box bdr-mg bg-white">
+					<h2 className="f-level-title">{this.props.sortData.title}</h2>
+					<ul className="hot-sort-content dis-flex">
+					{
+						sortData.data.map((item,i) => {
+							return (
+								<li className="cell" key={i}>
+									<Link to={item.href}>
+										<img className="sort-icon" src={item.src} alt={item.title}/>
+										<h4 className="sort-title">{item.title}</h4>
+									</Link>
+								</li>
+							)
+						})
+					}
+					</ul>
+				</div>
 			</div>
 		);
 	}

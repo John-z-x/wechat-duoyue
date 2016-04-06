@@ -48,17 +48,17 @@ class BookDetail extends React.Component {
   //下载功能
   onFavorChange() {
     this.setState({
-      sucessModal: true
+      successModal: true
     });
     this.sucessModalTimer = setTimeout( ()=> {
       this.setState({
-        sucessModal: false
+        successModal: false
       })
     }, 2000 )
   }
 
   componentWillUnmount() {
-    window.clearTimeout(this.sucessModalTimer);
+    window.clearTimeout(this.successModalTimer);
   }
 
   render() {

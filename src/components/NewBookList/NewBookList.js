@@ -43,7 +43,7 @@ class NewBookList extends React.Component {
   render() {
     const newbooklist = newbooksData[this.state.type];
     return (
-      <div className="NewBookList">
+      <div className="NewBookList"> 
         <CommonHeader>
           <ReturnButton />
         </CommonHeader>
