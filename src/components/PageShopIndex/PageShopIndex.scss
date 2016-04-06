@@ -4,243 +4,172 @@
 */
 
 .ShopIndexPage {
-  /*header start*/
-  .header {
-	position: fixed;
-	z-index: 10000;
-	top: 0;
-	left: 0;
-	height: 40px;
-	width: 100%;
-	background-color: #fff;
-	border-bottom: 1px solid #E0E0E0;
-  }
-  .header .search-box {
-	margin-top: 5px;
-	margin-left: 10px;
-	height: 29px;
-	width: 75%;
-	line-height: 40px;
-	border-radius: 4px;
-	background-color: #f6f6f6;
-  }
-  .header .search-img {
-	display: inline-block;
-	vertical-align: top;
-	margin-top: 7px;
-	margin-left: 14px;
-	height: 17px;
-	width: 17px;
-	/*background-image: url("../../images/shangcheng/search-img.png");*/
-	background-size: cover;
-	background-repeat: no-repeat;
-  }
-  .header .search-input {
-	margin-left: 5px;
-	width: 70%;
-	height: 25px;
-	border: 0;
-	outline: none;
-	vertical-align: top;
-	background-color: transparent;
-  }
-  .header .shopping-cart {
-	position: relative;
-	margin-right: 8px;
-	margin-top: 10px;
-  }
-  .header .shopping-cart-img {
-	display: inline-block;
-	/*background: url("../../images/shangcheng/shoppingcart.png") no-repeat;*/
-	background-size: cover;
-	width: 35px;
-	height: 30px;
-  }
-  .header .goods-num {
-	position: absolute;
-	display: block;
-	top: -5px;
-	right: 0;
-	z-index: 100;
-	width: 14px;
-	height: 14px;
-	text-align: center;
-	font-size: 10px;
-	line-height: 15px;
-	border-radius: 15px;
-	background-color: #77cdb0;
-	color: #fff;
-  }
-
-  /*banner start*/
-  #banner_cvs_WECHAT-SHANGCHENG .banner_dot_cvs .dot_over {
-	float: left;
-	width: 5px;
-	height: 5px;
-	border-radius: 5px;
-	border: 1px solid #62c3a2;
-	margin-right: 2px;
-	margin-top: -1px;
-	background: transparent;
-  }
-  .banner {
-	width: 100%;
-	height: 41px;
-  }
-
+  $fontStack: 'FZLTXHJW';
+  $fontSize10: 10px;
+  $fontSize12: 12px;
+  $fontSize14: 14px;
+  $fontSize15: 15px;
+  $fontSize16: 16px;
+  $colorDDD: #ddd;
+  $colorWhite: #fff;
+  $colorLightBlack: #333;
+  $colorLightGreen: #77cdb0;
+  $colorDarkenGreen: #74cdaf;
+  $borderColorGray: #e0e0e0;
+  $borderColorLightGreen: #62c3a2;
+  $borderColorLightOrange: #feb794;
+  $bgColorGray: #f6f6f6;
+  $bgColorDarkenGray: #e1e1e1;
+  $bgColorDB: #dbdbdb;
+  $w100: 100%;
+  $w85: 85%;
+  $w455: 45.5%;
+  $w25: 25%;
+  $w15: 15%;
   /* nav -start*/
   .nav {
-	width: 100%;
-	padding: 16px 0 2px 0;
-	overflow-x: scroll;
+    width: $w100;
+    padding: 16px 0 2px 0;
+    overflow-x: scroll;
     overflow-y: hidden;
+    .nav-box {
+      width: $w100;
+    }
+    .nav-item {
+      width: $w25;
+      text-align: center;
+      display: block;
+      .category-name {
+        display: inline-block;
+        width: $w100;
+        text-align: center;
+        font-size: $fontSize14;
+        font-family: $fontStack;
+        overflow: hidden;
+      }
+      a {
+        color: $colorLightBlack;
+      }
+    }
   }
-  .nav-box {
-	width: 100%;
-  }
-  .nav .nav-item {
-	width: 25%;
-	text-align: center;
-	display: block;
-
-	a {
-	  color: #333;
-	}
-  }
-  .nav .category-name {
-	display: inline-block;
-	width: 100%;
-	text-align: center;
-	font-size: 14px;
-	font-family: 'FZLTXHJW';
-	overflow: hidden;
-  }
-
   /* hear-news start*/
   .hot-news {
-	width: 100%;
-	height: 40px;
-	border-top: 1px solid #E0E0E0;
-	border-bottom: 1px solid #E0E0E0;
-	position: relative;
-	overflow: hidden;
+    width: $w100;
+    height: 40px;
+    border-top: 1px solid $borderColorGray;
+    border-bottom: 1px solid $borderColorGray;
+    position: relative;
+    overflow: hidden;
+    &:after {
+      position: absolute;
+      top: 4px;
+      left: 15%;
+      content: "";
+      height: 30px;
+      width: 1px;
+      background-color: $bgColorDB;
+      visibility: inherit;
+    }
+    .hot-box {
+      display: inline-block;
+      width: $w15;
+      text-align: center;
+      height: 100%;
+      line-height: 35px;
+      .hot {
+        height: 18px;
+        width: 30px;
+        border: 1px solid $borderColorLightOrange;
+        padding: 3px 5px;
+        border-radius: 4px;
+        font-size: $fontSize12;
+      }
+    }
+    .news {
+      position: absolute;
+      /*top: 40px;*/
+      display: inline-block;
+      box-sizing: border-box;
+      padding: 0 3%;
+      width: $w85;
+      margin-left: 8px;
+      -webkit-transform: translate3d(0, 0, 0);
+      .news-content {
+        display: block;
+        font-size: $fontSize12;
+        overflow: hidden;
+        width: $w100;
+        line-height: 40px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      .news-item {
+        height: 100%;
+        width: $w100;
+      }
+    }
   }
-
-  .hot-news:after {
-	position: absolute;
-	top: 4px;
-	left: 15%;
-	content: "";
-	height: 30px;
-	width: 1px;
-	background-color: #dbdbdb;
-	visibility: inherit;
-  }
-  .hot-news .hot-box {
-	display: inline-block;
-	width: 15%;
-	text-align: center;
-	height: 100%;
-	line-height: 35px;
-  }
-  .hot-news .hot {
-	height: 18px;
-	width: 30px;
-	border: 1px solid #feb794;
-	padding: 3px 5px;
-	border-radius: 4px;
-	font-size: 12px;
-  }
-
-  .hot-news .news {
-	position: absolute;
-	/*top: 40px;*/
-	display: inline-block;
-	box-sizing: border-box;
-	padding: 0 3%;
-	width: 85%;
-	margin-left: 8px;
-	-webkit-transform: translate3d(0, 0, 0);
-
-  }
-  .hot-news .news-item {
-	height: 100%;
-	width: 100%;
-  }
-  .hot-news .news-content {
-	display: block;
-	font-size: 12px;
-	overflow: hidden;
-	width: 100%;
-	line-height: 40px;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-  }
-
   /*content start*/
   .content {
-	background-color: #f3f3f6;
-	background-image: url(/images/shangcheng_bg.png);
-	background-repeat: repeat;
-	padding-bottom: 20px;
-  }
-  .content .category-header {
-	margin: 10px 0px 0 0px;
-	padding-left: 10px;
-	padding-right: 10px;
-	background-color: #e1e1e1;
-  }
-  .content .category-title {
-	padding: 10px 0;
-	padding-left: 40px;
-	font-size: 15px;
-	font-family: 'FZLTXHJW';
-	background-repeat: no-repeat;
-	background-size: auto 70%;
-	background-position: left center;
-  }
-  .content .more {
-	width: 20px;
-	height: 40px;
-	background-repeat: no-repeat;
-	background-size: 100% 50%;
-	background-position: center;
-  }
-  .content .more .more-text {
-
-	color: #74cdaf;
-  }
-  .content .shop-item {
-	box-sizing: border-box;
-	margin: 10px 0 3px 3%;
-	height: 200px;
-	width: 45.5%;
-	background-color: #fff;
-	border: 1px solid #e2e2e2;
-	box-shadow: 1px 1px 2px #ddd;
-	border-radius: 3px;
-  }
-
-  .content .goods-title {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	display: -webkit-box;
-	-webkit-line-clamp: 2;
-	-webkit-box-orient: vertical;
-	font-size: 14px;
-	line-height: 22px;
-	height: 40px;
-	margin: 5px;
-	font-family: 'FZLTXHJW';
-  }
-  .content .goods-price {
-	margin: 10px 5px 5px 5px;
-	font-size: 16px;
-	line-height: 1em;
-	color: #77cdb0;
-  }
-  .content .goods-img {
-	border-top-left-radius: 2px;
-	border-top-right-radius: 2px;
+    background-color: $bgColorGray;
+    background: url(/images/shangcheng_bg.png) repeat;
+    padding-bottom: 20px;
+    .category-header {
+      margin: 10px 0px 0 0px;
+      padding-left: 10px;
+      padding-right: 10px;
+      background-color: $bgColorDarkenGray;
+      .category-title {
+        padding: 10px 0;
+        padding-left: 40px;
+        font-size: $fontSize15;
+        font-family: $fontStack;
+        background-repeat: no-repeat;
+        background-size: auto 70%;
+        background-position: left center;
+      }
+      .more {
+        width: 20px;
+        height: 40px;
+        background-repeat: no-repeat;
+        background-size: 100% 50%;
+        background-position: center;
+        .more-text {
+          color: $colorDarkenGreen;
+        }
+      }
+    }
+    .shop-item {
+      box-sizing: border-box;
+      margin: 10px 0 3px 3%;
+      height: 200px;
+      width: $w455;
+      background-color: $colorWhite;
+      border: 1px solid $bgColorDarkenGray;
+      box-shadow: 1px 1px 2px $colorDDD;
+      border-radius: 3px;
+      .goods-img {
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px;
+      }
+      .goods-title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        font-size: $fontSize14;
+        line-height: 22px;
+        height: 40px;
+        margin: 5px;
+        font-family: $fontStack;
+      }
+      .goods-price {
+        margin: 10px 5px 5px 5px;
+        font-size: $fontSize16;
+        line-height: 1em;
+        color: $colorLightGreen;
+      }
+    }
   }
 }
