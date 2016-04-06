@@ -1,114 +1,133 @@
 
 .ShopPage {
-	* {
-		box-sizing: border-box;
-	}
+	box-sizing: border-box;
   background-color: #f8f8f8;
-  .hot-sort-box {
-		padding-bottom: 20px;
+  
+  /*font-color*/
+  $fontColor3: #333;
+  $fontColor62c3a2: #62c3a2;
+  $fontColor7: #777;
+  $fontColor9: #999;
+  /*font-size*/
+  $fontSize10: 10px;
+  $fontSize12: 12px;
+  $fontSize14: 14px;
+  /*border*/
+  $borderE: 1px solid #eee;
+  $border62c3a2: 1px solid #62c3a2;
+  /*width*/
+  $width25: 25%;
+  $width33: 33%;
+  $width50: 50%;
+  $width100: 100%;
+  /*flex-sizing*/
+  @mixin flex-one ($sizing) {
+  	-webkit-flex: $sizing;
+		-moz-flex: $sizing;
+		-ms-flex: $sizing;
+		flex: $sizing;
   }
-  .hot-sort-title, {
-  }
-  .hot-sort-content {
 
+  .SortNav {
+  	.hot-sort-box {
+			padding-bottom: 20px;
+			.cell {
+				display: block;
+				width: 25%;
+				text-align: center;
+				 @include flex-one(1);
+				.sort-icon {
+					width: 24px;
+					height: 24px;
+			  }
+			  .sort-title {
+					font-size: $fontSize12;
+					font-weight: lighter;
+					color: $fontColor3;
+			  }
+		  }
+  	}
   }
-  .hot-sort-content > .cell {
-		display: block;
-		width: 25%;
-		text-align: center;
-		-webkit-flex: 1;
-		-moz-flex: 1;
-		-ms-flex: 1;
-		flex: 1;
+  .RecommendBookModule {
+  	.cell {
+			display: inline-block;
+			width: $width33;
+			padding: 5%;
+			font-size: $fontSize12;
+			color: $fontColor62c3a2;
+			text-align: center;
+			.bk-cover {
+				width: 70%;
+		  }
+		  .bk-title {
+				height: 36px;
+				color: $fontColor3;
+				overflow: hidden;
+		  }
+		  .bk-price {
+				color: $fontColor62c3a2;
+		  }
+	  }
+	  .find-more {
+			display: block;
+			margin: 20px;
+			border-top: $borderE;
+			font-size: 12px;
+			line-height: 36px;
+			color:  $fontColor7;
+			text-align: center;
+			.fd-more-btn {
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				border: $border62c3a2;
+				border-radius: 100%;
+				background: url(/images/top_icon.png) no-repeat -12px 9px;
+				background-size: 30px 150px;
+			  }
+			}
   }
-  .sort-icon {
-		width: 24px;
-		height: 24px;
-  }
-  .sort-title {
-		font-size: 12px;
-		font-weight: lighter;
-		color: #333;
-  }
-
-  .recmd-title {
-  }
-  .recmd-bks > .cell {
-		display: inline-block;
-		width: 33%;
-		padding: 5%;
-		font-size: 12px;
-		color: #62c3a2;
-		text-align: center;
-  }
-  .bk-cover {
-		width: 70%;
-  }
-  .bk-title {
-		height: 3em;
-		color: #333;
-		overflow: hidden;
-  }
-  .bk-price {
-		color: #62c3a2;
-  }
-  .find-more {
-		display: block;
-		margin: 20px;
-		border-top: 1px solid #eee;
-		font-size: 12px;
-		line-height: 3em;
-		color: #777;
-		text-align: center;
-  }
-  .fd-more-btn {
-		display: inline-block;
-		width: 30px;
-		height: 30px;
-		border: 1px solid #62c3a2;
-		border-radius: 100%;
-		background: url(/images/top_icon.png) no-repeat -12px 9px;
-		background-size: 30px 150px;
-  }
-  .sort-browse-content {
-		padding: 5%;
-  }
-  .sort-browse-content > .cell {
-		display: inline-block;
-		width: 50%;
-		height: 66px;
-		padding: 10px;
-		margin-top: 10px;
-		margin-bottom: 10px;
-  }
-  .cell-img {
-		width: 30%;
-  }
-  .cell-img > img {
-		width: 100%;
-		height: 100%;
-  }
-  .cell-text {
-		padding-left: 10px;
-		width: 70%;
-  }
-  .cell-text > h3 {
-		font-size: 14px;
-		color: #333;
-  }
-  .cell-text > h5 {
-		font-size: 10px;
-		color: #999;
-		line-height: 1em;
-  }
-  .cell-text .bk-num-wrap {
-		padding-top: .5em;
-		line-height: 1.5em;
-  }
-  .cell-text .bk-title {
-		height: 2em;
-		overflow: hidden;
-  }
+  .SortBrowse {
+  	.sort-browse-content {
+			padding: 5%;
+			.cell {
+				display: inline-block;
+				width: $width50;
+				height: 66px;
+				padding: 10px;
+				margin-top: 10px;
+				margin-bottom: 10px;
+				.cell-img {
+					width: 30%;
+					img {
+						width: $width100;
+						height: 100%;
+				  }
+				}
+				.cell-text {
+					padding-left: 10px;
+					width: 70%;
+					h3 {
+						font-size: $fontSize14;
+						color: $fontColor3;
+				  }
+				  h5 {
+						font-size: $fontSize10;
+						color: $fontColor9;
+						line-height: 12px;
+				  }
+				  .bk-num-wrap {
+						padding-top: 6px;
+						line-height: 18px;
+				  }
+				  .bk-title {
+						height: 24px;
+						overflow: hidden;
+				  }
+			  }
+			}
+		}
+	}
 }
 
 

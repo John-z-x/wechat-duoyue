@@ -3,61 +3,51 @@ import { Link } from 'react-router';
 
 class BookInfo extends React.Component {
 	render() {
+    let { bookData,listData, pubInfo } = this.props.data;
 		return(
-			<div>
-				<div className="book-cover" onClick={this.handleClick}>
-					<img src={this.props.data.bookData.coverUrl} alt="书籍封面" />
+			<div className="BookInfo">
+				<div className="book-cover">
+					<img src={bookData.coverUrl} alt="书籍封面" title="书籍封面"/>
 	    	</div>
 	    	<div className="book-info">
-	    		<div className="book-title">{this.props.data.bookData.bookTitle}</div>
-	    		<div className="sell-price">￥&nbsp;{this.props.data.bookData.sellPrice}</div>
+	    		<div className="book-title">{bookData.bookTitle}</div>
+	    		<div className="sell-price">￥ {bookData.sellPrice}</div>
 	    		<div className="button-area">
-
-		        <div>
-		          <table>
-		            <tbody>
-			            <tr>
-			              <td>
-			              	<Link to='/confirmorder' className="icon-box">
-		                    <div className="book-buy-icon"></div>
-		                  	<div className="icon-box-title">购买</div>
-			                </Link>
-			              </td>
-			              <td>
-			              	<Link to={`/danpin/bookconsult/${this.props.data.bookData.id}`} className="icon-box">
-				              	<div className="book-consult-icon"></div>
-			              		<div className="icon-box-title">客服</div>
-			                </Link>
-			              </td>
-			            </tr>
-		          	</tbody>
-		          </table>
-		        </div>
+            <Link to='/confirmorder' className="book-buy">
+              <div className="book-buy-icon"></div>
+              <div className="icon-box-title">购买</div>
+            </Link>
+            <Link to={`/danpin/bookconsult/${bookData.id}`} className="book-consult">
+              <div className="book-consult-icon"></div>
+              <div className="icon-box-title">客服</div>
+            </Link>
         	</div>
 
         	<div className="book-desc">
             <div className="book-desc-box">
-            	<div className="book-desc-title">图书简介</div>
-              <div className="book-desc-content">{this.props.data.bookData.bookDesc}</div>
+            	<span className="book-desc-title">图书简介</span>
+              <div className="book-desc-content">{bookData.bookDesc}</div>
             </div>
         	</div>
 
         	<div className="book-desc">
         		<div className="book-read-box">
-	            <Link to={`/danpin/bookread/${this.props.data.bookData.id}`} className="book-read-btn">
-	                在线阅读&nbsp;<span>￥{this.props.data.bookData.readPrice}</span>
+	            <Link to={`/danpin/bookread/${bookData.id}`} className="book-read-btn">
+	                在线阅读 <span>￥{bookData.readPrice}</span>
 	            </Link>
 
-							<Link to={`/danpin/booksource/${this.props.data.bookData.id}`} className="book-read-btn"><span>配套资源</span></Link>
+							<Link to={`/danpin/booksource/${bookData.id}`} className="book-read-btn">
+                  <span>配套资源</span>
+              </Link>
 	          </div>   
         	</div>
 
         	<div className="book-desc">
         		<div className="list-box">
-            	<div className="list-icon"></div>
-            	<div className="book-list-title">目录摘要</div>
+            	<span className="list-icon"></span>
+            	<span className="book-list-title">目录摘要</span>
             	{
-            		this.props.data.listData.map(function(list,i) {
+            		listData.map((list,i) => {
             			return (
             				<div className="list-single-title" key={i}>{list}</div>
             			);
@@ -68,21 +58,21 @@ class BookInfo extends React.Component {
 
         	<div className="book-desc">
         		<div className="list-box">
-            	<div className="detail-icon"></div>
-            	<div className="book-list-title">图书详情</div>
-            	<div className="book-detail-content">{this.props.data.bookData.bookDetials}</div>
+            	<span className="detail-icon"></span>
+            	<span className="book-list-title">图书详情</span>
+            	<div className="book-detail-content">{bookData.bookDetials}</div>
             </div>
         	</div>
 
         	<div className="book-desc">
         		<div className="list-box">
-            	<div className="pub-icon"></div>
-            	<div className="book-list-title">出版信息</div>
+            	<span className="pub-icon"></span>
+            	<span className="book-list-title">出版信息</span>
             	<div className="book-detail-content">
-            	<div className="pub-title">作/译者：{this.props.data.pubInfo.writer}</div>
-            	<div className="pub-title">出版社：{this.props.data.pubInfo.publisher}</div>
-            	<div className="pub-title">出版时间：{this.props.data.pubInfo.pubTime}</div>
-            	<div className="pub-title">ISBN：{this.props.data.pubInfo.pubCode}</div>
+            	<div className="pub-title">作/译者：<span>{pubInfo.writer}</span></div>
+            	<div className="pub-title">出版社： <span>{pubInfo.publisher}</span></div>
+            	<div className="pub-title">出版时间：<span>{pubInfo.pubTime}</span></div>
+            	<div className="pub-title">ISBN：<span>{pubInfo.pubCode}</span></div>
             	</div>
             </div>
         	</div>
@@ -92,7 +82,6 @@ class BookInfo extends React.Component {
               <div className="book-buy-btn">加入购物车</div>          
             </div>
         	</div>
-
         </div>
 	    </div>
 		);

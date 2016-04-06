@@ -60,17 +60,16 @@ class BookSourceList extends React.Component {
 			}
 		);
 		return (
-						<div className="SourceList">
+						<div className="BookSourceList">
 							<CommonHeader>
 								<ReturnButton />
 							</CommonHeader>
 							<div className="title">配套资源</div>
 							{SourceBoxes}
-							<div className="bottom">
+							<div className="bottom clearfix">
 					      <hr className="line" />
 					      <span className="bottom-text">已经加载到底了</span>
 					      <hr className="line" />
-					      <div className="clearfix"></div>
 					    </div>
 					  </div>  
 					);
