@@ -1,91 +1,73 @@
 .GoodsList{
-
-  .header {
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 11001;
-    width: 100%;
-    height: 40px;
-    background-color: #fff;
-  }
-  .header .click-goback,
-  .header .search-goods {
-    height: 40px;
-    width: 40px;
-    margin: 0 10px;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-  .header .search-goods {
-    background-image: url("http:///www.duoyue.me/wechat/1018/3021/images/shangcheng/icon_Search.png");
-    background-size: 28px 28px;
-  }
-  .header .click-goback {
-    background-image: url("http:///www.duoyue.me/wechat/1018/3021/images/back_check.png");
-    background-size: 28px 23px;
-  }
-  .goods-list-title {
-    width: 100%;
-    text-align: center;
-    background: transparent;
-  }
-  .title-image {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    background-image: url('http://www.duoyue.me/wechat/1018/3021/images/shangcheng/jingpingremai.png');
-    background-position: top center;
-    background-size: 40px 40px;
-    background-repeat: no-repeat;
-  }
-  .title-name {
-    display: block;
-    text-align: center;
-    line-height: 16px;
-    font-size: 16px;
-    margin-bottom: 5px;
-  }
+  $fontStack: 'FZLTXHJW';
+  $fontSize14: 14px;
+  $fontSize16: 16px;
+  $colorWhite: #fff;
+  $colorLightGreen: #77cdb0;
+  $colorDDD: #ddd;
+  $borderColorGray: #e2e2e2;
+  $w100: 100%;
+  $w455: 45.5%;
   .goods-list-box {
     background-image: url('http://www.duoyue.me/wechat/1018/3021/images/shangcheng/shangcheng_bg.png');
     background-repeat: repeat;
-  }
-  .goods-list-box .shop-item {
-    box-sizing: border-box;
-    margin: 10px 0 3px 3%;
-    height: 208px;
-    width: 45.5%;
-    background-color: #fff;
-    border: 1px solid #e2e2e2;
-    box-shadow: 1px 1px 2px #ddd;
-    border-radius: 3px;
-  }
-
-  .goods-list-box .goods-title {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    font-size: 14px;
-    line-height: 22px;
-    height: 40px;
-    margin: 5px;
-    font-family: 'FZLTXHJW';
-  }
-  .goods-price::before {
-    content: "￥";
-    margin: 0 3px;
-  }
-  .goods-list-box .goods-price {
-    display: block;
-    margin: 10px 5px 5px 5px;
-    font-size: 16px;
-    line-height: 1em;
-    color: #77cdb0;
-  }
-  .goods-list-box .goods-img {
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
+    .goods-list-title {
+      width: $w100;
+      text-align: center;
+      background: transparent;
+      .title-image {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background-image: url('http://www.duoyue.me/wechat/1018/3021/images/shangcheng/jingpingremai.png');
+        background-position: top center;
+        background-size: 40px 40px;
+        background-repeat: no-repeat;
+      }
+      .title-name {
+        display: block;
+        text-align: center;
+        line-height: 16px;
+        font-size: $fontSize16;
+        margin-bottom: 5px;
+      }
+    }
+    .shop-item {
+      box-sizing: border-box;
+      margin: 10px 0 3px 3%;
+      height: 208px;
+      width: $w455;
+      background-color: $colorWhite;
+      border: 1px solid $borderColorGray;
+      box-shadow: 1px 1px 2px $colorDDD;
+      border-radius: 3px;
+    }
+    .goods-title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      font-size: $fontSize14;
+      line-height: 22px;
+      height: 40px;
+      margin: 5px;
+      font-family: $fontStack;
+    }
+    .goods-price {
+      display: block;
+      margin: 10px 5px 5px 5px;
+      font-size: $fontSize16;
+      line-height: 1em;
+      color: $colorLightGreen;
+      &:before {
+        content: "￥";
+        margin: 0 3px;
+      }
+    }
+    .goods-img {
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
+    }
   }
 }
