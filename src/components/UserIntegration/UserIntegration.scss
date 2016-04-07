@@ -1,59 +1,125 @@
-.IntegrationTitle {
-  .title {
-    height: 40px;
-    border-bottom: 1px solid #ddd;
-    background-color: #f0f0f0;
-    text-align: center;
-    line-height: 40px;
-    font-size: 16px;
-  }
-}
-.UserIntegration {
-  background-color: #fff;
-  font: 14px '微软雅黑', Arial, Helvetica, sans-serif;
-  .now-integration-container {
-    background-color: #62c3a2;
-    color: #fff;
-  }
-  .now-integration-title,
-  .now-integration,
-  .info-top-title,
-  .info-bottom-content {
+  
+  $fontSize16: 16px;
+  $fontSize14: 14px;
+  $fontSize12: 12px;
+  $fontSize10: 10px;
+  /*font-color*/
+  $fontColor3: #333;
+  $fontColor7: #777;
+  /*bg-color*/
+  $backgroundColorF: #fff;
+  $backgroundColor61c3a2: #61c3a2;
+  $backgroundColor62c3a2: #62c3a2;
+  $backgroundColorF0: #f0f0f0;
+    /*常用border*/
+  $borderColorC: 1px solid #ccc;
+  $borderColorD: 1px solid #ddd;
+  $borderColorE4: 1px solid #e4e4e4;
+  $borderColor61c3a2: 1px solid #61c3a2;
+  $borderColorE: 1px solid #eee;
+  /*width*/
+  $width25: 25%;
+  $width33: 33%;
+  $width50: 50%;
+  $width100: 100%;
+  /*font-family*/
+  $fontFamilyYaHei: 'Microsoft YaHei';
+
+  .centent22 {
     text-align: center;
     line-height: 22px;
   }
-  .now-integration-title {
-    padding: 20px 0 0;
+
+  @mixin inblock-width($width) {
+    display: inline-block;
+    width: $width;
   }
-  .now-integration {
-    padding: 20px 0 30px 0;
-    font-size: 38px;
+
+  .font12-color7 {
+    font-size: $fontSize12;
+    color: $fontColor7;
+  }
+
+.UserIntegrationHome {
+  background-color: $backgroundColorF;
+  font: $fontSize14 $fontFamilyYaHei;
+  .IntegrationTitle {
+    .title {
+      height: 40px;
+      border-bottom: $borderColorD;
+      background-color: $backgroundColorF0;
+      text-align: center;
+      line-height: 40px;
+      font-size: $fontSize16;
+    }
+  }
+  .now-integration-container {
+    background-color: $backgroundColor62c3a2;
+    color: #fff;
+    .now-integration-title {
+      padding: 20px 0 0;
+      @extend .centent22;
+    }
+    .now-integration {
+      padding: 20px 0 30px 0;
+      font-size: 38px;
+      @extend .centent22;
+    }
   }
   .integration-info {
     padding: 10px 0 10px 0;
-    border-bottom: 1px solid #eee;
-  }
-  .used-integration-container,
-  .total-integration-container {
-    display: inline-block;
-    width: 50%;
-  }
-  .used-integration-container {
-    border-right: 1px solid #eee;
-  }
-  .info-top-title {
-    color: #777;
-    font-size: 12px;
+    border-bottom: $borderColorE;
+    .used-integration-container {
+      border-right: $borderColorE;
+    }
+    .used-integration-container,
+    .total-integration-container {
+      @include inblock-width($width50);
+      .info-top-title,
+      .info-bottom-content {
+        @extend .centent22;
+      }
+      .info-top-title {
+        @entend .font12-color7;
+      }
+    }
   }
 }
 
 .IntegrationConsumeList {
+  .IntegrationTitle {
+    .title {
+      height: 40px;
+      border-bottom: $borderColorD;
+      background-color: $backgroundColorF0;
+      text-align: center;
+      line-height: 40px;
+      font-size: $fontSize16;
+    }
+  }
   .record-container {
     padding: 10px;
+    .record-title {
+      padding: 10px 0 8px;
+    }
+    .record-first-row {
+      border-top: $borderColorD;
+      background-color: #f8f8f8;
+      span {
+        font-size: $fontSize14;
+      }
+    }
+     .integration-record-list {
+      border-bottom: $borderColorD;
+      span {
+        @include inblock-width($width33);
+        line-height: 35px;
+        text-align: center;
+        font-size: $fontSize12;
+      }
+    }
   }
-  .record-title {
-    padding: 10px 0 8px;
-  }
+}
   /*  .integration-record-list {           注释掉的是给表格用的
       width: 100%;
     }
@@ -72,44 +138,39 @@
     .integration-record-list tr:first-child td {
       font-size: 14px;
     }*/
-  .integration-record-list {
-    border-bottom: 1px solid #ddd;
-  }
-  .record-first-row {
-    border-top: 1px solid #ddd;
-    background-color: #f8f8f8;
-  }
-  .integration-record-list span {
-    display: inline-block;
-    width: 33.3%;
-    line-height: 35px;
-    text-align: center;
-    font-size: 12px;
-  }
-  .integration-record-list.record-first-row span {
-    font-size: 14px;
-  }
-}
+ 
+
 
 .TotalIntegrationList {
+  .IntegrationTitle {
+    .title {
+      height: 40px;
+      border-bottom: $borderColorD;
+      background-color: $backgroundColorF0;
+      text-align: center;
+      line-height: 40px;
+      font-size: $fontSize16;
+    }
+  }
   .total-integration-wrap {
     padding: 10px;
-  }
-  .total-integration-item {
-    padding: 5px 0;
-    border-bottom: 1px solid #ddd;
-    line-height: 24px;
-  }
-  .item-top-info span:first-child {
-    float: left;
-    color: #f30;
-  }
-  .item-top-info span:last-child,
-  .item-bottom-info {
-    color: #777;
-    font-size: 12px;
-  }
-  .item-top-info span:last-child {
-    float: right;
+    .total-integration-item {
+      padding: 5px 0;
+      border-bottom: $borderColorD;
+      line-height: 24px;
+      .item-top-info span {
+        &:first-child {
+          float: left;
+          color: #f30;
+        }
+        &:last-child {
+          @extend .font12-color7;
+          float: right;
+        }
+      }
+      .item-bottom-info {
+        @extend .font12-color7;
+      }
+    }
   }
 }

@@ -1,28 +1,53 @@
-html,body {
-	width: 100%;
+.SocialDetail {
+	$fontSize16: 16px;
+  $fontSize14: 14px;
+  $fontSize12: 12px;
+  $fontSize10: 10px;
+  /*font-color*/
+  $fontColor3: #333;
+  $fontColor7: #777;
+  /*bg-color*/
+  $backgroundColorF: #fff;
+  $backgroundColor61c3a2: #61c3a2;
+  $backgroundColor62c3a2: #62c3a2;
+  $backgroundColorF0: #f0f0f0;
+    /*常用border*/
+  $borderColorC: 1px solid #ccc;
+  $borderColorD: 1px solid #ddd;
+  $borderColorE4: 1px solid #e4e4e4;
+  $borderColor61c3a2: 1px solid #61c3a2;
+  $borderColorE: 1px solid #eee;
+  /*width*/
+  $width25: 25%;
+  $width33: 33%;
+  $width50: 50%;
+  $width100: 100%;
+  /*font-family*/
+  $fontFamilyYaHei: 'Microsoft YaHei';
+  
+	width: $width100;
 	height: 100%;
-	background-color: #f8f8f8;
+	background-color: $backgroundColorF;
 	margin: 0;
-}
-a {
-	color: #333;
-	text-decoration: none;
-}
-.SocialDetail{
+	a {
+		color: $fontColor3;
+		text-decoration: none;
+	}
 	.banner-content {
-		borderTop: 1px solid #eee;
-		borderBottom: 1px solid #eee;
+		border-top: $borderColorE;
+		border-bottom: $borderColorE;
 		padding: 5px;
+		.banner-content-title {
+			font-size: $fontSize16;
+		  padding: 5px 5px 0px 5px;
+		}
+		.banner-content-intra {
+			padding: 0px 5px 10px 5px; 
+			color: $fontColor7;
+		}
 	}
 	#banner-pic img {
-		width: 100%;
+		width: $width100;
 	}
-	.banner-content-title {
-		fontSize: 16px;
-	  padding: 5px 5px 0px 5px;
-	}
-	.banner-content-intra {
-		padding: 0px 5px 10px 5px; 
-		color: #777;
-	}
+	
 }

@@ -170,7 +170,7 @@ class BookShelf extends React.Component {
     }
 
     return (
-        <div className="BookShelf my-bookcase" style={{ height: windowHeight-190 }} ref="shelf">
+        <div className="BookShelf " style={{ height: windowHeight-190 }} ref="shelf">
           <div className="top-title">
             <div className="line"></div>
             <div className="title">我的书架</div>
