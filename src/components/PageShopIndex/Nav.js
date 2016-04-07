@@ -27,7 +27,7 @@ class Nav extends Component {
     let navsCode = navsData.map( (item, i) =>
   		<div className="nav-item left" key={i}>
 				<Link to={item.href}>
-        <img src={item.imgUrl} alt={item.title} width="60%"/>
+        <img src={item.imgUrl} alt={item.title} title={item.title} width="60%"/>
         <span className="category-name">{item.title}</span>
 				</Link>
   		</div>

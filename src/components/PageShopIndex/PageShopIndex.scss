@@ -12,14 +12,15 @@
   $fontSize16: 16px;
   $colorDDD: #ddd;
   $colorWhite: #fff;
-  $colorLightBlack: #333;
-  $colorLightGreen: #77cdb0;
-  $colorDarkenGreen: #74cdaf;
-  $borderColorGray: #e0e0e0;
-  $borderColorLightGreen: #62c3a2;
-  $borderColorLightOrange: #feb794;
-  $bgColorGray: #f6f6f6;
-  $bgColorDarkenGray: #e1e1e1;
+  $fontColor3: #333;
+  $fontColor77cdb0: #77cdb0;
+  $fontColor74cdaf: #74cdaf;
+  $borderColorE0: 1px solid #e0e0e0;
+  $borderColorE1: 1px solid #e1e1e1;
+  $borderColor62c3a2: 1px solid #62c3a2;
+  $borderColorfeb794: 1px solid #feb794;
+  $bgColorF6: #f6f6f6;
+  $bgColorE1: #e1e1e1;
   $bgColorDB: #dbdbdb;
   $w100: 100%;
   $w85: 85%;
@@ -48,7 +49,7 @@
         overflow: hidden;
       }
       a {
-        color: $colorLightBlack;
+        color: $fontColor3;
       }
     }
   }
@@ -56,8 +57,8 @@
   .hot-news {
     width: $w100;
     height: 40px;
-    border-top: 1px solid $borderColorGray;
-    border-bottom: 1px solid $borderColorGray;
+    border-top: $borderColorE0;
+    border-bottom:  $borderColorE0;
     position: relative;
     overflow: hidden;
     &:after {
@@ -79,7 +80,7 @@
       .hot {
         height: 18px;
         width: 30px;
-        border: 1px solid $borderColorLightOrange;
+        border: $borderColorfeb794;
         padding: 3px 5px;
         border-radius: 4px;
         font-size: $fontSize12;
@@ -111,14 +112,14 @@
   }
   /*content start*/
   .content {
-    background-color: $bgColorGray;
+    background-color: $bgColorF6;
     background: url(/images/shangcheng_bg.png) repeat;
     padding-bottom: 20px;
     .category-header {
-      margin: 10px 0px 0 0px;
+      margin-top: 10px;
       padding-left: 10px;
       padding-right: 10px;
-      background-color: $bgColorDarkenGray;
+      background-color: $bgColorE1;
       .category-title {
         padding: 10px 0;
         padding-left: 40px;
@@ -135,7 +136,7 @@
         background-size: 100% 50%;
         background-position: center;
         .more-text {
-          color: $colorDarkenGreen;
+          color: $fontColor74cdaf;
         }
       }
     }
@@ -145,7 +146,7 @@
       height: 200px;
       width: $w455;
       background-color: $colorWhite;
-      border: 1px solid $bgColorDarkenGray;
+      border: $borderColorE1;
       box-shadow: 1px 1px 2px $colorDDD;
       border-radius: 3px;
       .goods-img {
@@ -168,7 +169,7 @@
         margin: 10px 5px 5px 5px;
         font-size: $fontSize16;
         line-height: 1em;
-        color: $colorLightGreen;
+        color: $fontColor77cdb0;
       }
     }
   }

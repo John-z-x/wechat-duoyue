@@ -17,8 +17,10 @@
   $border62c3a2: 1px solid #62c3a2;
   /*width*/
   $width25: 25%;
+  $width30: 30%;
   $width33: 33%;
   $width50: 50%;
+  $width70: 70%;
   $width100: 100%;
   /*flex-sizing*/
   @mixin flex-one ($sizing) {
@@ -33,7 +35,7 @@
 			padding-bottom: 20px;
 			.cell {
 				display: block;
-				width: 25%;
+				width: $width25;
 				text-align: center;
 				 @include flex-one(1);
 				.sort-icon {
@@ -57,7 +59,7 @@
 			color: $fontColor62c3a2;
 			text-align: center;
 			.bk-cover {
-				width: 70%;
+				width: $width70;
 		  }
 		  .bk-title {
 				height: 36px;
@@ -98,7 +100,7 @@
 				margin-top: 10px;
 				margin-bottom: 10px;
 				.cell-img {
-					width: 30%;
+					width: $width30;
 					img {
 						width: $width100;
 						height: 100%;

@@ -13,7 +13,7 @@
   /*字体常用字号*/
   $fontSize11: 11px;
   $fontSize12: 12px;
-
+  $fontSize18: 18px;
   .everyday-box {
     padding: 15px;
     border-bottom: 1px solid #ddd;
@@ -39,7 +39,7 @@
       position: relative;
     }
     .title {
-      font-size: 18px;
+      font-size: $fontSize18;
       padding-top: 15px;
       color: $fontColor3;
     }

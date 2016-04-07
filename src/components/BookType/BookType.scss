@@ -5,6 +5,7 @@
   $fontColor3: #333;
   $fontColor7: #777;
   $fontColorF: #fff;
+  $fontColorF30: #f30;
   $fontColor61c3a2: #61c3a2;
   $fontColor7da0b4: #7da0b4;
   
@@ -18,15 +19,18 @@
   /*常用border*/
   $borderColor3: 1px solid #333;
   $borderColorD: 1px solid #ddd;
+  $borderColorE: 1px solid #eee;
   $borderColorE4: 1px solid #e4e4e4;
   $borderColor61c3a2: 1px solid #61c3a2;
-  $borderColorE: 1px solid #eee;
+  $borderColor261c3a2: 2px solid #61c3a2;
 
   /*font-family*/
   $fontFamilyYaHei: 'Microsoft YaHei';
   
   /*bg-color*/
   $backgroundColorF: #fff;
+  $backgroundColorF5: #f5f5f5;
+  $backgroundColorF8: #f8f8f8;
   $backgroundColor61c3a2: #61c3a2;
   $backgroundColor7da1b4: #7da1b4;
   
@@ -63,8 +67,8 @@
   }
 
   .Tab {
-    border-bottom: 1px solid #eee;
-    background-color: #f5f5f5;
+    border-bottom: $borderColorE;
+    background-color: $backgroundColorF5;
     .source-type {
       @include float-width(left,33%);
       height: 39px;
@@ -77,7 +81,7 @@
       height: 39px;
       text-align: center;
       line-height: 39px;
-      border-bottom: 2px solid #61c3a2;
+      border-bottom: $borderColor261c3a2;
       color: $fontColor61c3a2;
     }
   }
@@ -91,14 +95,14 @@
       font-size: $fontSize14;
     }
     .book-list-item {
-      padding: 5px 0px 0px 0px;
+      padding-top: 5px;
       .BookListItem {
           @include float-width(left,33%);
-          border-bottom: 1px solid #eee;
+          border-bottom: $borderColorE;
           margin: 5px 0;
         .book-item {
           padding: 15px;
-          border-right: 1px solid #eee;
+          border-right: $borderColorE;
           margin: 5px 0;
           .book-name {
             width: $width100;
@@ -107,7 +111,7 @@
           }
           .book-price {
              text-align: center; 
-             color: #f30; 
+             color: $fontColorF30; 
              font-size: $fontSize12;
           }
         }
@@ -118,7 +122,7 @@
 
   .BookClassify {
     .books-classify {
-      padding: 0px 10px 0px 10px;
+      padding: 0px 10px;
       background-color: $backgroundColorF;
       .title {
         padding: 10px 0px 10px 10px;
@@ -134,7 +138,7 @@
         .classify-book-bg {
           margin: 5px;
           padding: 5px 0 0 10px;
-          background-color: #f8f8f8;
+          background-color: $backgroundColorF8;
           .classify-book-word {
             @include float-width(left,50%);
             .classify-name {

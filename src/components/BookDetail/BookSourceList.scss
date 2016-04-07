@@ -5,6 +5,8 @@
   $fontColor3: #333;
   $fontColor7: #777;
   $fontColorF: #fff;
+  $fontColorCB: #cbcbcb;
+  $fontColora2a4b0: #a2a4b0;
   $fontColor61c3a2: #61c3a2;
   $fontColor7da0b4: #7da0b4;
   
@@ -28,6 +30,7 @@
   
   /*bg-color*/
   $backgroundColorF: #fff;
+  $backgroundColorF8: #f8f8f8;
   $backgroundColor61c3a2: #61c3a2;
   $backgroundColor7da1b4: #7da1b4;
   
@@ -55,7 +58,7 @@
   }
   .title {
     height: 40px;
-    background: #f8f8f8;
+    background: $backgroundColorF8;
     width: $width100;
     line-height: 40px;
     text-align: center;
@@ -128,7 +131,7 @@
         }
         .box-bottom-desc {
           font-size: 15px;
-          color: #a2a4b0;
+          color: $fontColora2a4b0;
           margin-bottom: 5px;
         }
       }
@@ -144,13 +147,13 @@
       @include float-width(left,30%);
       padding-top: 5px;
       border: none;
-      border-bottom: 1px solid #cbcbcb;
+      border-bottom: 1px solid $fontColorCB;
       
     }
     .bottom-text {
       @include float-width(left,40%);
       font-size: 15px;
-      color: #cbcbcb;
+      color: $fontColorCB;
     }
   }
 }

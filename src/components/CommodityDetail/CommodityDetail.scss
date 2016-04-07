@@ -8,13 +8,16 @@
   $colorDDD: #ddd;
   $colorWhite: #fff;
   $colorA4: #a4a4a4;
-  $colorLightGreen: #77cdb0;
-  $colorLightBlack: #333;
-  $borderColorGray: #e0e0e0;
-  $bgColorAddCart: #7da1b4;
-  $w100: 100%;
-  $w94: 94%;
+  $color77cdb0: #77cdb0;
+  $color3: #333;
+  /*border*/
+  $borderE0: 1px solid #e0e0e0;
+  /*bgcolor*/
+  $bgColor7da1b4: #7da1b4;
+  /*width*/
   $w50: 50%;
+  $w94: 94%;
+  $w100: 100%;
   box-sizing: content-box;
   font-size: $fontSize14;
   line-height: 22px;
@@ -29,24 +32,24 @@
   .CommodityDetailContent {
     .content { 
       background-color: $colorWhite;
-      border-bottom: 1px solid $borderColorGray;
+      border-bottom: $borderE0;
       .goods-title {
         width: $w94;
-        margin: 0 3% 0 3%;
+        margin: 0 3%;
         line-height: $fontSize20;
         font-family: $fontLTXH;
         font-size: $fontSize16;
-        color: $colorLightBlack;
+        color: $color3;
         text-align: left;
         padding-top: 5px;
       }
       .goods-detail {
         width: $w94;
-        padding: 5px 3% 5px 3%;
+        padding: 5px 3%;
       }
       .goods-price {
         font-size: $fontSize20;
-        color: $colorLightGreen;
+        color: $color77cdb0;
       }
       .isdelivery {
         margin-left: 10px;
@@ -65,18 +68,18 @@
       padding: 0 10px;
       height: 40px;
       line-height: 40px;
-      border-bottom: 1px solid $borderColorGray;
+      border-bottom: $borderE0;
       color: $colorA4;
       margin-top: 20px;
       background-color: $colorWhite;
-      border-top: 1px solid $borderColorGray;
+      border-top: $borderE0;
       .delivery-title {
         width: 35px;
         height: 30px;
         text-align: center;
         color: $colorWhite;
         display: inline-block;
-        background-color: $colorLightGreen;
+        background-color: $color77cdb0;
         margin-right: 5px;
         line-height: 30px;
       }
@@ -95,8 +98,8 @@
       line-height: 40px;
       text-indent: 10px;
       background-color: $colorWhite;
-      border-bottom: 1px solid $borderColorGray;
-      border-top: 1px solid $borderColorGray;
+      border-bottom: $borderE0;
+      border-top: $borderE0;
       box-shadow: 1px 0px 1px $colorDDD;
     }
     .choose-arrow {
@@ -108,30 +111,30 @@
       background-size: 100% 100%;
     }
     .introduce {
-      border-top: 1px solid $borderColorGray;
+      border-top: $borderE0;
       background-color: $colorWhite;
-      border-bottom: 1px solid $borderColorGray;
+      border-bottom: $borderE0;
       margin-bottom: 20px;
       .classify {
         width: $w100;
         padding: 20px 0;
-        border-bottom: 1px solid $borderColorGray;	
-        border-top: 1px solid $borderColorGray;
+        border-bottom:  $borderE0;	
+        border-top:  $borderE0;
         overflow: scroll;    
       }
       .classify-box {
         height: 45px;
         min-width: $w100;
         background-color: $colorWhite;
-        border-bottom: 1px solid $borderColorGray;
-        border-top: 1px solid $borderColorGray;
+        border-bottom:  $borderE0;
+        border-top:  $borderE0;
       }
       .classify-item {
         display: inline-block;
         height: 26px;
         width: 65px;
-        border: 1px solid $colorLightGreen;
-        color: $colorLightGreen;
+        border:  $color77cdb0;
+        color: $color77cdb0;
         border-radius: 4px;
         text-align: center;
         line-height: 26px;
@@ -142,11 +145,11 @@
         margin: 10px 3%;
         text-align: center;
         font-size: $fontSize18;
-        color: $colorLightBlack;
+        color: $color3;
       }
       .introduce-img {
         margin: 10px 10px 10px 10px;
-        border-top: 1px solid $borderColorGray;
+        border-top:  $borderE0;
         .info_shangpin {
           padding: 10px 0px 10px 0px;
           font-size: $fontSize16 !important;
@@ -170,16 +173,16 @@
   .CommodityDetailCollection {
     .suggest {
       width: $w100;
-      border-top: 1px solid $borderColorGray;
-      border-bottom: 1px solid $borderColorGray;
+      border-top:  $borderE0;
+      border-bottom:  $borderE0;
       background-color: $colorWhite;
       .suggest-relative {
         padding-top: 10px;
         padding-bottom: 3%;
         text-align: center;
         font-size: $fontSize18;
-        color: $colorLightBlack;
-        border-bottom: 1px solid $borderColorGray;
+        color: $color3;
+        border-bottom:  $borderE0;
       }
       .goods-contain-box {
         margin-top: 10px;
@@ -192,13 +195,13 @@
             display: inline-block;
             margin-left: 10px;
             .goods-item-img {
-              border: 1px solid $colorDDD;
+              border:  $borderE0;
             }
             .goods-title {
               margin: 5px 0;
               width: 110px;
               line-height: 16px;
-              color: $colorLightBlack;
+              color: $color3;
               overflow: hidden;
               text-overflow: ellipsis;
               display: -webkit-box;
@@ -248,14 +251,14 @@
       z-index: 11000;
       width: $w100;
       height: 50px;
-      border-top: $borderColorGray;
+      border-top: $borderE0;
       .addcart {
         @extend .footer-block;
-        background-color: $bgColorAddCart;
+        background-color: $bgColor7da1b4;
       }
       .settle {
         @extend .footer-block;
-        background-color: $colorLightGreen;
+        background-color: $color77cdb0;
       }
     }
   }

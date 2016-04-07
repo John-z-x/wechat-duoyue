@@ -13,7 +13,7 @@ class ToEveryday extends React.Component{
       <Link to="/everyday/" className="ToEveryday clearfix" style={{backgroundColor: bgColor}}>
         <div className="everyday-word left" style={{color: fontColor}}>每天</div>
         <div className="icon right">
-         <img src={src} alt=" "/>
+         <img src={src} alt="图标" title="图标"/>
         </div>
       </Link>
     );

@@ -50,8 +50,7 @@ class Article extends React.Component {
 			      <div className="article-desc">
 			        <div className="desc">
 			          <span style={{fontSize: fontSize+2, color: fontColor}}>{articledata.articeDesc}</span>
-
-			          <img src={articledata.articeImg}  />
+			          <img src={articledata.articeImg} alt="文章图片" title="文章图片"  />
 			        </div>
 			      </div>
 			      <div className="article-content" style={{fontSize: fontSize}}>

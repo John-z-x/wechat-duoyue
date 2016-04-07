@@ -3,9 +3,9 @@
   $fontSize14: 14px;
   $fontSize16: 16px;
   $colorWhite: #fff;
-  $colorLightGreen: #77cdb0;
+  $fontColor77cdb0: #77cdb0;
   $colorDDD: #ddd;
-  $borderColorGray: #e2e2e2;
+  $borderE2: 1px solid #e2e2e2;
   $w100: 100%;
   $w455: 45.5%;
   .goods-list-box {
@@ -38,7 +38,7 @@
       height: 208px;
       width: $w455;
       background-color: $colorWhite;
-      border: 1px solid $borderColorGray;
+      border: $borderE2;
       box-shadow: 1px 1px 2px $colorDDD;
       border-radius: 3px;
     }
@@ -59,7 +59,7 @@
       margin: 10px 5px 5px 5px;
       font-size: $fontSize16;
       line-height: 1em;
-      color: $colorLightGreen;
+      color: $fontColor77cdb0;
       &:before {
         content: "￥";
         margin: 0 3px;

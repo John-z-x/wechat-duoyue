@@ -1,113 +1,131 @@
-body {
-  background-color: #fff;
-  font-size: 14px;
+.Favorites {
+  $fontStack: '\5FAE\8F6F\96C5\9ED1',Arial, Helvetica, sans-serif;
+  /*fontsize*/
+  $fontSize12: 12px;
+  $fontSize13: 13px;
+  $fontSize14: 14px;
+  /*fontcolor*/
+  $fontColor3: #333; 
+  $fontColor62c3a2: #62c3a2;
+  /*border*/
+  $borderD: 1px solid #ddd;
+  $border2F5: 2px solid #f5f5f5;
+  $border262c3a2: 2px solid #62c3a2;
+  /*bgcolor*/
+  $bgColorWhite: #fff;
+  $bgColorF5: #f5f5f5;
+  /*shadowcolor*/
+  $bsColorC9: 1px 3px 5px #c9c9c9;
+  /*width*/
+  $w23: 23%;  
+  $w47: 47%;
+  $w80: 80%;
+  $w90: 90%;
+  $w100: 100%;
+  .omission {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  background-color: $bgColorWhite;
+  font-size: $fontSize14;
   line-height: 22px;
   table-layout: fixed;
   word-break: break-all;
-  font-family: '微软雅黑', Arial, Helvetica, sans-serif;
-}
-
-.Favorites {
+  font-family: $fontStack;
   /*tab*/
   .favorites-classify {
-    width: 90%;
+    width: $w90;
     height: 39px;
     margin: 0 auto;
     line-height: 39px;
-    background-color: #fff;
-
+    background-color: $bgColorWhite;
+    .favorites-type {
+      float: left;
+      width: $w47;
+      height: 37px;
+      margin-right: 5px;
+      text-align: center;
+      background-color: $bgColorF5;
+      border-bottom: $border2F5;
+    }
+    .type-over {
+      border-bottom: $border262c3a2;
+      color: $fontColor62c3a2;
+    }
   }
-  .favorites-type {
-    float: left;
-    width: 47%;
-    height: 37px;
-    margin-right: 5px;
-    text-align: center;
-    background-color: #f5f5f5;
-    border-bottom: 2px solid #f5f5f5;
+   /*savebook*/
+  .FavoritesBook {
+    .book-box {
+      padding-top: 10px;
+      .my-books {
+        padding: 10px 5%;
+        background-color: $bgColorWhite;
+        a {
+          text-decoration: none;
+        }
+        img {
+          box-shadow: $bsColorC9;
+        }
+        .book-item {
+          float: left;
+          margin: 5px 12% 5px 0;
+          width: $w23;
+          color: $fontColor3;
+          text-align: center;
+          &:nth-of-type(3n) {
+            float: left;
+            margin: 5px 0 5px 0;
+            width: $w23;
+            color: $fontColor3;
+          }
+          .book-img {
+            box-shadow: $bsColorC9;
+            width: $w100;
+          }
+          .book-name {
+            @extend .omission;
+            padding-top: 10px;
+            text-align: center;
+            line-height: 18px;
+            color: $fontColor3;
+            font-size: $fontSize13;
+          }
+          .book-delete {
+            text-align: center;
+            color: $fontColor62c3a2;
+            font-size: $fontSize12;
+          }
+        }
+      }
+    }
   }
-
-  .type-over {
-    border-bottom: 2px solid #62c3a2;
-    color: #62c3a2;
-  }
-
-  /*savebook*/
-  .book-box {
-    padding-top: 10px;
-  }
-
-  .my-books {
-    padding: 10px 5%;
-    background-color: #fff;
-
-  }
-  .book-itme {
-    float: left;
-    margin: 5px 12% 5px 0;
-    width: 23%;
-    color: #333;
-    text-algin: center;
-  }
-  .my-books a {
-    text-decoration: none;
-  }
-  .book-itme:nth-of-type(3n) {
-    float: left;
-    margin: 5px 0 5px 0;
-    width: 23%;
-    color: #333;
-  }
-  .my-books img {
-    box-shadow: 1px 3px 5px #c9c9c9;
-  }
-  .book-img {
-    box-shadow: 1px 3px 5px #c9c9c9;
-    width: 100%;
-  }
-  .book-name {
-    padding-top: 10px;
-    text-align: center;
-    line-height: 18px;
-    overflow: hidden;
-    white-space: nowrap;
-    color: #333;
-    font-size: 13px;
-    text-overflow: ellipsis;
-  }
-  .book-delete {
-    text-align: center;
-    color: #62c3a2;
-    font-size: 12px;
-  }
-
-  /*收藏文章*/
-  .article-box {
-    width: 90%;
-    padding-top: 10px;
-    margin: 0 auto;
-  }
-  .favorites-article {
-    background-color: #fff;
-    border-bottom: 1px solid #ddd;
-    padding: 10px 10px 13px 10px;
-  }
-  .favorites-article .title {
-    float: left;
-    padding: 5px;
-    width: 80%;
-    display: inline-block;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-  .favorites-article .delete {
-    float: right;
-    width: 14px;
-    height: 14px;
-    background: url(/images/close_article.png) no-repeat center;
-    background-size: contain;
-    margin: 5px 10px;
-    padding-top: 5px
+  .FavoritesArticle {
+    .article-box {
+      width: $w90;
+      padding-top: 10px;
+      margin: 0 auto;
+      .favorites-article {
+        background-color: $bgColorWhite;
+        border-bottom: $borderD;
+        padding: 10px 10px 13px 10px;
+        .title {
+          @extend .omission;
+          float: left;
+          padding: 5px;
+          width: $w80;
+          display: inline-block;
+        }
+        .delete {
+          float: right;
+          width: 14px;
+          height: 14px;
+          background: url(/images/close_article.png) no-repeat center;
+          background-size: contain;
+          margin: 5px 10px;
+          padding-top: 5px
+        }
+      }
+    }
   }
 }

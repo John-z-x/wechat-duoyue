@@ -43,9 +43,9 @@ class CatalogArea extends React.Component{
             <span className="articleIcon-continue" onClick={this.props.onReturn}>续读</span>
           </header>
           <div className="catalog">
-              <div className="articleIndex" >
-              {chaptersCode}
-              </div>
+            <div className="articleIndex" >
+            {chaptersCode}
+            </div>
           </div>
         </div>
       );

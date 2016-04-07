@@ -9,17 +9,18 @@ class FavoritesArticle extends React.Component {
   }
 
   render() {
+    let data = this.props.data;
     return (
         <div className="FavoritesArticle">
           <div className="article-box">
-            { this.props.data.articleData.map((item, i) => {
+            { data.articleData.map((item, i) => {
                   return (
-                      <Link to={`/everyday/${item.articleId}/display`} key={item.articleId}>
-                        <div className="favorites-article clearfix">
-                          <div className="title">{item.title}</div>
-                          <div className="delete" onClick={() => this.deleteFavoritesArticle(item.articleId)}></div>
-                        </div>
-                      </Link>
+                    <Link to={`/everyday/${item.articleId}/display`} key={item.articleId}>
+                      <div className="favorites-article clearfix">
+                        <div className="title">{item.title}</div>
+                        <div className="delete" onClick={() => this.deleteFavoritesArticle(item.articleId)}></div>
+                      </div>
+                    </Link>
                   );
                 }
             )

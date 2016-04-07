@@ -3,6 +3,7 @@
 
   /*font-color*/
   $fontColor3: #333;
+  $fontColor7: #777;
   $fontColorF: #fff;
   $fontColor61c3a2: #61c3a2;
   $fontColor7da0b4: #7da0b4;
@@ -18,6 +19,7 @@
   $borderColorD: 1px solid #ddd;
   $borderColorE4: 1px solid #e4e4e4;
   $borderColor61c3a2: 1px solid #61c3a2;
+  $borderColor561c3a2: 5px solid #61c3a2;
   $borderColorE: 1px solid #eee;
 
   /*font-family*/
@@ -25,6 +27,8 @@
   
   /*bg-color*/
   $backgroundColorF: #fff;
+  $backgroundColorF8: #f8f8f8;
+  $backgroundColorFA: #fafafa;
   $backgroundColor61c3a2: #61c3a2;
   $backgroundColor7da1b4: #7da1b4;
   
@@ -87,7 +91,7 @@
       padding: 10px 0 10px 0;
       border-top: $borderColorE;
       border-bottom: $borderColorE;
-      background-color: #fafafa;
+      background-color: $backgroundColorFA;
       .book-title {
         padding: 30px 20px 5px 30px;
         text-align: center;
@@ -107,7 +111,7 @@
           .icon-box-title {
             padding: 5px 0px 5px 0px;
             text-align: center;
-            color: #777;
+            color: $fontColor7;
           }
           .book-buy-icon {
             background: url(/images/icon_buy.png);
@@ -134,7 +138,7 @@
           .book-desc-content {
             line-height: 18px;
             font-size: $fontSize12;
-            color: #777;
+            color: $fontColor7;
           }
         }
         .book-read-box {
@@ -173,10 +177,10 @@
             padding: 10px 0;
             text-align: center;
             font-size: $fontSize14;
-            color: #777;
+            color: $fontColor7;
           }
           .list-single-title {
-            color: #777;
+            color: $fontColor7;
             height: 30px;
             line-height: 30px;
             width: $width100;
@@ -185,7 +189,7 @@
           .book-detail-content {
             padding: 10px 0px;
             .pub-title {
-              color: #777;
+              color: $fontColor7;
               line-height: 18px;
               font-size: $fontSize12;
             }
@@ -197,7 +201,7 @@
           .book-buy-btn {
             width: 200px;
             margin: auto;
-            padding: 12px 0px 12px 0px;
+            padding: 12px 0px;
             background-color:  $backgroundColor61c3a2;
             border-radius: 25px;
             text-align: center;
@@ -213,12 +217,12 @@
     border-bottom: $borderColorE;
     .rec-title {
     font-size: $fontSize14;
-    padding: 0 0 10px 0;
+    padding-bottom: 10px;
     text-align: center;
     }
     .green-title {
       font-size: $fontSize14;
-      padding: 0 0 10px 0;
+      padding-bottom: 10px;
       text-align: center;
       color:  $fontColor61c3a2;
     }
@@ -251,7 +255,7 @@
   }
   .bottom-blank {
     height: 10px;
-    background-color: #f8f8f8;
+    background-color: $backgroundColorF8;
   }
   .ToDanpin {
     padding: 10px 20px;
@@ -262,9 +266,9 @@
       .bottom-link-title {
         display: inline-block;
         height: 29px;
-        padding: 0 0 0 10px;
+        padding-left: 10px;
         line-height: 29px;
-        border-left: 5px solid #61c3a2;
+        border-left: $borderColor561c3a2;
         font-size: $fontSize16;
         vertical-align: top;
       }

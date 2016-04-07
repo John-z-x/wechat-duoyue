@@ -1,54 +1,64 @@
 .BookRead {
-  background-color: #f8f8f8;
-  /*bg-color*/
-  $backgroundColorF: #fff;
-  $borderColorD: 1px solid #ddd;
-    /*font-family*/
+  /*font-family*/
   $fontFamilyYaHei: 'Microsoft YaHei';
   $fontFamilyFZLTXHJW: 'FZLTXHJW';
   $fontFamilyFZSSJW: 'FZSSJW';
-
+  /*fontsize*/
+  $fontSize12: 12px;  
+  $fontSize16: 16px;
+  $fontSize20: 20px;
+  $fontSize24: 24px;
+  
+  /*fontcolor*/
+  $fontColor7: #777;
+  /*bg-color*/
+  $backgroundColorF: #fff;
+  $backgroundColorF8: #f8f8f8;
+  $borderColorD: 1px solid #ddd;
+  /*width*/
+  $w94: 94%;
+  $w100: 100%;
    @mixin a-line {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-
    @mixin fontcolor-bgcolor($color,$bgColor) {
     color: $color;
     background-color: $bgColor;
   }
-
+  
+  background-color: $backgroundColorF8;
   .forColor {
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
-    width: 100%;
+    width: $w100;
     z-index: 1;
   }
   .pageTitleShow {
     height: 40px;
-    width: 100%;
+    width: $w100;
     position: fixed;
     top: 0;
     left: 0;
     line-height: 40px;
     @include a-line;
-    padding: 0 0 0 20px;
-    font-size: 12px;
-    color: #777;
+    padding-left: 20px;
+    font-size: $fontSize12;
+    color: $fontColor7;
     background-color: $backgroundColorF;
   }
   .text_bg {
     position: fixed;
     z-index: 11000;
     box-sizing: border-box;
-    width: 100%;
+    width: $w100;
     height: 100%;
     left: 0;
     top: 40px;
-    padding: 0 40px 0 40px;
+    padding: 0 40px;
     background-size: 100% auto;
     background-color: $backgroundColorF;
     overflow: hidden;
@@ -59,17 +69,17 @@
       text-align: justify;
     }
     .font-size-0 {
-      font-size: 16px;
+      font-size: $fontSize16;
     }
    .font-size-1 {
-      font-size: 20px;
+      font-size: $fontSize20;
     }
     .font-size-2 {
-      font-size: 24px;
+      font-size: $fontSize24;
     }
     .opationCanvas {
       position: fixed;
-      width: 100%;
+      width: $w100;
       top: 40px;
       left: 0;
       bottom: 50px;
@@ -84,14 +94,14 @@
     left: 0;
     bottom: 0;
     height: 50px;
-    width: 100%;
+    width: $w100;
     z-index: 10010;
     box-sizing: border-box;
     background-color: $backgroundColorF;
     padding: 0 3%;
     border-top: $borderColorD;
     .controll-box {
-      width: 94%;
+      width: $w94;
       margin-top: 20px;
       .progress-num {
         text-align: center;

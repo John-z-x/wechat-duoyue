@@ -17,7 +17,7 @@ class CommoditysItem extends React.Component {
     return (
       <li className="CommoditysItem  flex clearfix">
         <div className="item-img left">
-          <img src={data.headurl} alt="图片" width="90" height="120"/>
+          <img src={data.headurl} alt="图片" title="图片" width="90" height="120"/>
         </div>
         <div className="item-detail left">
           <div className="title">{data.title}</div>
