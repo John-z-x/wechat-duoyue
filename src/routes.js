@@ -62,7 +62,7 @@ import ConfirmOrder from './components/ConfirmOrder/ConfirmOrder';
 import NotFound from './components/NotFound/NotFound';
 
 export default (
-  <Route path="/" component={App} >
+  <Route path="/" component={App} onEnter= {getRoute}>
     <IndexRoute component={ShopPageHome} />
     <Route path="danpin" component={ShopPage}>
       <IndexRoute component={ShopPageHome}/>
@@ -130,3 +130,12 @@ export default (
     <Route path="*" component={NotFound} />
   </Route>
 )
+
+function getRoute (nextState, replaceState) {
+  //const state = store.getState()
+  //const isLoggedIn = Boolean(state.application.token)
+  //if (!isLoggedIn)
+  //  replaceState({
+  //    nextPathname: nextState.location.pathname
+  //  }, '/login')
+}

@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import Cart from '../UIComponent/Cart/Cart';
 import Slider from '../UIComponent/Slider/Slider';
 import SourceSearch from './SourceSearch';
 import Tab from '../UIComponent/Tab/Tab';
@@ -81,8 +80,6 @@ class SourcePageHome extends React.Component {
                 :
                 null
             }
-				<Cart />
-        { this.props.children }
       </div>
 		);
 	}

@@ -6,7 +6,7 @@ class GoodsItem extends React.Component {
 		return (
 			<li className="goods-item flex">
 				<div className="goods-img left">
-					<img src={data.headurl} alt="图片" width="70" height="70"/>
+					<img src={data.headUrl} alt="图片" width="70" height="70"/>
 				</div>
 				<div className="goods-detail left">
 					<div className="goods-title">{data.title}</div>

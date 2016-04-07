@@ -1,7 +1,6 @@
 // 'use strict';
 import React from 'react';
 import { Link } from 'react-router';
-
 import TopMaskerLayer from './TopMaskerLayer';
 import AudioContent from './AudioContent';
 import PlayControlPanel from './PlayControlPanel';
