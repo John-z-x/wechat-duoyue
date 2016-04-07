@@ -1,10 +1,6 @@
 import React from 'react';
 
 class ShowCart extends React.Component {
-  modifyCover() {
-    let modifyCover = this.props.modifyCover;
-    modifyCover();
-  }
 
 	render() {
 		const { data, modifyCover} = this.props;
@@ -14,7 +10,7 @@ class ShowCart extends React.Component {
 	  });
 		if (num > 0) {
 			return (
-				<div className="shopping-cart" onClick={this.modifyCover.bind(this)}>
+				<div className="shopping-cart" onClick={modifyCover}>
 					<div className="goods-num">{num}</div>
 				</div>
 			);

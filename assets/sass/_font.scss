@@ -7,14 +7,15 @@
    }*/
 
 @mixin dy-font-face($font-name) {
+  src: url('../../../assets/fonts/#{$font-name}.ttf') format('truetype');
   font: {
     family: $font-name;
-    src: url('../../../assets/fonts/#{$font-name}.ttf') format('truetype');
     style:  normal;
     weight: normal;
   }
 }
 
+//usage
 @font-face {
   @include  dy-font-face('FZLTXHJW');  //方正兰亭纤黑简体
 }

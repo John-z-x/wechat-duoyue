@@ -25,7 +25,8 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('development')
-      }
+      },
+      '__DEVTOOLS__': true
     }),
     new HtmlWebpackPlugin({
       title: 'Wechat Duoyue',
@@ -54,7 +55,8 @@ module.exports = {
       {
         test: /\.js$/,
         loaders: ['react-hot', 'babel'],
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        include: path.join(__dirname, 'src')
       },
 
       {
@@ -81,6 +83,8 @@ module.exports = {
       {
         test: /\.json$/,
         loader: 'json',
+        exclude: /node_modules/,
+        include: __dirname
       }
     ]
   },

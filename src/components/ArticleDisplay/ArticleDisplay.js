@@ -1,4 +1,5 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
 import Article from './Article';
 import Commodity from './Commodity';
 import ContentRelate from './ContentRelate';
@@ -18,8 +19,8 @@ import styles from './ArticleDisplay.scss';
 
 @withStyles(styles)
 class ArticleDisplay extends React.Component {
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
     this.state = {
       fontModifyDisplay: false,
       fontSize: 18,
@@ -29,9 +30,8 @@ class ArticleDisplay extends React.Component {
 
   onCommentClick() {
     //TODO
-    //console.log(this);
-   window.location.href="/source/commentpage";
-  //  this.context.history.pushState({}, '/source/commentpage');
+   //window.location.href="/source/commentpage";
+    browserHistory.push("/source/commentpage");
   }
   //点击屏幕隐藏
   onModalClick() {
