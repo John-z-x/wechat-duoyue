@@ -1,131 +1,47 @@
-html,body {
-  background: url(/images/shangcheng_bg.png) repeat;
-}
 .ConfirmOrder {
+  $fontStack: '\5FAE\8F6F\96C5\9ED1',Arial, Helvetica, sans-serif;
+  /*fontsize*/
+  $fontSize14: 14px;
+  $fontSize15: 15px;
+  $fontSize16: 16px;
+  $fontSize18: 18px;
+  /*fontcolor*/
+  $fontColor3: #333;
+  $fontColorF: #fff;
+  $fontColor77cdb0: #77cdb0; 
+  /*border*/
+  $borderC: 1px solid #ccc;
+  $borderD: 1px solid #ddd;
+  $borderE: 1px solid #eee;
+  $borderE0: 1px solid #e0e0e0;
+  /*bgcolor*/
+  $bgColorWhite: #fff;
+  $bgColor77cdb0: #77cdb0;
+  $bgColorEF: #efefef;
+  /*width*/
+  $w50: 50%;
+  $w70: 70%;
+  $w80: 80%;
+  $w90: 90%;
+  $w100: 100%;
+  
+  @mixin background-set($iconUrl) {
+    background: url($iconUrl) no-repeat center;
+    -webkit-background-size: contain;
+    background-size: contain;
+  }
+  .omission {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
   padding: 0;
   margin: 0;
-  font-family: "\5FAE\8F6F\96C5\9ED1";
+  font-family: $fontStack;
+  background: url(/images/shangcheng_bg.png) repeat;
   * {
     box-sizing: content-box;
-  }
-  .ConfirmTop {
-    width: 100%;
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    z-index: 1000;
-    height: 40px;
-    clear: both;
-    background-color: #ffffff;
-  }
-  .top-box {
-    position: relative;
-    width: 100%;
-    height: 40px;
-    border-bottom: 1px solid #E0E0E0;
-  }
-  .return {
-    float: left;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 25px;
-    height: 20px;
-    background: url(/images/back_check.png) no-repeat center;
-    background-size: contain;
-  }
-
-  .ConfirmContent {
-    width: 100%;
-    padding: 10px 0 50px 0;
-    background-color: #EFEFEF;
-    background: url(/images/shangcheng_bg.png) repeat;
-
-  }
-  #orderform {
-    border-bottom: 1px solid #E0E0E0;
-  }
-  .ConfirmAddress {
-    margin-top: 10px;
-    background-color: #fff;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-  }
-  .address-null {
-    position: relative;
-    height: 40px;
-    text-align: center;
-    line-height: 40px;
-  }
-  .address-null-arrow {
-    position: absolute;
-    top: 0;
-    right: 10px;
-    width: 10px;
-    height: 40px;
-    background: url(/images/btn_arrow.png) no-repeat right center;
-    -webkit-background-size: contain;
-    background-size: contain;
-  }
-  .address {
-    position: relative;
-    height: 80px;
-  }
-  .location-icon {
-    display: inline-block;
-    width: 16px;
-    height: 80px;
-    margin: 0 10px;
-    background: url(/images/icon_dress.png) no-repeat center ;
-    -webkit-background-size: contain;
-    background-size: contain;
-  }
-  .address-info {
-    display: inline-block;
-    height: 65px;
-    margin: 0;
-    padding: 10px 0 5px 0 ;
-    vertical-align: top;
-    list-style: none;
-  }
-  .address-info span{
-    display: inline-block;
-    line-height: 30px;
-  }
-  .address-info li:first-child {
-    height: 30px;
-  }
-  .address-phone {
-    text-indent: 15px;
-  }
-  .address-location {
-    height: 30px;
-  }
-  .address-arrow {
-    position: absolute;
-    top: 0;
-    right: 10px;
-    width: 10px;
-    height: 80px;
-    background: url(/images/btn_arrow.png) no-repeat right center;
-    -webkit-background-size: contain;
-    background-size: contain;
-  }
-  .ConfirmList {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0 0;
-    background-color: #fff;
-    border-top: 1px solid #ddd;
-  }
-  .ConfirmItem {
-    height: 90px;
-    padding: 20px 0 0 0;
-    margin: 0 10px;
-    border-bottom: 1px solid #ddd;
-  }
-  .ConfirmItem:last-child {
-    border-bottom: 0 solid transparent;
   }
   .flex {
     display: -webkit-box;
@@ -133,217 +49,288 @@ html,body {
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
-  }
-  .item-img {
-    float: left;
-    width: 70px;
-    height: 70px;
-    border: 1px solid #CCC;
-  }
-  .item-img img {
-    border: 0 none;
-    width: 100%;
-    height: 70px;
-  }
-  .item-info {
-    float: left;
-    height: 70px;
-    margin-left: 15px;
-    flex: 1;
-  }
-  .item-info ul {
-    list-style: none;
-    padding: 0;
-  }
-  .item-name {
-    font-size: 16px;
-    line-height: 16px;
-    color: #333333;
-    height: 32px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-  }
-  .item-detail {
-    width: 90%;
-    padding-top: 24px;
-    font-size: 14px;
-    line-height: 14px;
-  }
-  .item-detail span{
-    display: inline-block;
-    vertical-align: top;
-  }
-  .price-signal {
-    color: #77cdb0;
-  }
-  .item-price {
-    max-width: 100px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    color: #77cdb0;
-    text-indent: 3px;
-  }
-  .item-count {
-    float: right;
-    max-width: 65px;
-    text-align: right;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-  .total-info {
-    background-color: #fff;
-  }
-  .single-row {
-    height: 39px;
-    line-height: 38px;
-    margin: 0 10px;
-    border-top: 1px solid #E0E0E0;
-  }
-  .single-row span {
+  }  
+  span {
     display: inline-block;
   }
-  .row-word-left {
-    width: 50%;
-    font-size: 15px;
-    text-align: left;
+  .ConfirmAddress {
+    margin-top: 10px;
+    background-color: $bgColorWhite;
+    border-top: $borderD;
+    border-bottom: $borderD;
+    .address-null {
+      position: relative;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+      .address-null-arrow {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        width: 10px;
+        height: 40px;
+        @include background-set("/images/btn_arrow.png");
+      }
+    }
+    .address {
+      position: relative;
+      height: 80px;
+      .location-icon {
+        display: inline-block;
+        width: 16px;
+        height: 80px;
+        margin: 0 10px;
+        @include background-set("/images/icon_dress.png");
+      }
+      .address-info {
+        display: inline-block;
+        height: 65px;
+        margin: 0;
+        padding: 10px 0 5px 0 ;
+        vertical-align: top;
+        list-style: none;
+        span{
+          line-height: 30px;
+        }
+        li:first-child {
+          height: 30px;
+        }
+        .address-phone {
+          text-indent: 15px;
+        }
+        .address-location {
+          height: 30px;
+        }
+      }
+      .address-arrow {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        width: 10px;
+        height: 80px;
+        @include background-set("/images/btn_arrow.png");
+      }
+    }
   }
-  .total-price-word {
-    text-align: right;
-  }
-  .total-price-num {
-    color: #77cdb0;
-  }
-  .money-falg::before {
-    content: "￥";
-    margin-right: 3px;
-  }
-  .txt-indent {
-    text-indent: 15px;
-  }
-  .txt-indent5 {
-    text-indent: 5px;
-  }
-  #total_count {
-    text-indent: 5px;
-  }
-  .row-word-right {
-    width: 50%;
-    height: 37px;
-    font-size: 16px;
-    color: #333333;
-    background-color: #fff;
-    text-align: right;
+  .ConfirmContent {
+    width: $w100;
+    padding: 10px 0 50px 0;
+    background-color: $bgColorEF;
+    background: url(/images/shangcheng_bg.png) repeat;
+    #orderform {
+      border-bottom: $borderE0;
+      .ConfirmList {
+        list-style: none;
+        padding: 0;
+        margin: 10px 0 0;
+        background-color: $bgColorWhite;
+        border-top: $borderD;
+        .ConfirmItem {
+          @extend .flex;
+          height: 90px;
+          padding-top: 20px;
+          margin: 0 10px;
+          border-bottom: $borderD;
+          &:last-child {
+            border-bottom: 0 solid transparent;
+          }
+          .item-img {
+            float: left;
+            width: 70px;
+            height: 70px;
+            border: $borderC;
+            flex: 1;
+            img {
+              border: 0 none;
+              width: $w100;
+              height: 70px;
+            }
+          }
+          .item-info {
+            float: left;
+            height: 70px;
+            margin-left: 15px;
+            flex: 3;
+            ul {
+              list-style: none;
+              padding: 0;
+              .item-name {
+                font-size: $fontSize16;
+                line-height: 16px;
+                color: $fontColor3;
+                height: 32px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                word-break: break-all;
+              }
+              .item-detail {
+                width: $w90;
+                padding-top: 24px;
+                font-size: $fontSize14;
+                line-height: 14px;
+                span{
+                  vertical-align: top;
+                }
+                .price-signal {
+                  color: $fontColor77cdb0;
+                }
+                .item-price {
+                  @extend .omission;
+                  max-width: 100px;
+                  color: $fontColor77cdb0;
+                  text-indent: 3px;
+                }
+                .item-count {
+                  @extend .omission;
+                  float: right;
+                  max-width: 65px;
+                  text-align: right;
+                }
+              }
+            }
+          }
+        }
+      }
+      .total-info {
+        background-color: $bgColorWhite;
+        .single-row {
+          height: 39px;
+          line-height: 38px;
+          margin: 0 10px;
+          border-top: $borderE0;
+          .row-word-left {
+            width: $w50;
+            font-size: $fontSize15;
+            text-align: left;
+          }
+          .row-word-right {
+            width: $w50;
+            height: 37px;
+            font-size: $fontSize16;
+            color: $fontColor3;
+            background-color: $bgColorWhite;
+            text-align: right;
+          }
+          .money-flag::before {
+            content: "￥";
+            margin-right: 3px;
+          }
+          .total-price-word {
+            text-align: right;
+            #total_count {
+              text-indent: 5px;
+            }
+            .txt-indent5 {
+              text-indent: 5px;
+            }
+            .txt-indent {
+              text-indent: 15px;
+            }
+            .total-price-num {
+              color: $fontColor77cdb0;
+            }
+          }
+        }
+      }
+    }
   }
   .WeChatPayBottom {
     position: fixed;
     bottom: 0;
-    width: 100%;
+    width: $w100;
     height: 50px;
-    border-top: 1px solid #CCCCCC;
-    background-color: #ffffff;
+    border-top: $borderC;
+    background-color: $bgColorWhite;
+    .wechatpay-btn {
+      height: 36px;
+      margin: 8px 10px 0 10px;
+      background-color: $bgColor77cdb0;
+      color: $fontColorF;
+      font-size: $fontSize18;
+      text-align: center;
+      .wechatpay-icon {
+        width: 18px;
+        height: 36px;
+        @include background-set("/images/weixin_pay.png");
+      }
+      .wechatpay-title {
+        height: 36px;
+        margin-left: 16px;
+        line-height: 36px;
+        vertical-align: top;
+      }
+    }
   }
-  .wechatpay-btn {
-    height: 36px;
-    margin: 8px 10px 0 10px;
-    background-color: #77cdb0;
-    color: #fff;
-    font-size: 18px;
-    text-align: center;
-  }
-  .wechatpay-btn span {
-    display: inline-block;
-  }
-  .wechatpay-icon {
-    width: 18px;
-    height: 36px;
-    background: url(/images/weixin_pay.png) no-repeat center;
-    -webkit-background-size: contain;
-    background-size: contain;
-  }
-  .wechatpay-title {
-    height: 36px;
-    margin-left: 16px;
-    line-height: 36px;
-    vertical-align: top;
-  }
-  .clearfix {
-    overflow: hidden;
-  }
-
   .AddressEditor {
     position: fixed;
     left: 0;
     bottom: 0;
-    width: 100%;
+    width: $w100;
     z-index: 11000;
-    background-color: #fff;
-  }
-  .address-header {
-    position: relative;
-    height: 45px;
-    width: 100%;
-    background-color: #fff;
-    text-align: center;
-    line-height: 45px;
-    color: #333;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-  }
-  .close-btn {
-    position: absolute;
-    width: 25px;
-    height: 45px;
-    top: 0;
-    right: 10px;
-    background: url(/images/cancel.png) no-repeat center;
-    -webkit-background-size: contain;
-    background-size: contain;
-  }
-  .address-item {
-    height: 43px;
-    margin: 0 10px;
-    line-height: 43px;
-    background-color: #fff;
-    border-bottom: 1px solid #ccc;
-  }
-  .address-item:last-child {
-    border-bottom: 0 transparent;
-  }
-  .address-item label {
-    display: inline-block;
-    width: 60px;
-    padding-right: 5px;
-    color: #333;
-    font-size: 14px;
-  }
-  .address-item input {
-    width: 70%;
-    border: 0;
-    outline: 0;
-    height: 30px;
-    text-align: left;
-    line-height: 30px;
-    font-size: 16px;
-    font-family: 'Microsoft Yahei';
-  }
-  .address-submit {
-    height: 45px;
-    border-top: 1px solid #ccc;
-    text-align: center;
-  }
-  .submit-btn {
-    width: 80%;
-    height: 30px;
-    margin: 7px auto;
-    background-color: #76ccaf;
-    color: white;
-    line-height: 30px;
+    background-color: $bgColorWhite;
+    .address-header {
+      position: relative;
+      height: 45px;
+      width: $w100;
+      background-color: $bgColorWhite;
+      text-align: center;
+      line-height: 45px;
+      color: $fontColor3;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-top: $borderC;
+      border-bottom: $borderC;
+      .close-btn {
+        position: absolute;
+        width: 25px;
+        height: 45px;
+        top: 0;
+        right: 10px;
+        @include background-set("/images/cancel.png");
+      }
+    }
+    .address-item {
+      height: 43px;
+      margin: 0 10px;
+      line-height: 43px;
+      background-color: $bgColorWhite;
+      border-bottom: $borderC;
+      &:last-child {
+        border-bottom: 0 transparent;
+      }
+      label {
+        display: inline-block;
+        width: 60px;
+        padding-right: 5px;
+        color: $fontColor3;
+        font-size: $fontSize14;
+      }
+      input {
+        width: $w70;
+        border: 0;
+        outline: 0;
+        height: 30px;
+        text-align: left;
+        line-height: 30px;
+        font-size: $fontSize16;
+        font-family: $fontStack;
+      }
+    }
+    .address-submit {
+      height: 45px;
+      border-top: $borderC;
+      text-align: center;
+      .submit-btn {
+        width: $w80;
+        height: 30px;
+        margin: 7px auto;
+        background-color: $bgColor77cdb0;
+        color: $fontColorF;
+        line-height: 30px;
+      }
+    }
   }
 }

@@ -1,134 +1,158 @@
-body {
-  background-color: #f0f0f0;
-  font-size: 14px;
+
+.OrderDisplay {
+  
+  $fontStack: '\5FAE\8F6F\96C5\9ED1',Arial, Helvetica, sans-serif;
+  /*fonrsize*/
+  $fontSize12: 12px;
+  $fontSize14: 14px;
+  $fontSize16: 16px;
+  $fontSize18: 18px;
+  /*fontcolor*/
+  $fontColor3: #333;
+  $fontColor7: #777; 
+  $fontColorF: #fff;
+  $fontColorF30: #f30;
+  $fontColorF60: #f60;
+  /*border*/
+  $borderD: 1px solid #ddd;
+  $borderE: 1px solid #eee;
+  $borderDaD: 1px dashed #ddd;
+  $border2DD: 2px dashed #ddd;
+  /*bgcolor*/
+  $bgColorWhite: #fff;
+  $bgColorF0: #f0f0f0;
+  /*width*/
+  $w25: 25%;
+  $w50: 50%;
+  $w75: 75%;
+  $w100: 100%;
+  
+  background-color: $bgColorF0;
+  font-size: $fontSize14;
   line-height: 22px;
   table-layout: fixed;
   word-break: break-all;
-  font-family: '微软雅黑',Arial, Helvetica, sans-serif;
-}
-.OrderDisplay {
+  font-family: $fontStack;
 	.display-title {
-		width: 100%; 
-    border-bottom: 1px solid #ddd; 
+		width: $w100; 
+    border-bottom: $borderD; 
     height: 40px;
-    font-size: 16px;
+    font-size: $fontSize16;
     line-height: 40px;
     text-align: center;
 	}
-
-	/*order-status*/
-	.status-box {
-		background-color: #fff; 
-		padding: 10px;
-	}
-	.pay-status-number {
-		border-bottom: 1px solid #ddd; 
-	}
-	.pay-status {
-		padding:5px 0 10px 0; 
-		font-size: 16px; 
-		color: #f30;
-	}
-	.order-number {
-		padding-bottom: 10px;
-	}
-	.pay-way {
-		width: 80px;
-		margin-top: 12px;
-		padding: 5px 10px 5px 10px;
-		background-color: #f60; 
-		text-align: center; 
-		color: #fff;
-	}
-	.thank-point {
-		padding-top: 5px; 
-		color: #777;
-	}
-
-	/*product listing*/
-	.list-box {
-		margin-top: 15px; 
-		background-color: #fff;
-		padding: 10px;
-	}
-	.list-box .title {
-		padding: 0 0 5px 0;
-		background-color: #fff; 
-		font-size: 16px;
-	}
-	.order-commodity {
-		padding:10px 0 10px 0;
-	}
-	.order-commodity li {
-		display: block;
-		list-style-type: none;
-		border-top:1px solid #ddd;
-	}
-	.order-commodity li:last-child {
-		display: block;
-		list-style-type: none;
-		border-bottom: 0;
-	}
-	.order-commodity .commodity-image{
-		float: left;
-		width: 60px;
-		padding: 10px 10px 0 10px; 
-	}
-	.commodity-title {
-		float: left;
-		padding: 10px;
-	}
-
-	/*buyer-information*/
-	.buyer-box {
-		padding: 10px;
-		margin-top: 15px; 
-		border-top: 2px dashed #ddd; 
-		border-bottom: 2px dashed #ddd; 
-		background-color: #fff; 
-	}
-
-	.buyer-box .receiver{
-		display: inline-block;
-		width:25%;
-		text-align: left;
-	}
-	.buyer-box .phone-number{
-		display: inline-block;
-		width:75%;
-		text-align: right;
-	}
-
-	/* price-infomation*/
-  .price-box {
-  	padding: 10px;
-  	margin-top: 15px; 
-  	background-color: #fff;
+  .OrderStatus {
+    .status-box {
+      background-color: $bgColorWhite; 
+      padding: 10px;
+      .pay-status-number {
+        border-bottom: $borderD; 
+        .pay-status {
+          padding: 5px 0 10px 0; 
+          font-size: $fontSize16; 
+          color: $fontColorF30;
+        }
+        .order-number {
+          padding-bottom: 10px;
+        }
+        .pay-way {
+          width: 80px;
+          margin-top: 12px;
+          padding: 5px 10px 5px 10px;
+          background-color: $fontColorF60; 
+          text-align: center; 
+          color: $fontColorF;
+        }
+      }
+      .thank-point {
+        padding-top: 5px; 
+        color: $fontColor7;
+      }
+    }
   }
-  .price-box .actual { 
-  	 border-top: 1px solid #eee; 
-  	 padding: 10px 0 10px 0; 
-  	 text-align: right; 
-  	 font-size: 18px;
+  .BuyerInformation {
+    .buyer-box {
+      padding: 10px;
+      margin-top: 15px; 
+      border-top: $border2DD; 
+      border-bottom: $border2DD; 
+      background-color: $bgColorWhite; 
+      .receiver{
+        display: inline-block;
+        width: $w25;
+        text-align: left;
+      }
+      .phone-number{
+        display: inline-block;
+        width: $w75;
+        text-align: right;
+      }
+    }
   }
-  .price-box div {
-  	height: 28px;
-  	width: 100%;
+  .CommodityList {
+    .list-box {
+      margin-top: 15px; 
+      background-color: $bgColorWhite;
+      padding: 10px;
+      .title {
+        padding-bottom: 5px;
+        background-color: $bgColorWhite; 
+        font-size: $fontSize16;
+      }
+      .order-commodity {
+        padding:10px 0;
+        li {
+          display: block;
+          list-style-type: none;
+          border-top: $borderD;
+          &:last-child {
+            display: block;
+            list-style-type: none;
+            border-bottom: 0;
+          }
+          .commodity-image{
+            float: left;
+            width: 60px;
+            padding: 10px 10px 0 10px; 
+          }
+          .commodity-title {
+            float: left;
+            padding: 10px;
+          }
+        }
+      }
+    }
   }
-  .text-right {
-  	display: inline-block;
-  	width: 50%;
-  	text-align: right;
-  	color: #f30; 
-  }
-  .text-left {
-  	display: inline-block;
-  	width: 50%;
-  	text-align: left;
-  	color: #333; 
-  }
-  .actual-pay {
-  	color: #f30; 
-  	font-size: 18px;
-  }
+  .PriceInformation {
+    .price-box {
+      padding: 10px;
+      margin-top: 15px; 
+      background-color: $bgColorWhite;
+      div {
+        height: 28px;
+        width: $w100;
+      }
+      .text-right {
+        display: inline-block;
+        width: $w50;
+        text-align: right;
+        color: $fontColorF30; 
+      }
+      .text-left {
+        display: inline-block;
+        width: $w50;
+        text-align: left;
+        color: $fontColor3; 
+      }
+      .actual { 
+        border-top: $borderE; 
+        padding: 10px 0; 
+        text-align: right; 
+        font-size: $fontSize18;
+        .actual-pay {
+          color: $fontColorF30; 
+        }
+      }
+    }
+  }  
 }

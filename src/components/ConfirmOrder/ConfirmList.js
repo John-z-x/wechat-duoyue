@@ -6,9 +6,9 @@ class ConfirmList extends React.Component {
     return (
       <ul className="ConfirmList">
         {
-          this.props.data.map(function(ele, i) {
+          this.props.data.map((item)=> {
             return (
-              <ConfirmItem data={ele} key={i} />
+              <ConfirmItem data={item} key={item.id} />
             );
           })
         }

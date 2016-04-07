@@ -1,6 +1,7 @@
 .ArticleDisplay {
 
   /*font-color*/
+  $fontColor0: #000;
   $fontColor3: #333;
   $fontColorF: #fff;
   $fontColor61c3a2: #61c3a2;
@@ -15,11 +16,13 @@
   $borderColor3: 1px solid #333;
   $borderColorD: 1px solid #ddd;
   $borderColorE4: 1px solid #e4e4e4;
-
+  $borderColor562c3a2: 5px solid #62c3a2;
+  $borderColorDA1: 1px dashed #a1a1a1;
   /*font-family*/
   $fontFamilySHS: 'SourceHanSansCN-Normal';
   
   /*bg-color*/
+  $backgroundColor0: #000;
   $backgroundColorF: #fff;
   $backgroundColor61c3a2: #61c3a2;
   $backgroundColor7da1b4: #7da1b4;
@@ -176,21 +179,19 @@
     }
     .relate-title {
       padding: 10px 0;
-      border-bottom: 1px dashed #a1a1a1;
+      border-bottom: $borderColorDA1;
       font-size: 15px;
       line-height: 25px;
       color: $fontColor3;
     }
   }
-
-
   .ToEveryday {
     display: block;
     padding: 10px 20px; 
     border-top: $borderColorE4;
     background: $backgroundColorF;
     .everyday-word {
-      border-left: 5px solid #62c3a2;
+      border-left: $borderColor562c3a2;
       padding-left: 10px;
       font-size: $fontSize16;
       height: 29px;
@@ -204,12 +205,12 @@
     }
   }
   .white {
-    color: black;
-    background-color: white !important;
+    color: $fontColor0;
+    background-color: $backgroundColorF !important;
   }
   .black {
-    color: white;
-    background-color: black !important;
+    color: $fontColorF;
+    background-color: $backgroundColor0 !important;
   }
 }
 

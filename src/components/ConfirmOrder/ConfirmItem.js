@@ -6,7 +6,7 @@ class ConfirmItem extends React.Component {
     return (
       <li id={data.id} className="ConfirmItem flex">
 	      <div className="item-img">
-          <img src={data.headurl} alt="商品图片"/>
+          <img src={data.headurl} alt="商品图片" title="商品图片"/>
         </div>
         <div className="item-info">
           <ul>

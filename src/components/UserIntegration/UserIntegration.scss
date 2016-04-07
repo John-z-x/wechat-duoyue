@@ -67,7 +67,7 @@
     }
   }
   .integration-info {
-    padding: 10px 0 10px 0;
+    padding: 10px 0;
     border-bottom: $borderColorE;
     .used-integration-container {
       border-right: $borderColorE;
@@ -80,7 +80,7 @@
         @extend .centent22;
       }
       .info-top-title {
-        @entend .font12-color7;
+        @extend .font12-color7;
       }
     }
   }

@@ -31,17 +31,17 @@ class SourceItem extends React.Component {
 			<div className="item">
         <Link to={to} className="source-box">
           <div className="source-img-box" >
-            <img src={sourceTypeSrc} className="source-img" alt="data.type"/>
+            <img src={sourceTypeSrc} className="source-img" alt="data.type" title="data.type"/>
           </div>
           <div>
-            <img width="100%" src={data.pic} alt="source-img" />
+            <img width="100%" src={data.pic} alt="source-img" title="source-img" />
           </div>
           <div className="source-name">{data.name}</div>
           <div className="source-desc">{data.desc}</div>
           <div className="source-count clearfix">
-            <img src={countImgSrc} alt="num" className="source-count-img1"/>
+            <img src={countImgSrc} alt="num" title="num" className="source-count-img1"/>
             <div className="source-count-font">数量<span>{data.count}</span></div>
-            <img src={lookImgSrc} alt="look-num" className="source-count-img2"/>
+            <img src={lookImgSrc} alt="look-num" title="look-num" className="source-count-img2"/>
             <div className="source-count-font">浏览<span>{data.penSize}</span></div>
           </div>
         </Link>

@@ -13,7 +13,7 @@ class ConfirmContent extends React.Component {
     return (
       <div className="ConfirmContent">
         <form name="orderform" id="orderform">
-          <ConfirmList data={this.props.data} />
+          <ConfirmList data={data} />
           <div className="total-info">
             <div className="single-row clearfix">
               <span className="row-word-left">小计：</span>
@@ -21,14 +21,14 @@ class ConfirmContent extends React.Component {
             </div> 
             <div className="single-row clearfix ">
               <span className="row-word-left">运费：满10元包邮</span>
-              <span className="row-word-right money-falg">{freight}</span>
+              <span className="row-word-right money-flag">{freight}</span>
             </div> 
             <div className="single-row">        
               <div className="total-price-word">共
                 <span id="total_count">{num}</span>
                 <span className="txt-indent5">件商品</span>
                 <span className="txt-indent">合计：</span>
-                <span id="order_amount_span_submit" className="total-price-num money-falg">{total}</span>
+                <span id="order_amount_span_submit" className="total-price-num money-flag">{total}</span>
               </div>
             </div> 
           </div>

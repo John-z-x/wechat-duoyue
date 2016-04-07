@@ -1,5 +1,4 @@
 .CatalogArea {
-
   @mixin a-line {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -12,8 +11,10 @@
   /*font-color*/
   $fontColor3: #333;
   $fontColor97d7c0: #97d7c0;
-
-  width: 100%;
+  /*width*/
+  $w100: 100%;
+  
+  width: $w100;
   height: 100%;
   z-index: 11111;
   background-color: $backgroundColorF;
@@ -23,7 +24,7 @@
   overflow: scroll;
   .catalog-header {
     position: fixed;
-    width: 100%;
+    width: $w100;
     height: 40px;
     left: 0;
     top: 0;
@@ -33,7 +34,7 @@
     .articleIcon-continue {
       line-height: 40px;
       text-indent: 30px;
-      color: #97d7c0;
+      color: $fontColor97d7c0;
       margin-left: 10px;
         &:before {
         content: "<";
@@ -67,10 +68,5 @@
         color: $fontColor97d7c0;
       }
     }
-    
   }
-  
-  
-  
-  
 }

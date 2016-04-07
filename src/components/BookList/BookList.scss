@@ -1,16 +1,26 @@
 .BookList {
-    /*border*/
-  $borderE6: 1px solid #e6e6e6;
-  $borderD: 1px solid #ddd;
-  /*bgcolor*/
-  $backgroundColorF5f5f8: #f5f5f8;
-  $backgroundColorF: #fff;
+  $fontStack: '\5FAE\8F6F\96C5\9ED1',Arial, Helvetica, sans-serif;
+  $fontSize12: 12px;
+  $fontSize14: 14px;
+  $fontSize16: 16px;
   /*font-color*/
-  $fontColor62c3a2: #62c3a2;
-  $fontColorF: #fff;
   $fontColor3: #333;
   $fontColor5: #555;
   $fontColorC: #ccc;
+  $fontColorF: #fff;
+  $fontColor62c3a2: #62c3a2;
+  /*border*/
+  $borderD: 1px solid #ddd;
+  $borderE6: 1px solid #e6e6e6;
+  /*bgcolor*/
+  $backgroundColorF: #fff;
+  $backgroundColorF5f5f8: #f5f5f8;
+  /*width*/
+  $w20: 20%;
+  $w25: 25%;
+  $w50: 50%;
+  $w80: 80%;
+  $w100: 100%;
   /*一行*/
   @mixin a-line {
     overflow: hidden;
@@ -18,23 +28,23 @@
     white-space: nowrap;
   }
   .menu-item-common  {
-    width: 100%;
+    width: $w100;
     height: 60px;
     padding-top: 10px;
     border-bottom: $borderE6;
     text-align: center;
   }
-  font-size: 14px;
+  font-size: $fontSize14;
   line-height: 22px;
   table-layout: fixed;
   word-break: break-all;
-  font-family: '微软雅黑',Arial, Helvetica, sans-serif;
+  font-family: $fontStack;
   .Tab {
     position: fixed;
     top: 40px;
     left: 0;
-    width: 20%;
-    height: 599px;
+    width: $w20;
+    height: 100%;
     overflow: hidden;
     background-color: $backgroundColorF5f5f8;
     white-space: nowrap;
@@ -62,18 +72,18 @@
       .tab-title {
         display: inline-block;
         line-height: 16px;
-        font-size: 12px;
+        font-size: $fontSize12;
       }
     }
   }
 
   .BookListRight {
-    width: 80%;
+    width: $w80;
     height: 100%;
     position: relative;
     background-color: $backgroundColorF;
     .top {
-      width: 80%;
+      width: $w80;
       margin: 0 10%;
       position: relative;
       height: 30px;
@@ -89,34 +99,34 @@
       .header-title {
         position: relative;
         z-index: 10002;
-        width: 25%;
+        width: $w25;
         margin: 15px auto 0;
         text-align: center;
-        font-size: 12px;
+        font-size: $fontSize12;
         line-height: 20px; 
         color: $fontColorC;
         background-color: $backgroundColorF;
       }
     }
     .BookListItem {
-      width: 50%;
+      width: $w50;
       float: left;
       height: 220px;
       padding-left: 10%;
       background-color: $backgroundColorF;
       .book-img {
-        width: 80%;
+        width: $w80;
         margin: 10px auto;
       }
       .book-title {
         display: block;
         text-align: left;
-        font-size: 16px;
+        font-size: $fontSize16;
         @include a-line;
       }
       .book-price {
         color: $fontColor62c3a2;
-        font-size: 16px;
+        font-size: $fontSize16;
         &:before {
           content:"￥";
         }

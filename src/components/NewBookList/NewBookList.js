@@ -50,7 +50,7 @@ class NewBookList extends React.Component {
         <section className="book-list-title">
           {newbooklist.title}
         </section>
-        <section className="boos">
+        <section className="books">
         {
             newbooklist.data.map( (item , i) =>
             <BookItem data={item} key={i}/>

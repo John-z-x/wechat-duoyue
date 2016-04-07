@@ -11,35 +11,32 @@ class CommodityDetailCollection extends React.Component {
 
 	componentDidMount() {
 		this.setState({
-
 		});
 	}
 	render() {
 	  return(
 	  	<div className="CommodityDetailCollection">
 		    <div className="suggest">
-          		<div className="suggest-relative">
-                   相关推荐
-    			</div>
+          <div className="suggest-relative">相关推荐</div>
 			    <div className="goods-contain-box">
 			      <div className="goods-box"  >
 			        {
-			            this.props.data.videoList.map((item) => {
-			              return (
-			               <div className="goods-item" key={item.id} >
-					          <a href="">
-					          	<img className="goods-item-img" src={item.Src} width="110" height="110" alt=""/>
-					          </a>
-					          <div className="goods-title">
-					            {item.Desc}
-					          </div>
-			                </div>
-                          )
-                         })
-                    }
-      			   </div>
-   				 </div>
-   		    </div>
+                this.props.data.videoList.map((item) => {
+                  return (
+                    <div className="goods-item" key={item.id} >
+                      <a href="">
+                        <img className="goods-item-img" src={item.Src} width="110" height="110" alt="商品图片" title="商品图片"/>
+                      </a>
+                      <div className="goods-title">
+                        {item.Desc}
+                      </div>
+                    </div>
+                  )
+                })
+              }
+            </div>
+          </div>
+   		  </div>
   		</div>
     
 	  );
