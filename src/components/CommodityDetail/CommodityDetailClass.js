@@ -9,7 +9,9 @@ class CommodityDetailClass extends React.Component {
           <div className="bottom-pic">
             <img src="/images/CommodityDetailImage/xinpinsudi.png" alt="底部图" title="底部图"/>
           </div>
-		      <div className="bottom-title">顽意&nbsp;&nbsp;<img width="20px" src="/images/CommodityDetailImage/more.png" /></div>
+		      <div className="bottom-title">顽意&nbsp;&nbsp;
+            <img width="20px" src="/images/CommodityDetailImage/more.png" alt="更多" title="更多"/>
+          </div>
 		    </Link>
       </div>
 	  );

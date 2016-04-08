@@ -26,10 +26,12 @@
   $backgroundColorF: #fff;
   $backgroundColor61c3a2: #61c3a2;
   $backgroundColor7da1b4: #7da1b4;
- 
+  /*width*/
+  $w47: 47%;
+  $w100: 100%;
   /*购买or加入购物车button*/
   .buy-way-button {
-    width: 47%; 
+    width: $w47; 
     height: 25px;
     font-size: $fontSize12;
     color: $fontColorF;
@@ -42,15 +44,13 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-
-
   a:hover {
     color: $fontColor3;
     text-decoration: none;
   }
   .Article {
     .article-head {
-      width: 100%;
+      width: $w100;
       .title {
         padding: 23px 17px 27px 17px;
         text-align: left;
@@ -83,7 +83,7 @@
           color: $fontColor3;
         }
          img {
-          width: 100%;
+          width: $w100;
          }
       }
     }

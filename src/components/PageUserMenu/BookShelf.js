@@ -148,7 +148,7 @@ class BookShelf extends React.Component {
                 if(i >= page * this.PAGE_COUNT && i < (page + 1) * this.PAGE_COUNT) {
                   return (
                     <Link to={item.href} key={i}>
-                      <img src={item.src} alt="book-img" className="book-img" title={item.bookName}/>
+                      <img src={item.src} alt="书籍封面" className="book-img" title={item.bookName}/>
                       <div className="book-name">{item.bookName}</div>
                     </Link>
                   );
@@ -163,8 +163,8 @@ class BookShelf extends React.Component {
   render() {
     let {bookData} = this.props.data, bookCodeLength, bookCode = [], bookBoxWidth,
         windowHeight = document.documentElement.clientHeight;
-    bookCodeLength = Math.ceil(bookData.length / this.PAGE_COUNT);
-    bookBoxWidth = this.winWidth * bookCodeLength;
+        bookCodeLength = Math.ceil(bookData.length / this.PAGE_COUNT);
+        bookBoxWidth = this.winWidth * bookCodeLength;
     for (let i = 0; i < bookCodeLength; i++) {
       bookCode.push(this.getBookShelfBox(i));
     }
@@ -175,11 +175,9 @@ class BookShelf extends React.Component {
             <div className="line"></div>
             <div className="title">我的书架</div>
           </div>
-
           <div className="book-box clearfix" style={{left: this.state.left, width: bookBoxWidth}}>
             {bookCode}
           </div>
-
           <div className="page-dots">
             <SliderDot index={this.state.index+1} nums={bookCodeLength}/>
           </div>

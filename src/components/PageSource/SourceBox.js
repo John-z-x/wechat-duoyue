@@ -96,14 +96,14 @@ class SourceBox extends React.Component {
     return(
         <section >
           <div id="main" className="SourceBox clearfix">
-            <div className="left-box" id="left_box" ref="left">
+            <div className="single-box left" id="left_box" ref="left">
               {
                 left.map( (item, index) =>
                   <SourceItem data={item} key={`source_${item.id}${index}`}/>
                 )
               }
             </div>
-            <div className="right-box" id="right_box" ref="right">
+            <div className="single-box right" id="right_box" ref="right">
               {
                 right.map( (item, index) =>
                   <SourceItem data={item} key={`source_${item.id}${index}`}/>

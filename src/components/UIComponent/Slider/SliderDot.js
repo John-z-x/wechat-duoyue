@@ -3,13 +3,13 @@ import React from 'react';
 class SliderDot extends React.Component {
   render() {
     const { nums, index, classname } = this.props;
-    let dotBoxClass = classname || "slider_dot";
+    let dotBoxClass = classname || "slider-dot";
     let dots = [];
     for( let i = 0; i < nums; i++ ) {
       if(index === (i+1))
-        dots.push("slider_dot_hover");
+        dots.push("slider-dot-hover");
       else
-        dots.push("slider_dot_item");
+        dots.push("slider-dot-item");
     }
     let dotsCode = dots.map(function(item, index) {
       return (

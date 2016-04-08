@@ -4,6 +4,7 @@
   /*font-color*/
   $fontColor3: #333;
   $fontColor7: #777;
+  $fontColor9: #999;
   $fontColorF: #fff;
   $fontColor61c3a2: #61c3a2;
   $fontColor62c3a2: #62c3a2;
@@ -28,14 +29,20 @@
   $fontFamilyYaHei: 'Microsoft YaHei';
   
   /*bg-color*/
+  $backgroundColorE: #eee;
   $backgroundColorF: #fff;
+  $backgroundColorC9: #c9c9c9;
+  $backgroundColorF8: #f8f8f8;
   $backgroundColor61c3a2: #61c3a2;
   $backgroundColor7da1b4: #7da1b4;
   
   /*width*/
   $width25: 25%;
+  $width32: 32%;
   $width33: 33%;
+  $width35: 35%;
   $width50: 50%;
+  $width55: 55%;
   $width100: 100%;
   
   /*浮动大小*/
@@ -75,7 +82,7 @@
     .user-new-img {
       text-align: left;
       padding-top: 10px;
-      max-width: 35%;
+      max-width: $width35;
       img {
         width: 50px;
         height: 50px;
@@ -83,14 +90,14 @@
       }
       .user-name {
         text-align: center;
-        padding: 5px 0px 0px 0px;
+        padding-top: 5px;
         color: $fontColor62c3a2;
         font-size: $fontSize14;
         @include a-line; 
       }
     }
     .user-table {
-      width: 55%;
+      width: $width55;
       padding-top: 30px;
       text-align: center;
       font-size: $fontSize10;
@@ -100,7 +107,7 @@
         border-right: $borderColorE;
       }
       .user-table-td {
-        width: 32%;
+        width: $width32;
         display: inline-block;
         a {
           text-decoration: none;
@@ -118,7 +125,7 @@
   }
   .boder-style {
     height: 10px;
-    background-color: #f8f8f8;
+    background-color: $backgroundColorF8;
     border-bottom: $borderColorE;
     border-top: $borderColorE;
     width: $width100;
@@ -135,7 +142,7 @@
       background-color: $backgroundColorF;
       .line {
         height: 1px;
-        background-color: #eee;
+        background-color: $backgroundColorE;
         width: $width100;
       }
       .title {
@@ -172,11 +179,11 @@
             text-decoration: none;
             &:nth-of-type(3n) {
               @include float-width(left,23%);
-              margin: 5px 0 5px 0;
+              margin: 5px 0;
               color: $fontColor3;
             }
             .book-img {
-              box-shadow: 1px 3px 5px #c9c9c9;
+              box-shadow: 1px 3px 5px $backgroundColorC9;
               width: $width100;
             }
             .book-name {
@@ -210,7 +217,7 @@
     }
     .books-bottom {
       height: 10px;
-      background-color: #f8f8f8;
+      background-color: $backgroundColorF8;
       border-bottom: $borderColorE;
       border-top: $borderColorE;
       position: absolute;
@@ -244,10 +251,10 @@
           color: $fontColor3;
           .menu-title {
             font-size: $fontSize10;
-            clor: #999;
+            color: $fontColor9;
           }
         }
-        .arrow_go {
+        .arrow-go {
           @include float-width(right,30px);
           @include icon-img(-345px -42px);
         }

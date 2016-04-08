@@ -7,7 +7,7 @@ class UserInfo extends React.Component {
     return (
         <div className='UserInfo clearfix '>
           <div className='left user-new-img'>
-            <img src={data.src}/>
+            <img src={data.src} alt="头像" title="头像"/>
             <div className='user-name'>{data.name}</div>
           </div>
           <div className="right user-table">

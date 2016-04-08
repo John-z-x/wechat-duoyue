@@ -8,10 +8,10 @@ class SourceSearch extends React.Component {
 				<form>
 			    <div className="search-form">
 			    	<div className="search-box clearfix">
-			        <div className="search-input">
+			        <div className="search-input left">
 			          <input type="text" name="keyword" placeholder="请输入关键字"/>
 			        </div>
-			        <div className="tosearch">
+			        <div className="tosearch right">
 				  			搜索
 			        </div>
 			      </div>

@@ -17,7 +17,7 @@ class FavoritesBook extends React.Component {
                 return (
                   <div className="book-item" key={item.bookId}>
                     <Link to={`/danpin/bookbuy/${item.bookId}`}>
-                      <img src={item.src} alt="book-img" className="book-img"/>
+                      <img src={item.src} alt="书籍封面" className="书籍封面"/>
                       <div className="book-name">{item.bookName}</div>
                     </Link>
                     <div className="book-delete" onClick={() => this.deleteFavoritesBook(item.bookId)}>删除</div>

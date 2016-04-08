@@ -1,28 +1,29 @@
 .ProgressController {
+  /*bgcolor*/
+  $bgColorAE: #aeaeae;
+  $bgColor90: #909090;
+  $bgColor73cfb0: #73cfb0; 
+  /*width*/
+  $w100: 100%;
   position: relative;
-  width: 100%;
+  width: $w100;
   margin: 10px auto 0;
-  .music-progress {
-    position: relative;
-    width: 68.75%;
-    margin: 3% auto 0 auto;
-  }
   .progress-dot-bg {
     position: absolute;
-    width: 100%;
+    width: $w100;
     height: 3px;
-    background-color: #909090;
+    background-color: $bgColor90;
   }
   #progress_buffer {
     position: absolute;
     z-index: 2;
     height: 3px;
-    background-color: #aeaeae;
-  }
-  #progress {
-    width:1px;
-    height:3px;
-    background-color:#73cfb0;
+    background-color: $bgColorAE;
+    #progress {
+      width: 1px;
+      height: 3px;
+      background-color: $bgColor73cfb0;
+    }
   }
   #progress_dot {
     position: absolute;
@@ -32,15 +33,15 @@
     margin-top: -5px;
     margin-left: 0;
     border-radius: 50%;
-    background-color:#73cfb0;
-  }
-  #progress_dot::before {
-    position: absolute;
-    top: -7px;
-    left: -7px;
-    width: 28px;
-    height: 28px;
-    content: '';
-    background: transparent;
+    background-color: $bgColor73cfb0;
+    &:before {
+      position: absolute;
+      top: -7px;
+      left: -7px;
+      width: 28px;
+      height: 28px;
+      content: '';
+      background: transparent;
+    }
   }
 }

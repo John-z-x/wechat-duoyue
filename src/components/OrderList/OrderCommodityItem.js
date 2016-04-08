@@ -14,7 +14,7 @@ class OrderCommodityItem extends React.Component {
 		return (
 		  <li className=" OrderCommodityItem clearfix" key={data.id}>
 				<div className="commodity-image">
-				 <img src={data.src} alt="commodity-image" title="commodity-image" width="100%"/>
+				 <img src={data.src} alt="订单商品图" title="订单商品图" width="100%"/>
 				</div>
 				<div className="commodity-title">
 				  {data.title}

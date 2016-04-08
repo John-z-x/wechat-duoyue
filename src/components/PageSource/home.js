@@ -24,9 +24,9 @@ let TabItemsData = {
     "全部", "视频", "音频", "PDF", "相册"
   ],
   tabClass: {
-    tabBox: "source-calssify clearfix",
-    tabItemOn: "source-type-over",
-    tabItemDefault: "source-type"
+    tabBox: "source-classify clearfix",
+    tabItemOn: "source-type-over left",
+    tabItemDefault: "source-type left"
   }
 }
 
@@ -75,11 +75,11 @@ class SourcePageHome extends React.Component {
 				<SourceSearch/>
         <Tab TabItemsData={TabItemsData} onTypeChange={this.onTypeChange.bind(this)}/>
         {
-            this.state.sourceBox ?
-                <SourceBox sourceLazyLoad={actions.sourceLazyLoad} list={list} typeIndex={this.type}/>
-                :
-                null
-            }
+          this.state.sourceBox ?
+            <SourceBox sourceLazyLoad={actions.sourceLazyLoad} list={list} typeIndex={this.type}/>
+            :
+            null
+        }
       </div>
 		);
 	}

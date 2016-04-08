@@ -14,9 +14,11 @@
   $fontSize11: 11px;
   $fontSize12: 12px;
   $fontSize18: 18px;
+  /*bordercolor*/
+  $borderD: 1px solid #ddd;
   .everyday-box {
     padding: 15px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: $borderD;
       .item-title {
       padding-bottom: 10px;
       line-height: 12px;
