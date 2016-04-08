@@ -8,8 +8,6 @@ import CollectButton from '../../HeaderComponents/CollectButton';
 import DownLoadButton from '../../HeaderComponents/DownLoadButton';
 import CommentButton from '../../HeaderComponents/CommentButton';
 
-
-
 import withStyles from '../../../decorators/withStyles';
 import styles from './PhotoModule.scss';
 
@@ -18,9 +16,7 @@ const photoGalleryData = {
 	'title':'恭祝理工数传各部门精英俱全！',
 	'describe':'2016金猴贺岁，恭祝理工数传各部门精英济济，事业顺利，幸福美满。',
 	'pageNum':'7'
-}
-
-
+};
 
 @withStyles(styles)
 class PhotoModuleHome extends React.Component {
@@ -29,7 +25,6 @@ constructor(props) {
     this.state = {
     	ifShow: false
     };
-    this.toShowDown = this.toShowDown.bind(this);
   }
 
   toShowDown() {
@@ -42,15 +37,15 @@ constructor(props) {
 		return(
 			<div className="PhotoModuleHome">
 				<CommonHeader>
-				  <ReturnButton/>			
-						<DownLoadButton  OnDownLoadClick={this.toShowDown}/>
+				  <ReturnButton/>
+						<DownLoadButton  OnDownLoadClick={::this.toShowDown}/>
 				  <Link to="/source/commentpage">			
 						<CommentButton/>
 					</Link>
 					<CollectButton/>					
 				</CommonHeader>
 				{
-					this.state.ifShow && <ShowDown ifShow={this.state.ifShow} toShowDown={this.toShowDown}/>
+					this.state.ifShow && <ShowDown toShowDown={::this.toShowDown}/>
 				}
 				<Link to="/source/photo/2/photolist">
 					<GalleryFrontCover data={photoGalleryData}/>

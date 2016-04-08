@@ -82,6 +82,12 @@ class SourcePdfHome extends React.Component {
 		}
 	}
 
+	componentDidMount() {
+		this.setState({
+			progressValue: 1/pdfDataList.length
+		})
+	}
+
 	render() {
 		let { index, showHeaderAndFooter, progressValue } = this.state;
 		let zoomBox = {

@@ -27,54 +27,41 @@ class AlbumShow extends React.Component {
 	constructor (props) {
 		super(props);
 		this.state =  {
-			display:"block",
+			display: true,
 			ifShow: false,
 		};
-		this.toShowDown = this.toShowDown.bind(this);
 	}
 
 
-  toShowDown() {
+  toShowDown(e) {
+		e.stopPropagation();
   	 this.setState({
       ifShow: !this.state.ifShow,
     })
   }
-	handlerClick(){
-	// let e=event||windows.event;
-  // e.stopPropagation();
-  // e.preventDefault();
-		// let header=document.getElementById("header"),
-		// disc=document.getElementById("disc");
-		// if(header.style.display=="none" &&disc.style.display=="none") {
-		// 	header.style.display = "block";
-		// 	disc.style.display = "block";
-		// }else{
-		// 	header.style.display = "none";
-		// 	disc.style.display = "none";
-		// }
-		if(this.state.display=="block"){
-			this.setState({display: "none"});
-		}else{
-			this.setState({display: "block"});
-		}
+	handleClick(){
+    this.setState({
+			display: !this.state.display
+		})
 	}
 
-
 	render() {
+		let { display, ifShow } = this.state, { indexid } = this.props.params;
 		return(
-			<div className="AlbumShow" onClick={() => this.handlerClick()}>
-			 <div id="header" style={{"display":this.state.display}}>
+			<div className="AlbumShow" onClick={::this.handleClick}>
+				{ display &&
 					<CommonHeader>
-					  <ReturnButton/>
-					  <DownLoadButton  OnDownLoadClick={this.toShowDown}/>	
+						<ReturnButton/>
+						<DownLoadButton OnDownLoadClick={::this.toShowDown}/>
 						<CommentButton />
-						<CollectButton/>					
+						<CollectButton/>
 					</CommonHeader>
-				</div>
-				{
-					this.state.ifShow && <ShowDown ifShow={this.state.ifShow} toShowDown={this.toShowDown}/>
 				}
-				<AlbumShowPic data={AlbumShowData} count={count} display={this.state.display} paramsId={this.props.params.indexid}/>
+				{
+					ifShow && <ShowDown ifShow={ifShow} toShowDown={::this.toShowDown}/>
+				}
+				<AlbumShowPic data={AlbumShowData} display={display} count={count} paramsId={indexid}/>
+        <section className="album-background"/>
 			</div>
 		);
 	}

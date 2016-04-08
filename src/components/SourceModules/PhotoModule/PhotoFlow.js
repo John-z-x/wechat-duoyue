@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { findDOMNode } from 'react-dom';
+
 import PhotoItem from './PhotoItem';
 import PhotoListBottom from './PhotoListBottom';
-import Utils from '../../../utils/utils.js';
 
 class PhotoFlow extends React.Component {
   constructor(props) {
@@ -11,19 +12,18 @@ class PhotoFlow extends React.Component {
       list:this.props.list,
       left: [],
       right: [],
-      visibility: "hidden",
-    }
+      visibility: "hidden"
+    };
     this.finishLoading = true;
-    Utils.bindMethods(this,"distribution","ifNeedLazyLoad","lazyLoad")
   }
 
   componentDidMount() {
-    window.addEventListener("scroll", this.ifNeedLazyLoad, false)
+    window.addEventListener("scroll", ::this.ifNeedLazyLoad, false);
     this.distribution();
   }
 
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.ifNeedLazyLoad, false)
+    window.removeEventListener("scroll", ::this.ifNeedLazyLoad, false);
   }
 
   ifNeedLazyLoad() {
@@ -31,13 +31,14 @@ class PhotoFlow extends React.Component {
       this.lazyLoad();
       this.finishLoading = false;
       this.setState({
-        visibility:"visible",
+        visibility: "visible",
       })  
     }
   }
    
   checkScrollSide() {
-    let oParent = this.refs.photoContent;
+    let oParent = findDOMNode(this.refs.photoContent);
+    if(!oParent) return false;
     let mostHeight = oParent.offsetHeight;
     let scrollTop = document.documentElement.scrollTop + document.body.scrollTop;
     let documentH = document.documentElement.clientHeight;
@@ -54,7 +55,7 @@ class PhotoFlow extends React.Component {
       left: [],
       right: []
     });
-    this.distribution();
+    ::this.distribution();
   }
 
   distribution() {
@@ -84,24 +85,24 @@ class PhotoFlow extends React.Component {
 
   getBox() {
     if(!this.refs.left) return null;
-    let leftHeight  = this.refs.left.offsetHeight,
-        rightHeight = this.refs.right.offsetHeight;
+    let leftHeight  = findDOMNode(this.refs.left).offsetHeight,
+        rightHeight = findDOMNode(this.refs.right).offsetHeight;
     return (leftHeight <= rightHeight) ? "left" : "right";
   }
 
 	render() {
-		let left = this.state.left, right = this.state.right;
+		let { left, right } = this.state;
 		return(
 			<div className="PhotoFlow">
 				<div className="photo-content clearfix" ref="photoContent">
-					<div className="left-box photo-box" id="left_box" ref="left">
+					<div className="left-box photo-box"  ref="left">
             {
               left.map( (list, index) =>
                 <PhotoItem data={list}  key={`source_${list.index}${index}`} />
               )
             }
           </div>
-          <div className="right-box photo-box" id="right_box" ref="right">
+          <div className="right-box photo-box" ref="right">
             {
               right.map( (list, index) =>
                 <PhotoItem data={list}  key={`source_${list.index}${index}`}/>

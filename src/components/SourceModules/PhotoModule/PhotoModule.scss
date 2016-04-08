@@ -312,19 +312,40 @@ body {
     right: 0;
   }
   .AlbumShowPic{
+    position: fixed;
     z-index: 10000;
     width: 100%;
     height: 100%;
     list-style: none;
-    white-space:nowrap;
+    white-space: nowrap;
   }
-  .AlbumShowPicIterm{
+  .AlbumShowPicItem{
     width: 100%;
     display: inline-block;
     height: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .prev-spacing {
+    margin-left: -15px;
+    margin-right: 15px;
+  }
+  .next-spacing {
+    margin-left: 15px;
+    margin-right: -15px;
   }
 }
 
+.album-background {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 9999;
+}
 .ShowDown {
   .hiddenMessage {
     display:none;
