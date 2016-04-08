@@ -111,6 +111,7 @@ class AudioContent extends React.Component {
   }
 
   touchMove(e) {
+    e.preventDefault();
     let touchmove = e.targetTouches;
     this.moveX = touchmove[0].pageX - this.startX;
     this.setState({
@@ -174,7 +175,7 @@ class AudioContent extends React.Component {
   }
 
   render() {
-    let { audioData } = this.props,
+    let { audioData, audioFuns } = this.props,
         { index, showInfo, isFavor, left } = this.state;
     let data = audioData.data[audioData.index], dataList = audioData.data;
     let time = utils.timeFormat(audioData.duration);

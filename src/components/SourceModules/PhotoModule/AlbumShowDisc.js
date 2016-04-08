@@ -1,18 +1,20 @@
 import React from 'react';
 
-
 class AlbumShowDisc extends React.Component {
 	render(){
+    let { count, data } = this.props;
+    let { title, disc, index } = data;
 		return(
-				<div className="AlbumShowDisc" style={{"display":this.props.display}}>
-					<div className="pic_comment_title" id="pic_comment_title" >{this.props.data.title}</div>
-          <div className="pic_comment_text" id="pic_comment_text">{this.props.data.disc}</div>
-          <div className="pic_page" >
-            <span id="span_page_num" className="span_page_num1">{this.props.data.index}</span>
-            <span  className="span_page_num2" >{this.props.count}</span>
-          </div>
+      <div className="AlbumShowDisc">
+        <div className="pic_comment_title">{title}</div>
+        <div className="pic_comment_text">{disc}</div>
+        <div className="pic_page" >
+          <span className="span_page_num1">{index}</span>
+          <span  className="span_page_num2" >{count}</span>
         </div>
-			);
+      </div>
+    );
 	}
 }
+
 export default AlbumShowDisc;

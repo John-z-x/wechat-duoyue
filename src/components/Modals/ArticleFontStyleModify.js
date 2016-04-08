@@ -49,15 +49,20 @@ class ArticleFontStyleModify extends React.Component{
   }
 
   render(){
-    let { showFontFamily } = this.state, { color, fontFamily } = this.props.data,  fontArray = [["FZSSJW", "方正书宋简体"], ["FZLTXHJW", "方正兰亭纤黑"], ["YaHei", "默认字体"]];
+    let { showFontFamily } = this.state, { color, fontFamily } = this.props.data,
+        fontArray = [
+          {"name": "FZSSJW", "title": "方正书宋简体"},
+          {"name": "FZLTXHJW", "title": "方正兰亭纤黑"},
+          {"name": "YaHei", "title": "默认字体"}
+        ];
     let colorStyle = color == "black" ? "black" : "white", arrowClass = color == "black" ? "tu-black": "tu-white",
         borderColor = color == "black" ? "#333" : "#e5e5e5";
     let fontFamilyCode = fontArray.map( (item, index) => {
-      let checked = item[0].indexOf(fontFamily) > -1 ? <span className="articleFontPic"/> : null;
+      let checked = item.name.indexOf(fontFamily) > -1 ? <span className="articleFontPic"/> : null;
       return (
         <div className="articleStyleFont" key={index}>
           {checked}
-          <div className={item[0]+" articleFontContent"} style={{borderBottom: `1px solid ${borderColor}`}} type="fontFamily" onClick={::this.onTypeClick}>{item[1]}</div>
+          <div className={item.name+" articleFontContent"} style={{borderBottom: `1px solid ${borderColor}`}} type="fontFamily" onClick={::this.onTypeClick}>{item.title}</div>
         </div>
       );
     });
@@ -83,7 +88,7 @@ class ArticleFontStyleModify extends React.Component{
                     <span className="white fontStyleItem whiteBox" type="color" onClick={::this.onTypeClick}>A</span>
                     <span className="yellow fontStyleItem" type="color" onClick={::this.onTypeClick}>A</span>
                     <span className="green fontStyleItem" type="color" onClick={::this.onTypeClick}>A</span>
-                    <span className="black fontStyleItem " type="color" onClick={::this.onTypeClick}>A</span>
+                    <span className="black fontStyleItem " style={{border: `1px solid ${borderColor}`}} type="color" onClick={::this.onTypeClick}>A</span>
                   </div>
                 </div>
               </div>
