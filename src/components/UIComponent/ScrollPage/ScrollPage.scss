@@ -1,4 +1,6 @@
 .ScrollPage {
+  $fontColorF: #fff;
+  $bgColorF2: #f2f2f2;
   .EveryDayPageNum{
     position: fixed;
     bottom: 20px;
@@ -7,12 +9,12 @@
     padding: 0 7px;
     border-radius: 5px;
     background: rgba(0, 0, 0, 0.5);
-    color: #fff;
+    color: fontColorF;
   }
   .EveryDayScrollBottom{
     height: 50px;
     line-height: 50px;
     text-align: center;
-    background: #f2f2f2;
+    background: $bgColorF2;
   }
 }

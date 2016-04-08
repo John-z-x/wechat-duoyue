@@ -12,7 +12,7 @@ class ToSocialArea extends React.Component {
                 <div className="menu-bottom-td">社区
                   <span className="menu-title">{'  '}志同道合/学习交友</span>
                 </div>
-                <div className="arrow_go"></div>
+                <div className="arrow-go"></div>
               </div>
             </Link>
           </div>

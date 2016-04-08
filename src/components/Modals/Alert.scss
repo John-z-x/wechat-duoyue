@@ -4,6 +4,8 @@
   $fontSize14: 14px;
   /*fontcolor*/
   $fontColorF: #fff;
+  /*bgcolor*/
+  $bgColorBlack5: rgba(0,0,0,0.5);
   /*width*/
   $w70: 70%;
   $w100: 100%;
@@ -13,7 +15,7 @@
   z-index: 11003;
   width: $w70;
   border-radius: 10px;
-  background-color: rgba(0, 0, 0, .5);
+  background-color: $bgColorBlack5;
   .alert-img {
     display: block;
     width: 30px;

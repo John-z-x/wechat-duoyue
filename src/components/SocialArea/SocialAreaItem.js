@@ -14,11 +14,11 @@ class SocialAreaItem extends React.Component {
 						{data.intra}
 					</div>
 					<div>
-						<img  className="bg-pic" src={data.bgPic} alt="图片1" title="图片1"/>
+						<img  className="bg-pic" src={data.bgPic} alt="话题图" title="话题图"/>
 					</div>
 					<div className="user">
 						<div className="user-pic">
-							<img alt="图片2" src={data.userPic} title="图片2"/>
+							<img alt="头像" src={data.userPic} title="头像"/>
 						</div>
 						<div className="user-words">
 							<span>“</span>

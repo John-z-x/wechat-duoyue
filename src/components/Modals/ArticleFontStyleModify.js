@@ -79,7 +79,6 @@ class ArticleFontStyleModify extends React.Component{
                     <span className="small "  style={{borderRight: `1px solid ${borderColor}`}} type = "size" onClick={::this.onTypeClick}>A-</span>
                     <span className="big " type="size" onClick={::this.onTypeClick}>A+</span>
                   </div>
-
                   <div className="middle"  style={{borderBottom: `1px solid ${borderColor}`}} onClick={this.showFontBox}>
                     <span className="middleFont">字体</span>
                     <span className="chooseFont" onClick={::this.onReturnClick}>选择字体></span>
@@ -103,8 +102,8 @@ class ArticleFontStyleModify extends React.Component{
                     <div className="articleTitleContent">字体</div>
                   </div>
                   {fontFamilyCode}
-              </div>
                 </div>
+              </div>
           )
         }
         </div>

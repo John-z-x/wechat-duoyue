@@ -166,7 +166,7 @@ class Slider extends React.Component {
 
     return (
         <section className="Slider" ref='slide' style={this.props.style}>
-          <ul className="slider_ul" style={{ "marginLeft": this.state.left + "px"}}>
+          <ul className="slider-ul" style={{ "marginLeft": this.state.left + "px"}}>
             {itemCode}
           </ul>
           { dots && <SliderDot nums={sliderList.length} index={this.state.index}/>}
