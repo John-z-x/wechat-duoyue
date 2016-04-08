@@ -86,7 +86,7 @@ class BookRead extends React.Component{
 		optionCanvas.addEventListener('touchend', ::this.touchEnd, false);
 		this.reSize();
 		this.setState({
-			pageOver: 1
+			pageOver: 1,
 		})
 	}
 
@@ -141,7 +141,8 @@ class BookRead extends React.Component{
 				pageTotal = Math.ceil(textCanvas.offsetHeight/canvasHeight);
 		this.setState({
 			canvasHeight: canvasHeight,
-			pageTotal: pageTotal
+			pageTotal: pageTotal,
+      progressValue: 1/pageTotal
 		});
 	}
 
@@ -238,7 +239,6 @@ class BookRead extends React.Component{
 		let pageOverValue = progressValue*pageTotal;
 		let zIndex = headerAndFooterShow ? 10009 : 11002, footerHeight = headerAndFooterShow ? 50 : 0;
 		let scrollTop = -(pageOver-1)*canvasHeight || 0;
-
 		return (
 			<div className="BookRead" >
 				<HeaderComponents color={color}>

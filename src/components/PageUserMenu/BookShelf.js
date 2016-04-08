@@ -25,6 +25,7 @@ class BookShelf extends React.Component {
   }
 
   touchMove(e) {
+    e.preventDefault();
     let touchPoint = e.targetTouches;
     if(this.isSlidering) return;
     this.moveX = touchPoint[0].pageX - this.startX;
