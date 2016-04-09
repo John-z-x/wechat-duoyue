@@ -31,7 +31,6 @@ class DoCommodity extends React.Component {
   }
 
   showAlert() {
-    debugger;
     this.setState({
       displayModal: true
     });
