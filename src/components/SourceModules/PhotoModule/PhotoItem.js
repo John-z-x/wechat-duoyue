@@ -7,7 +7,7 @@ class PhotoItem extends React.Component {
 		return(
 			<div className = "PhotoItem">
 				<Link to={"/source/photo/2/albumshow" + "/" + data.index}>
-          <img src={data.src} className="photo-image" alt="photo-image"/>
+          <img src={data.src} className="photo-image" alt="相册图" title="相册图"/>
 					{
 						photoTitle
 					}

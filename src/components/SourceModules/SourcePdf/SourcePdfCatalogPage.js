@@ -62,7 +62,7 @@ class SourcePdfCatalogPage extends React.Component {
 		let thumbnailItems = data.map((item, i) => {
 			return (
 				<Link to="/source/pdf/3" className={classNames('item', {'cur': nowIndex === i + 1})} key={i}>
-					<img className="thumbnail" src={item.imgSrc} alt=""/>
+					<img className="thumbnail" src={item.imgSrc} alt="pdf" title="pdf"/>
 					<p className="thumbnail-index">{i + 1}</p>
 				</Link>
 			)

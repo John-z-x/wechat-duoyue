@@ -95,14 +95,14 @@ class PhotoFlow extends React.Component {
 		return(
 			<div className="PhotoFlow">
 				<div className="photo-content clearfix" ref="photoContent">
-					<div className="left-box photo-box"  ref="left">
+					<div className="left-box photo-box left"  ref="left">
             {
               left.map( (list, index) =>
                 <PhotoItem data={list}  key={`source_${list.index}${index}`} />
               )
             }
           </div>
-          <div className="right-box photo-box" ref="right">
+          <div className="right-box photo-box left" ref="right">
             {
               right.map( (list, index) =>
                 <PhotoItem data={list}  key={`source_${list.index}${index}`}/>
