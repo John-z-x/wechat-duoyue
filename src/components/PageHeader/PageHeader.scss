@@ -2,122 +2,119 @@
 
 @import "../../../assets/sass/variables";
 @import "../../../assets/sass/font";
-.Navigation
-.Navigation-link, .Navigation-link_over {
-  float: right;
-  text-decoration: none;
-  font-size: 16px;
-  text-align: center;
-  text-indent: -9999px;
-  height: 38px;
-  width: 40px;
-}
-.Navigation-link_over {
-  border-bottom: 2px solid rgb(119, 205, 176);
-}
-
-.juhe_menu_txt {
-  float: left;
-  width: 30px;
-  height: 38px;
-  margin-left: 5px;
-  background-repeat: no-repeat;
-}
-.juhe_menu_meitian {
-  background-image: url(../../../assets/images/top/wechat_icon.png);
-  background-position: -83px -6px;
-  background-size: 480px;
-}
-.Navigation-link_over > .juhe_menu_meitian{
-  background-image: url(../../../assets/images/top/wechat_icon.png);
-  background-position: -83px -45px;
-  background-size: 480px;
-}
-.juhe_menu_shangcheng {
-  background-image: url(../../../assets/images/top/wechat_icon.png);
-  background-position: -230px -6px;
-  background-size: 480px;
-}
-.Navigation-link_over > .juhe_menu_shangcheng {
-  background-image: url(../../../assets/images/top/wechat_icon.png);
-  background-position: -230px -45px;
-  background-size: 480px;
-}
-.juhe_menu_source {
-  background-image: url(../../../assets/images/top/icon_resources_default.png);
-  background-position: 50% 58%;
-  background-size: 22px;
-}
-.Navigation-link_over > .juhe_menu_source {
-  background-image: url(../../../assets/images/top/icon_resources_select.png);
-  background-position: 50% 58%;
-  background-size: 22px;
-}
-.juhe_menu_shucheng {
-  background-image: url(../../../assets/images/top/icon_book_default.png);
-  background-position: 50% 58%;
-  background-size: 20px;
-}
-.Navigation-link_over > .juhe_menu_shucheng {
-  background-image: url(../../../assets/images/top/icon_book_select.png);
-  background-position: 50% 58%;
-  background-size: 22px;
-}
 
 /*page style css*/
 .PageHeader {
+  /*fontsize*/
+  $fontSize16: 16px;
+  /*border*/
+  $borderE: 1px solid #eee;
+  $border277CDB0: 2px solid #77cdb0;
+  /*width*/
+  $w100: 100%;
+  .link-common {
+    float: right;
+    text-decoration: none;
+    font-size: $fontSize16;
+    text-align: center;
+    text-indent: -9999px;
+    height: 38px;
+    width: 40px;
+  }
+  @mixin top-icon-set($iconUrl,$xPos,$yPos,$xSize,$ySize) {
+    background: url($iconUrl) no-repeat $xPos $yPos;
+    background-size: $xSize $ySize;
+  }
   position: fixed;
   z-index: 10000;
-  width: 100%;
+  width: $w100;
   height: 40px;
   padding-right: 5px;
-  border-bottom: 1px solid #eee;
+  border-bottom: $borderE;
+  .header-btn {
+    width: 50px;
+    height: 100%;
+    text-align: center;
+  }
+  .user-menu {
+    width: 40px;
+    height: 39px;
+    margin-left: 5px;
+    border-right: $borderE;
+    @include top-icon-set("../../../assets/images/top/wechat_icon.png",-5px,-1px,380px,auto);
+  }
+  .header-title {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    line-height: 40px;
+    @include dy-font-face('FZLTXH_GBK');
+  }
+  .Navigation {
+    .juhe_menu_txt {
+      width: 30px;
+      height: 38px;
+      margin-left: 5px;
+    }
+    .Navigation-link_over {
+      @extend .link-common;
+      border-bottom: $border277CDB0;
+      .juhe_menu_meitian{
+        @include top-icon-set("../../../assets/images/top/wechat_icon.png",-83px,-45px,480px,auto);
+      }
+      .juhe_menu_shangcheng {
+        @include top-icon-set("../../../assets/images/top/wechat_icon.png",-230px,-45px,480px,auto);
+      }
+      .juhe_menu_source {
+        @include top-icon-set("../../../assets/images/top/icon_resources_select.png",50%,58%,22px,auto);
+      }
+      .juhe_menu_shucheng {
+        @include top-icon-set("../../../assets/images/top/icon_book_select.png",50%,58%,22px,auto);
+      }
+    }
+    .Navigation-link {
+      @extend .link-common;
+      .juhe_menu_meitian {
+        @include top-icon-set("../../../assets/images/top/wechat_icon.png",-83px,-6px,480px,auto);
+      }
+      .juhe_menu_shangcheng {
+        @include top-icon-set("../../../assets/images/top/wechat_icon.png",-230px,-6px,480px,auto);
+      }
+      .juhe_menu_source {
+        @include top-icon-set("../../../assets/images/top/icon_resources_default.png",50%,58%,22px,auto);
+      }
+      .juhe_menu_shucheng {
+        @include top-icon-set("../../../assets/images/top/icon_book_default.png",50%,58%,20px,auto);
+      }
+    }
+  }
 }
 
-.header-title {
-  padding-left: .5em;
-  padding-right: .5em;
-  line-height: 40px;
-  @include dy-font-face('FZLTXH_GBK');
-}
-.header-btn {
-  width: 50px;
-  height: 100%;
-  text-align: center;
-}
-.user-menu {
-  border-right: 1px solid #eee;
-  background: url(../../../assets/images/top/wechat_icon.png) no-repeat -5px -1px;
-  background-size: 380px;
-  width: 40px;
-  height: 39px;
-  margin-left: 5px;
-}
-.hd-btn-icon {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-}
-.book-store-menu .hd-btn-icon{
-  background: url(../../../assets/images/top_icon.png) no-repeat 3px -120px;
-  background-size: 65px 300px;
-}
-.book-store-menu-cur {
-  border-bottom: 2px solid #77cdb0;
-}
-.book-store-menu-cur .hd-btn-icon {
-  background: url(../../../assets/images/top_icon.png) no-repeat 3px -120px;
-  background-size: 65px 300px;
-}
 
-.good-store-menu .hd-btn-icon{
-  background: url(../../../assets/images/top_icon.png) no-repeat 3px -66px;
-  background-size: 65px 300px;
-}
-.good-store-menu-cur {
-  border-bottom: 2px solid #77cdb0;
-}
-.good-store-menu-cur .hd-btn-icon {
-  background: url(../../../assets/images/top_icon.png) no-repeat 3px -66px;
-  background-size: 65px 300px;
-}
+// .hd-btn-icon {
+//   display: inline-block;
+//   width: 30px;
+//   height: 30px;
+// }
+// .book-store-menu .hd-btn-icon{
+//   background: url(../../../assets/images/top_icon.png) no-repeat 3px -120px;
+//   background-size: 65px 300px;
+// }
+// .book-store-menu-cur {
+//   border-bottom: 2px solid #77cdb0;
+// }
+// .book-store-menu-cur .hd-btn-icon {
+//   background: url(../../../assets/images/top_icon.png) no-repeat 3px -120px;
+//   background-size: 65px 300px;
+// }
+
+// .good-store-menu .hd-btn-icon{
+//   background: url(../../../assets/images/top_icon.png) no-repeat 3px -66px;
+//   background-size: 65px 300px;
+// }
+// .good-store-menu-cur {
+//   border-bottom: 2px solid #77cdb0;
+// }
+// .good-store-menu-cur .hd-btn-icon {
+//   background: url(../../../assets/images/top_icon.png) no-repeat 3px -66px;
+//   background-size: 65px 300px;
+// }

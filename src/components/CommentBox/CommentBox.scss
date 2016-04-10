@@ -1,122 +1,139 @@
-body {
-	background-color: #fff;
-}
 .CommentBox {
-	body {
-		background-color: #f7f7f7;
-	  -webkit-tap-highlight-color: transparent;
-	}
+  /*font-size*/
+  $fontSize10: 10px;
+  $fontSize12: 12px;
+  $fontSize14: 14px;
+  $fontSize16: 16px;
+  /*fontcolor*/
+  $fontColor3: #333; 
+  $fontColor6: #666; 
+  $fontColor9: #999;
+  $fontColorF: #fff;
+  $fontColor7A: #7a7a7a;
+  $fontColor90: #909090;
+  $fontColor77CDB0: #77cdb0; 
+  /*border*/
+  $borderD: 1px solid #ddd;
+  $borderE5: 1px solid #e5e5e5;
+  $borderD1: 1px solid #d1d1d1;
+  $borderCB: 1px solid #cbcbcb;
+  /*bgcolor*/
+  $bgColorWhite: #fff;
+  $bgColorE9: #e9e9e9;
+  $bgColorF0: #f0f0f0;
+  $bgColorFD6E2C: #fd6e2c;
+  /*width*/
+  $w60: 60%;
+  $w89: 89%;
+  $w100: 100%;
+  
+  background-color: $bgColorWhite;
+  -webkit-tap-highlight-color: transparent;
 	input {
 		border: none;
 		outline: none;
 		background-color: transparent;
 	}
-	.text {
-		word-break: break-all;
-	}
-	.comment-list {
-		padding-bottom: 44px;
-	}
 	.CommentCommonHeader {
-		font-size: 14px;
+		font-size: $fontSize14;
 		line-height: 2.5em;
-		color: #7a7a7a;
-		background-color: #e9e9e9;
+		color: $fontColor7A;
+		background-color: $bgColorE9;
 		.title {
-			float: left;
 			padding-left: 15px;
 		}
 		.amount {
-			float: left;
 			margin-left: 15px;
-			color: #7bd4b6;
+			color: $fontColor77CDB0;
 		}
 		.no-amount {
 			text-align: center;
-			border-top: 1px solid #ddd;
-			border-bottom: 1px solid #ddd;
-			background-color: #f0f0f0;
+			border-top: $borderD;
+			border-bottom: $borderD;
+			background-color: $bgColorF0;
 			.title {
 				float: none;
 				padding-left: 0;
-				color: #333;
-				font-size: 16px;
+				color: $fontColor3;
+				font-size: $fontSize16;
 			}
 		}
 	}
-	.CommentItem {
-		padding: 10px 15px 10px 0;
-		margin-left: 15px;
-		border-bottom: 1px solid #e5e5e5;
-		.user-avatar {
-			width: 30px;
-			height: 30px;
-			border: 1px solid #e5e5e5;
-			border-radius: 100%;
-			overflow: hidden;
-			background: url(/images/avatar_default.png) no-repeat;
-			background-size: 100% 100%;
-			img {
-				display: none;
-				width: 100%;
-				height: 100%;
-			}
-			.avatar {
-				display: inline-block;
-			}
-		}
-		.user-info {
-			padding-left: 10px;
-			color: #333;
-			.user-name {
-				font-size: 12px;
-			}
-			.comment-time {
-				font-size: 10px;
-				color: #666;
-				vertical-align: super;
-			}
-		}
-		.like {
-			font-size: 10px;
-			color: #909090;
-			.like-icon {
-				display: inline-block;
-				width: 22px;
-				height: 20px;
-				background: url(/images/icon_set.png) no-repeat;
-				background-size: 150px 375px;
-			}
-			.on {
-				background: url(/images/icon_set.png) no-repeat -30px 0;
-				background-size: 150px 375px;
-			}
-			.like-num {
-				padding-left: 3px;
-			}
-		}
-		.text {
-			font-size: 12px;
-			word-break: break-all;
-		}
+	.comment-list {
+		padding-bottom: 44px;
+    .CommentItem {
+      padding: 10px 15px 10px 0;
+      margin-left: 15px;
+      border-bottom: $borderE5;
+      .user-avatar {
+        width: 30px;
+        height: 30px;
+        border: $borderE5;
+        border-radius: 100%;
+        overflow: hidden;
+        background: url(/images/avatar_default.png) no-repeat;
+        background-size: 100% 100%;
+        img {
+          display: none;
+          width: $w100;
+          height: 100%;
+        }
+        .avatar {
+          display: inline-block;
+        }
+      }
+      .user-info {
+        padding-left: 10px;
+        color: $fontColor3;
+        .user-name {
+          font-size: $fontSize12;
+        }
+        .comment-time {
+          font-size: $fontSize10;
+          color: $fontColor6;
+          vertical-align: super;
+        }
+      }
+      .like {
+        font-size: $fontSize10;
+        color: $fontColor90;
+        .like-icon {
+          display: inline-block;
+          width: 22px;
+          height: 20px;
+          background: url(/images/icon_set.png) no-repeat;
+          background-size: 150px 375px;
+        }
+        .on {
+          background: url(/images/icon_set.png) no-repeat -30px 0;
+          background-size: 150px 375px;
+        }
+        .like-num {
+          padding-left: 3px;
+        }
+      }
+      .text {
+        font-size: $fontSize12;
+        word-break: break-all;
+      }
+    }
 	}
-
 	.comment-write-guide {
 		position: fixed;
 		left: 0;
 		bottom: 0;
 		z-index: 10000;
-		width: 100%;
+		width: $w100;
 		padding: 9px 15px;
-		border-top: 1px solid #d1d1d1;
-		background-color: #fff;
+		border-top: $borderD1;
+		background-color: $bgColorWhite;
 		line-height: 27px;
-		color: #999;
-		font-size: 12px;
+		color: $fontColor9;
+		font-size: $fontSize12;
 		.write-comment-btn {
 			display: inline-block;
-			width: 60%;
-			border-right: 1px solid #d1d1d1;
+			width: $w60;
+			border-right: $borderD1;
 			.icon {
 				display: inline-block;
 				width: 30px;
@@ -134,62 +151,22 @@ body {
 			background-size: 400px 300px;
 		}
 	}
-/*	form {
-		display: block;
-	}
-	.comment-form {
-		display: none;
-	}*/
-	.CommentForm {
-		.comment-form-content {
-			position: fixed;
-			left: 0;
-			bottom: 0;
-			z-index: 10002;
-			width: 100%;
-			padding: 0 10px 20px;
-			background-color: #fff;
-			.btn-wrap {
-				a {
-					border: none;
-					outline: none;
-					background-color: #fff;
-					font-size: 12px;
-					line-height: 2.5em;
-					color: #333;
-				}
-				.submit-btn {
-					color: #77cdb0;
-				}
-
-			}
-			.input-box {
-				display: block;
-				width: 100%;
-				height: 79px;
-				border: 1px solid #cbcbcb;
-				border-radius: 5px;
-				resize: none;
-			}
-		}
-	}
 	
-
-	.CommentItemCommunity {
+  .CommentItemCommunity {
 		padding: 10px 15px 10px 10px;
-		border-bottom: 1px solid #e5e5e5;
-		background-color: #fff;
+		border-bottom: $borderE5;
+		background-color: $bgColorWhite;
 		.user-avatar {
 			width: 30px;
 			height: 30px;
-			border: 1px solid #e5e5e5;
+			border: $borderE5;
 			border-radius: 100%;
 			overflow: hidden;
 			background: url(/images/avatar_default.png) no-repeat;
 			background-size: 100% 100%;
 			img {
 				display: none;
-				width: 100%;
+				width: $w100;
 				height: 100%;
 			}
 			.avatar {
@@ -197,15 +174,15 @@ body {
 			}
 		}
 		.user-info {
-			max-width: 89%;
+			max-width: $w89;
 			padding-left: 10px;
-			color: #333;
+			color: $fontColor3;
 			.user-name {
 				font-size: 12px;
 			}
 			.comment-time {
 				font-size: 10px;
-				color: #666;
+				color: $fontColor6;
 				vertical-align: super;
 			}
 		}
@@ -215,111 +192,26 @@ body {
 		}
 	}
 	.CommentItemPurchaseAdvice {
-		background-color: #fff;
+		background-color: $bgColorWhite;
 		padding: 10px;
 		.question-wrap {
 			.question-avatar {
-				float: left;
 				width: 25px;
 				height: 100%;
-				color: #fff;
+				color: $fontColorF;
 				.avatar {
 					display: inline-block;
 					width: 25px;
 					height: 25px;
 					border-radius: 100%;
-					background-color: #fd6e2c;
+					background-color: $bgColorFD6E2C;
 					text-align: center;
 				}
 			}
 			.text {
-				float: left;
 				width: 90%;
 				padding-left: 10px;
 			}
 		}
 	}
-	.CommentFormCommunity {
-		position: fixed;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		.comment-form-content {
-			width: 100%;
-			height: 43px;
-			padding-top: 5px;
-			background-color: #f8f8f8;
-			table-layout: initial;
-			.icon-btn-wrap {
-				width: 18%;
-				height: 40px;
-				background: url(/images/icon_set.png) no-repeat -55px 6px;
-				background-size: 100px 250px;
-			}
-			.input-box-wrap {
-				.input-box {
-					width: 100%;
-					height: 34px;
-					border: 1px solid #ddd;
-					margin-top: 3px;
-					border-radius: 3px;
-					background-color: #fff;
-					resize: none;
-				}
-			}
-			.submit-btn-wrap {
-				width: 18%;
-				text-align: center;
-				.submit-btn {
-					width: 100%;
-					font-size: 14px;
-					color: #777;
-					line-height: 31px;
-				}
-			}
-
-		}
-	}
-	.Pen {
-		.comment-form-content {
-			width: 100%;
-			height: 45px;
-			background-color: #f0f0f0;
-			table-layout: initial;
-			.icon-btn-wrap {
-				width: 10%;
-				height: 40px;
-				background: url(/images/icon_set.png) no-repeat -134px -83px;
-				background-size: 180px 450px;
-			}
-			.input-box-wrap {
-				.input-box {
-					width: 100%;
-					height: 34px;
-					border: 1px solid #ddd;
-					margin-top: 5px;
-					border-radius: 3px;
-					background-color: transparent;
-					resize: none;
-				}
-			}
-			.submit-btn-wrap {
-				position: relative;
-				width: 25%;
-				padding-right: 2%;
-				.submit-btn {
-					display: block;
-					width: 90%;
-					margin-bottom: 4px;
-					border-radius: 3px;
-					font-size: 14px;
-					color: #777;
-					line-height: 24px;
-					background-color: #ddd;
-				}
-			}
-
-		}
-	}
-
 }

@@ -15,7 +15,7 @@ class VideoPoster extends React.Component {
 	render() {
 		let { data } = this.props;
 		return (
-			<div className="VideoPoster video-poster" onClick={::this.togglePlay}>
+			<div className="VideoPoster" onClick={::this.togglePlay}>
 				<video className="my-video" src={data.videoSrc} preload="none" poster={data.videoPoster} id="my-video" ref="myVideo" />
 			</div>
 		);
