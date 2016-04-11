@@ -479,6 +479,10 @@
   }
   .music-info-open {
     border-bottom: 1px solid #e5e5e5;
+    overflow: visible;
+  }
+  .info-box {
+    padding-bottom: 40px;
     max-height: 79%;
     overflow-y: scroll;
   }

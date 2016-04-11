@@ -59,6 +59,7 @@ let LrcScroll = {
       outputHtml = "当前歌曲暂时没有字幕";
       this.hasLrc = false;
     }
+    $(this.lrcDomClass).css("marginTop", this.marginTop);
     return outputHtml;
   },
 

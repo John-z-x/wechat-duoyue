@@ -49,15 +49,15 @@ class ProgressController extends React.Component {
 
   render() {
     let DOT_WIDTH = 10;
-    let width = this.props.progressValue*this.progressLong - DOT_WIDTH;
+    let width = this.props.progressValue*(this.progressLong || 0);
     return (
       <div className="ProgressController" id="ProgressController">
         <div id="progress_bg" className="music-progress-box" ref="progress">
           <div id="progress_buffer">
-            <div id="progress" style={{width: width + "px"}}></div>
+            <div id="progress" style={{width: width}}></div>
           </div>
           <div className="progress-dot-bg"></div>
-          <div id="progress_dot" ref="progressDot" style={{marginLeft: width + "px"}}></div>
+          <div id="progress_dot" ref="progressDot" style={{marginLeft: (width - DOT_WIDTH) }}></div>
         </div>
         {this.props.children}
       </div>
