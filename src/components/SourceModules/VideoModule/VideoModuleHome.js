@@ -1,6 +1,12 @@
 'use strict';
-import React from 'react';
+import React ,{ PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { modifyCover } from '../../../actions/ShoppingCartActions';
+
 import { Link } from 'react-router';
+
 import VideoPoster from './VideoPoster.js';
 import VideoDescription from './VideoDescription.js';
 import VideoCollection from './VideoCollection.js';
@@ -8,9 +14,12 @@ import BrowseMoreBtn from './BrowseMoreBtn.js';
 import CommonHeader from '../../HeaderComponents/CommonHeader.js';
 import ReturnButton from '../../HeaderComponents/ReturnButton';
 import CommentButton from '../../HeaderComponents/CommentButton';
+import Cover from '../../Cover/Cover';
 import DownLoadButton from '../../HeaderComponents/DownLoadButton';
 import CollectButton from '../../HeaderComponents/CollectButton';
+
 import CommentBox from '../../CommentBox/CommentBox';
+import CommentForm from '../../CommentBox/CommentForm';
 import withStyles from '../../../decorators/withStyles';
 import styles from './VideoModule.scss';
 
@@ -44,21 +53,15 @@ class VideoModuleHome extends React.Component {
 	}
 
 	render() {
-		let commentBoxOptions = {
-			commentHeader: 'on',
-			commentItem: 'on',
-			commentWriteGuide: 'off',
-			commentForm: 'Community-Pen',
-			headerText: '相关评论',
-			hdCommentAmount: 'on',
-		};
 		let displayData = videoData.videoList[this.state.videoIndex];
 		return (
 			<div className="VideoModuleHome main-wrap">
-				{this.props.children}
+				{ this.props.children }
 				<CommonHeader>
 					<ReturnButton/>
-					<CommentButton />
+					<Link to="/source/commentpage">
+						<CommentButton/>
+					</Link>
 					<Link to="/source/downloadpage">
 						<DownLoadButton/>
 					</Link>
@@ -68,10 +71,25 @@ class VideoModuleHome extends React.Component {
 				<VideoDescription data={displayData} index={this.state.videoIndex}/>
 				<VideoCollection data={videoData} funcs={this.switchVideo}/>
 				<BrowseMoreBtn/>
-				<CommentBox options={commentBoxOptions} />
 			</div>
 		);
 	}
 }
+
+function mapStateToProps(state) {
+  return {
+    cover: state.cover
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    onModifyCover: bindActionCreators(modifyCover, dispatch)
+  };
+}
+VideoModuleHome = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(VideoModuleHome)
 
 export default VideoModuleHome;

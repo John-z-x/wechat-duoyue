@@ -1,0 +1,48 @@
+body {
+	background-color: #fff;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.CommentForm {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	z-index: 10002;
+	width: 100%;
+	padding: 33px 10px 3px;
+	background-color: #fff;
+	.cancel-btn, 
+	.submit-btn {
+		position: absolute;
+		font-size: 12px;
+		line-height: 2.5em;
+		color: #333;
+	}
+	.cancel-btn {
+		top: 0;
+		left: 10px;
+	}
+	.cancel-btn::before,
+	.submit-btn::before {
+		display: block;
+		padding: 0 1em;
+		text-align: center;
+		content: "取消";
+	}
+	.submit-btn {
+		top: 0;
+		right: 10px;
+		color: #77cdb0;
+	}
+	.submit-btn::before {
+		content: "发送";
+	}
+	.input-box {
+		display: block;
+		width: 100%;
+		height: 79px;
+		border: 1px solid #cbcbcb;
+		border-radius: 5px;
+		resize: none;
+	}
+}
