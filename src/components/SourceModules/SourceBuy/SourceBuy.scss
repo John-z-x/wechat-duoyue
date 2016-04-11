@@ -1,38 +1,53 @@
-body {
-	background-color: #fff;
-  font-size: 14px;
+.SourceBuy {
+  $fontStack: '\5FAE\8F6F\96C5\9ED1',Arial, Helvetica, sans-serif;
+  /*fontsize*/
+  $fontSize12: 12px;
+  $fontSize14: 14px;
+  /*fontcolor*/
+  $fontColor7: #777;
+  $fontColorF: #fff;
+  /*border*/
+  $borderD: 1px solid #ddd;
+  /*bgcolor*/
+  $bgColorWhite: #fff;
+  $bgColorF30: #f30;
+  /*width*/
+  $w60: 60%;
+  background-color: $bgColorWhite;
+  font-size: $fontSize14;
   line-height: 22px;
   table-layout: fixed;
   word-break: break-all;
-  font-family: '微软雅黑',Arial, Helvetica, sans-serif;
-}
-.SourceBuy {
+  font-family: $fontStack;
 	.CommonHeader .header {
 		border: 0;
 	}
-	.source-buy-title {
-		padding: 5px 10px 5px 10px;
-		border-bottom: 1px solid #ddd; 
-	}
-	.source-buy-description {
-		padding: 10px; 
-		color: #777; 
-		font-size: 12px; 
-		border-bottom: 1px solid #ddd;
-	}
-	.source-buy-point {
-		padding: 20px 0px 20px 0px; 
-		text-align: center;
-	}
-
-	.buy-button {
-		width: 60%;
-		height: 42px;
-		margin: auto; 
-		margin-top: 20px;
-		background: #F30;
-		color: #fff;
-		text-align: center;
-		line-height: 42px;
-	}
+  .SourceBuyDescription {
+    .source-buy-title {
+      padding: 5px 10px;
+      border-bottom: $borderD; 
+    }
+    .source-buy-description {
+      padding: 10px; 
+      color: $fontColor7; 
+      font-size: $fontSize12; 
+      border-bottom: $borderD;
+    }
+    .source-buy-point {
+      padding: 20px 0px; 
+      text-align: center;
+    }
+  }
+  .SourceBuyButton {
+    .buy-button {
+      width: $w60;
+      height: 42px;
+      margin: auto; 
+      margin-top: 20px;
+      background: $bgColorF30;
+      color: $fontColorF;
+      text-align: center;
+      line-height: 42px;
+    }
+  }
 }

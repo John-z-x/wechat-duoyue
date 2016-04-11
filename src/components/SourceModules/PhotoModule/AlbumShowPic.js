@@ -1,7 +1,7 @@
 import React from 'react';
 import {findDOMNode} from 'react-dom';
 
-import AlbumShowDisc from './AlbumShowDisc';
+import AlbumShowDesc from './AlbumShowDesc';
 
 class AlbumShowPic extends React.Component {
 
@@ -294,14 +294,14 @@ class AlbumShowPic extends React.Component {
                 if(scaleLevel >= 1) {
                   return (
                       <li className={itemClass} key={i} ref={`pic${i}`} style={{width: itemWidth}}>
-                        <img src={item.src} width="100%" alt="pic" title={item.title}/>
+                        <img src={item.src} width="100%" alt={item.title} title={item.title}/>
                       </li>
                   )
                 } else {
                   return (
                       <li className={itemClass} key={i} ref={`pic${i}`} style={{width: this.winWidth}}>
                         <img src={item.src} style={{width: scaleWidth, marginLeft: this.winWidth*(1 - scaleLevel)/2}}
-                             alt="pic" title="pic" title={item.title} alt="pic"/>
+                             alt={item.title} title={item.title} />
                       </li>
                   )
                 }
@@ -310,9 +310,7 @@ class AlbumShowPic extends React.Component {
           </ul>
           {
             display &&
-            <div>
-              <AlbumShowDisc data={data[index]} count={this.moveX}/>
-            </div>
+              <AlbumShowDesc data={data[index]} count={this.moveX}/>
           }
         </div>
     );

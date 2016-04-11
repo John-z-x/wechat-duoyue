@@ -1,37 +1,80 @@
-* {
-	box-sizing: border-box;
-	font-weight: 500;
+
+// .PageHeader {
+// 	display: none;
+// }
+// html, body {
+	
+// }
+// .clearfix {
+// 	overflow: visible;
+// }
+#Duoyue, .app, .wrapper {
+  height: 100%;
 }
-.PageHeader {
-	display: none;
-}
-html, body {
-	width: 100%;
-	height: 100%;
-	background-color: #fff;
-}
-.clearfix {
-	overflow: visible;
-}
-#Duoyue, .app, .wrapper, .SourcePdf {
-	height: 100%;
-}
-.wrapper {
-	top: 0;
-}
-.SourcePage {
+#Duoyue .wrapper {
+  top: 0;
 }
 .SourceDownLoad {
+  /*fontsize*/
+  $fontSize12: 12px;
+  $fontSize14: 14px;
+  /*fontcolor*/
+  $fontColor3: #333; 
+  $fontColor6: #666;
+  $fontColorF: #fff; 
+  $fontColorC6: #c6c6c6;
+  $fontColor62C3A2: #62c3a2;
+  /*border*/
+  $borderD: 1px solid #ddd;
+  $borderE: 1px solid #eee;
+  $borderColorE: #eee;
+  $borderColorF: #fff;
+  /*bgcolor*/
+  $bgColorWhite: #fff;
+  $bgColorF8: #f8f8f8;
+  $bgColor62C3A2: #62c3a2;
+  /*width*/
+  $w46: 46%;
+  $w4678: 46.78%;
+  $w50: 50%;
+  $w80: 80%;
+  $w100: 100%;
+  .placeholder-common {
+    font-weight: 700;
+    color: $fontColorC6;
+  }
+  .arrow-common {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    content: "";
+    border-color: transparent;
+    border-style: outset solid solid;
+    border-width: 12px;
+    top: -24px;
+    right: 20%;
+  }
+  width: $w100;
+	height: 100%;
+	background-color: $bgColorWhite;
+  * {
+	box-sizing: border-box;
+	font-weight: 500;
+  }
 	padding-top: 40px;
 	position: relative;
 	.poster-wrap {
-		width: 46.78%;
+		width: $w4678;
 		height: 150px;
 		margin: auto;
 		margin-top: 6%;
-		box-shadow: 0 3px 3px 0 rgba(0,0,0,.22);
+		box-shadow: 0 3px 3px 0 rgba(0,0,0,0.22);
 		.source-poster {
-			width: 80%;
+			width: $w80;
 			height: 100%;
 			margin: auto;
 			background-size: cover;
@@ -40,35 +83,34 @@ html, body {
 		}
 	}
 	.source-title {
-		width:46%;
+		width: $w46;
     height: 7em;
     margin:0 auto;
-    font-size: 14px;
+    font-size: $fontSize14;
     font-weight: 600;
     line-height: 4em;
-    color: #333;
+    color: $fontColor3;
     text-align: center;
 	}
 	.action-wrap {
 		margin-left: 35px;
 		margin-right: 35px;
-		border-top: 1px solid #eee;
-		font-size: 12px;
+		border-top: $borderE;
+		font-size: $fontSize12;
 		.action-box {
 			padding-top: 30px;
 			.download-local-btn,
 			.send-to-phone-btn {
 				position: relative;
-				width: 50%;
+				width: $w50;
 				text-align: center;
-				color: #62c3a2;
+				color: $fontColor62C3A2;
 				margin-bottom: 15px;
 				.icon {
 					display: inline-block;
 					width: 35px;
 					height: 42px;
-					background-image: url(/images/source_download.png);
-					background-repeat: no-repeat;
+					background: url(/images/source_download.png) no-repeat;
 					background-size: 50px 400px;
 				}
 			}
@@ -78,19 +120,19 @@ html, body {
 				}
 			}
 			.down-over {
-				color: #666;
+				color: $fontColor6;
 				.icon {
 					background-position: -7px -179px;
 				}
 			}
 			.send-to-phone-btn {
-				border-left: 1px solid #ddd;
+				border-left: $borderD;
 				.icon {
 				background-position: -8px -81px;
 				}
 			}
 			.send-over {
-				color: #666;
+				color: $fontColor6;
 				.icon {
 				background-position: -8px -5px;
 				}
@@ -99,85 +141,54 @@ html, body {
 	}
 	.input-wrap {
 		position: relative;
-		border-top: 1px solid #eee;
+		border-top: $borderE;
 		margin-left: 35px;
 		margin-right: 35px;
-		font-size: 12px;
+		font-size: $fontSize12;
 		text-align: center;
 		::-webkit-input-placeholder { /* WebKit browsers */
-	    font-weight: 700;
-	    color: #c6c6c6;
+	    @extend .placeholder-common;
 		}
 		:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-			font-weight: 700;
-			color: #c6c6c6;
+			@extend .placeholder-common;
 		}
 		::-moz-placeholder { /* Mozilla Firefox 19+ */
-			font-weight: 700;
-			color: #c6c6c6;
+			@extend .placeholder-common;
 		}
 		:-ms-input-placeholder { /* Internet Explorer 10+ */
-		font-weight: 700;
-			olor: #c6c6c6;
+		  @extend .placeholder-common;
 		}
 		.num-input {
-			width: 100%;
+			width: $w100;
 			height: 3em;
 			border-radius: 10px;
-			border: 1px solid #eee;
+			border: $borderE;
 			margin-top: 2em;
 			margin-bottom: 2em;
 			text-align: center;
-			background-color: #f8f8f8; 
+			background-color: $bgColorF8; 
 		}
 		.submit-btn {
 			display: inline-block;
 			padding: .4em 3em;
 			border-radius: 2px;
 			margin: auto;
-			font-size: 14px;
+			font-size: $fontSize14;
 			text-align: center;
-			color: #fff;
-			background-color: #62c3a2;
+			color: $fontColorF;
+			background-color: $bgColor62C3A2;
 		}
 	}
-	.arrow-top::before {
-		position: absolute;
-		top: 0;
-		right: 0;
-		display: block;
-		width: 0;
-		height: 0;
-		pointer-events: none;
-		content: "";
-		border-color: transparent;
-		border-style: outset solid solid;
-	}
-	.arrow-top::before {
-		border-width: 12px;
-		top: -24px;
-		right: 20%;
-		border-bottom-color: #eee;
-	}
-
-	.arrow-top::after {
-		position: absolute;
-		top: 0;
-		right: 0;
-		display: block;
-		width: 0;
-		height: 0;
-		pointer-events: none;
-		content: "";
-		border-color: transparent;
-		border-style: outset solid solid;
-	}
-	.arrow-top::after {
-		top: -24px;
-		right: 20%;
-		margin-top: 2px;
-		margin-right: 1px;
-		border-width: 11px;
-		border-bottom-color: #fff;
-	}
+  .arrow-top {
+    &:before {
+      @extend .arrow-common;
+      border-bottom-color: $borderColorE;
+    }
+    &:after {
+      @extend .arrow-common;
+      margin-top: 2px;
+      margin-right: 1px;
+      border-bottom-color: $borderColorF;   
+    }
+  }
 }

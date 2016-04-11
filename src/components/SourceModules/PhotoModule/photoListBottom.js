@@ -11,16 +11,15 @@ class PhotoListBottom extends React.Component {
 	              已经加载到底了哟
 	            </div>
 	          </center>
-	          <hr  className="hr" />
-	          <div>
-	            <div className="logo-pic">
-	              <img src={src} height="50px" width="50px" alt="武汉理工数字中心"/>
+	          <div className="logo-area">
+	            <div className="logo-pic left">
+	              <img src={src} height="50px" width="50px" alt="武汉理工数字中心" title="武汉理工数字中心"/>
 	            </div>
-	            <div className="logo-text">
+	            <div className="logo-text left">
 	              <div className="logo-text-up">武汉理工数字中心</div>
 	              <div className="logo-text-down" >每天多学一点点</div>
 	            </div>
-	            <button onclick="" className="logo-button">前往首页</button>
+	            <button className="logo-button right">前往首页</button>
 	          </div>
 	      </div>
       </div>

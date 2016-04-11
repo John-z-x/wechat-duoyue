@@ -1,88 +1,92 @@
 
-.CommonHeader .header{
-  z-index: 11002 !important;
-}
+// .CommonHeader .header{
+//   z-index: 11002 !important;
+// }
 
 .ModifyStyle {
+  $fontSize18: 18px;
+  $fontSize25: 25px;
+  /*border*/
+  $borderD: 1px solid #ddd;
+  $borderE: 1px solid #eee;
+  $borderF0: 1px solid #f0f0f0;
+  $borderC29364: 1px solid #c29364;
+  $borderColorF: #fff;
+  $borderColor0: #000;
+  /*bgcolor*/
+  $bgColorWhite: #fff;
+  /*width*/
+  $w100: 100%;
+  $w50: 50%;
   height: 106px;
   width: 220px;
   position: fixed;
   right: 10px;
   top: 50px;
   border-radius: 5px;
-  border: 1px solid #f0f0f0;
+  border: $borderF0;
   z-index: 11002;
-  background-color: #fff;
-  .tu {
-    position: absolute;
-    right: 73px;
-    top: -12px;
-  }
-  .top-white::before {
+  background-color: $bgColorWhite;
+  .top-common {
     position: absolute;
     z-index: 11003;
+    top: -35px;
+    right: 31%;
     content: "";
-    right: 0;
     display: block;
     width: 0;
     height: 0;
     pointer-events: none;
     border-color: transparent;
     border-style: outset solid solid;
-  }
-  .top-white::before {
     border-width: 18px;
-    top: -35px;
-    right: 31%;
-    border-bottom-color: #fff;
   }
-  .top-black::before {
-    position: absolute;
-    z-index: 11003;
-    content: "";
-    right: 0;
-    display: block;
-    width: 0;
-    height: 0;
-    pointer-events: none;
-    border-color: transparent;
-    border-style: outset solid solid;
+  // .tu {
+  //   position: absolute;
+  //   right: 73px;
+  //   top: -12px;
+  // }
+  .top-white {
+    &:before {
+      @extend .top-common;
+      border-bottom-color: $borderColorF
+    }
   }
-  .top-black::before {
-    border-width: 18px;
-    top: -35px;
-    right: 31%;
-    border-bottom-color: black;
+  .top-black {
+    &:before {
+      @extend .top-common;
+      border-bottom-color: $borderColor0;
+    }
   }
   .top {
-    width: 100%;
+    width: $w100;
     height: 39px;
-    border-bottom: 1px solid #eee;
+    border-bottom: $borderE;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    .big ,
-    .small {
+    .font-change{
       box-sizing: border-box;
       display:inline-block;
       margin: 0;
       padding: 0;
-      width: 50%;
+      width: $w50;
       text-align: center;
     }
     .small {
-      border-right: 1px solid #eee;
-      font-size: 18px;
+      @extend .font-change;
+      border-right: $borderE;
+      font-size: $fontSize18;
     }
     .big {
-      font-size: 25px;
+      @extend .font-change;
+      font-size: $fontSize25;
     }
   }
   .bottom {
-    width: 100%;
+    width: $w100;
     height: 50px;
     text-align: center;
-    .white ,
-    .black {
+    .set-color{
       box-sizing: content-box;
       margin-top: 17px;
       display: inline-block;
@@ -90,12 +94,14 @@
       width: 30px;
       line-height:30px;
       border-radius: 50%;
-      border: 1px solid #ddd;
+      border: $borderD;
     }
     .white {
-      border: 1px solid rgb(194, 147, 100)
+      @extend .set-color;
+      border: $borderC29364;
     }
     .black {
+      @extend .set-color;
       margin-left: 30%;
     }
   }
