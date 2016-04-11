@@ -76,6 +76,7 @@ class EverydayPageHome extends React.Component {
                   <Link to={`/everyday/${index}/display`} key={`everyday${index}`}>
                     <div className="everyday-box">
                       <div className="item-title">
+                        <img src={src} className="juhe-icon-wenzhang"/>
                         <span className="article-icon"></span>
                         · 文章 ·
                       </div>

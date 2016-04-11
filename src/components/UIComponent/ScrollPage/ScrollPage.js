@@ -86,7 +86,6 @@ class ScrollPage extends React.Component {
           this.props.callbackParent();
         }else{
           this.setState({
-            everyPage: totalPage,
             bottomDisplay: true,
           });
           return;
@@ -114,14 +113,13 @@ class ScrollPage extends React.Component {
     let windowH = document.documentElement.clientHeight;
     let arrPrePage = this.state.arrPrePage;
     let prePage = this.state.prePage;
-    arrPrePage.push(document.documentElement.scrollHeight + oBox.offsetHeight/2);
+    arrPrePage.push(document.documentElement.scrollHeight);
 
     if(scrollTop > prePage) {
       this.isScrollUpDown('down',arrPrePage);
     } else {
       this.isScrollUpDown('up',arrPrePage);
     }
-    prePage = scrollTop;
     window.addEventListener("scroll", this.onScrollListAdd, false);
   }
 

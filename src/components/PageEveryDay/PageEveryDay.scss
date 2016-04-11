@@ -6,6 +6,21 @@
     background-size: 400px;
     vertical-align: middle;
   }
+  .list-contents {
+    max-height: 180px;
+    overflow: hidden;
+    position: relative;
+  }
+  .content-img img{
+    display: block;
+    min-height: 180px;
+    overflow: hidden;
+  }
+  .contents-title {
+    font-size: 18px;
+    padding: 15px 0px 0px 0px;
+    color: #333;
+  }  
   /*字体常用颜色*/
   $fontColor7: #777;
   $fontColor9: #999;
