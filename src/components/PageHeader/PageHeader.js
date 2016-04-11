@@ -40,12 +40,11 @@ class PageHeader extends React.Component {
         <div className="PageHeader bg-white clearfix">
           <Link to='/usermenu' className="left header-btn user-menu"></Link>
           <span className="header-title">{this.state.headerText}</span>
-
           <div className={classnames(this.props.className, 'Navigation')} role="navigation">
             {
               headerData.map((item) => {
                 linkClassName = this.state.juheIndex === item.headerId ? 'Navigation-link_over' : 'Navigation-link';
-                spanClassName = classnames("juhe_menu_txt", item.headerClassName);
+                spanClassName = classnames("juhe_menu_txt left", item.headerClassName);
                 return (
                     <Link to={item.headerHref} className={linkClassName} key={`navigation${item.headerId}`}
                           onClick={() => {this.activeNavigationLink(item.headerId);}}>

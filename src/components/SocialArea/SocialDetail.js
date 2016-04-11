@@ -1,5 +1,22 @@
 import React from 'react';
-import CommentBox from '../CommentBox/CommentBox.js';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { modifyCover } from '../../actions/ShoppingCartActions';
+import * as CommentActions from '../../actions/CommentActions';
+
+import CommonHeader from '../HeaderComponents/CommonHeader.js';
+import ReturnButton from '../HeaderComponents/ReturnButton';
+import CommentButton from '../HeaderComponents/CommentButton';
+
+import CommentBox from '../CommentBox/CommentBox';
+import CommentList from '../CommentBox/CommentList.js';
+import CommentForm from '../CommentBox/CommentForm.js';
+import CommentWriteGuide from '../CommentBox/CommentWriteGuide';
+import CommentItem from '../CommentBox/CommentItem';
+
+import Cover from '../Cover/Cover';
+
 import withStyles from '../../decorators/withStyles';
 import styles from './SocialDetail.scss';
 
@@ -11,24 +28,52 @@ const dataArray = {
 @withStyles(styles)
 class SocialDetail extends React.Component {
 	render() {
-		let commentBoxOptions = {
-			commentHeader: 'off',
-			commentItem: 'Community',
-			commentWriteGuide: 'off',
-			commentForm: 'Community'
-		};
+		const { actions, data, onModifyCover } = this.props;
 		return (
 				<div className="SocialDetail" >
+					<CommonHeader>
+						<ReturnButton/>
+						<CommentButton OnCommentClick={ onModifyCover }/>
+					</CommonHeader>
 					<div id="banner-pic">
-			        <img src="http://file.duoyue.me/upload/group/logo/20151126/2015_11_26_160438732.jpg" title="logo"/>
+			      <img src="http://file.duoyue.me/upload/group/logo/20151126/2015_11_26_160438732.jpg" title="logo"/>
 			    </div>
 			    <div className="banner-content" >
 		        <div className="banner-content-title">{dataArray.title}</div>
 		        <div className="banner-content-intra">{dataArray.intra}</div>
 			    </div>	
-			    <CommentBox options={commentBoxOptions}/>
+				  <CommentBox data={ data } actions={ actions } url="3">
+						<CommentList comments={ data } actions={actions} Item={CommentItem} />
+		        {
+		          this.props.cover && 
+		          <Cover modifyCover={ onModifyCover }>
+		            <CommentForm actions={ actions } id= { data.length }/>
+		          </Cover>
+		        }
+					</CommentBox>
 				</div>
 			);
 	}
 }
+
+function mapStateToProps(state) {
+	console.log(state)
+  return {
+  	cover: state.cover,
+    data: state.comment,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+  	onModifyCover: bindActionCreators(modifyCover, dispatch),
+    actions: bindActionCreators(CommentActions, dispatch)
+  };
+}
+
+SocialDetail = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SocialDetail)
+
 export default SocialDetail;

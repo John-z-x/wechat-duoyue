@@ -16,7 +16,6 @@ class GalleryFrontCover extends React.Component {
 				<div className="content" ref="content">
 					<div className="cover-pic">
 						<center className="picture-show" style={{backgroundImage:'url('+data.src+')'}} >
-						
 						</center>
 					</div>
 					<div className="cover-title">

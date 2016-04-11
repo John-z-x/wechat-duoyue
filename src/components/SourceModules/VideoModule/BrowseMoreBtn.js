@@ -6,7 +6,7 @@ class BrowseMoreBtn extends React.Component {
 
 	render() {
 		return (
-      <Link to="/source/video/4/videolist" className="BrowseMoreBtn browse-more-btn">
+      <Link to="/source/video/4/videolist" className="BrowseMoreBtn">
         <span className="text">查看更多精彩栏目</span>
       </Link>
 		);

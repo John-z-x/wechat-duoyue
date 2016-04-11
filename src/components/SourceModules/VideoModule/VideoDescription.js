@@ -51,7 +51,7 @@ class VideoDescription extends React.Component {
     let maxHeight = this.state.showAll ? "" : this.OVER_HEIGHT;
     let { videoTitle, videoDesc} = this.props.data, {isOver, showAll} = this.state;
 		return (
-			<div className="VideoDescription video-description">
+			<div className="VideoDescription">
         <h3 className="title">{videoTitle}</h3>
         <section className="desc-wrap" style={{maxHeight: maxHeight}} ref="descWrap">
           <article className="desc" ref="desc">
