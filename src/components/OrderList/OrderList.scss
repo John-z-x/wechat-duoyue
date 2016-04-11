@@ -1,81 +1,97 @@
- body {
- 	font-size: 14px;
+.OrderList {
+  $fontStack: '\5FAE\8F6F\96C5\9ED1',Arial, Helvetica, sans-serif;
+  /*fonrsize*/
+  $fontSize12: 12px;
+  $fontSize14: 14px;
+  $fontSize16: 16px;
+  /*fontcolor*/
+  $fontColor3: #333;
+  $fontColor9: #999; 
+  $fontColorF30: #f30;
+  /*border*/
+  $borderDaD: 1px dashed #ddd;
+  $borderE: 1px solid #eee;
+  /*bgcolor*/
+  $bgColorWhite: #fff;
+  $bgColorF0: #f0f0f0;
+  font-size: $fontSize14;
   line-height: 22px;
   table-layout: fixed;
   word-break: break-all;
-  font-family: '微软雅黑',Arial, Helvetica, sans-serif;
- 	background-color: #f0f0f0;
- }
-.OrderList {
-	.OrderBox {
-    padding: 0px 10px 10px 10px;
-    background-color: #f0f0f0;
-	}
-	.my-order {
-		padding:5px 0px 5px 0px;
-	}
-	.order-item {
-		margin-bottom: 15px;
-		background-color: #fff; 
-	}
-	.order-title {
-		height: 36px;
-		padding: 0 10px;
-    border-bottom: 1px solid #eee;
-    line-height: 36px;
-	}
-	.order-status {
-		float: left;
-		font-size: 16px;
-
-	}
-	.order-number {
-		float: right;
-		font-size: 12px;
-	}
-	.order-commodity {
-		padding:10px 0 10px 0;
-	}
-	.order-commodity li {
-		display: block;
-		list-style-type: none;
-		border-bottom:1px  dashed #ddd;
-	}
-	.order-commodity li:last-child {
-		display: block;
-		list-style-type: none;
-		border-bottom: 0;
-	}
-	.order-commodity .commodity-image{
-		float: left;
-		width: 60px;
-		padding: 10px; 
-	}
-	.commodity-title {
-		float: left;
-		padding: 10px;
-	}
-	.order-information {
-    padding: 10px 10px 0;
-    border-top: 1px solid #eee;
-	}
-	.order-pay {
-		float: left;
-		color: #333;
-	}
-	.order-pay .pay-money {
-    color: #f30;
-	}
-	.order-date {
-		float: right;
-    font-size: 12px;
-    color: #999;
-	}
-	.order-delete {
-		padding: 0 10px 10px 10px;
-		text-align: right;
-	}
-	.show-price {
-			padding-left: 5px;
-		}
+  font-family: $fontStack;
+ 	background-color: $bgColorF0;
+  .OrderListHome {
+    .OrderBox {
+      padding: 0px 10px 10px 10px;
+      background-color: $bgColorF0;
+      .my-order {
+        padding:5px 0px 5px 0px;
+      }
+      .OrderListContent {
+        .order-item {
+          margin-bottom: 15px;
+          background-color: $bgColorWhite; 
+          .order-title {
+            height: 36px;
+            padding: 0 10px;
+            border-bottom: $borderE;
+            line-height: 36px;
+            .order-status {
+              float: left;
+              font-size: $fontSize16;
+            }
+            .order-number {
+              float: right;
+              font-size: $fontSize12;
+            }
+          }
+          .order-commodity {
+            padding:10px 0 10px 0;
+            .OrderCommodityItem {
+              display: block;
+              list-style-type: none;
+              border-bottom: $borderDaD;
+              &:last-child {
+                display: block;
+                list-style-type: none;
+                border-bottom: 0;
+              }
+              .commodity-image{
+                float: left;
+                width: 60px;
+                padding: 10px; 
+              }
+              .commodity-title {
+                float: left;
+                padding: 10px;
+              }
+            }
+          }
+          .order-information {
+            padding: 10px 10px 0;
+            border-top: $borderE;
+            .order-pay {
+              float: left;
+              color: $fontColor3;
+              .pay-money {
+                color: $fontColorF30;
+              }
+            }
+            .order-date {
+              float: right;
+              font-size: $fontSize12;
+              color: $fontColor9;
+            }
+          }
+          .order-delete {
+            padding: 0 10px 10px 10px;
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+	// .show-price {
+	// 		padding-left: 5px;
+	// }
 }

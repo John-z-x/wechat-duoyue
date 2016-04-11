@@ -11,3 +11,8 @@ export const MODIFY_COVER_DIS = 'MODIFY_COVER_DIS';
 //SourceList Actions
 export const RECEIVED_SOURCE_LIST = 'RECEIVED_SOURCE_LIST';
 export const FILTER_SOURCE_TYPE = 'FILTER_SOURCE_TYPE';
+
+//Comment Actions
+export const RECEIVED_COMMENT = 'RECEIVED_COMMENT';
+export const ADD_COMMENT = 'ADD_COMMENT';
+export const TOGGLE_PRAISE = 'TOGGLE_PRAISE';

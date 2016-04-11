@@ -1,68 +1,69 @@
 'use strict';
 import React from 'react';
+import { findDOMNode } from 'react-dom';
 import classNames from 'classnames';
 
 class VideoDescription extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      swich: null,
-      wrapHeight: null,
-      contentHeight: null
+      showAll: false, //是否显示全部信息
+      isOver: false //是否需要显示箭头
     };
+    this.OVER_HEIGHT = 36;
+    //this.toggleShowDesc = this.toggleShowDesc.bind(this);
   }
   activeVideoDescState() {
-    let 
-      desc = this.refs.desc,
-      descWrap = this.refs.descWrap,
-      wrapHeight = descWrap.clientHeight,
-      contentHeight = desc.clientHeight;
-    if (wrapHeight < contentHeight) {
+    let descHeight = findDOMNode(this.refs.desc).clientHeight;
+    this.OVER_HEIGHT = findDOMNode(this.refs.descWrap).clientHeight;
+
+    if (descHeight > this.OVER_HEIGHT) {
       this.setState({
-        swich: false,
-        wrapHeight: descWrap.clientHeight,
-        contentHeight: desc.clientHeight,
+        isOver: true
       });
-    } else {
-      this.refs.toggleBtn.style.display = "none";
-    }
-  }
-  toggleShowDesc(event) {
-    let 
-      desc = this.refs.desc,
-      descWrap = this.refs.descWrap;
-      
-    const 
-      condition = this.state.swich,
-      wrapHeight = this.state.wrapHeight,
-      contentHeight = this.state.contentHeight;
-    if (!condition) {
-      descWrap.style.maxHeight = contentHeight + 'px';
+    }else {
       this.setState({
-        swich: true,
-      });
-    } else {
-      descWrap.style.maxHeight = wrapHeight + 'px';
-      this.setState({
-        swich: false,
+        isOver: false
       });
     }
+    //初始化箭头方向
+    this.setState({
+      showAll: false
+    })
   }
+
+  toggleShowDesc() {
+    this.setState({
+      showAll: !this.state.showAll
+    })
+  }
+
   componentDidMount() {
     this.activeVideoDescState();
   }
+
+  componentDidUpdate(nextProps) {
+    if(nextProps.index == this.props.index) return;
+    this.activeVideoDescState();
+  }
+
 	render() {
+    let maxHeight = this.state.showAll ? "" : this.OVER_HEIGHT;
+    let { videoTitle, videoDesc} = this.props.data, {isOver, showAll} = this.state;
 		return (
-			<div className="video-description">
-        <h3 className="title">{this.props.data.videoTitle}</h3>
-        <section className="desc-wrap" ref="descWrap">
+			<div className="VideoDescription">
+        <h3 className="title">{videoTitle}</h3>
+        <section className="desc-wrap" style={{maxHeight: maxHeight}} ref="descWrap">
           <article className="desc" ref="desc">
-            {this.props.data.videoDesc}
+            {videoDesc}
           </article>
         </section>
-        <a href="javascript:void(0)" className="toggle-text-btn" onClick={this.toggleShowDesc.bind(this)} ref="toggleBtn">
-          <em className={classNames('icon',{'reversal': !this.state.swich})}></em>
-        </a>
+        {
+          isOver &&
+          <span className="toggle-text-btn" onClick={::this.toggleShowDesc}>
+            <em className={classNames('icon',{'reversal': !showAll})}/>
+          </span>
+        }
       </div>
 		);
 	}

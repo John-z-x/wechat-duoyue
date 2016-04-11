@@ -26,7 +26,7 @@ class HotNews extends React.Component {
 			let autoAnimate = function() {
 	      if(this.state.top + speed > end) {
 	      	this.setState({top: this.state.top + speed});
-	      	Timer = setTimeout(autoAnimate, ANIMATE_TIME);
+					this.timer = setTimeout(autoAnimate, ANIMATE_TIME);
 	      }else {
 	        if( end !== - count*height ) {
 						this.setState({top: end});
@@ -57,7 +57,7 @@ class HotNews extends React.Component {
 		this.setState({
 			news: news,
 		});
-		this.timer = setTimeout(function() {this.slider(sliderBox)}.bind(this), this.SETOUT_TIME);
+		//this.timer = setTimeout(function() {this.slider(sliderBox)}.bind(this), this.SETOUT_TIME);
   }
 
 	componentWillUnmount() {

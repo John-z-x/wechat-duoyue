@@ -1,16 +1,24 @@
 .CommonHeader {
+  $fontColor3: #333;
+  $borderCD: 1px solid #cdcdcd;
+  $bgColorWhite: #fff;
+  $w60: 60%;
+  $w100: 100%;
+  @mixin icon-set($iconUrl) {
+    background: url($iconUrl) no-repeat center;  
+  }
   .header {
     position: fixed;
     left: 0;
     top: 0;
     z-index: 10010;
-    width: 100%;
+    width: $w100;
     height: 40px;
-    background-color: white;
-    border-bottom: 1px solid #cdcdcd;
+    background-color: $bgColorWhite;
+    border-bottom: $borderCD;
   }
   .replace-header-fixed-place {
-    width: 100%;
+    width: $w100;
     height: 40px;
   }
 
@@ -18,50 +26,50 @@
     height: 40px;
     width: 40px;
     margin: 0 10px;
-    background: url('/images/back.png') center no-repeat;
+    @include icon-set("/images/back.png");
     background-size: 25px 23px;
   }
 
   .SearchButton {
     height: 40px;
     width: 40px;
-    background: url(/images/CommodityDetailImage/icon_Search.png) center no-repeat;
+    @include icon-set("/images/CommodityDetailImage/icon_Search.png");
     background-size: 25px 25px;
   }
 
   .Favor {
     height: 40px;
     width: 40px;
-    background: url(http://www.duoyue.me/wechat/1018/3021/images/like_yes_new.png) center no-repeat;
+    @include icon-set("http://www.duoyue.me/wechat/1018/3021/images/like_yes_new.png");
     background-size: 21px 21px;
   }
 
   .noFavor {
     height: 40px;
     width: 40px;
-    background: url(http://www.duoyue.me/wechat/1018/3021/images/like_new.png) center no-repeat;
+    @include icon-set("http://www.duoyue.me/wechat/1018/3021/images/like_new.png");
     background-size: 21px 21px;
   }
 
   .CommentButton {
-    background: url(http://www.duoyue.me/images/album/comment.png) center no-repeat;
+    @include icon-set("http://www.duoyue.me/images/album/comment.png");
   }
 
   .DownLoadButton {
-    background: url(http://www.duoyue.me/images/album/icon_download.png) center no-repeat ;
+    @include icon-set("http://www.duoyue.me/images/album/icon_download.png");
   }
   .HeaderStyleModify {
-    background: url(http://www.duoyue.me/images/mobile/articleImages/font.png) center no-repeat;
+    @include icon-set("http://www.duoyue.me/images/mobile/articleImages/font.png");
   }
 
   .HeaderTitle {
     position: fixed;
-    width: 60%;
+    width: $w60;
     top: 0;
     left: 20%;
     text-align: center;
     font-size: 16px;
-    color: #333333;
+    color: $fontColor3;
     height: 40px;
     line-height: 40px;
   }
@@ -75,13 +83,11 @@
       height: 21px;
     }
   }
-
   .head-btn {
     height: 40px;
     width: 40px;
     background-size: 21px 21px;
   }
-
   .MenuButton {
     line-height: 48px;
     .icon {

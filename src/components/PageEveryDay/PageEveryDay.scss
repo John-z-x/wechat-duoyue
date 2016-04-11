@@ -1,20 +1,8 @@
 .EverydayPage {
-  .everyday-box {
-    padding: 15px;
-    border-bottom: 1px solid #ddd;
-  }
-  .item-title {
-    line-height: 12px;
-    font-size: 11px;
-    color: #777;
-    padding: 0px 0px 10px 0px;
-  }
-  .juhe-icon-wenzhang {
-    width: 12px;
-    height: 12px;
+  /*聚合图片开始*/
+  .wechat-icon {
     background-image: url(../../../assets/images/wechat_icon.png);
     background-repeat: no-repeat;
-    background-position: -76px -93px;
     background-size: 400px;
     vertical-align: middle;
   }
@@ -23,7 +11,7 @@
     overflow: hidden;
     position: relative;
   }
-  .list-contents img{
+  .content-img img{
     display: block;
     min-height: 180px;
     overflow: hidden;
@@ -32,27 +20,67 @@
     font-size: 18px;
     padding: 15px 0px 0px 0px;
     color: #333;
+  }  
+  /*字体常用颜色*/
+  $fontColor7: #777;
+  $fontColor9: #999;
+  $fontColor3: #333;
+  /*字体常用字号*/
+  $fontSize11: 11px;
+  $fontSize12: 12px;
+  $fontSize18: 18px;
+  /*bordercolor*/
+  $borderD: 1px solid #ddd;
+  .everyday-box {
+    padding: 15px;
+    border-bottom: $borderD;
+      .item-title {
+      padding-bottom: 10px;
+      line-height: 12px;
+      font-size: $fontSize12;
+      color: $fontColor7;
+      }
+      .article-icon {
+      @extend .wechat-icon;
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      background-position: -76px -93px; 
+      }
   }
-  .contents-desc {
-    font-size: 12px;
-    color: #777;
-    line-height: 18px;
-    padding: 8px 0px 10px 0px;
+  
+  .EverydayContent {
+    .content-img {
+      max-height: 180px;
+      overflow: hidden;
+      position: relative;
+    }
+    .title {
+      font-size: $fontSize18;
+      padding-top: 15px;
+      color: $fontColor3;
+    }
+    .desc {
+      font-size: $fontSize12;
+      color: $fontColor7;
+      line-height: 18px;
+      padding: 8px 0 10px 0;
+    }
   }
-  .dates {
-    font-size: 11px;
-    color: #999;
+
+  .EveryDayDates {
+    font-size: $fontSize11;
+    color: $fontColor9; 
     text-align: right;
     line-height: 12px;
+      .eye-icon {
+        @extend .wechat-icon;
+        display: inline-block;
+        width: 18px;
+        margin-left: 5px;
+        height: 12px;      
+        background-position: -72px -120px;
+    }
   }
-  .juhe-icon-liulan {
-    width: 18px;
-    margin-left: 5px;
-    height: 12px;
-    background-image: url(../../../assets/images/wechat_icon.png);
-    background-repeat: no-repeat;
-    background-position: -72px -120px;
-    background-size: 400px;
-    vertical-align: middle;
-  }
+  
 }

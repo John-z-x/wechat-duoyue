@@ -1,34 +1,72 @@
 .CatalogArea {
-	width:100%; 
-	height:100%; 
-	z-index:11000; 
-	background-color:#FFF; 
-	position:absolute; 
-	top: 0; 
-	left:0; 
-	overflow: scroll;
-	display: none;
-
-	.articleIndex {
-    padding: 10px;
-    margin-top: 40px;
-	}
-	.articleIndex a {
-		color: #333;
-    text-decoration: none;
-	}	
-	.articleIndex a:active {
-		color: rgb(151, 215, 192);
-	}
-	.showIndex{
-		height:40px; 
-		line-height:30px; 
-		width:95%; 
-		overflow:hidden; 
-		white-space:nowrap; 
-		text-overflow:ellipsis; 
-		padding:5px 2%;
-		border-bottom:1px solid #ddd;
-		font-size: 14px;
-	}
+  @mixin a-line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  /*常用border*/
+  $borderColorD: 1px solid #ddd;
+  /*bg-color*/
+  $backgroundColorF: #fff;
+  /*font-color*/
+  $fontColor3: #333;
+  $fontColor97d7c0: #97d7c0;
+  /*width*/
+  $w100: 100%;
+  
+  width: $w100;
+  height: 100%;
+  z-index: 11111;
+  background-color: $backgroundColorF;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: scroll;
+  .catalog-header {
+    position: fixed;
+    width: $w100;
+    height: 40px;
+    left: 0;
+    top: 0;
+    background-color: $backgroundColorF;
+    z-index: 11111;
+    border-bottom: $borderColorD;
+    .articleIcon-continue {
+      line-height: 40px;
+      text-indent: 30px;
+      color: $fontColor97d7c0;
+      margin-left: 10px;
+        &:before {
+        content: "<";
+        color: $fontColor97d7c0;
+        margin-right: 5px;
+      }
+    }
+  }
+  .catalog {
+    .articleIndex {
+      padding: 10px;
+      margin-top: 40px;
+      a {
+        color: $fontColor3;
+        text-decoration: none;
+        &:active {
+         color: $fontColor97d7c0;
+        }
+      }
+      .showIndex {
+        height: 40px;
+        line-height: 30px;
+        width: 95%;
+        @include a-line;
+        padding: 5px 2%;
+        border-bottom: $borderColorD;
+        font-size: 14px;
+        color: $fontColor3;
+      }
+      .over {
+        color: $fontColor97d7c0;
+      }
+    }
+  }
 }

@@ -2,7 +2,6 @@ import React from 'react';
 import PhotoFlow from './PhotoFlow';
 import CommonHeader from '../../HeaderComponents/CommonHeader';
 import ReturnButton from '../../HeaderComponents/ReturnButton';
-import AlbumShow from "./AlbumShow"
 import withStyles from '../../../decorators/withStyles';
 import styles from './PhotoModule.scss';
 
@@ -14,7 +13,7 @@ const photoData = [
 	{'index':'5','src':'http://file.duoyue.me/upload/source/pic/20160122/2016_01_22_143807229.jpg','title':'武汉理工大学数字中心','disc':'运营部'},
   {'index':'6','src':'http://file.duoyue.me/upload/source/pic/20160122/2016_01_22_143804213.jpg','title':'武汉理工大学数字中心','disc':'设计部'}
 	
-]
+];
 
 const photoData2 = [
 	{'index':'25','src':'http://file.duoyue.me/upload/source/pic/20151130/2015_11_30_170232374_c.jpg','title':'图片9'},
@@ -29,7 +28,7 @@ const photoData2 = [
 	{'index':'34','src':'http://file.duoyue.me/upload/source/pic/20151128/2015_11_28_115105267_c.jpg'},
 	{'index':'35','src':'http://file.duoyue.me/upload/source/pic/20151130/2015_11_30_174815169_c.jpg','title':'图片19'}
 
-]
+];
 
 @withStyles(styles)
 class PhotoList extends React.Component {
@@ -37,7 +36,7 @@ class PhotoList extends React.Component {
 	render() {
 		return(
 			<div className="PhotoList">
-				<div className="listChange" ref="listChange" style={{"display":"block"}}>
+				<div className="listChange" ref="listChange">
 					<CommonHeader>
 						<ReturnButton/>
 					</CommonHeader>

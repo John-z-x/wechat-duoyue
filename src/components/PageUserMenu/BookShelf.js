@@ -1,165 +1,191 @@
 import React from 'react';
-import $ from 'jquery';
+import { findDOMNode } from 'react-dom';
 import { Link } from 'react-router';
+import SliderDot from '../UIComponent/Slider/SliderDot';
+import utils from '../../utils/utils';
 
-class BookShelf extends React.Component{
-	constructor(props) {
-		super(props);
-	  this.slide = this.slide.bind(this);
-	  this.winWidth = window.innerWidth;
-	 // this.startX;
-	  this.dotIndex = 0;
-	}
+class BookShelf extends React.Component {
 
-	componentDidMount(){
-  	let topHeight = document.getElementById("user-new").offsetHeight,
-      bottomHeight = document.getElementById("menu-bottom").offsetHeight,
-      winHeight = window.innerHeight,
-      pagallHeight = winHeight-(bottomHeight+topHeight+50),
-      bookCount = this.props.data.bookCount,
-	    pageNum = Math.ceil((bookCount+1)/6),
-      pageChange = $("#page-change"),//为了使用jQuery的animate函数;
-      pageAll = document.getElementById('page-all'),
-      swipeDistanceX,
-      dotSpan,
-      pageDots = document.getElementById('page-dots');
-
-    for (let i=1; i<pageNum; i++) {
-      dotSpan = document.createElement("span");
-      dotSpan.className = 'dot-not dot';
-      pageDots.appendChild(dotSpan);
-    }
-
-		document.getElementById('page-all').style.height = pagallHeight + 'px';
-		let pageWidth = pageChange.width();
-		pageChange.width(pageNum*pageWidth);
-
-		const bookWraps = Array.from(document.getElementsByClassName('bookWrap'));
-		for(let i in bookWraps){
-			bookWraps[i].style.width = pageChange.width()/pageNum + 'px';
-		}			
-
-		// 控制书名长度；
-		let bookNames = [];
-		bookNames = document.getElementsByClassName('book-name');
-		for (let x in bookNames){
-			if(bookNames[x].innerHTML){
-				var htmlString = bookNames[x].innerHTML+'';
-		    if(htmlString.length >= 7) {
-		      bookNames[x].innerHTML=htmlString.slice(0, 7) + "...";
-		    } 
-		  } 				
-		}
-		this.slide(pageAll);
+  constructor(props) {
+    super(props);
+    this.state = {
+      index: 0,
+      left: 0
+    };
+    this.isSlidering = false;
+    this.winWidth = document.documentElement.clientWidth;
+    this.PAGE_COUNT = 6;
+    utils.bindMethods(this, "touchStart", "touchMove", "touchEnd", "slide", "playAnimate");
   }
 
-		//添加滑动事件
-	_touchStart (e) {
-		this.startX = e.targetTouches[0].pageX;
-	} 
+  touchStart(e) {
+    let touchStartPoint = e.targetTouches;
+    this.startX = touchStartPoint[0].pageX;
+    this.startLeft = this.state.left;
+  }
 
-	_touchMove (e) {
-		e.preventDefault();
-		let moveX = e.targetTouches[0].pageX;
-		this.swipeDistanceX = moveX-this.startX;
-	}
+  touchMove(e) {
+    e.preventDefault();
+    let touchPoint = e.targetTouches;
+    if(this.isSlidering) return;
+    this.moveX = touchPoint[0].pageX - this.startX;
+    this.setState({
+      left: this.startLeft + this.moveX
+    });
+  }
 
-  move () {
-    let dotArray = [];
-	  dotArray = document.getElementsByClassName('dot');
-  	let bookCount = this.props.data.bookCount;
-  	let pageNum = Math.ceil((bookCount+1)/6);
-  	let pageChange = $("#page-change");
-    if (this.swipeDistanceX < -5) {
-      this.dotIndex +=1;
-      if (this.dotIndex < pageNum) {
-        pageChange.animate({left: -this.dotIndex * this.winWidth});
-        for (var i in dotArray) {
-        	if(dotArray[i].className){
-          	dotArray[i].className="dot dot-not";
-	          dotArray[this.dotIndex].className="dot color-over";
-	        }
+  touchEnd(e) {
+    if(this.isSlidering) return;
+    const MOVE_DISTANCE = 50;
+    let moveX = this.moveX, width = this.winWidth, end,
+        pageNumber = Math.ceil(this.props.data.bookData.length / this.PAGE_COUNT),
+        index = this.state.index;
+    this.moveX = 0;
+    if(moveX < 0) {
+      if(moveX < -MOVE_DISTANCE) {
+        if(index < pageNumber - 1) {
+          end = -( index + 1) * width;
+          this.setState({
+            index: index + 1
+          });
+          this.playAnimate("left", end);
+        } else {
+          end = -index * width;
+          this.playAnimate("right", end);
         }
-    	}
-      else {
-        this.dotIndex = pageNum-1;
+      } else {
+        end = -index * width;
+        this.playAnimate("right", end);
       }
-  	} 
-  	else if(this.swipeDistanceX > 5) {
-      this.dotIndex -=1;
-      if (this.dotIndex >= 0) {
-        pageChange.animate({left: -this.dotIndex * this.winWidth});
-        for (var i in dotArray) {
-        	if(dotArray[i].className){
-          	dotArray[i].className="dot dot-not";
-	          dotArray[this.dotIndex].className="dot color-over";
-	        }
+    } else {
+      if(moveX > MOVE_DISTANCE) {
+        if(index > 0) {
+          end = -(index - 1) * width;
+          this.setState({
+            index: index - 1
+          });
+          this.playAnimate("right", end);
+        } else {
+          end = -index * width;
+          this.playAnimate("left", end);
         }
+      } else {
+        end = -index * width;
+        this.playAnimate("left", end);
       }
-      else {
-	     this.dotIndex = 0
-	    }
     }
   }
 
-	slide(node){
-		node.addEventListener('touchstart',this._touchStart.bind(this));
-		node.addEventListener('touchmove',this._touchMove.bind(this));
-		node.addEventListener('touchend',this.move.bind(this));
-	}		
+  slide(node) {
+    node.addEventListener("touchstart", this.touchStart, false);
+    node.addEventListener('touchmove', this.touchMove, false);
+    node.addEventListener('touchend', this.touchEnd, false);
+  }
 
-	removeSlide(node){
-		node.removeEventListener('touchstart',this._touchStart.bind(this));
-		node.removeEventListener('touchmove',this._touchMove.bind(this));
-		node.removeEventListener('touchend',this.move.bind(this));
-	}
+  playAnimate(direction, end) {
+    //direction 图片滚动的方向
+    let speed, _this = this;
+    let width = this.winWidth;
+    const SPEED = 20, ANIMATE_TIME = 10;
 
-componentWillUnmount (){
-  let pageAll = document.getElementById('page-all');
-	this.removeSlide(pageAll);
+    function animate() {
+      let { left, index } = _this.state;
+      if(direction === "left") {
+        speed = -SPEED;
+        if(left + speed > end) {
+          _this.setState({
+            left: left + speed
+          });
+          speed--;
+          _this.isSlidering = true;
+          _this.animate = setTimeout(animate, ANIMATE_TIME);
+        } else {
+          _this.setState({
+            left: -index * width
+          });
+          _this.isSlidering = false;
+        }
+      } else {
+        speed = SPEED;
+        if(left + speed < end) {
+          _this.setState({
+            left: left + speed
+          });
+          speed++;
+          _this.isSlidering = true;
+          _this.animate = setTimeout(animate, ANIMATE_TIME);
+
+        } else {
+          _this.setState({
+            left: -index * width
+          });
+          _this.isSlidering = false;
+        }
+      }
+    }
+    animate();
+  }
+
+  componentDidMount() {
+    let shelf = findDOMNode(this.refs.shelf);
+    this.slide(shelf);
+  }
+
+  componentWillUnmount() {
+    let node = findDOMNode(this.refs.shelf);
+    node.removeEventListener("touchstart", this.touchStart, false);
+    node.removeEventListener('touchmove', this.touchMove, false);
+    node.removeEventListener('touchend', this.touchEnd, false);
+    window.clearTimeout(this.animate);
+  }
+
+  getBookShelfBox(page) {
+    let { bookData } = this.props.data;
+    return (
+        <div className="bookWrap left" key={page} style={{width: this.winWidth}}>
+          <div className="my-books clearfix">
+            {
+              bookData.map((item, i) => {
+                if(i >= page * this.PAGE_COUNT && i < (page + 1) * this.PAGE_COUNT) {
+                  return (
+                    <Link to={item.href} key={i}>
+                      <img src={item.src} alt="书籍封面" className="book-img" title={item.bookName}/>
+                      <div className="book-name">{item.bookName}</div>
+                    </Link>
+                  );
+                }
+              })
+            }
+          </div>
+        </div>
+    );
+  }
+
+  render() {
+    let {bookData} = this.props.data, bookCodeLength, bookCode = [], bookBoxWidth,
+        windowHeight = document.documentElement.clientHeight;
+        bookCodeLength = Math.ceil(bookData.length / this.PAGE_COUNT);
+        bookBoxWidth = this.winWidth * bookCodeLength;
+    for (let i = 0; i < bookCodeLength; i++) {
+      bookCode.push(this.getBookShelfBox(i));
+    }
+
+    return (
+        <div className="BookShelf " style={{ height: windowHeight-190 }} ref="shelf">
+          <div className="top-title">
+            <div className="line"></div>
+            <div className="title">我的书架</div>
+          </div>
+          <div className="book-box clearfix" style={{left: this.state.left, width: bookBoxWidth}}>
+            {bookCode}
+          </div>
+          <div className="page-dots">
+            <SliderDot index={this.state.index+1} nums={bookCodeLength}/>
+          </div>
+          <div className="books-bottom"></div>
+        </div>
+    );
+  }
 }
-	 
-	render(){
-		let bookItems = [];
-		let BookStyle =	this.props.data.bookData.map( function(bookItem, index) {
-    		bookItems.push(bookItem);
-    		return(
-	      	<div className="bookWrap" style={{float:'left'}} key={index}>
-	          <div className="clearfix my-books" id="myBooks">					         
-							{ 
-								bookItems[bookItems.length-1].map(function(item,i){
-									return (
-									  <Link to={item.href} key={i}>
-				               <img src={item.src} alt="book-img" className="book-img"/>
-				               <div className="book-name">{item.bookName}</div>
-				            </Link>
-									);
-								}
-								)
-							}
-	          </div>
-	        </div>
-        );
-      });
-
-		return (
-					<div className=" my-bookcase" id="page-all"  >
-				    <div className="top-title">
-				      <div className="line"></div>
-				      <div className="title">我的书架</div>
-				    </div>
-
-			      <div  className="book-box clearfix" id="page-change">
-			      {BookStyle}
-				    </div>
-
-					  <div className="page-dots" id="page-dots">
-					    <span className="color-over dot" ></span>
-					  </div>
-				    <div className="books-bottom"></div>
-				 </div>
-		);
-	}
-};
 
 export default BookShelf;

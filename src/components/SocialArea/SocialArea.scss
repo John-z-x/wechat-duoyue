@@ -1,62 +1,96 @@
-html, body {
-	width: 100%;
-	height: 100%;
-	background-color: #f8f8f8;
-	margin: 0;
-}
-a {
-	color: #333;
-	text-decoration: none;
-}
 .SocialArea {
-  .title {
-	text-align: center;
-	font-size: 20px;
-	padding: 15px 20px 2px 20px;
-	background-color: #f8f8f8;
-	border-top: 1px solid #ddd;
-  }
-  .intra {
-	background-color: #f8f8f8;
-	text-align: center;
-	padding: 0px 20px 10px 20px;
-	font-size: 12px;
-	color: #999;
-  }
-  .bg-pic {
-	width: 100%;
-  }
-  .user {
-	min-height: 100px;
-	padding: 0px 0px 20px 0px;
-	border-bottom: 1px solid #ddd;
-  }
-  .user-pic {
-	position: absolute;
-	z-index: 1;
-	text-align: center;
-	width: 100%;
-	margin-top: -35px;
-  }
-  .user-pic img {
-	width: 70px;
-	height: 70px;
-	border-radius: 70px;
-  }
-  .user-words {
-	padding: 45px 20px 0px 20px;
-	text-align: center;
-  }
-  .user-words span {
-	font-size: 22px;
-  }
-  .user-time {
-	font-size: 12px;
-	color: #999;
-	text-align: center;
-  }
-  .end {
-	height: 30px;
-	background-color: #f0f0f0;
-  }
+
+  $fontSize10: 10px;
+  $fontSize12: 12px;
+  $fontSize14: 14px;
+  $fontSize16: 16px;
+  $fontSize20: 20px;
+  $fontSize22: 22px;
+  /*font-color*/
+  $fontColor3: #333;
+  $fontColor7: #777;
+  $fontColor9: #999;
+  /*bg-color*/
+  $backgroundColorF: #fff;
+  $backgroundColor61c3a2: #61c3a2;
+  $backgroundColor62c3a2: #62c3a2;
+  $backgroundColorF0: #f0f0f0;
+  $backgroundColorF8: #f8f8f8;
+    /*常用border*/
+  $borderColorC: 1px solid #ccc;
+  $borderColorD: 1px solid #ddd;
+  $borderColorE4: 1px solid #e4e4e4;
+  $borderColor61c3a2: 1px solid #61c3a2;
+  $borderColorE: 1px solid #eee;
+  /*width*/
+  $width25: 25%;
+  $width33: 33%;
+  $width50: 50%;
+  $width100: 100%;
+  /*font-family*/
+  $fontFamilyYaHei: 'Microsoft YaHei';
+
+
+	width: $width100;
+	height: 100%;
+	background-color: $backgroundColorF8;
+	margin: 0;
+	a {
+		color: $fontColor3;
+		text-decoration: none;
+	}
+	.SocialAreaHome {
+		.SocialAreaItem {
+			.title {
+				text-align: center;
+				font-size: $fontSize20;
+				padding: 15px 20px 2px 20px;
+				background-color: $backgroundColorF8;
+				border-top: $borderColorD;
+			}
+			.intra {
+				background-color: $backgroundColorF8;
+				text-align: center;
+				padding: 0px 20px 10px 20px;
+				font-size: $fontSize12;
+				color: $fontColor9;
+			}
+			 .bg-pic {
+				width: $width100;
+		  }
+	    .user {
+				min-height: 100px;
+				padding-bottom: 20px;
+				border-bottom: $borderColorD;
+				.user-pic {
+					position: absolute;
+					z-index: 1;
+					text-align: center;
+					width: $width100;
+					margin-top: -35px;
+					img {
+						width: 70px;
+						height: 70px;
+						border-radius: 70px;
+				  }
+			  }
+		    .user-words {
+					padding: 45px 20px 0px 20px;
+					text-align: center;
+					span {
+						font-size: $fontSize22;
+				  }
+			  }
+			  .user-time {
+					font-size: $fontSize12;
+					color: $fontColor9;
+					text-align: center;
+			  }
+		  }
+		  .end {
+				height: 30px;
+				background-color: $backgroundColorF0;
+		  }
+		}
+	}
 }

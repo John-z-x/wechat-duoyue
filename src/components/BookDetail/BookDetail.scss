@@ -1,274 +1,286 @@
 
 .BookDetail {
+
+  /*font-color*/
+  $fontColor3: #333;
+  $fontColor7: #777;
+  $fontColorF: #fff;
+  $fontColor61c3a2: #61c3a2;
+  $fontColor7da0b4: #7da0b4;
+  
+  /*font-size*/
+  $fontSize18: 18px;
+  $fontSize16: 16px;
+  $fontSize14: 14px;
+  $fontSize12: 12px;
+  
+  /*常用border*/
+  $borderColor3: 1px solid #333;
+  $borderColorD: 1px solid #ddd;
+  $borderColorE4: 1px solid #e4e4e4;
+  $borderColor61c3a2: 1px solid #61c3a2;
+  $borderColor561c3a2: 5px solid #61c3a2;
+  $borderColorE: 1px solid #eee;
+
+  /*font-family*/
+  $fontFamilySHS: 'SourceHanSansCN-Normal';
+  
+  /*bg-color*/
+  $backgroundColorF: #fff;
+  $backgroundColorF8: #f8f8f8;
+  $backgroundColorFA: #fafafa;
+  $backgroundColor61c3a2: #61c3a2;
+  $backgroundColor7da1b4: #7da1b4;
+  
+  /*width*/
+  $width25: 25%;
+  $width33: 33%;
+  $width50: 50%;
+  $width100: 100%;
+  /*一行*/
+  @mixin a-line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+ @mixin book-icon {
+    display: inline-block;
+    width: 100%;
+    height: 40px;
+    margin: auto;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  /*购买和客服*/
+  @mixin buy-consult-icon {
+    height: 25px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  /*控制多行...*/
+  @mixin n-line($n) {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: $n;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+  }
   a {
     text-decoration: none;
   }
   .blank40 {
     height: 40px;
   }
-  .top-menu {
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 500;
-    width: 100%;
-    height: 39px;
-    border-bottom: 1px solid #eee;
-    background-color: #fff;
-    z-index: 11001;
+
+  .BookInfo {
+    .book-cover {
+      padding: 25px;
+      text-align: center;
+      img {
+        width: $width50;
+        border: 0;
+        vertical-align: top;
+      }
+
+    }
+    .book-info {
+      padding: 10px 0 10px 0;
+      border-top: $borderColorE;
+      border-bottom: $borderColorE;
+      background-color: $backgroundColorFA;
+      .book-title {
+        padding: 30px 20px 5px 30px;
+        text-align: center;
+        font-size: $fontSize18;
+      }
+      .sell-price {
+        text-align: center;
+        color:  $fontColor61c3a2;
+        font-size: $fontSize18;
+      }
+      .button-area {
+        box-sizing: border-box;
+        padding: 20px 100px;
+        .book-buy,.book-consult {
+          display: inline-block;
+          width: $width50;
+          .icon-box-title {
+            padding: 5px 0px 5px 0px;
+            text-align: center;
+            color: $fontColor7;
+          }
+          .book-buy-icon {
+            background: url(/images/icon_buy.png);
+            @include buy-consult-icon;
+          }
+          .book-consult-icon {
+            background: url(/images/server.png);
+            @include buy-consult-icon;
+          }
+        }
+      }
+      .book-desc {
+        padding: 10px 30px;
+        .book-desc-box {
+          border-top: $borderColorE;
+          padding: 20px 0 10px 0;
+          .book-desc-title {
+            display: inline-block;
+            width: $width100;
+            padding: 0 0 10px 0;
+            font-size: $fontSize14;
+            text-align: center;
+          }
+          .book-desc-content {
+            line-height: 18px;
+            font-size: $fontSize12;
+            color: $fontColor7;
+          }
+        }
+        .book-read-box {
+          padding: 25px 0 15px 0;
+          border-top: $borderColorE;
+          .book-read-btn {
+            display: block;
+            width: 160px;
+            margin: auto;
+            padding: 8px 0 8px 0;
+            border: $borderColor61c3a2;
+            border-radius: 25px;
+            color:  $fontColor61c3a2;
+            text-align: center;
+            margin-top: 5px;
+          }
+        }
+        .list-box {
+          padding: 30px 0px 10px 0px;
+          border-top: $borderColorE;
+          .list-icon {
+            background: url(/images/shuoming.png);
+            @include book-icon;
+          }
+          .detail-icon {
+            background: url(/images/xiangqing.png);
+            @include book-icon;
+          }
+          .pub-icon {
+            background: url(/images/chuban.png);
+            @include book-icon;
+          }
+          .book-list-title {
+            display: inline-block;
+            width: $width100;
+            padding: 10px 0;
+            text-align: center;
+            font-size: $fontSize14;
+            color: $fontColor7;
+          }
+          .list-single-title {
+            color: $fontColor7;
+            height: 30px;
+            line-height: 30px;
+            width: $width100;
+            @include a-line;
+          }
+          .book-detail-content {
+            padding: 10px 0px;
+            .pub-title {
+              color: $fontColor7;
+              line-height: 18px;
+              font-size: $fontSize12;
+            }
+          }
+        }
+        .book-buy-box {
+          padding: 20px 0 10px 0;
+          border-top: $borderColorE;
+          .book-buy-btn {
+            width: 200px;
+            margin: auto;
+            padding: 12px 0px;
+            background-color:  $backgroundColor61c3a2;
+            border-radius: 25px;
+            text-align: center;
+            font-size: $fontSize16;
+            color: $fontColorF;
+          }
+        }
+      }
+    }
   }
-  .back-btn {
-    float: left;
-    width: 40px;
-    height: 100%;
-    padding-top: 10px;
-    padding-left: 10px;
-  }
-  .back-btn img {
-    width: 22px;
-    height: 19px
-  }
-  .top-fav {
-    float: right;
-    width: 40px;
-    text-align: center;
-    height: 100%;
-  }
-  .top-fav img {
-    width: 20px;
-    position: relative;
-    top: 10px;
-  }
-  .book-cover {
-    padding: 25px;
-    text-align: center;
-  }
-  .book-cover img {
-    width: 50%;
-    border: 0 none;
-    vertical-align: top;
-  }
-  .book-info {
-    padding: 10px 0 10px 0;
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
-    background-color: #fafafa;
-  }
-  .book-title {
-    padding: 30px 20px 5px 30px;
-    text-align: center;
-    font-size: 18px;
-  }
-  .sell-price {
-    text-align: center;
-    color: #62c3a2;
-    font-size: 18px;
-  }
-  .button-area {
-    padding: 20px 100px;
-  }
-  .button-area table {
-    width: 100%;
-    border: 0;
-    padding: 0;
-    border-spacing: 0;
-    margin: 0;
-  }
-  .button-area table td {
-    width: 50%;
-    padding: 0;
-    text-align: center;
-  }
-  .icon-box {
-    width: 60px;
-    margin: auto;
-  }
-  .icon-box-title {
-    padding: 5px 0px 5px 0px;
-    color: #777;
-  }
-  .book-buy-icon {
-    height: 25px;
-    background: url(/images/icon_buy.png) center no-repeat;
-    -webkit-background-size: contain;
-    background-size: contain;
-  }
-  .book-consult-icon {
-    height: 25px;
-    background: url(/images/server.png) center no-repeat;
-    -webkit-background-size: contain;
-    background-size: contain;
-  }
-  .book-desc {
-    padding: 10px 30px;
-  }
-  .book-desc-box {
-    border-top: 1px solid #eee;
-    padding: 20px 0 10px 0;
-  }
-  .book-desc-title {
-    padding: 0 0 10px 0;
-    font-size: 14px;
-    text-align: center;
-  }
-  .book-desc-content {
-    line-height: 18px;
-    font-size: 12px;
-    color: #777;
-  }
-  .book-read-box {
-    padding: 25px 0 15px 0;
-    border-top: 1px solid #eee;
-  }
-  .book-read-btn {
-    display: block;
-    width: 160px;
-    margin: auto;
-    padding: 8px 0 8px 0;
-    border: 1px solid #62c3a2;
-    border-radius: 25px;
-    color: #62c3a2;
-    text-align: center;
-    margin-top: 5px;
-  }
-  .book-buy-box {
-    padding: 20px 0 10px 0;
-    border-top: 1px solid #eee;
-  }
-  .book-buy-btn {
-    width: 200px;
-    margin: auto;
-    padding: 12px 0px 12px 0px;
-    background-color: #62c3a2;
-    border-radius: 25px;
-    text-align: center;
-    font-size: 16px;
-    color: #fff;
-  }
-  .list-box {
-    padding: 30px 0px 10px 0px;
-    border-top: 1px solid #eee;
-  }
-  .book-list-title {
-    padding:10px 0px 10px 0px;
-    text-align:center;
-    font-size:14px;
-    color:#777;
-  }
-  .list-icon {
-    width: 40px;
-    height: 40px;
-    margin: auto;
-    background: url(/images/shuoming.png) no-repeat;
-    -webkit-background-size: contain;
-    background-size: contain;
-  }
-  .detail-icon {
-    width: 40px;
-    height: 40px;
-    margin: auto;
-    background: url(/images/xiangqing.png) no-repeat;
-    -webkit-background-size: contain;
-    background-size: contain;
-  }
-  .pub-icon {
-    width: 40px;
-    height: 40px;
-    margin: auto;
-    background: url(/images/chuban.png) no-repeat;
-    -webkit-background-size: contain;
-    background-size: contain;
-  }
-  .pub-title {
-    color: #777;
-    line-height: 18px;
-    font-size: 12px;
-  }
-  .book-detail-content {
-    padding: 10px 0px;
-  }
-  .list-single-title {
-    color: #777;
-    height: 30px;
-    line-height: 30px;
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-  .rec-list {
+  .RecList {
     padding: 20px;
-    border-bottom: 1px solid #eee;
-  }
-  .rec-title {
-    font-size: 14px;
-    padding: 0 0 10px 0;
+    border-bottom: $borderColorE;
+    .rec-title {
+    font-size: $fontSize14;
+    padding-bottom: 10px;
     text-align: center;
-  }
-  .green-title {
-    font-size: 14px;
-    padding: 0 0 10px 0;
-    text-align: center;
-    color: #62c3a2;
-  }
-  .rec-item {
-    width: 33.3%;
-    padding: 5px;
-    display: inline-block;
-    vertical-align: top;
-    box-sizing: border-box;
-  }
-  .rec-item-pic {
-    padding: 20px 25px 0 25px;
-  }
-  .rec-item-pic img {
-    width: 100%;
-  }
-  .rec-item-title {
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-line-clamp: 2;
-    text-overflow: ellipsis;
-    -webkit-box-orient: vertical;
-    padding: 3px 5px 0 5px;
-    text-align: center;
-    line-height: 18px;
-    color: #333;
-    font-size: 13px;
-  }
-  .rec-price {
-    text-align: center;
-    color: #62c3a2;
-    font-size: 12px;
+    }
+    .green-title {
+      font-size: $fontSize14;
+      padding-bottom: 10px;
+      text-align: center;
+      color:  $fontColor61c3a2;
+    }
+    .RecItem {
+      box-sizing: border-box;
+      width: $width33;
+      padding: 5px;
+      display: inline-block;
+      vertical-align: top;
+      .rec-item-pic {
+        padding: 20px 25px 0 25px;
+        img {
+          width: $width100;
+        }
+      }
+      .rec-item-title {
+        @include n-line(2);
+        padding: 10px 5px 0 5px;
+        text-align: center;
+        line-height: 18px;
+        color: $fontColor3;
+        font-size: 13px;
+      }
+      .rec-price {
+        text-align: center;
+        color:  $fontColor61c3a2;
+        font-size: $fontSize12;
+      }
+    }
   }
   .bottom-blank {
     height: 10px;
-    background-color: #f8f8f8;
+    background-color: $backgroundColorF8;
   }
-  .bottom-link {
+  .ToDanpin {
     padding: 10px 20px;
-    border-top: 1px solid #eee;
-    color: rgb(51,51,51);
-  }
-  .bottom-link-box {
-    width: 100%;
-  }
-  .bottom-link-title {
-    display: inline-block;
-    height: 29px;
-    padding: 0 0 0 10px;
-    line-height: 29px;
-    border-left: 5px solid #62c3a2;
-    font-size: 16px;
-    vertical-align: top;
-  }
-  .bottom-link-icon {
-    float: right;
-    display: inline-block;
-    width: 29px;
-    height: 29px;
-    background: url(/images/arrow_info.png) center no-repeat;
-    -webkit-background-size: contain;
-    background-size: contain;
+    border-top: $borderColorE;
+    color:  $fontColor3;
+    .bottom-link-box {
+      width: $width100;
+      .bottom-link-title {
+        display: inline-block;
+        height: 29px;
+        padding-left: 10px;
+        line-height: 29px;
+        border-left: $borderColor561c3a2;
+        font-size: $fontSize16;
+        vertical-align: top;
+      }
+      .bottom-link-icon {
+        float: right;
+        display: inline-block;
+        width: 29px;
+        height: 29px;
+        background: url(/images/arrow_info.png) center no-repeat;
+        -webkit-background-size: contain;
+        background-size: contain;
+      }
+    }
   }
 }

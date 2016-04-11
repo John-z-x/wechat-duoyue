@@ -1,21 +1,27 @@
 'use strict';
-import React from 'react';
+import React ,{ PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { modifyCover } from '../../../actions/ShoppingCartActions';
+
 import { Link } from 'react-router';
+
 import VideoPoster from './VideoPoster.js';
 import VideoDescription from './VideoDescription.js';
 import VideoCollection from './VideoCollection.js';
 import BrowseMoreBtn from './BrowseMoreBtn.js';
-import RelevantCommentTitle from './RelevantCommentTitle.js';
 import CommonHeader from '../../HeaderComponents/CommonHeader.js';
 import ReturnButton from '../../HeaderComponents/ReturnButton';
 import CommentButton from '../../HeaderComponents/CommentButton';
+import Cover from '../../Cover/Cover';
 import DownLoadButton from '../../HeaderComponents/DownLoadButton';
 import CollectButton from '../../HeaderComponents/CollectButton';
+
 import CommentBox from '../../CommentBox/CommentBox';
+import CommentForm from '../../CommentBox/CommentForm';
 import withStyles from '../../../decorators/withStyles';
 import styles from './VideoModule.scss';
-
-
 
 const videoData = {
 	titleText: '视频选集',
@@ -27,53 +33,63 @@ const videoData = {
 		{videoSrc: 'http://file.duoyue.me/upload/source/video/20151219/2015_12_19_163211703.mp4',videoPoster: 'http://file.duoyue.me/upload/source/20160224/2016_02_24_154703908.jpg',videoTitle: '岳云鹏郭麒麟争德云一哥 亲儿子狂虐不肖徒弟', videoDesc: '共同打造梦幻巨制共同打造梦幻巨制共同打造梦幻巨制共同打造梦幻巨制共同打造梦幻巨制共同打造梦幻巨制共同打造梦幻巨制共'},
 		
 	]
-}
-
+};
 
 @withStyles(styles)
 class VideoModuleHome extends React.Component {
+
 	constructor(props) {
 		super(props);
 		this.state = {
-			displayData: videoData.videoList[0],
+			videoIndex: 0,
 		};
 		this.switchVideo = this.switchVideo.bind(this);
 	}
+
 	switchVideo(index) {
 		this.setState({
-			displayData: videoData.videoList[index]
+			videoIndex: index
 		})
 	}
+
 	render() {
-		let commentBoxOptions = {
-			commentHeader: 'on',
-			commentItem: 'on',
-			commentWriteGuide: 'off',
-			commentForm: 'Community-Pen',
-			headerText: '相关评论',
-			hdCommentAmount: 'on',
-		};
+		let displayData = videoData.videoList[this.state.videoIndex];
 		return (
 			<div className="VideoModuleHome main-wrap">
-				{this.props.children}
+				{ this.props.children }
 				<CommonHeader>
 					<ReturnButton/>
-					<CommentButton />
+					<Link to="/source/commentpage">
+						<CommentButton/>
+					</Link>
 					<Link to="/source/downloadpage">
 						<DownLoadButton/>
 					</Link>
-					<CollectButton></CollectButton>
+					<CollectButton />
 				</CommonHeader>
-				<VideoPoster data={this.state.displayData}/>
-				<VideoDescription data={this.state.displayData}/>
+				<VideoPoster data={displayData}/>
+				<VideoDescription data={displayData} index={this.state.videoIndex}/>
 				<VideoCollection data={videoData} funcs={this.switchVideo}/>
 				<BrowseMoreBtn/>
-				<CommentBox options={commentBoxOptions}></CommentBox>
 			</div>
 		);
 	}
 }
 
+function mapStateToProps(state) {
+  return {
+    cover: state.cover
+  };
+}
 
+function mapDispatchToProps(dispatch) {
+  return {
+    onModifyCover: bindActionCreators(modifyCover, dispatch)
+  };
+}
+VideoModuleHome = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(VideoModuleHome)
 
 export default VideoModuleHome;

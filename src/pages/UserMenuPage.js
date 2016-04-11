@@ -23,34 +23,28 @@ var dataArray = {
     name: "陈陈陈陈陈长"
   },
   bookCount: 18,
-  bookData: 
-  [
-    [
-      {src: require('../../assets/images/book1.jpg'),bookName:'销魂殿', href: "/danpin/bookbuy/1"},
-      {src: require('../../assets/images/book2.jpg'),bookName:'华胥引', href: "/danpin/bookbuy/1"},
-      {src: require('../../assets/images/book1.jpg'),bookName:'销魂殿', href: "/danpin/bookbuy/1"},
-      {src: require('../../assets/images/book2.jpg'),bookName:'华胥引' , href: "/danpin/bookbuy/1"},
-      {src: require('../../assets/images/book1.jpg'),bookName:'销魂殿', href: "/danpin/bookbuy/1"},
-      {src: require('../../assets/images/book2.jpg'),bookName:'华胥引', href: "/danpin/bookbuy/1"}
-    ],    
-    [
-      {src: require('../../assets/images/book1.jpg'),bookName:'销魂殿', href: "/danpin/bookbuy/1"},
-      {src: require('../../assets/images/book2.jpg'),bookName:'华胥引', href: "/danpin/bookbuy/1"},
-      {src: require('../../assets/images/book1.jpg'),bookName:'销魂殿', href: "/danpin/bookbuy/1"},
-      {src: require('../../assets/images/book2.jpg'),bookName:'华胥引' , href: "/danpin/bookbuy/1"},
-      {src: require('../../assets/images/book1.jpg'),bookName:'销魂殿', href: "/danpin/bookbuy/1"},
-      {src: require('../../assets/images/book2.jpg'),bookName:'华胥引', href: "/danpin/bookbuy/1"}
-    ],
-    [
-      {src: require('../../assets/images/book1.jpg'),bookName:'销魂殿', href: "/danpin/bookbuy/1"},
-      {src: require('../../assets/images/book2.jpg'),bookName:'华胥引', href: "/danpin/bookbuy/1"},
-      {src: require('../../assets/images/book1.jpg'),bookName:'销魂殿', href: "/danpin/bookbuy/1"},
-      {src: require('../../assets/images/book2.jpg'),bookName:'华胥引' , href: "/danpin/bookbuy/1"},
-      {src: require('../../assets/images/book1.jpg'),bookName:'销魂殿', href: "/danpin/bookbuy/1"},
-      {src: require('../../assets/images/book2.jpg'),bookName:'华胥引', href: "/danpin/bookbuy/1"}
-    ],
-    [{src:require('../../assets/images/more-img.png'),bookName:'', href: "/danpin/books"}]
-  ]
+  bookData:
+      [
+        {src: require('../../assets/images/book1.jpg'),bookName:'销魂殿', href: "/danpin/bookbuy/1"},
+        {src: require('../../assets/images/book2.jpg'),bookName:'华胥引', href: "/danpin/bookbuy/1"},
+        {src: require('../../assets/images/book1.jpg'),bookName:'销魂殿', href: "/danpin/bookbuy/1"},
+        {src: require('../../assets/images/book2.jpg'),bookName:'华胥引' , href: "/danpin/bookbuy/1"},
+        {src: require('../../assets/images/book1.jpg'),bookName:'销魂殿', href: "/danpin/bookbuy/1"},
+        {src: require('../../assets/images/book2.jpg'),bookName:'华胥引', href: "/danpin/bookbuy/1"},
+        {src: require('../../assets/images/book1.jpg'),bookName:'销魂殿', href: "/danpin/bookbuy/1"},
+        {src: require('../../assets/images/book2.jpg'),bookName:'华胥引', href: "/danpin/bookbuy/1"},
+        {src: require('../../assets/images/book1.jpg'),bookName:'销魂殿', href: "/danpin/bookbuy/1"},
+        {src: require('../../assets/images/book2.jpg'),bookName:'华胥引' , href: "/danpin/bookbuy/1"},
+        {src: require('../../assets/images/book1.jpg'),bookName:'销魂殿', href: "/danpin/bookbuy/1"},
+        {src: require('../../assets/images/book2.jpg'),bookName:'华胥引', href: "/danpin/bookbuy/1"},
+        {src: require('../../assets/images/book1.jpg'),bookName:'销魂殿', href: "/danpin/bookbuy/1"},
+        {src: require('../../assets/images/book2.jpg'),bookName:'华胥引', href: "/danpin/bookbuy/1"},
+        {src: require('../../assets/images/book1.jpg'),bookName:'销魂殿', href: "/danpin/bookbuy/1"},
+        {src: require('../../assets/images/book2.jpg'),bookName:'华胥引' , href: "/danpin/bookbuy/1"},
+        {src: require('../../assets/images/book1.jpg'),bookName:'销魂殿', href: "/danpin/bookbuy/1"},
+        {src: require('../../assets/images/book2.jpg'),bookName:'华胥引', href: "/danpin/bookbuy/1"},
+        {src:require('../../assets/images/more-img.png'),bookName:'', href: "/danpin/books"}]
+
 };
 
 @withStyles(styles)

@@ -1,0 +1,185 @@
+@import "../../../assets/sass/_font";
+.ArticleFontStyleModify {
+  /*fontsize*/
+  $fonrSize14: 14px;
+  $fonrSize15: 15px;
+  $fontSize16: 16px;
+  $fonrSize25: 25px;
+  /*fontcolor*/
+  $fontColor3: #333;
+  $fontColor8: #888;
+  $fontColorD: #ddd;
+  $fontColor1E: #1e1e1e;
+  /*border*/
+  $borderC: 1px solid #ccc;
+  $borderD: 1px solid #ddd;
+  $borderE5: 1px solid #e5e5e5;
+  $borderF0: 1px solid #f0f0f0; 
+  /*bgcolor*/
+  $bgColor14: #141414;
+  $bgColorFB: #fbfbfb;
+  $bgColorWhite: #fff;
+  /*width*/
+  $w48: 48%;
+  $w87: 87%;
+  $w100: 100%;
+  @mixin icon-set($iconUrl) {
+    background: url($iconUrl) no-repeat center;
+  }
+  .black {
+    color: $fontColorD !important;
+    background-color: $bgColor14 !important;
+    //border: 1px solid #333 !important;
+  }
+  .white {
+    color: $fontColor3 !important;
+    background-color: $bgColorWhite !important;
+    //border: 1px solid #e5e5e5 !important;
+  }
+  .tu-white {
+    position: absolute;
+    z-index: 1200;
+    width: 36px;
+    height: 15px;
+    background-size: cover;
+    right: -5px;
+    top: -14px;
+    @include icon-set("../../../assets/images/ArticleImages/wenzhang_tu.png");
+  }
+  .tu-black {
+    position: absolute;
+    z-index: 1200;
+    top: -14px;
+    right: -5px;
+    width: 36px;
+    height: 15px;
+    @include icon-set("http://www.duoyue.me/images/mobile/zixun/wenzhang_tu_duck.png");
+    background-size: cover;
+  }
+  .FontBox{
+    .articleStyle {
+      position: absolute;
+      z-index: 12000;
+      height: 150px;
+      width: 240px;
+      border: $borderE5;
+      border-radius: 5px;
+      top: 10px;
+      right: 5px;
+      background-color: $bgColorWhite;
+    }
+    .articleStyleTitle {
+      height: 29%;
+      width: $w100;
+      border-bottom: $borderE5;
+      .articleTitlePic {
+        height: 17px;
+        width: 44px;
+        margin: 17px 10px 0 10px;
+        float: left;
+        .return {
+          display: block;
+          height: 17px;
+          width: 44px;
+          text-indent: -100px;
+          overflow: hidden;
+          @include icon-set("../../../assets/images/ArticleImages/back.png"); 
+          background-size: 100%;
+        }
+      }
+      .articleTitleContent {
+        font-size: $fontSize16;
+        margin-left: 45%;
+        line-height: 50px;
+      }
+    }
+    .articleStyleFont {
+      height: 22%;
+      width: $w100;
+      .articleFontPic {
+        display: inline-block;
+        height: 17px;
+        width: 17px;
+        margin: 10px 0px;
+        position: absolute;
+        left: 0;
+        @include icon-set("../../../assets/images/ArticleImages/choose.png");
+        background-size: 100%;
+      }
+      .articleFontContent {
+        width: $w87;
+        float: right;
+        font-size: $fonrSize14;
+        margin-left: 5%;
+        padding: 6.5px 10px;
+        border-bottom: $borderE5;
+      }
+    }
+  }
+  .StyleBox{
+    .checkstyle {
+      height: 150px;
+      width: 240px;
+      position: fixed;
+      right: 5px;
+      top: 50px;
+      background-color: $bgColorWhite;
+      border-radius: 5px;
+      border: $borderF0;
+      z-index: 12000;
+      .font-change-panel {
+        display: inline-block;
+        width: $w48;
+        font-size: $fonrSize15;
+        height: 35%;
+        line-height: 60px;
+        text-align: center;
+      }
+      .top {
+        border-bottom: $borderD;
+        .small {
+          border-right: $borderD;
+          font-size: $fonrSize15;
+          @extend .font-change-panel;
+        }
+        .big {
+          font-size: $fonrSize25;
+          @extend .font-change-panel;
+        }
+      }
+      .middle {
+        height: 25%;
+        border-bottom: $borderF0;
+        font-size: $fonrSize14;
+        .middleFont {
+          line-height: 40px;
+          padding-left: 10px;
+        }
+        .chooseFont {
+          float: right;
+          color: $fontColor8;
+          line-height: 40px;
+          padding-right: 10px;
+        }
+      }
+      .bottom {
+        padding-top: 7px;
+        margin-bottom: 17px;
+        .fontStyleItem {
+          display: inline-block;
+          height: 32px;
+          width: 32px;
+          border-radius: 50%;
+          line-height: 30px;
+          margin-left: 20px;
+          color: $fontColor1E;
+          text-align: center;
+        }
+        .whiteBox {
+          border: $borderC;
+          background-color: $bgColorFB;
+        }
+      }
+    }
+  }
+}

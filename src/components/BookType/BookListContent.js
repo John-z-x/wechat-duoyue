@@ -12,18 +12,18 @@ class BookListContent extends React.Component {
     }else {
       bookListContent = this.props.data.map( (item, index) => {
         return(
-            <div key={index}>
-              <div className="mobile-book-title">{item.title}</div>
-              <div className="book-list-item">
-                {
-                  item.booklist.map( (item, index) => {
-                    return (
-                        <BookListItem  data={item} key={index}/>
-                    );
-                  })
-                }
-              </div>
+          <div key={index}>
+            <div className="mobile-book-title">{item.title}</div>
+            <div className="book-list-item clearfix">
+              {
+                item.booklist.map( (item, index) => {
+                  return (
+                      <BookListItem  data={item} key={index}/>
+                  );
+                })
+              }
             </div>
+          </div>
         )
       })
     }

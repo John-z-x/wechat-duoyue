@@ -3,8 +3,6 @@ import React from 'react';
 import withStyles from '../../decorators/withStyles';
 import styles from './CatalogArea.scss';
 
-import MenuHeader from './MenuHeader';
-
 let dataArray = [
   {'title':'第一章 的卡卡的就','id':1},
   {'title':'第一章 的卡卡的就','id':2},
@@ -25,28 +23,29 @@ let dataArray = [
 
 @withStyles(styles)
 class CatalogArea extends React.Component{
-  componentDidMount(){
-    let aArray = document.getElementsByClassName('showIndexLink');
-    for(var i=0;i<aArray.length;i++){
-     aArray[i].style.color = '#333';
-    }
-    document.getElementById('showIndex5').style.color='#97d7c0';
-  }
+
   render(){
-    let Link = dataArray.map(function(item){
-    return (
-      <a href="" key={item.id} id={'showIndex'+item.id} className="showIndexLink">
-        <div className="showIndex" >{item.title}</div>
-      </a>
+    let chapter = this.props.chapter || 1;
+    let chaptersCode = dataArray.map( (item, index) => {
+      let  chapterClassName = "showIndex";
+      if(chapter == index) {
+        chapterClassName = "showIndex over"
+      }
+      return (
+        <a key={index} className="showIndexLink">
+          <div className={chapterClassName} >{item.title}</div>
+        </a>
       );
-    })
+    });
     return (
-        <div id="catalog_area" className="CatalogArea"> 
-          <MenuHeader/>
+        <div className="CatalogArea">
+          <header className="catalog-header">
+            <span className="articleIcon-continue" onClick={this.props.onReturn}>续读</span>
+          </header>
           <div className="catalog">
-              <div className="articleIndex" id="articleIndex">
-              {Link}
-              </div>
+            <div className="articleIndex" >
+            {chaptersCode}
+            </div>
           </div>
         </div>
       );

@@ -1,44 +1,132 @@
-//html, body {
-//	width: 100%;
-//	height: 100%;
-//	background-color: #f8f8f8;
-//	margin: 0;
-//}
-//.wrapper {
-//	top: 0;
-//}
-.BookRead{
-	.pageTitleShow{
-		height: 40px;
-    width: 200px;
-    position: absolute;
-    z-index: 50;
+.BookRead {
+  /*font-family*/
+  $fontFamilyYaHei: 'Microsoft YaHei';
+  $fontFamilyFZLTXHJW: 'FZLTXHJW';
+  $fontFamilyFZSSJW: 'FZSSJW';
+  /*fontsize*/
+  $fontSize12: 12px;  
+  $fontSize16: 16px;
+  $fontSize20: 20px;
+  $fontSize24: 24px;
+  
+  /*fontcolor*/
+  $fontColor7: #777;
+  /*bg-color*/
+  $backgroundColorF: #fff;
+  $backgroundColorF8: #f8f8f8;
+  $borderColorD: 1px solid #ddd;
+  /*width*/
+  $w94: 94%;
+  $w100: 100%;
+   @mixin a-line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+   @mixin fontcolor-bgcolor($color,$bgColor) {
+    color: $color;
+    background-color: $bgColor;
+  }
+  
+  background-color: $backgroundColorF8;
+  .forColor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: $w100;
+    z-index: 1;
+  }
+  .pageTitleShow {
+    height: 40px;
+    width: $w100;
+    position: fixed;
     top: 0;
     left: 0;
     line-height: 40px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    padding: 0px 0px 0px 20px;
-    font-size: 12px;
-    color: #777;
-	}
-	.text_bg {
-    padding: 40px 40px 0px 40px;
-    background-size: 100% auto;
-	}
-	.duoyue_read {
-    overflow: hidden;
-    word-break: normal;
-    word-wrap: break-word;
-    text-align: justify;
+    @include a-line;
+    padding-left: 20px;
+    font-size: $fontSize12;
+    color: $fontColor7;
+    background-color: $backgroundColorF;
   }
-  .opationCanvas{
-  	position:absolute; 
-  	z-index:200;
-  	filter:alpha(opacity=0);
-  	-moz-opacity:0;
-  	-khtml-opacity:0;
-  	opacity:0;
+  .text_bg {
+    position: fixed;
+    z-index: 11000;
+    box-sizing: border-box;
+    width: $w100;
+    height: 100%;
+    left: 0;
+    top: 40px;
+    padding: 0 40px;
+    background-size: 100% auto;
+    background-color: $backgroundColorF;
+    overflow: hidden;
+    .duoyue_read {
+      overflow: hidden;
+      word-break: normal;
+      word-wrap: break-word;
+      text-align: justify;
+    }
+    .font-size-0 {
+      font-size: $fontSize16;
+    }
+   .font-size-1 {
+      font-size: $fontSize20;
+    }
+    .font-size-2 {
+      font-size: $fontSize24;
+    }
+    .opationCanvas {
+      position: fixed;
+      width: $w100;
+      top: 40px;
+      left: 0;
+      bottom: 50px;
+      z-index: 11003;
+      filter: alpha(opacity=0);
+      -moz-opacity: 0;
+      opacity: 0;
+    }
+  }
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+    width: $w100;
+    z-index: 10010;
+    box-sizing: border-box;
+    background-color: $backgroundColorF;
+    padding: 0 3%;
+    border-top: $borderColorD;
+    .controll-box {
+      width: $w94;
+      margin-top: 20px;
+      .progress-num {
+        text-align: center;
+      }
+    }
+  }
+  .FZSSJW {
+    font-family: $fontFamilyFZSSJW;
+  }
+  .FZLTXHJW {
+    font-family: $fontFamilyFZLTXHJW;
+  }
+  .YaHei {
+    font-family: $fontFamilyYaHei;
+  }
+  .yellow {
+    @include fontcolor-bgcolor(#333 !important,#f6f0e1 !important);
+  }
+  .white {
+    @include fontcolor-bgcolor(#333 !important,#fff !important);
+  }
+  .black {
+    @include fontcolor-bgcolor(#ddd !important,#141414 !important);
+  }
+  .green {
+    @include fontcolor-bgcolor(#333 !important,#c5edcc !important);
   }
 }

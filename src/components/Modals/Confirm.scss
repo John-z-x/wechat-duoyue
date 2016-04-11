@@ -1,22 +1,34 @@
 .Confirm {
+  $fontStack: '\5FAE\8F6F\96C5\9ED1',Arial, Helvetica, sans-serif;
+  /*fontsize*/
+  $fontSize14: 14px;
+  /*fontcolor*/
+  $fontColor3: #333;
+  $fontColorF: #fff;
+  $fontColor62c3a2: #62c3a2;
+  /*border*/
+  $border62c3a2: 1px solid #62c3a2;
+  /*bgcolor*/
+  $bgColorF: #fff;
+  $bgColor62c3a2: #62c3a2;
   position: fixed;
   top: 30%;
   left: 50%;
   z-index: 11101;
   width: 200px;
   height: 105px;
-  border: 1px solid #62c3a2;
-  font-size: 14px;
+  border: $border62c3a2;
+  font-size: $fontSize14;
   line-height: 22px;
   border-radius: 7px;
   margin-left: -100px;
-  background-color: #fff;
-  font-family: 'Microsoft Yahei';
+  background-color: $bgColorF;
+  font-family: $fontStack;
   .confirm-content {
     display: block;
     margin-top: 20px;
     text-align: center;
-    color: #333;
+    color: $fontColor3;
   }
   .confirm-text{
     margin-top: 20px;
@@ -27,15 +39,15 @@
     margin: 0 10px;
     width: 50px;
     height: 25px;
-    border: 1px solid #62c3a2;
+    border: $border62c3a2;
     border-radius: 3px;
-    font-family: 'Microsoft Yahei';
+    font-family: $fontStack;
   }
   .confirm-no {
-    color: #62c3a2;
+    color: $fontColor62c3a2;
   }
   .confirm-yes {
-    background-color: #62c3a2;
-    color: #fff;
+    background-color: $bgColor62c3a2;
+    color: $fontColorF;
   }
 }

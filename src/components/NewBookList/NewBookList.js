@@ -43,14 +43,14 @@ class NewBookList extends React.Component {
   render() {
     const newbooklist = newbooksData[this.state.type];
     return (
-      <div className="NewBookList">
+      <div className="NewBookList"> 
         <CommonHeader>
           <ReturnButton />
         </CommonHeader>
         <section className="book-list-title">
           {newbooklist.title}
         </section>
-        <section className="boos">
+        <section className="books">
         {
             newbooklist.data.map( (item , i) =>
             <BookItem data={item} key={i}/>

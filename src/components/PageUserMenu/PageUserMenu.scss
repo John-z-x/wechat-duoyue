@@ -1,300 +1,264 @@
+@charset "UTF-8";
+@import "../../../assets/sass/_common";
 .UserMenuPage {
-	.left {
-		float: left;
-	}
+  /*font-color*/
+  $fontColor3: #333;
+  $fontColor7: #777;
+  $fontColor9: #999;
+  $fontColorF: #fff;
+  $fontColor61c3a2: #61c3a2;
+  $fontColor62c3a2: #62c3a2;
+  $fontColor7da0b4: #7da0b4;
+  
+  /*font-size*/
+  $fontSize18: 18px;
+  $fontSize16: 16px;
+  $fontSize14: 14px;
+  $fontSize12: 12px;
+  $fontSize10: 10px;
+  
+  /*常用border*/
 
-	.right {
-		float: right;
-	}
+  $borderColorC: 1px solid #ccc;
+  $borderColorD: 1px solid #ddd;
+  $borderColorE4: 1px solid #e4e4e4;
+  $borderColor61c3a2: 1px solid #61c3a2;
+  $borderColorE: 1px solid #eee;
 
-	.topbox {
-		position: fixed;
-		left: 0;
-		top: 0;
-		z-index: 10000;
-		width: 100%;
-		padding: 0 10px;
-		background-color: #fff;
-		border-bottom: 1px solid #ddd;
-		height: 39px;
-	}
+  /*font-family*/
+  $fontFamilyYaHei: 'Microsoft YaHei';
+  
+  /*bg-color*/
+  $backgroundColorE: #eee;
+  $backgroundColorF: #fff;
+  $backgroundColorC9: #c9c9c9;
+  $backgroundColorF8: #f8f8f8;
+  $backgroundColor61c3a2: #61c3a2;
+  $backgroundColor7da1b4: #7da1b4;
+  
+  /*width*/
+  $width25: 25%;
+  $width32: 32%;
+  $width33: 33%;
+  $width35: 35%;
+  $width50: 50%;
+  $width55: 55%;
+  $width100: 100%;
+  
+  /*浮动大小*/
+  @mixin float-width($direction,$sizing) {
+    float: $direction;
+    width: $sizing;
+  }
 
-	.topbox .back-check {
-		width: 40px;
-		height: 100%;
-		text-align: center;
-	}
+  @mixin slider-dot($bgColor) {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 5px;
+    margin: 5px 0;
+    background-color: $bgColor;
+  }
+    /*一行*/
+  @mixin a-line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  @mixin icon-img($position) {
+    height: 30px;
+    background-image: url(../../../assets/images/wechat_icon.png);
+    background-repeat: no-repeat;
+    background-position: $position;
+    background-size: 400px;
+    vertical-align: bottom;
+  }
 
-	.back-check img {
-		width: 22px;
-		height: 19px;
-		margin-left: -20px;
-		margin-top: 10px;
-	}
+  .UserInfo {
+    padding: 0px 20px 0;
+    height: 90px;
+    background-color: $backgroundColorF;
+    .user-new-img {
+      text-align: left;
+      padding-top: 10px;
+      max-width: $width35;
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+      }
+      .user-name {
+        text-align: center;
+        padding-top: 5px;
+        color: $fontColor62c3a2;
+        font-size: $fontSize14;
+        @include a-line; 
+      }
+    }
+    .user-table {
+      width: $width55;
+      padding-top: 30px;
+      text-align: center;
+      font-size: $fontSize10;
+      color: $fontColor3;
+      .border-aside {
+        border-left: $borderColorE;
+        border-right: $borderColorE;
+      }
+      .user-table-td {
+        width: $width32;
+        display: inline-block;
+        a {
+          text-decoration: none;
+          color: $fontColor3;
+          font-size: $fontSize14;
+          .word {
+            text-align: center;
+            line-height: 12px;
+            font-size: $fontSize10;
+            color: $fontColor3;
+          }
+        }
+      }
+    }
+  }
+  .boder-style {
+    height: 10px;
+    background-color: $backgroundColorF8;
+    border-bottom: $borderColorE;
+    border-top: $borderColorE;
+    width: $width100;
+  }
 
-	.covertest {
-		position: fixed;
-		left: 0;
-		top: 0;
-		height: 100%;
-		width: 100%;
-		z-index: 10000;
-	}
+  .BookShelf {
+    width: $width100;
+    background-color: $backgroundColorF;
+    overflow: hidden;
+    color: $fontColor3;
+    position: relative;
+    .top-title {
+      margin: 20px 10px 0;
+      background-color: $backgroundColorF;
+      .line {
+        height: 1px;
+        background-color: $backgroundColorE;
+        width: $width100;
+      }
+      .title {
+        z-index: 1000;
+        width: 70px;
+        line-height: 18px;
+        font-size: 12px;
+        color: fontColor7;
+        margin: auto;
+        background: $backgroundColorF;
+        text-align: center;
+        margin-top: -10px;
+      }
+    }
+    .book-box {
+      position: relative;
+      left: 0;
+      white-space: nowrap;
+      @media screen and (min-device-height: 568px) {
+        padding-top: 5%;        
+      }
+      @media screen and (max-device-height: 568px){
+        padding-top: 0;
+      }
+      .bookWrap {
+        .my-books {
+          padding: 5px 20px 0;
+          background-color: $backgroundColorF;
+          a {
+            overflow: visible;
+            @include float-width(left,23%);
+            margin: 5px 15% 5px 0;
+            color: $fontColor3;
+            text-decoration: none;
+            &:nth-of-type(3n) {
+              @include float-width(left,23%);
+              margin: 5px 0;
+              color: $fontColor3;
+            }
+            .book-img {
+              box-shadow: 1px 3px 5px $backgroundColorC9;
+              width: $width100;
+            }
+            .book-name {
+              color: $fontColor3;
+              padding-top: 10px;
+              text-align: center;
+              @include a-line;
+              width: $width100;
+              height: 22px;
+              line-height: 11px;
+              font-size: $fontSize10;
+            }
+          }
+        }
+      }
+    }
+    .page-dots {
+      width: $width100;
+      text-align: center;
+      position: absolute;
+      bottom: 15px;
+      left: 0;
+      .SliderDot {
+        .slider_dot_hover {
+          @include slider-dot(#62c3a2);
+        }
+        .slider_dot_item {
+          @include slider-dot(#b4b4b4);
+        }
+      }
+    }
+    .books-bottom {
+      height: 10px;
+      background-color: $backgroundColorF8;
+      border-bottom: $borderColorE;
+      border-top: $borderColorE;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: $width100;
+    }
+  }
 
-	.bg-box {
-		position: fixed;
-		z-index: 1;
-		top: 0px;
-		left: 0px;
-		width: 100%;
-		height: 100%;
-		background-color: #fff;
-	}
-
-	.user-show {
-		position: fixed;
-		z-index: 2;
-		top: 0px;
-		left: 0px;
-		width: 100%;
-		height: 100%;
-	}
-
-	.user-new {
-		padding: 0px 20px 0;
-		height: 90px;
-		background-color: #fff;
-	}
-
-	.user-new-img {
-		text-align: left;
-		padding-top: 10px;
-		max-width: 35%;
-	}
-
-	.user-new-img img {
-		width: 50px;
-		height: 50px;
-		border-radius: 50px;
-	}
-
-	.user-new-img .user-name {
-		text-align: center;
-		padding: 5px 0px 0px 0px;
-		color: #62c3a2;
-		font-size: 14px;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-	}
-
-	.user-table {
-		width: 55%;
-		padding-top: 30px;
-		text-align: center;
-		font-size: 10px;
-		color: #333;
-	}
-
-	.user-table .word {
-		text-align: center;
-		line-height: 12px;
-		font-size: 10px;
-		color: #333;
-	}
-
-	.user-table a {
-		text-decoration: none;
-		color: #333;
-	}
-
-	.top-title {
-		margin: 20px 10px 0;
-		background-color: #fff;
-	}
-
-	.top-title .line {
-		height: 1px;
-		background-color: #eee;
-		width: 100%;
-	}
-
-	.top-title .title {
-		z-index: 1000;
-		width: 70px;
-		line-height: 18px;
-		font-size: 12px;
-		color: #777;
-		margin: auto;
-		background: #fff;
-		text-align: center;
-		margin-top: -10px;
-	}
-
-	@media screen and (min-device-height:568px) {
-		.book-box {
-			padding-top: 5%;
-			position: relative;
-			left: 0;
-		}
-
-	}
-
-	@media screen and (max-device-height:568px) {
-		.book-box {
-			padding-top: 0;
-			position: relative;
-			left: 0;
-		}
-
-	}
-
-	.my-bookcase {
-		width: 100%;
-		background-color: #fff;
-		overflow: hidden;
-		color: #333;
-		position: relative;
-	}
-
-	.page-dots {
-		width: 100%;
-		text-align: center;
-		position: absolute;
-		bottom: 15px;
-		left: 0;
-	}
-
-	.books-bottom {
-		height: 10px;
-		background-color: #f8f8f8;
-		border-bottom: 1px solid #eee;
-		border-top: 1px solid #eee;
-		position: absolute;
-		left: 0;
-		bottom: 0;
-		width: 100%;
-	}
-
-	.my-books {
-		padding: 5px 20px 0;
-		background-color: #fff;
-	}
-
-	.my-books a {
-		overflow: visible;
-		float: left;
-		margin: 5px 15% 5px 0;
-		width: 23%;
-		color: #333;
-		text-decoration: none;
-	}
-
-	.my-books a:nth-of-type(3n) {
-		float: left;
-		margin: 5px 0% 5px 0;
-		width: 23%;
-		color: #333;
-	}
-
-	.my-books img {
-		box-shadow: 1px 3px 5px #c9c9c9;
-	}
-
-	.book-name {
-		color: #333;
-		padding-top: 5px;
-		text-align: center;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		width: 100%;
-		height: 22px;
-		line-height: 11px;
-		font-size: 10px;
-	}
-
-	.page-dots .dot {
-		display: inline-block;
-		width: 5px;
-		height: 5px;
-		border-radius: 5px;
-		margin: 5px 0;
-	}
-
-	.dot-not {
-		background-color: #b4b4b4;
-	}
-
-	.color-over {
-		background-color: #62c3a2;
-	}
-
-	.menu-bottom {
-		width: 100%;
-		background-color: #fff;
-		position: fixed;
-		bottom: 0;
-		left: 0;
-	}
-
-	.shequ {
-		width: 30px;
-		height: 30px;
-		display: inline-block;
-		background-image: url(../../../assets/images/wechat_icon.png);
-		background-repeat: no-repeat;
-		background-position: -132px -235px;
-		background-size: 400px;
-		vertical-align: bottom;
-	}
-
-	.menu-bottom-td {
-		display: inline-block;
-		vertical-align: bottom;
-		height: 30px;
-		line-height: 30px;
-		padding-left: 10px;
-		color: #333;
-	}
-
-	.menu-bottom-td:nth-child(3) {
-		font-size: 16px;
-		color: #333;
-		line-height: 30px;
-	}
-
-	.border-style {
-		height: 10px;
-		background-color: #f8f8f8;
-		border-bottom: 1px solid #eee;
-		border-top: 1px solid #eee;
-		width: 100%;
-	}
-
-	.user-table-td {
-		width: 32%;
-		display: inline-block;
-	}
-
-	.arrow_go {
-		display: inline-block;
-		width: 30px;
-		height: 30px;
-		background-image: url(../../../assets/images/wechat_icon.png);
-		background-repeat: no-repeat;
-		background-position: -345px -42px;
-		background-size: 400px;
-		vertical-align: bottom;
-		float: right;
-	}
-
-	.book-img {
-		box-shadow: 1px 3px 5px #c9c9c9;
-		width: 100%;
-	}
-
-	.link:visited .menu-bottom-td {
-		color: #333;
-	}
-
+  .ToSocialArea {
+    width: $width100;
+    background-color: $backgroundColorF;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+     .menu-box {
+      padding: 5px 20px 0 20px;
+      margin-top: 5px;
+      .menu-content {
+        height: 40px;
+        .shequ {
+          @include float-width(left,30px);
+          @include icon-img(-132px -235px);
+        }
+        .menu-bottom-td {
+          display: inline-block;
+          vertical-align: bottom;
+          height: 30px;
+          line-height: 30px;
+          padding-left: 10px;
+          color: $fontColor3;
+          .menu-title {
+            font-size: $fontSize10;
+            color: $fontColor9;
+          }
+        }
+        .arrow-go {
+          @include float-width(right,30px);
+          @include icon-img(-345px -42px);
+        }
+      }
+    }
+  }
 }

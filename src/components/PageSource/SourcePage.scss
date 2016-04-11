@@ -1,150 +1,155 @@
-/*搜索*/
-
-.SourcePage {
+/*资源*/
+.SourcePageHome {
+  /*fontsize*/
+  $fontSize10: 10px;
+  $fontSize12: 12px;
+  $fontSize14: 14px;
+  /*fontcolor*/
+  $fontColor3: #333;
+  $fontColor7: #777;
+  $fontColor9: #999;
+  $fontColorC: #ccc;
+  $fontColorD: #ddd;
+  $fontColor10: #101010;
+  $fontColor62C3A2: #62c3a2;
+  /*border*/
+  $borderE: 1px solid #eee;
+  $border2F: 2px solid #fff;
+  $border262C3A2: 2px solid #62c3a2;
+  /*bgcolor*/
+  $bgColorWhite: #fff;
+  $bgColorF0: #f0f0f0;
+  $bgColorF8: #f8f8f8;
+  /*width*/
+  $w20: 20%;
+  $w50: 50%;
+  $w70: 70%;
+  $w80: 80%;
+  $w100: 100%;
+  
   .source-search {
-    border-bottom: 1px solid #eee;
+    border-bottom: $borderE;
+    .search-form {
+      width: $w80;
+      margin: auto;
+      padding: 15px;
+      .search-box {
+        background-color: $bgColorF8;
+        border: $borderE;
+        border-radius: 25px;
+        .search-input {
+          width: $w70;
+          color: $fontColorD;
+          padding: 5px 0px 5px 15px;
+          input {
+            width: $w100;
+            height: 20px;
+            color: $fontColor10;
+            border: 0;
+            background-color: $bgColorF8;
+            line-height: 20px;
+          }
+        }
+        .tosearch {
+          border-left: $borderE;
+          padding: 5px 15px;
+          color: $fontColor7;
+        }
+      }
+    }
+    .submit {
+      display: none
+    }
   }
-  .source-search .search-form {
-    width: 80%;
-    margin: auto;
-    padding: 15px;
-  }
-  .search-box {
-    background-color: #f8f8f8;
-    border: 1px solid #eee;
-    border-radius: 25px;
-  }
-  .search-box .search-input {
-    float: left;
-    width: 70%;
-    color: #ddd;
-    padding: 5px 0px 5px 15px;
-  }
-  .search-input input {
-    width: 100%;
-    height: 20px;
-    color: #101010;
-    border: 0;
-    background-color: #f8f8f8;
-    line-height: 20px;
-  }
-  .search-box .tosearch {
-    float: right;
-    border-left: 1px solid #eee;
-    padding: 5px 15px 5px 15px;
-    color: #777;
-  }
-  .source-search .submit {
-    display: none
-  }
-
   /*资源分类*/
   .source-classify {
-
-    padding: 10px 20px 10px 20px;
-    border-bottom: 1px solid #eee;
+    padding: 10px 20px;
+    border-bottom: $borderE;
+    .type-common {
+      width: $w20;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+    }
+    .source-type {
+      @extend .type-common;
+      border-bottom: $border2F;
+      color: $fontColor3;
+    }
+    .source-type-over {
+      @extend .type-common;
+      border-bottom: $border262C3A2;
+      color: $fontColor62C3A2;
+    }
   }
-
-  .source-type {
-    float: left;
-    height: 50px;
-    border-bottom: 2px solid #fff;
-    color: #333;
-    width: 20%;
-    text-align: center;
-    line-height: 50px;
-  }
-  .source-type-over {
-    float: left;
-    width: 20%;
-    height: 50px;
-    text-align: center;
-    line-height: 50px;
-    border-bottom: 2px solid #62c3a2;
-    color: #62c3a2;
-  }
-
   /*资源显示*/
-  .sourceBox {
-    background-color: #f0f0f0;
-  }
-  .bottom {
-    display: block;
-    width: 100%;
-    text-align: center;
-    color: #ccc;
-    font-style: oblique;
-    padding-top: 10px;
-    background-color: #f0f0f0
-  }
-  .left-box {
-    float: left;
-    width: 50%;
-    background-color: #f0f0f0;
-  }
-  .right-box {
-    float: right;
-    width: 50%;
-    background-color: #f0f0f0;
-  }
-  .left-box .item {
-    padding: 10px 7px 0 7px;
-  }
-  .right-box .item {
-    padding: 10px 7px 0 0px;
-  }
-
-  .source-box {
-    display: block;
-    padding-left: 2px;
-    padding-right: 2px;
-    background-color: #fff;
-    padding-top: 5px;
-  }
-  .source-img {
-    width: 20px;
-    height: 20px;
-    vertical-align: middle;
-    margin-bottom: 2px;
-  }
-  .source-img-box {
-    position: absolute;
-    z-index: 1;
-    padding: 5px;
-  }
-  .source-name {
-    color: #333;
-    font-size: 14px;
-    padding: 5px 10px 5px 10px;
-  }
-  .source-desc {
-    font-size: 12px;
-    padding: 0 10px 5px 10px;
-    line-height: 15px;
-    color: #777;
-  }
-  .source-count {
-    padding: 5px 10px 10px 10px;
-    font-size: 10px;
-    line-height: 10px;
-  }
-  .source-count-img1 {
-    float: left;
-    padding-right: 5px;
-    width: 11px;
-    height: 10px;
-  }
-  .source-count-img2 {
-    float: left;
-    padding-right: 5px;
-    padding-left: 10px;
-    width: 11px;
-    height: 10px;
-  }
-  .source-count-font {
-    float: left;
-    font-size: 10px;
-    color: #999;
-    line-height: 10px;
+  .SourceBox {
+    background-color: $bgColorF0;
+    .single-box {
+      width: $w50;
+      background-color: $bgColorF0;
+      .item {
+        padding: 10px 7px 0 7px;
+        .source-box {
+          display: block;
+          padding-left: 2px;
+          padding-right: 2px;
+          background-color: $bgColorWhite;
+          padding-top: 5px;
+          .source-img-box {
+            position: absolute;
+            z-index: 1;
+            padding: 5px;
+            .source-img {
+              width: 20px;
+              height: 20px;
+              vertical-align: middle;
+              margin-bottom: 2px;
+            }
+          }
+          .source-name {
+            color: $fontColor3;
+            font-size: $fontSize14;
+            padding: 5px 10px;
+          }
+          .source-desc {
+            font-size: $fontSize12;
+            padding: 0 10px 5px 10px;
+            line-height: 15px;
+            color: $fontColor7;
+          }
+          .source-count {
+            padding: 5px 10px 10px 10px;
+            font-size: $fontSize10;
+            line-height: 10px;
+            .source-num {
+              padding-right: 5px;
+              width: 11px;
+              height: 10px;
+            }
+            .pageview {
+              padding-right: 5px;
+              padding-left: 10px;
+              width: 11px;
+              height: 10px;
+            }
+            .source-count-font {
+              font-size: $fontSize10;
+              color: $fontColor9;
+              line-height: 10px;
+            }
+          }
+        }
+      }
+    }
+    .bottom {
+      display: block;
+      width: $w100;
+      text-align: center;
+      color: $fontColorC;
+      font-style: oblique;
+      padding-top: 10px;
+      background-color: $bgColorF0;
+    }
   }
 }

@@ -1,28 +1,128 @@
-html,body {
-	width: 100%;
+.SocialDetail {
+	$fontSize16: 16px;
+  $fontSize14: 14px;
+  $fontSize12: 12px;
+  $fontSize10: 10px;
+  /*color*/
+  $color3: #333;
+  $color6:  #666;
+  /*font-color*/
+  $fontColor3: #333;
+  $fontColor7: #777;
+  /*bg-color*/
+  $backgroundColorF: #fff;
+  $backgroundColorD: #ddd;
+  $backgroundColor61c3a2: #61c3a2;
+  $backgroundColor62c3a2: #62c3a2;
+  $backgroundColorF0: #f0f0f0;
+  $backgroundColorF8: #f8f8f8;
+    /*常用border*/
+  $borderColorC: 1px solid #ccc;
+  $borderColorD: 1px solid #ddd;
+  $borderColorE4: 1px solid #e4e4e4;
+  $borderColor61c3a2: 1px solid #61c3a2;
+  $borderColorE: 1px solid #eee;
+  $borderColorCB: 1px solid #cbcbcb;
+  /*width*/
+  $width25: 25%;
+  $width33: 33%;
+  $width50: 50%;
+  $width100: 100%;
+  /*font-family*/
+  $fontFamilyYaHei: 'Microsoft YaHei';
+  
+	width: $width100;
 	height: 100%;
-	background-color: #f8f8f8;
+	background-color: $backgroundColorF;
 	margin: 0;
-}
-a {
-	color: #333;
-	text-decoration: none;
-}
-.SocialDetail{
+	a {
+		color: $fontColor3;
+		text-decoration: none;
+	}
 	.banner-content {
-		borderTop: 1px solid #eee;
-		borderBottom: 1px solid #eee;
+		border-top: $borderColorE;
+		border-bottom: $borderColorE;
 		padding: 5px;
+		.banner-content-title {
+			font-size: $fontSize16;
+		  padding: 5px 5px 0px 5px;
+		}
+		.banner-content-intra {
+			padding: 0px 5px 10px 5px; 
+			color: $fontColor7;
+		}
 	}
 	#banner-pic img {
-		width: 100%;
+		width: $width100;
 	}
-	.banner-content-title {
-		fontSize: 16px;
-	  padding: 5px 5px 0px 5px;
+	.cover {
+		background-color: transparent;
 	}
-	.banner-content-intra {
-		padding: 0px 5px 10px 5px; 
-		color: #777;
+	.comment-list {
+		padding-bottom: 0!important;
+		.text {
+			padding-left: 33px;
+		}
 	}
+	.CommentForm {
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		z-index: 10002;
+		display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+		width: $width100;
+		height: 53px;
+		padding: 5px 0;
+		border-top: $borderColorD;
+		background-color: $backgroundColorF8;
+		.cancel-btn, 
+		.submit-btn {
+			display: block;
+			font-size: 12px;
+			line-height: 2.5em;
+			color: $color3;
+		}
+		.cancel-btn {
+			left: 0;
+			width: 60px;
+			height: 40px;
+			background: url(/images/icon_set.png) no-repeat -55px 6px;
+			background-size: 100px 250px;
+		}
+		.submit-btn {
+			right: 0;
+			padding: 5px;
+			width: 80px;
+			color: $color6;
+		}
+		.submit-btn::before {
+			display: block;
+			border-radius: 3px;
+			content: "发送";
+			font-size: $fontSize14;
+			text-align: center;
+		}
+		.input-box {
+			display: block;
+			height: 40px;
+			margin-top: 2px;
+			border: $borderColorCB;
+			border-radius: 5px;
+			background-color: transparent;
+			resize: none;
+			-webkit-box-flex: 1;
+	    -webkit-flex: 1;
+	    -ms-flex: 1;
+	    flex: 1;
+	    width: auto;
+		}
+	}
+	
 }

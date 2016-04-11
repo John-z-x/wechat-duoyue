@@ -4,7 +4,7 @@ import React ,{ PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import * as TodoActions from '../../../actions/ShoppingCartActions';
+import * as ShoppingCartActions from '../../../actions/ShoppingCartActions';
 
 import Cover from '../../Cover/Cover';
 import ShowCart from '../../ShowCart/ShowCart';
@@ -24,7 +24,7 @@ class Cart extends React.Component {
     const { cover, data, actions } = this.props;
 		return (
 			<div className="Cart">
-      { this.props.cover &&
+      { cover &&
         <Cover>
           <GoodsBox data={data} actions={actions} />
         </Cover>
@@ -37,7 +37,6 @@ class Cart extends React.Component {
 
 
 function mapStateToProps(state) {
-  //console.log(state);
   return {
     cover: state.cover,
     data: state.cart
@@ -46,7 +45,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(TodoActions, dispatch)
+    actions: bindActionCreators(ShoppingCartActions, dispatch)
   };
 }
 
@@ -55,6 +54,18 @@ export default connect(
   mapDispatchToProps
 )(Cart);
 
+Cart.propTypes = {
+  cover: PropTypes.bool.isRequired,
+  data: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    num: PropTypes.number.isRequired,
+    headerUrl: PropTypes.string,
+    choosed: PropTypes.bool.isRequired,
+    size: PropTypes.string
+  })).isRequired,
+}
 
 
 

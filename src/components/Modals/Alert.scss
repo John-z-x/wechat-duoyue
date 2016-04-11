@@ -1,12 +1,21 @@
 .Alert {
+  $fontStack: '\5FAE\8F6F\96C5\9ED1',Arial, Helvetica, sans-serif;
+  /*fontsize*/
+  $fontSize14: 14px;
+  /*fontcolor*/
+  $fontColorF: #fff;
+  /*bgcolor*/
+  $bgColorBlack5: rgba(0,0,0,0.5);
+  /*width*/
+  $w70: 70%;
+  $w100: 100%;
   position: fixed;
   left: 15%;
   top: 20%;
   z-index: 11003;
-  width: 70%;
+  width: $w70;
   border-radius: 10px;
-  background-color: rgba(0, 0, 0, .5);
-
+  background-color: $bgColorBlack5;
   .alert-img {
     display: block;
     width: 30px;
@@ -17,11 +26,11 @@
   }
   .alert-content {
     display: block;
-    width: 100%;
+    width: $w100;
     text-align: center;
-    color: #fff;
-    font-size: 14px;
-    font-family: 'Microsoft Yahei';
+    color: $fontColorF;
+    font-size: $fontSize14;
+    font-family: $fontStack;
     margin: 20px 0;
   }
 }

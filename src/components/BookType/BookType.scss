@@ -1,164 +1,163 @@
 
 .BookType {
-    font-size: 14px;
-    line-height: 22px;
-    table-layout: fixed;
-    color: #333;
-    word-break: break-all;
-    font-family: '微软雅黑',Arial, Helvetica, sans-serif;
-    background-color:#fff;
 
- 
-	/* header staer */
-	.back-search-header {
-		position:fixed; 
-		left: 0; 
-		top: 0; 
-		z-index: 1000;
-		width: 100%;
-		background-color: #fff;
-		height: 39px;
-	} 
-	.back-search-header .back {
-	    float: left;
-	    width: 40px;
-	    margin-left: 5px;
-	    padding:8px 0;
-	    text-align: center;
+  /*font-color*/
+  $fontColor3: #333;
+  $fontColor7: #777;
+  $fontColorF: #fff;
+  $fontColorF30: #f30;
+  $fontColor61c3a2: #61c3a2;
+  $fontColor7da0b4: #7da0b4;
+  
+  /*font-size*/
+  $fontSize18: 18px;
+  $fontSize16: 16px;
+  $fontSize14: 14px;
+  $fontSize12: 12px;
+  $fontSize10: 10px;
+  
+  /*常用border*/
+  $borderColor3: 1px solid #333;
+  $borderColorD: 1px solid #ddd;
+  $borderColorE: 1px solid #eee;
+  $borderColorE4: 1px solid #e4e4e4;
+  $borderColor61c3a2: 1px solid #61c3a2;
+  $borderColor261c3a2: 2px solid #61c3a2;
 
-	}
-	.back-search-header .search {
-		float: right;
-		margin-top: 8px;
-		margin-right: 15px;
-		width: 50px;
-		text-align: right;
-	}
-	.back-search-header .back img {
-		width:28px; 
-		height:23px; 
-		background-size:28px 23px;
-	}
-	.back-search-header .search img {
-		width:22px;
-	}
-
-	/*booktype*/
-  .BookListType {
-    border-bottom: 1px solid #eee;
-    z-index: 1000;
-    background-color: #f5f5f5;
-  }
-
-   .source-classify {
-    border-bottom: 1px solid #eee;
-    font-size: 14px;
-  }
-
-  .source-type {
-    float: left;
-    height: 39px;
-    color: #333;
-    width: 33.3%;
-    text-align: center;
-    line-height: 39px;
-  }
-  .source-type-over {
-    float: left;
-    width: 33.3%;
-    height: 39px;
-    text-align: center;
-    line-height: 39px;
-    border-bottom: 2px solid #62c3a2;
-    color: #62c3a2;
-  }
-
-  /*bookscontent*/
-  .BookListContent {
-    padding-bottom: 60px;
-  }
-  .mobile-book-title {
-    border-bottom: 1px solid #ddd;
-    padding: 5px 0px 5px 15px;
-    color: #000;
-    font-size: 14px;
-  }
-  .book-list-item {
-  	padding: 5px 0px 0px 0px;
-
-  }
-  .book-item {
-  	float: left; 
-  	width: 33.3%;
-  	border-bottom: 1px solid #eee;
-  	margin: 5px 0;
-  }
-  .item-content {
-  	border-right: 1px solid #eee; 
-  	padding: 15px;
-  }
-  .book-item .book-name {
-    width: 100%;
+  /*font-family*/
+  $fontFamilyYaHei: 'Microsoft YaHei';
+  
+  /*bg-color*/
+  $backgroundColorF: #fff;
+  $backgroundColorF5: #f5f5f5;
+  $backgroundColorF8: #f8f8f8;
+  $backgroundColor61c3a2: #61c3a2;
+  $backgroundColor7da1b4: #7da1b4;
+  
+  /*width*/
+  $width25: 25%;
+  $width33: 33%;
+  $width50: 50%;
+  $width100: 100%;
+  /*一行*/
+  @mixin a-line {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    color: #333;
-
-  }
-  .book-item .book-price {
-  	 text-align: center; 
-  	 color: #f30; 
-  	 font-size: 12px;
   }
 
-  /*bookclassfiy*/
-  .books-classify {
-    padding: 0px 10px 0px 10px;
-    background-color: #fff;
+  @mixin float-width($direction,$sizing) {
+    float: $direction;
+    width: $sizing;
   }
-  .books-classify .title{
-    padding: 10px 0px 10px 10px;
-    font-size: 16px;
-    border-bottom: 1px solid #ddd;
-    color: #333;
- }
- .books-classify-list {
- 	 padding: 10px 0;
- }
- .classify-box {
- 	float: left;
- 	width: 50%;
 
- }
- .classify-book-bg {
- 	margin: 5px;
- 	padding: 5px 0 0 10px;
- 	background-color: #f8f8f8;
- }
- .classify-book-word {
- 	float: left;
- 	max-width: 50%;
- }
- .classify-book-img {
- 	 float: right;
- 	 width: 50%;
-   height: 100%;
- }
-  .classify-book-img img{
- 	  width: 100%;
- 	  height: 100%;
- }
- .classify-name {
- 		font-size: 14px;
- 		color: #333;
- }
- .classify-nums {
- 		font-size: 10px;
- 		color: #777;
- }
- .classify-describe {
- 		font-size: 10px;
- 		color: #777;
- }
+  font-size: $fontSize14;
+  line-height: 22px;
+  table-layout: fixed;
+  color: $fontColor3;
+  word-break: break-all;
+  font-family: $fontFamilyYaHei;
+  background-color: $backgroundColorF;
 
+
+  .CommonHeader {
+    .header {
+      border: 0;
+    }
+  }
+
+  .Tab {
+    border-bottom: $borderColorE;
+    background-color: $backgroundColorF5;
+    .source-type {
+      @include float-width(left,33%);
+      height: 39px;
+      color: $fontColor3;
+      text-align: center;
+      line-height: 39px;
+    }
+    .source-type-over {
+      @include float-width(left,33%);
+      height: 39px;
+      text-align: center;
+      line-height: 39px;
+      border-bottom: $borderColor261c3a2;
+      color: $fontColor61c3a2;
+    }
+  }
+
+  .BookListContent {
+    padding-bottom: 60px;
+    .mobile-book-title {
+      border-bottom: $borderColorD;
+      padding: 5px 0px 5px 15px;
+      color: $fontColor3;
+      font-size: $fontSize14;
+    }
+    .book-list-item {
+      padding-top: 5px;
+      .BookListItem {
+          @include float-width(left,33%);
+          border-bottom: $borderColorE;
+          margin: 5px 0;
+        .book-item {
+          padding: 15px;
+          border-right: $borderColorE;
+          margin: 5px 0;
+          .book-name {
+            width: $width100;
+            @include a-line;
+            color: $fontColor3;
+          }
+          .book-price {
+             text-align: center; 
+             color: $fontColorF30; 
+             font-size: $fontSize12;
+          }
+        }
+        
+      }
+    }
+  }
+
+  .BookClassify {
+    .books-classify {
+      padding: 0px 10px;
+      background-color: $backgroundColorF;
+      .title {
+        padding: 10px 0px 10px 10px;
+        font-size: $fontSize16;
+        border-bottom: $borderColorD;
+        color: $fontColor3;
+      }
+    }
+    .books-classify-list {
+     padding: 10px 0;
+     .classify-box {
+        @include float-width(left,50%);
+        .classify-book-bg {
+          margin: 5px;
+          padding: 5px 0 0 10px;
+          background-color: $backgroundColorF8;
+          .classify-book-word {
+            @include float-width(left,50%);
+            .classify-name {
+              font-size: $fontSize14;
+              color: $fontColor3;
+            }
+            .classify-nums,.classify-describe {
+              font-size: $fontSize10;
+              color: $fontColor7;
+            }
+          }
+          .classify-book-img {
+             @include float-width(right,50%);
+             img {
+              width: $width100;
+             }
+           }
+        }
+      }
+    }
+  }
 }

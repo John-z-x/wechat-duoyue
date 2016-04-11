@@ -61,17 +61,17 @@ class ShopIndexPageHome extends React.Component {
 
   render() {
     let categoryCode = shopIndexData.Categorys.map( (item, i) =>
-            <Category data={item} key={i}/>
+      <Category data={item} key={i}/>
     );
     return (
-        <div className="ShopIndexPage">
-          <Slider data={shopIndexData.SliderList}/>
-          <Nav url={"default"}/>
-          <HotNews />
-          <ul className="content">
-            {categoryCode}
-          </ul>
-        </div>
+      <div className="ShopIndexPage">
+        <Slider data={shopIndexData.SliderList}/>
+        <Nav url={"default"}/>
+        <HotNews />
+        <ul className="content">
+          {categoryCode}
+        </ul>
+      </div>
     );
   }
 }

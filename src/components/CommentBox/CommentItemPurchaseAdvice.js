@@ -1,32 +1,30 @@
 'use strict'
-import React from 'react';
+import React, { PropTypes }  from 'react';
 import classNames from 'classnames';
 
 class CommentItemPurchaseAdvice extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			avatarState: false,
-			likeIconState: this.props.comment.likeIconState,
-		};
 	}
-	showSelf() {
-		this.setState({
-			avatarState: true,
-		});
-	}
+
 	render() {
+		const { id, text } = this.props;
 		return (
 			<div className="CommentItemPurchaseAdvice">
 				<div className="question-wrap clearfix">
 					<div className="question-avatar">
 						<em className="avatar">Q</em>
 					</div>
-					<p className="text">{this.props.comment.commentText}</p>
+					<p className="text">{text}</p>
 				</div>
-				
 			</div>
 		);
 	}
 }
+
+CommentItemPurchaseAdvice.propTypes = {
+  id: PropTypes.number.isRequired,
+  text: PropTypes.string.isRequired,
+}
+
 export default CommentItemPurchaseAdvice;

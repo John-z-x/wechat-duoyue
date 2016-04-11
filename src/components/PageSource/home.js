@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import Cart from '../UIComponent/Cart/Cart';
 import Slider from '../UIComponent/Slider/Slider';
 import SourceSearch from './SourceSearch';
 import Tab from '../UIComponent/Tab/Tab';
@@ -25,9 +24,9 @@ let TabItemsData = {
     "全部", "视频", "音频", "PDF", "相册"
   ],
   tabClass: {
-    tabBox: "source-calssify clearfix",
-    tabItemOn: "source-type-over",
-    tabItemDefault: "source-type"
+    tabBox: "source-classify clearfix",
+    tabItemOn: "source-type-over left",
+    tabItemDefault: "source-type left"
   }
 }
 
@@ -76,13 +75,11 @@ class SourcePageHome extends React.Component {
 				<SourceSearch/>
         <Tab TabItemsData={TabItemsData} onTypeChange={this.onTypeChange.bind(this)}/>
         {
-            this.state.sourceBox ?
-                <SourceBox sourceLazyLoad={actions.sourceLazyLoad} list={list} typeIndex={this.type}/>
-                :
-                null
-            }
-				<Cart />
-        { this.props.children }
+          this.state.sourceBox ?
+            <SourceBox sourceLazyLoad={actions.sourceLazyLoad} list={list} typeIndex={this.type}/>
+            :
+            null
+        }
       </div>
 		);
 	}

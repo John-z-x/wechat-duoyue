@@ -1,10 +1,11 @@
 // 'use strict';
 import React from 'react';
+import { Link } from 'react-router';
 import TopMaskerLayer from './TopMaskerLayer';
 import AudioContent from './AudioContent';
 import PlayControlPanel from './PlayControlPanel';
 import AudioList from './audioList';
-import RelateRecommend from './RelateRecommend';
+import ProgressController from '../../UIComponent/ProgressController/ProgressController';
 
 import CommonHeader from '../../HeaderComponents/CommonHeader';
 import ReturnButton from '../../HeaderComponents/ReturnButton';
@@ -88,8 +89,6 @@ class AudioModule extends React.Component {
       progressValue: 0, //歌曲的进度
       isPlaying: true //是否正在播放
     };
-    this.onDownLoadClick = this.onDownLoadClick.bind(this);
-    this.onControllClick = this.onControllClick.bind(this);
   }
 
   //自动播放
@@ -105,7 +104,7 @@ class AudioModule extends React.Component {
   }
   //歌曲进度条控制
   updateProgress() {
-    let audio = this.refs.audio,progressValue;
+    let audio = this.refs.audio, progressValue;
     if(!audio) return;
     if(!isNaN(audio.duration)) {
       progressValue = audio.currentTime/audio.duration;
@@ -168,10 +167,6 @@ class AudioModule extends React.Component {
     }
   }
 
-  onCommentClick() {
-    window.location.href="/source/commentpage";
-  }
-
   componentWillUnmount() {
     let audio = this.refs.audio, _self = this;
     window.clearTimeout(this.downLoadTimer);
@@ -191,8 +186,11 @@ class AudioModule extends React.Component {
     });
   }
 
-  onProgressControll(type,progressValue) {
+  onProgressControll(type, progressValue) {
     let audio = this.refs.audio;
+    this.setState({
+      progressValue: progressValue
+    });
     switch(type) {
       case "start":
         this.setState({
@@ -204,8 +202,7 @@ class AudioModule extends React.Component {
         audio.currentTime = audio.duration*progressValue;
         audio.play();
         this.setState({
-          isPlaying: true,
-          progressValue: progressValue
+          isPlaying: true
         });
       default :
         return null;
@@ -214,25 +211,38 @@ class AudioModule extends React.Component {
 
   render() {
     let soundPageHeight = document.documentElement.clientHeight - 90 + "px";
+    let { soundIndex, progressValue, duration, isPlaying } = this.state;
+    let audioContentFuns = {
+      onListClick: ::this.onListClick
+    };
+    let audioContentdata = {
+      index: soundIndex,
+      data: soundList,
+      isPlaying: isPlaying,
+      duration: duration
+    };
     return (
       <div className="AudioModule">
         <CommonHeader>
           <ReturnButton />
           <CollectButton />
-          <CommentButton OnCommentClick={this.onCommentClick}/>
-          <DownLoadButton OnDownLoadClick={this.onDownLoadClick}/>
+          <Link to="/source/commentpage">
+            <CommentButton/>
+          </Link>
+          <DownLoadButton OnDownLoadClick={::this.onDownLoadClick}/>
         </CommonHeader>
 
         <div className="sound-page" style={{height: soundPageHeight}}>
-          <audio className="mysound" ref="audio" src={soundList[this.state.soundIndex].path}></audio>
-          <AudioContent index={this.state.soundIndex} data={soundList} onListClick={this.onListClick.bind(this)} duration={this.state.duration}
-              progressValue={this.state.progressValue} isPlaying={this.state.isPlaying} onProgressControll={this.onProgressControll.bind(this)}/>
+          <audio className="mysound" ref="audio" src={soundList[this.state.soundIndex].path}/>
+          <AudioContent audioData={audioContentdata} audioFuns={audioContentFuns}>
+            <ProgressController progressValue={progressValue} onProgressControll={::this.onProgressControll}/>
+          </AudioContent>
           {
-            this.state.audioListDisplay &&  <AudioList data={soundList} onListClick={this.onListClick.bind(this)} index={this.state.soundIndex} onChooseClick={this.onChooseClick.bind(this)} isPlaying={this.state.isPlaying}/>
+            this.state.audioListDisplay &&  <AudioList data={soundList} onListClick={::this.onListClick} index={soundIndex} onChooseClick={::this.onChooseClick} isPlaying={isPlaying}/>
           }
         </div>
 
-        <PlayControlPanel onControllClick={this.onControllClick} isPlaying={this.state.isPlaying}/>
+        <PlayControlPanel onControllClick={::this.onControllClick} isPlaying={isPlaying}/>
 
         {
           this.state.downLoadModal && <Alert content={alertContent}/>

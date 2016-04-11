@@ -2,6 +2,8 @@
 var path = require('path');
 var express = require('express');
 var webpack = require('webpack');
+var webpackDevMiddleware = require('webpack-dev-middleware');
+var webpackHotMiddleware = require('webpack-hot-middleware');
 var config = require('./webpack.config');
 
 var app = express();
@@ -11,14 +13,15 @@ var compiler = webpack(config);
 console.log(viewDir);
 
 app.set('port', (process.env.PORT || 8082));
-app.use(require('webpack-dev-middleware')(compiler, {
+app.use(webpackDevMiddleware(compiler, {
 	noInfo: true,
+	colors: true,
 	publicPath: config.output.publicPath
 }));
 
-app.use(require('webpack-hot-middleware')(compiler));
+app.use(webpackHotMiddleware(compiler));
 
-app.use(express.static(path.join(__dirname, viewDir, 'public')));
+app.use(express.static(path.join(__dirname, viewDir)));
 
 app.get('*', function (req, res) {
 	console.log(req.url);

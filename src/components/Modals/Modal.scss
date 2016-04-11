@@ -1,10 +1,12 @@
 .Modal {
+  $w100: 100%;
+  $bgColorBlack5: rgba(0,0,0,0.5);
   position: fixed;
   left: 0%;
   top: 0;
   height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  width: $w100;
+  background-color: $bgColorBlack5;
   z-index:11000;
   .content {
     podition: fixed;

@@ -1,374 +1,364 @@
-body {
-	background-color: #ececec;
-}
 
+body {
+  background-color: #ececec;
+}
 .PhotoModule {
-* {
-	 box-sizing: content-box;
-	font-size: 13px;
+  $fontStack: '\5FAE\8F6F\96C5\9ED1',Arial, Helvetica, sans-serif;
+  $fontFZQKBY: '方正清刻本悦宋简体';
+  $fontFZLTXH: '方正兰亭纤黑';
+  /*fontsize*/
+  $fontSize13: 13px;
+  $fontSize14: 14px;
+  $fontSize16: 16px;
+  $fontSize18: 18px;
+  /*fontcolor*/
+  $fontColor5A: #5a5a5a;
+  $fontColor67: #676767;
+  $fontColor91: #919191;
+  $fontColorB8: #b8b8b8;
+  $fontColorWhite: #fff;
+  $fontColor77CDB0: #77cdb0;
+  $fontColor7B9EB5: #7b9eb5;
+  $fontColor819EAf: #819eaf;
+  /*border*/
+  $borderE5: 1px solid #e5e5e5;
+  $borderEF: 1px solid #efefef;
+  $borderF5: 1px solid #f5f5f5;
+  $border7EA0B6:1px solid #7ea0b6;
+  $border77CDB0:1px solid #77cdb0;
+  /*bgcolor*/
+  $bgColorWhite: #fff;
+  $bgColorBlack: #000;
+  $bgColorEC: #ececec;
+  $bgColorFC: #fcfcfc;
+  /*width*/
+  $w50: 50%; 
+  $w80: 80%;
+  $w78: 78%;
+  $w90: 90%;
+  $w100: 100%;
+  * {
+  box-sizing: content-box;
+  }
+  margin: 0;
+  padding: 0;
+	font-size: $fontSize13;
   line-height: 22px;
   table-layout: fixed;
   word-break: break-all; 
-  font-family: '微软雅黑',Arial, Helvetica, sans-serif;  
-}
+  font-family: $fontStack;  
+  @mixin icon-set($iconUrl,$x-size:21px,$y-size:21px) {
+    background: url($iconUrl) no-repeat center;
+    background-size: $x-size $y-size;
+  }
 	.CommonHeader .header {
 		border: 0;
 	} 
-
 	/*front cover*/
-	.content {
-	  width: 90%;
-	  margin: 20px auto auto auto;
-	  padding: 0;
-	  position: relative;
-	  background-image: url(/images/PhotoGallery/bookborder.png);
-	  background-repeat: no-repeat;
-	  background-size: 100% 100%;
-	}
-	.cover-pic { 
-	  margin: 20px;
-	  height: 55%;
-	  padding: 40px 40px 0 40px;
-	  vertical-align: middle;
-	  
-	}
-	.cover-title {
-	  width: 80%;
-	  text-align: center;
-	  font-family: '方正清刻本悦宋简体';
-	  color: #5a5a5a;
-	  font-size: 18px;
-	  height: 22px;
-	  padding: 0;
-	  margin: 0 auto;
-	  overflow: hidden;
-	  text-overflow: ellipsis;
-	}
-	.cover-describe {
-	  width: 80%;
-	  text-align: center;
-	  font-family: '方正清刻本悦宋简体';
-	  color: #919191;
-	  font-size: 14px;
-	  line-height: 20px;
-	  height: 40px;
-	  padding-top: 10px;
-	  margin: 0 auto;
-	  overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    white-space: pre-wrap;
-    font-size: 14px;
-	}
-	.cover-page-num {
-	  width: 100%;
-	  height: 16px;
-	  padding: 0;
-	  position: absolute;
-	  bottom: 17px;
-	  font-size: 14px;
-	  text-align: center;
-	  font-family: '方正兰亭纤黑';
-	  color: #7b9eb5;
-	}
-	.decoration-image {
-		display: inline-block;
-		width: 40px;
-		height: 16px;
-		background-image: url(/images/PhotoGallery/fang.png);
-		background-repeat: no-repeat;
-		background-position: 50% 50%;
-		background-size: contain;
-	}
-	.picture-show{
-		width: 100%;
-		height: 100%;
-	  overflow: hidden;
-	  border: 1px solid #e5e5e5;
-	  background-repeat: no-repeat;
-	  background-size: cover;
-	  background-position: 50% 50%;
-	}
-	.album-cover {
-	  position: fixed; 
-	  height: 100%; 
-	  width: 100%
-	}
-
-	
-}
-
-.PhotoList {
-	* {
-    font-size: 13px;
-    line-height: 22px;
-    table-layout: fixed;
-    word-break: break-all;
-    font-family: '微软雅黑',Arial, Helvetica, sans-serif;
-    padding: 0;
-    margin: 0;
-	}
-	/*photo list*/
-	.folw-box {
-	  margin: 10px auto 0px auto; 
-	  padding: 0; 
-	  position: relative;
-	  border:1px solid blue;
-	}
-	.photo-box {
-    box-sizing: border-box;
-    float: left;
-		width: 50%;
-    padding: 10px 10px 0 10px; 
-    border-radius: 3px;
-	}
-	.PhotoItem {
-		margin-top: 15px;
-		border: solid 1px #efefef;
-	}
-	.photo-image {
-	  width: 100%;
-	  border-radius: 3px;
-	}  
-	.photo-title { 
-	  padding: 10px 5px;
-	  background-color: #fff
- }
- .hr {
-  border: none;
-  border-bottom: 1px solid #e5e5e5;
-  margin: 10px 0 10px 0;
-}
-.btn-go-top {
-  position: fixed;
-  right: 20px;
-  bottom: 100px;
-  border-radius: 20px;
-  cursor: pointer;
-  display: none;
-  opacity: 0.5;
-}
-.nonews { 
-  font-size: 16px;
-  font-family: '方正清刻本悦宋简体';
-  margin-bottom: 20px;
-  width: 100%;
-  text-align: center;
-  padding-top: 20px;
-}
-.bottomBox {
-	width: 100%;
-  height: 180px;
-}
-.bottom-logo { 
-	display: block;
-  position: absolute;
-  padding-top: 40px;
-  margin-bottom: 30px;
-  width: 100%;
-}
-.loadend {
-	display: inline-block;
-  padding-top: 10px;
-	margin-bottom: 10px;
-	width: 280px;
-	background: url(/images/photoGallery/left.png) no-repeat left center,url(/images/photoGallery/right.png) no-repeat right center;
-  color: #819eaf;
-  font-size: 16px;
-  font-family: '方正清刻本悦宋简体';
-}
-.logo-pic {
-  float: left;
-  padding-left: 20px
-}
-.logo-text {
-  float: left;
-  padding-left: 10px;
-}
-.logo-text-up {
-  font-size: 16px;
-  line-height: 25px;}
-.logo-text-down {
-  font-size: 14px;
-  color: #b8b8b8;
-  line-height: 25px;
-}
-.logo-button {
-  float: right;
-  height: 35px;
-  width: 80px;
-  margin: 10px 10px 5px 10px;
-  background-color: #fcfcfc;
-  color: #676767;
-  border-radius: 10px;
-  border: 1px solid #7ea0b6;
-  font-size: 16px;
-}
-
-/*  .photo-content {
-    -webkit-column-count: 2;
-    -moz-column-count: 2;
-    column-count: 2;
-
+  .GalleryFrontCover {
+    .content {
+      width: $w90;
+      margin: 20px auto auto auto;
+      padding: 0;
+      position: relative;
+      background: url(/images/PhotoGallery/bookborder.png) no-repeat center;
+      background-size: 100% 100%;
     }
-*/
-}
-
-.AlbumShow {
+    .cover-pic { 
+      margin: 20px;
+      height: 55%;
+      padding: 40px 40px 0 40px;
+      vertical-align: middle;
+      .picture-show{
+        width: $w100;
+        height: 100%;
+        overflow: hidden;
+        border: $borderE5;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center
+      }
+    }
+    .cover-title {
+      width: $w80;
+      text-align: center;
+      font-family: $fontFZQKBY;
+      color: $fontColor5A;
+      font-size: $fontSize18;
+      height: 22px;
+      padding: 0;
+      margin: 0 auto;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .cover-describe {
+      width: $w80;
+      text-align: center;
+      font-family: $fontFZQKBY;
+      color: $fontColor91;
+      font-size: $fontSize14;
+      line-height: 20px;
+      height: 40px;
+      padding-top: 10px;
+      margin: 0 auto;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      white-space: pre-wrap;
+      font-size: $fontSize14;
+    }
+    .cover-page-num {
+      width: $w100;
+      height: 16px;
+      padding: 0;
+      position: absolute;
+      bottom: 17px;
+      font-size: $fontSize14;
+      text-align: center;
+      font-family: $fontFZLTXH;
+      color: $fontColor7B9EB5;
+      .decoration-image {
+        display: inline-block;
+        width: 40px;
+        height: 16px;
+        background: url(/images/PhotoGallery/fang.png) no-repeat center;
+        background-size: contain;
+      }
+    }
+  }
+  /*photo list*/
+  .PhotoList {
+    .PhotoFlow {
+      .photo-content {
+        .photo-box {
+          box-sizing: border-box;
+          width: $w50;
+          padding: 10px 10px 0 10px; 
+          border-radius: 3px;
+          .PhotoItem {
+            margin-top: 15px;
+            border: $borderEF;
+            .photo-image {
+              width: $w100;
+              border-radius: 3px;
+            }  
+            .photo-title { 
+              padding: 10px 5px;
+              background-color: $bgColorWhite;
+            }
+          }
+        }
+      }
+      .bottomBox {
+        width: $w100;
+        height: 180px;
+        .PhotoListBottom {
+          .bottom-logo { 
+            display: block;
+            position: absolute;
+            padding-top: 40px;
+            margin-bottom: 30px;
+            width: $w100;
+            center {
+              border-bottom: $borderE5;
+              padding-bottom: 10px;
+              margin-bottom: 10px;
+              .loadend {
+                display: inline-block;
+                padding-top: 10px;
+                margin-bottom: 10px;
+                width: 280px;
+                background: url(/images/photoGallery/left.png) no-repeat left center,url(/images/photoGallery/right.png) no-repeat right center;
+                color: $fontColor819EAf;
+                font-size: $fontSize16;
+                font-family: $fontFZQKBY;
+              } 
+            }
+            .logo-area {
+              .logo-pic {
+                padding-left: 20px
+              }
+              .logo-text {
+                padding-left: 10px;
+                .logo-text-up {
+                  font-size: $fontSize16;
+                  line-height: 25px;}
+                .logo-text-down {
+                  font-size: $fontSize14;
+                  color: $fontColorB8;
+                  line-height: 25px;
+                }
+              }
+              .logo-button {
+                height: 35px;
+                width: 80px;
+                margin: 10px 10px 5px 10px;
+                background-color: $bgColorFC;
+                color: $fontColor67;
+                border-radius: 10px;
+                border: $border7EA0B6;
+                font-size: $fontSize16;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .AlbumShow {
     position: fixed;
     top: 0;
     left: 0;
     z-index: 10000;
-    width: 100%;
+    width: $w100;
     height: 100%;
+    .CommonHeader {
+      .header{
+        z-index: 110000;
+        background-color: $bgColorBlack !important;
+        border: none;
+        .ReturnButton{
+          @include icon-set('/images/photoGallery/back_check1.png',25px,23px);
+        }
+        .Favor{
+          @include icon-set('/images/photoGallery/shoucangon.png');
+        }
+        .noFavor{
+          @include icon-set('/images/photoGallery/shoucangoff.png');
+        }
+        .CommentButton{
+          @include icon-set('/images/photoGallery/comment1.png');
+        }
+        .DownLoadButton{
+          @include icon-set('/images/photoGallery/icon_download1.png');
+        }
+      }
+    }
+    .album-background {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: $w100;
+      height: 100%;
+      background-color: $bgColorBlack;
+      z-index: 9999;
+    }
+    .AlbumShowDesc {
+      position: fixed;
+      bottom: 0;
+      height: 150px;
+      width: $w100;
+      background-color: $bgColorBlack;
+      display: block;
+      z-index: 10000;
+      .pic-comment-title {
+        padding: 10px;
+        width: $w100;
+        color: $fontColorWhite;
+        font-size: $fontSize18;
+      }
+      .pic-comment-text {
+        height: 85px;
+        color: $fontColorWhite;
+        padding: 0 10px 10px 10px;
+        font-size: $fontSize13;
+        line-height: 14px;
+        width: $w78;
+        overflow: auto;
+      }
+      .pic-page {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        color: $fontColorWhite;
+        height: 40px;
+        width: 40px;
+        background-image: url('/images/photoGallery/xiegang.png');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        .page-now-num {
+          font-size: $fontSize16;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+        .page-total-num {
+          font-size: $fontSize16;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+        }
+      }
+    }
+    .AlbumShowPic{
+      position: fixed;
+      z-index: 10000;
+      width: $w100;
+      height: 100%;
+      list-style: none;
+      white-space: nowrap;
+      .AlbumShowPicItem{
+        width: $w100;
+        display: inline-block;
+        height: 100%;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      .prev-spacing {
+        margin-left: -15px;
+        margin-right: 15px;
+      }
+      .next-spacing {
+        margin-left: 15px;
+        margin-right: -15px;
+      }
+    }
   }
-.AlbumShow {
-  * { 
-    font-size: 13px;
-    line-height: 22px;
-    table-layout: fixed; 
-    word-break: break-all; 
-    font-family: '微软雅黑',Arial, Helvetica, sans-serif;
-    padding: 0;
-    margin: 0;  
-  }
-  .clear { 
-    clear:both;
-  }
-
-  .CommonHeader .header{
-    z-index: 110000;
-    background-color: #000 !important;
-    border: none;
-  }
-  .CommonHeader .ReturnButton{
-    background: url('/images/photoGallery/back_check1.png') center no-repeat;
-    background-size: 25px 23px;
-  }
-  .CommonHeader .Favor{
-    background: url('/images/photoGallery/shoucangon.png') center no-repeat;
-    background-size: 21px 21px;
-  }
-  .CommonHeader .noFavor{
-    background: url('/images/photoGallery/shoucangoff.png') center no-repeat;
-    background-size: 21px 21px;
-  }
-  .CommonHeader .CommentButton{
-    background: url('/images/photoGallery/comment1.png') center no-repeat;
-    background-size: 21px 21px;
-  }
-  .CommonHeader .DownLoadButton{
-    background: url('/images/photoGallery/icon_download1.png') center no-repeat;
-    background-size: 21px 21px;
-  }
-  .AlbumShowDisc {
-    position: fixed;
-    bottom: 0;
-    height: 150px;
-    width: 100%;
-    background-color: #000;
-    display: block;
-    z-index: 10000;
-  }
-  .pic_comment_title {
-    padding: 10px;
-    width: 100%;
-    color: #fff;
-    font-size: 18px;
-  }
-  .pic_comment_text {
-    height: 85px;
-    float: left;
-    color: #fff;
-    padding: 0 10px 10px 10px;
-    font-size: 13px;
-    line-height: 14px;
-    width: 78%;
-    overflow: auto;
-  }
-  .pic_page {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    color: #fff;
-    height: 40px;
-    width: 40px;
-    background-image: url('/images/photoGallery/xiegang.png');
-    background-repeat: no-repeat;
-    background-size: 100% 100%
-  }
-  .span_page_num1 {
-    font-size: 16px;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  .span_page_num2 {
-    font-size: 16px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-  }
-  .AlbumShowPic{
-    z-index: 10000;
-    width: 100%;
-    height: 100%;
-    list-style: none;
-    white-space:nowrap;
-  }
-  .AlbumShowPicIterm{
-    width: 100%;
-    display: inline-block;
-    height: 100%;
+  .ShowDown {
+    .hiddenMessage {
+      display: none;
+    }
+    .showMessage {
+      display: block;
+    }
+    .mask {
+      position: fixed; 
+      width: $w100; 
+      height: 100%; 
+      opacity: 0.4; 
+      top: 0px; 
+      left: 0px; 
+      z-index: 100000; 
+      background-color: $bgColorBlack;
+    }
+    .show-down-box {
+      position: absolute;
+      width: $w80;
+      height: 120px;
+      border: $borderF5;
+      border-radius: 10px;
+      top: 40%;
+      left: 10%; 
+      z-index: 110000; 
+      background-color: $bgColorEC;
+      .show-message {
+        height: 16px;
+        padding: 23px;
+        text-align: center;
+        font-size: $fontSize16;
+        border-bottom: $border77CDB0;
+      }
+      .i-know {
+        height: 18px;
+        padding: 10px;
+        text-align: center;
+        font-size: $fontSize18;
+        color: $fontColor77CDB0;
+      }
+    }
   }
 }
 
-.ShowDown {
-  .hiddenMessage {
-    display:none;
-  }
-  .showMessage {
-    display:block;
-  }
-  .mask {
-    position: fixed; 
-    width: 100%; 
-    height: 100%; 
-    opacity: 0.4; 
-    top: 0px; 
-    left: 0px; 
-    z-index: 100000; 
-    background-color: black;
-  }
-  .show-down-box {
-    position: absolute;
-    width:80%;
-    height:120px;
-    border: 1px solid #f5f5f5;
-    border-radius:10px;
-    top:40%;
-    left: 10%; 
-    z-index:110000; 
-    background-color:#ececec 
-  }
-  .show-message {
-     height: 16px;
-     padding: 23px;
-     text-align: center;
-     font-size: 16px
-  }
-  .show-down-box hr {
-    height:0;
-    border:none;
-    border-top:1px solid #77cdb0;
-  }
-  .i-know {
-    height:18px;
-    padding:10px;
-    text-align:center;
-    font-size:18px;
-    color:#77cdb0;
-  }
-}

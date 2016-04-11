@@ -61,7 +61,6 @@ class EverydayPageHome extends React.Component {
     //获取保存每次滚动高度，以判断当前进入第几页
     let arrPrePage = this.state.arrPrePage;
     arrPrePage.push(document.documentElement.scrollHeight);
-    console.log(arrPrePage);
   }
 
   render() {
@@ -71,14 +70,15 @@ class EverydayPageHome extends React.Component {
           <Slider data={EverydayData.SliderList}/>
           <div id="EverydayTopic">
           {
-            everyData.map(function(everyday,index){
+            everyData.map((everyday,index) => {
               let src = require("../../../assets/images/imagesforarticle/null.gif");
               return(
                   <Link to={`/everyday/${index}/display`} key={`everyday${index}`}>
                     <div className="everyday-box">
                       <div className="item-title">
                         <img src={src} className="juhe-icon-wenzhang"/>
-                        ·{index} 文章 ·
+                        <span className="article-icon"></span>
+                        · 文章 ·
                       </div>
                       <EverydayContent data={everyday}/>
                       <EveryDayDates data={everyday}/>

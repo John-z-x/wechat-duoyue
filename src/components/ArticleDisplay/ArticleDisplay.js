@@ -1,4 +1,5 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
 import Article from './Article';
 import Commodity from './Commodity';
 import ContentRelate from './ContentRelate';
@@ -18,8 +19,8 @@ import styles from './ArticleDisplay.scss';
 
 @withStyles(styles)
 class ArticleDisplay extends React.Component {
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
     this.state = {
       fontModifyDisplay: false,
       fontSize: 18,
@@ -29,9 +30,8 @@ class ArticleDisplay extends React.Component {
 
   onCommentClick() {
     //TODO
-    //console.log(this);
-   window.location.href="/source/commentpage";
-  //  this.context.history.pushState({}, '/source/commentpage');
+   //window.location.href="/source/commentpage";
+    browserHistory.push("/source/commentpage");
   }
   //点击屏幕隐藏
   onModalClick() {
@@ -47,7 +47,7 @@ class ArticleDisplay extends React.Component {
   }
   //点击选择样式
   onModifyClick(type) {
-    let fontsize, MaxFontSize = 24, MinFontSize = 14;
+    let fontsize, MaxFontSize = 22, MinFontSize = 16;
     switch(type) {
       case "white":
         this.setState({
@@ -61,14 +61,14 @@ class ArticleDisplay extends React.Component {
         break;
       case "big":
         fontsize = this.state.fontSize;
-        (fontsize < 22) &&
+        (fontsize < MaxFontSize) &&
         this.setState({
           fontSize: fontsize+2
         });
         break;
       case "small":
         fontsize = this.state.fontSize;
-        (fontsize > 16 ) &&
+        (fontsize > MinFontSize ) &&
         this.setState({
           fontSize: fontsize-2
         });
@@ -80,7 +80,7 @@ class ArticleDisplay extends React.Component {
   render() {
   	return(
   		<div className="ArticleDisplay">
-        <CommonHeader bgColor={this.state.color}>
+        <CommonHeader color={this.state.color}>
           <ReturnButton />
           <CollectButton />
           <CommentButton OnCommentClick={this.onCommentClick}/>
