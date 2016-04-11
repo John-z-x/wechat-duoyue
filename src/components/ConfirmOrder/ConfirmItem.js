@@ -4,9 +4,9 @@ class ConfirmItem extends React.Component {
   render() {
     const data = this.props.data;
     return (
-      <li id={data.id} className="ConfirmItem flex">
+      <li className="ConfirmItem flex">
 	      <div className="item-img">
-          <img src={data.headurl} alt="商品图片" title="商品图片"/>
+          <img src={data.headUrl} alt="商品图片" title="商品图片"/>
         </div>
         <div className="item-info">
           <ul>

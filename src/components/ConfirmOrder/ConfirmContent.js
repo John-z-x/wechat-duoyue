@@ -6,9 +6,9 @@ class ConfirmContent extends React.Component {
   render() {
     let money = 0, num = 0, total = 0, freight = 2.00,data = this.props.data;
     data.map( item => {
-      money += parseInt(item.num, 10)*parseInt(item.price, 10);
+      money += parseInt(item.num, 10)*parseFloat(item.price).toFixed(2);
       num += parseInt(item.num);
-    })
+    });
     total = money + freight;
     return (
       <div className="ConfirmContent">

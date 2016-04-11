@@ -1,9 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import withStyles from '../../decorators/withStyles';
 import styles from './ConfirmOrder.scss';
-
-import fetch from 'isomorphic-fetch';
+import { loadData } from '../../actions/ShoppingCartActions';
 
 import CommonHeader from '../HeaderComponents/CommonHeader';
 import ReturnButton from '../HeaderComponents/ReturnButton';
@@ -15,38 +16,14 @@ import WeChatPayBottom from './WeChatPayBottom';
 import AddressEditor from './AddressEditor';
 import ConfirmAddress from './ConfirmAddress';
 
-const Orderdata = [
-  {"id": 6223 ,"title":"他来了请闭眼","price": 31.50 ,"coverURL":"http://file.duoyue.me/upload/book/book/20151207/2015_12_07_095558591.jpg","count": 1 },
-  {"id": 5927 ,"title":"大清相国","price": 38.00 ,"coverURL":"http://file.duoyue.me/upload/book/book/20151118/2015_11_18_135906207.jpg","count": 2 },
-  {"id": 6227 ,"title":"微微一笑很倾城","price": 17.34 ,"coverURL":"http://file.duoyue.me/upload/book/book/20151214/2015_12_14_170654945.jpg","count": 1 }
-]
-
-
 @withStyles(styles)
 class ConfirmOrder extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       addressInfo: false,
-      addressModal: false,
-      goods: []
+      addressModal: false
     };
-    this.showAddressEditor = this.showAddressEditor.bind(this);
-    this.submitAddress = this.submitAddress.bind(this);
-  }
-
-  componentDidMount() {
-    let _self = this;
-    var json = require('../../../assets/MockData/data.json');
-    _self.setState({
-      goods: json
-    });
-
-    //fetch('../../../assets/MockData/data.json')
-    //  .then(response => response.json())
-    //  .then(json => _self.setState({
-    //      goods: json
-    //    }))
   }
 
   showAddressEditor() {
@@ -68,20 +45,25 @@ class ConfirmOrder extends React.Component {
     }
   }
 
+  componentWillMount() {
+    this.props.loadData();
+  }
+
   render() {
+    let { list } = this.props, { addressInfo, addressModal } = this.state;
     return (
       <div className="ConfirmOrder">
          <CommonHeader>
            <ReturnButton/>
            <HeaderTitle title="确认订单"/>
          </CommonHeader>
-         <ConfirmAddress addressInfo={this.state.addressInfo} showAddressEditor={this.showAddressEditor}/>
-         <ConfirmContent data={this.state.goods} />
+         <ConfirmAddress addressInfo={addressInfo} showAddressEditor={::this.showAddressEditor}/>
+         <ConfirmContent data={list} />
          <WeChatPayBottom />
       {
-        this.state.addressModal &&
+        addressModal &&
         <Modal>
-          <AddressEditor info={this.state.addressInfo} submitAddress={this.submitAddress}/>
+          <AddressEditor info={addressInfo} submitAddress={::this.submitAddress}/>
         </Modal>
       }
       </div>
@@ -89,4 +71,19 @@ class ConfirmOrder extends React.Component {
   }
 }
 
-export default ConfirmOrder;
+function mapStateToProps(state) {
+  return {
+    list: state.cart
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    loadData: bindActionCreators(loadData, dispatch)
+  }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(ConfirmOrder);
