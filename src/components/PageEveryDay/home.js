@@ -61,6 +61,7 @@ class EverydayPageHome extends React.Component {
     //获取保存每次滚动高度，以判断当前进入第几页
     let arrPrePage = this.state.arrPrePage;
     arrPrePage.push(document.documentElement.scrollHeight);
+    console.log(arrPrePage);
   }
 
   render() {
@@ -77,7 +78,7 @@ class EverydayPageHome extends React.Component {
                     <div className="everyday-box">
                       <div className="item-title">
                         <img src={src} className="juhe-icon-wenzhang"/>
-                        · 文章 ·
+                        ·{index} 文章 ·
                       </div>
                       <EverydayContent data={everyday}/>
                       <EveryDayDates data={everyday}/>
