@@ -1,0 +1,71 @@
+{
+  "comments": [
+    {
+      "id": 0, 
+      "userAvatar": "http://wx.qlogo.cn/mmopen/4v9DqJtCqotKkQzOMdlgsb5ZPeic9h7ZF5yx0Vfo2CJDaomsqXMZniauFMicu9LBaWgic35ZhdMxMmM86boCE7I1NPiajs1ibqc7T4/0", 
+      "nickName": "豆蘼", 
+      "time": "2016/3/7 14:11:20", 
+      "text": "筑受到狂风破坏，95%的居民家中停电。气旋还在该岛产生暴雨，1小时降雨量高达58.5毫米", 
+      "praise": false, 
+      "praiseNum": 12
+    }, 
+    {
+      "id": 1, 
+      "userAvatar": "http://wx.qlogo.cn/mmopen/kofjCXITdCCehjLb2FuuBcaQicDlaiaZqHXT6cRHdVkpH02GjvnT9yK1clDFYrqST5yIDZ9FT5TqzVibHRRUcS3NbZ3MT6eGN52/0", 
+      "nickName": "AND ONE", 
+      "time": "2016/3/7 14:11:20", 
+      "text": "00套房屋被狂风摧毁，1万3000户民宅或商铺受损，致使2万5000人流离失所。约有147万户居民家中停电", 
+      "praise": false, 
+      "praiseNum": 90
+    }
+  ], 
+  "addComments": [
+    {
+      "id": 2, 
+      "userAvatar": "http://wx.qlogo.cn/mmopen/4v9DqJtCqotKkQzOMdlgsQXWvBQuxYibbiaezbvqUrvDx1fIcLYVE2CANez05uKLsXghFWUuXuynFBS5ACOmTRjxibuibO8p02rO/132", 
+      "nickName": "豆蘼", 
+      "time": "2016/3/7 14:11:20", 
+      "text": "筑受到狂风破坏，95%的居民家中停电。气旋还在该岛产生暴雨，1小时降雨量高达58.5毫米", 
+      "praise": false, 
+      "praiseNum": 12,
+      "images": [
+      	"http://file.duoyue.me/upload/source/pic/20151130/2015_11_30_174136419.jpg",
+      	"http://file.duoyue.me/upload/source/pic/20151130/2015_11_30_174136762.jpg"
+      ]
+    }
+  ], 
+  "socialComments": [
+    {
+      "id": 0, 
+      "userAvatar": "http://wx.qlogo.cn/mmopen/4v9DqJtCqotKkQzOMdlgsb5ZPeic9h7ZF5yx0Vfo2CJDaomsqXMZniauFMicu9LBaWgic35ZhdMxMmM86boCE7I1NPiajs1ibqc7T4/0", 
+      "nickName": "豆蘼", 
+      "time": "2016/3/7 14:11:20", 
+      "text": "筑受到狂风破坏，95%的居民家中停电。气旋还在该岛产生暴雨，1小时降雨量高达58.5毫米", 
+      "images": [
+        "http://file.duoyue.me/upload/group/content/20160315/2016_03_15_104123510.jpg", 
+        "http://file.duoyue.me/upload/group/content/20160315/2016_03_15_104124119.jpg"
+      ]
+    }, 
+    {
+      "id": 1, 
+      "userAvatar": "http://wx.qlogo.cn/mmopen/kofjCXITdCCehjLb2FuuBcaQicDlaiaZqHXT6cRHdVkpH02GjvnT9yK1clDFYrqST5yIDZ9FT5TqzVibHRRUcS3NbZ3MT6eGN52/0", 
+      "nickName": "AND ONE", 
+      "time": "2016/3/7 14:11:20", 
+      "text": "00套房屋被狂风摧毁，1万3000户民宅或商铺受损，致使2万5000人流离失所。约有147万户居民家中停电"
+    }
+  ],
+  "addSocialComments": [
+    {
+      "id": 2, 
+      "userAvatar": "http://wx.qlogo.cn/mmopen/4v9DqJtCqotKkQzOMdlgsb5ZPeic9h7ZF5yx0Vfo2CJDaomsqXMZniauFMicu9LBaWgic35ZhdMxMmM86boCE7I1NPiajs1ibqc7T4/0", 
+      "nickName": "and one", 
+      "time": "2016/3/7 14:11:20", 
+      "text": "筑受到狂风破坏，95%的居民家中停电。气旋还在该岛产生暴雨，1小时降雨量高达58.5毫米", 
+      "images": [
+        "http://file.duoyue.me/upload/group/content/20160315/2016_03_15_104123510.jpg", 
+        "http://file.duoyue.me/upload/group/content/20160315/2016_03_15_104124119.jpg"
+      ]
+    }
+  ]
+
+}
