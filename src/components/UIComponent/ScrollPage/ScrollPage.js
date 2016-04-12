@@ -44,9 +44,10 @@ class ScrollPage extends React.Component {
     let arrPrePageNum = arrPrePage.length;
 
     if (isUpDown === 'down') {
+      console.log(arrPrePageNum);
       for (let i = 0; i < arrPrePageNum; i++) {
         if (scrollTop + windowH  < arrPrePage[i]) {
-          console.log('已经进入' + i + '页');
+          //console.log('已经进入' + i + '页');
           this.setState({
             everyPage:i,
           });
@@ -56,7 +57,7 @@ class ScrollPage extends React.Component {
     } else {
       for (let i = 0; i < arrPrePageNum; i++) {
         if (scrollTop < arrPrePage[i]) {
-          console.log('已经进入' + i + '页');
+          //console.log('已经进入' + i + '页');
           this.setState({
             everyPage:i,
           });

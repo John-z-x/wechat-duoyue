@@ -8,16 +8,11 @@ import Tab from '../UIComponent/Tab/Tab';
 import SourceBox from './SourceBox';
 
 import * as sourceActions from '../../actions/SourceActions';
+import * as slideActions from '../../actions/SlideActions';
 
 import withStyle from '../../decorators/withStyles';
 import styles from './SourcePage.scss';
 
-
-let sourceData = {
-	SliderList: [
-		{"id": "1", "url": require("../../../assets/images/fourth.jpg"), "title": "长江出版社"},
-	]
-}
 
 let TabItemsData = {
   content: [
@@ -40,6 +35,10 @@ class SourcePageHome extends React.Component {
     this.state = {
       sourceBox: true
     }
+  }
+
+  componentDidMount() {
+    this.props.slideActions.slideDataLoad("sourceSlide");
   }
 
   onTypeChange(index) {
@@ -68,10 +67,10 @@ class SourcePageHome extends React.Component {
   }
 
 	render() {
-    const { list, actions } = this.props;
+    const { list, actions, slideData} = this.props;
 		return (
       <div className="SourcePageHome">
-				<Slider data={sourceData.SliderList}/>
+				<Slider data={slideData}/>
 				<SourceSearch/>
         <Tab TabItemsData={TabItemsData} onTypeChange={this.onTypeChange.bind(this)}/>
         {
@@ -87,17 +86,18 @@ class SourcePageHome extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    list: state.source
+    list: state.source,
+    slideData: state.slide
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(sourceActions, dispatch)
+    actions: bindActionCreators(sourceActions, dispatch),
+    slideActions: bindActionCreators(slideActions, dispatch)
   };
 }
 export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(SourcePageHome);
-//export default SourcePage;
