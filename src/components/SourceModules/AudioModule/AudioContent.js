@@ -38,7 +38,7 @@ class AudioContent extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    let data = prevProps.audioData.data[prevProps.audioData.index], newData = this.props.audioData.data[this.props.audioData.index], DEFAULT_INFO_HEIGHT = 85;
+    let data = prevProps.audioData.data[prevProps.audioData.index], newData = this.props.audioData.data[this.props.audioData.index], DEFAULT_INFO_HEIGHT = 66;
     if(data.id == newData.id) return;
     //切换歌曲时判断信息描述内容长度是否超出
     if(this.refs.info.offsetHeight > DEFAULT_INFO_HEIGHT ) {
@@ -57,7 +57,7 @@ class AudioContent extends React.Component {
   }
 
   componentDidMount() {
-    let container = this.refs.container,  DEFAULT_INFO_HEIGHT = 85;
+    let container = this.refs.container,  DEFAULT_INFO_HEIGHT = 66;
     let data = this.props.audioData.data[this.props.audioData.index];
     let { duration, progressValue } = this.props.audioData;
     //屏幕滑动
@@ -87,7 +87,7 @@ class AudioContent extends React.Component {
 
 
   componentWillReceiveProps(np) {
-    let data = np.audioData.data[np.audioData.index], DEFAULT_INFO_HEIGHT = 85;
+    let data = np.audioData.data[np.audioData.index], DEFAULT_INFO_HEIGHT = 66;
     if(data.id == this.props.audioData.data[this.props.audioData.index].id) return;
     //判断是否赞过和赞的数量
     if(data.isFav) {
@@ -187,6 +187,7 @@ class AudioContent extends React.Component {
     let ab = audioData.isPlaying ? "running" : "paused" ;
     let infoClassname = showInfo ? "music-info-open" : "music-info" ;
     let infoControllClass = showInfo ? "dis-desc-btn-hide" : "dis-desc-btn-show";
+    let infoConClassname = showInfo ? "info-con-open" : "info-con";
     let favorSrc = isFavor ? require("../../../../assets/images/mobile/audio/musicFaved.png") :
         require("../../../../assets/images/mobile/audio/musicFav.png");
     let musicListSrc = require("../../../../assets/images/mobile/audio/musicList.png");
@@ -206,15 +207,14 @@ class AudioContent extends React.Component {
               </div>
             </div>
 
-            <section className="info-box">
-              <div className={infoClassname}>
-                <p className="info-con" ref="info">{data.desc}</p>
-              </div>
-              {
-                this.state.overInfo &&
-                <div className={infoControllClass} onClick={this.toggleInfo.bind(this)}></div>
-              }
-            </section>
+            
+            <div className={infoClassname} ref="info">
+              <p className={infoConClassname} >{data.desc}</p>
+            {
+              this.state.overInfo &&
+              <div className={infoControllClass} onClick={this.toggleInfo.bind(this)}></div>
+            }
+            </div>
 
             <RelateRecommend dataList={dataList}/>
           </div>

@@ -5,7 +5,7 @@ class ConfirmFooter extends React.Component {
 	render() {
     let money = 0, num = 0, data = this.props.data;
     data.map( item => {
-      money += parseInt(item.num, 10)*parseInt(item.price, 10);
+      money += parseInt(item.num, 10)*parseFloat(item.price).toFixed(2);
       num += parseInt(item.num);
     })
 		return (
