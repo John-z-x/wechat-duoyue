@@ -29,9 +29,10 @@ class GoodsList extends React.Component {
       goods: []
     }
   }
-
   render() {
-    const { typeId } = this.props.params
+    const { typeId } = this.props.params;
+    let headerText;
+    headerData.map((item)=>{if(item.headerId==typeId){headerText=item.headerText;}})
     return (
       <div className="GoodsList">
         <GoodsListHeader />

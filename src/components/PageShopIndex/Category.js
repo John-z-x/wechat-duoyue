@@ -4,10 +4,9 @@ import { Link } from 'react-router';
 
 class Category extends React.Component {
   render() {
-   	const server = this.props.data.server;
-   	const local = this.props.data.local;
+   	const { server, local }= this.props.data;
    	let goodsCode = server.items.map( (item, i) =>
-   		<CategoryItem data={item} key={ 'categoryItem' + i}/>
+   		<CategoryItem data={item} key={ `categoryItem${i}`}/>
    	);
    
  	  return (

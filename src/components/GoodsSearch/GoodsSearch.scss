@@ -2,52 +2,55 @@
   $fontStack: 'FZLTXHJW';
   $fontSize14: 14px;
   $fontSize16: 16px;
+  $fontSize18: 18px;
   $colorWhite: #fff;
   $fontColor77cdb0: #77cdb0;
   $colorDDD: #ddd;
   $borderE2: 1px solid #e2e2e2;
-  $w100: 100%;
+  $borderE0: 1px solid #e0e0e0;
+  $bgColorF6: #f6f6f6;
+  $bgColorWhite: #fff;
   $w455: 45.5%;
+  $w70: 70%;
+  $w100: 100%;
   .goods-search{
-      width:100%;
-      height:40px;
-      border-top:1px solid #E0E0E0;
-      border-bottom:1px solid #E0E0E0;
+      width: $w100;
+      height: 40px;
+      border-top: $borderE0;
+      border-bottom: $borderE0;
       .goods-search-div{
-        height:30px;
-        width:70%;
-        background-color:#F6F6F6;
-        border-radius:5px;
-        margin-left:15px;
-        margin-top:4px;
-        padding-top:3px;     
+        height: 30px;
+        width: $w70;
+        background-color: $bgColorF6;
+        border-radius: 5px;
+        margin-left: 15px;
+        margin-top: 4px;
+        padding-top: 3px;     
         .goods-search-img{
-          width:22px;
+          width: 22px;
           height: 22px;
-          margin:0 5px;
-          background-image: url("/images/CommodityDetailImage/icon_Search.png");
-          background-repeat: no-repeat;
+          margin: 0 5px;
+          background: url("/images/CommodityDetailImage/icon_Search.png") no-repeat; 
           background-size: 100% 100%;
         }
         .goods-search-input{
-          border:0;
-          background-color:#F6F6F6;  
-          height:22px;
+          border: 0;
+          background-color: $bgColorF6;  
+          height: 22px;
         }
       }
       .goods-search-buttom{
-        border:0;
-        background-color:#fff;
-        font-size:18px;
-        font-family: 'FZLTXHJW';
-        height:30px;
-        margin-top:6px;
-        margin-right:10px;
+        border: 0;
+        background-color: $bgColorWhite;
+        font-size: $fontSize18;
+        font-family: $fontStack;
+        height: 30px;
+        margin-top: 6px;
+        margin-right: 10px;
       }
     }
   .goods-list-box {
-    background-image: url('http://www.duoyue.me/wechat/1018/3021/images/shangcheng/shangcheng_bg.png');
-    background-repeat: repeat;
+    background: url('/images/shangcheng_bg.png')  repeat;
     .goods-list-title {
       width: $w100;
       text-align: center;
@@ -56,10 +59,8 @@
         display: inline-block;
         width: 40px;
         height: 40px;
-        background-image: url('http://www.duoyue.me/wechat/1018/3021/images/shangcheng/jingpingremai.png');
-        background-position: top center;
+        background: url('/images/commodityDetailImage/jingpingremai.png') no-repeat top center ;
         background-size: 40px 40px;
-        background-repeat: no-repeat;
       }
       .title-name {
         display: block;
