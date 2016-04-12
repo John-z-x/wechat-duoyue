@@ -14,12 +14,13 @@ class ScrollPage extends React.Component {
       pageDisplay: false,  //页码显示判断
       everyPage: this.props.everyPage, //当前页码 从0开始
       totalPage: this.props.totalPage,  //总页码
-      prePage: this.props.prePage,  //上次页面滚动的高度
+      prePage: 0,  //上次页面滚动的高度
       arrPrePage: this.props.arrPrePage, //获取每页滚动高度
       bottomDisplay: false, //页面加载完底部显示判断
     }
-    
-    Utils.bindMethods(this, "onScrollPage","isScrollUpDown", "onScrollListAdd");
+    this.isFirst = true;
+    this.isonceFinish = false;
+    Utils.bindMethods(this, "onScrollPage", "isScroll", "onScrollListAdd","isScrollUpDown");
   }
 
   //滚动判断页码是否显示
@@ -36,6 +37,60 @@ class ScrollPage extends React.Component {
     }
   }
 
+
+  //滚动加载数据
+  onScrollListAdd(){
+    let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    let windowH = document.documentElement.clientHeight;
+    let prePage = this.state.prePage;
+
+    let arrPrePage = this.state.arrPrePage;
+    let everyPage = this.state.everyPage;
+    let totalPage = this.state.totalPage;
+
+    this.onScrollPage();
+    if (scrollTop > prePage) {
+      this.isScrollUpDown('down',arrPrePage);
+    } else {
+      this.isScrollUpDown('up',arrPrePage);
+    }
+
+    if(everyPage != totalPage && everyPage < totalPage){
+      if(!this.isScroll()) return;        
+      if(this.isFirst || this.isonceFinish ){
+        this.props.callbackParent();
+        this.isonceFinish = false;
+      }  
+    }else{
+      this.setState({
+        bottomDisplay: true,
+      })
+      return;
+    }
+    
+  }
+
+
+  //滚动加载的条件
+  isScroll(){
+      let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      let windowH = document.documentElement.clientHeight;
+      let prePage = this.state.prePage;
+
+      let arrPrePage = this.state.arrPrePage;
+
+      if (scrollTop > prePage) {
+        this.isScrollUpDown('down',arrPrePage);
+      } else {
+        this.isScrollUpDown('up',arrPrePage);
+      }
+      this.setState({
+        prePage: scrollTop,
+      })
+
+      return (windowH + prePage + windowH / 10 > document.body.scrollHeight) ? true : false;
+  }
+
   //判断上下滚动条件，页码变化
   isScrollUpDown(isUpDown,arrPrePage){
     let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
@@ -44,63 +99,29 @@ class ScrollPage extends React.Component {
     let arrPrePageNum = arrPrePage.length;
 
     if (isUpDown === 'down') {
-      console.log(arrPrePageNum);
       for (let i = 0; i < arrPrePageNum; i++) {
         if (scrollTop + windowH  < arrPrePage[i]) {
-          //console.log('已经进入' + i + '页');
           this.setState({
             everyPage:i,
-          });
+          })
           break;
         }
       }
     } else {
       for (let i = 0; i < arrPrePageNum; i++) {
         if (scrollTop < arrPrePage[i]) {
-          //console.log('已经进入' + i + '页');
           this.setState({
-            everyPage:i,
-          });
+            everyPage: i,
+          })
           break;
         }
       }
     }
   }
 
-  //滚动加载数据
-  onScrollListAdd(){
-    let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    let windowH = document.documentElement.clientHeight;
-    let everyPage = this.state.everyPage;
-    let totalPage = this.state.totalPage;
-    let prePage = this.state.prePage;
-    let arrPrePage = this.state.arrPrePage;
-
-    if (scrollTop > prePage) {
-      this.isScrollUpDown('down',arrPrePage);
-    } else {
-      this.isScrollUpDown('up',arrPrePage);
-    }
-    prePage = scrollTop;
-    if (windowH + prePage + windowH/10 > document.body.scrollHeight) {
-        if(everyPage != totalPage){
-          this.props.callbackParent();
-        }else{
-          this.setState({
-            bottomDisplay: true,
-          });
-          return;
-        }
-    }
-    this.onScrollPage();
-  }
-
   //滚动前页面内容数据变化，绑定解除
   componentWillMount(){
-    let everyData = this.state.everyData;
-    this.setState({
-      everyData: everyData,
-    });
+
   }
 
   componentWillUnmount() {
@@ -109,18 +130,6 @@ class ScrollPage extends React.Component {
 
   //滚动加载
   componentDidMount() {
-    let oBox = document.getElementById("EverydayTopic");
-    let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    let windowH = document.documentElement.clientHeight;
-    let arrPrePage = this.state.arrPrePage;
-    let prePage = this.state.prePage;
-    arrPrePage.push(document.documentElement.scrollHeight);
-
-    if(scrollTop > prePage) {
-      this.isScrollUpDown('down',arrPrePage);
-    } else {
-      this.isScrollUpDown('up',arrPrePage);
-    }
     window.addEventListener("scroll", this.onScrollListAdd, false);
   }
 
@@ -129,12 +138,11 @@ class ScrollPage extends React.Component {
     let pageDisplay = this.state.pageDisplay,
         everyPage = this.state.everyPage,
         totalPage = this.state.totalPage,
-        prePage = this.state.prePage,
-        arrPrePage = this.state.arrPrePage,
-        everyData = this.state.everyData;
+        arrPrePage = this.state.arrPrePage;
+
     return (
       <div className="ScrollPage">
-        <EveryDayPageNum everyData={everyData} pageDisplay={pageDisplay} everyPage={everyPage} totalPage={totalPage} prePage={prePage} arrPrePage={arrPrePage} />
+        <EveryDayPageNum pageDisplay={pageDisplay} everyPage={everyPage} totalPage={totalPage} arrPrePage={arrPrePage} />
         <EveryDayScrollBottom  bottomDisplay={this.state.bottomDisplay}/>
       </div>
     );

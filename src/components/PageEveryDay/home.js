@@ -27,9 +27,8 @@ class EverydayPageHome extends React.Component {
     super(props, context);
     this.state = {
       everyData: this.props.list, //页面数据
-      everyPage: 1, //当前页码
-      totalPage: 3, //总页码
-      prePage: 0, //上次页面滚动的高度
+      everyPage: 1, //当前页码 
+      totalPage: 3, //总页码 
       arrPrePage: [0], //获取每页滚动高度
       bottomDisplay: false, //页面加载完底部显示判断
     }
@@ -44,21 +43,12 @@ class EverydayPageHome extends React.Component {
   //每页数据加载
   onChildChanged(){
     let everyData = this.props.list;
-    // let everyDayTotalItem = [];
-    // everyData.map( (item,index)=>
-    //   everyDayTotalItem[index] = item
-    // );
-    //console.log(everyDayTotalItem);
-    // this.setState({
-    //   everyData: everyDayTotalItem.concat(everyData[0]),
-    // });
+
     this.props.everydayActions.everydayListLoadMore(everyData[0]);
-    //console.log(this.state.everyData);
-    //console.log(everyData);
+
     //获取保存每次滚动高度，以判断当前进入第几页
     let arrPrePage = this.state.arrPrePage;
     arrPrePage.push(document.documentElement.scrollHeight);
-    console.log(arrPrePage)
   }
 
   render() {
@@ -90,7 +80,6 @@ class EverydayPageHome extends React.Component {
             everyData={this.props.list}
             everyPage={this.state.everyPage}
             totalPage={this.state.totalPage}
-            prePage={this.state.prePage}
             arrPrePage={this.state.arrPrePage} />
         </div>
     )
