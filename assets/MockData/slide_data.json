@@ -1,0 +1,27 @@
+{
+  "everydaySlide": [
+    {
+      "id": "1", 
+      "url": "http://file.duoyue.me/upload/columninfo/20151225/2015_12_25_103305103.jpg", 
+      "title": ""
+    }, 
+    {
+      "id": "2", 
+      "url": "http://file.duoyue.me/upload/columninfo/20151225/2015_12_25_103451212.jpg", 
+      "title": ""
+    }
+  ], 
+  "sourceSlide": [
+    {
+      "id": "1", 
+      "url": "http://file.duoyue.me/upload/columninfo/20151224/2015_12_24_113335413.jpg", 
+      "title": "长江出版社"
+    }, 
+    {
+      "id": "2", 
+      "url": "http://file.duoyue.me/upload/columninfo/20160107/2016_01_07_112407146.jpg", 
+      "title": "长江出版社"
+    }
+  ], 
+  "default": [ ]
+}
