@@ -9,8 +9,14 @@ import styles from './App.scss';
 @withStyles(styles)
 class App extends React.Component {
 
-   requireCart(path) {;
-     return path === '/' || ['danpin','shop','source','everyday'].includes(path.split('/')[1]);
+   requireHeader(path) {
+     return ['/','/danpin','/shop','/source','/everyday'].includes(path);
+   }
+
+   requireCart(path) {
+      if(path === '/' || path === '/source') return true;
+      if(path.indexOf('/bookread/') > -1) return false;
+      return ['danpin','shop', 'everyday'].some(p => p === path.split('/')[1]);
    }
 
    render() {
@@ -18,7 +24,7 @@ class App extends React.Component {
 
       return (
         <div className="app">
-          <PageHeader className="Header-nav" defaultNav={defaultPath}/>
+          { this.requireHeader(defaultPath) && <PageHeader className="Header-nav" defaultNav={defaultPath}/> }
           <div className="wrapper">
            {children}
           </div>
