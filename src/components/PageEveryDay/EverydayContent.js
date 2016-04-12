@@ -8,7 +8,9 @@ class EverydayContent extends React.Component {
     return (
         <div className="EverydayContent">
           <div className="content-img">
-            <img src={data.src} alt="每天图片" title="每天图片" width="100%"/>
+            <div className="everyday-img-container">
+              <img src={data.src} alt="每天图片" title="每天图片" />
+            </div>
           </div>
           <div className="title">{data.title}</div>
           <div className="desc">{data.desc}</div>

@@ -7,10 +7,11 @@ class CommodityDetailClass extends React.Component {
 	  	<div className="CommodityDetailClass">
         <Link to="/shop/goodslist/1">
           <div className="bottom-pic">
-            <img src="/images/CommodityDetailImage/xinpinsudi.png" alt="底部图" title="底部图"/>
+            <span className="bottom-list-btn"></span>
           </div>
-		      <div className="bottom-title">顽意&nbsp;&nbsp;
-            <img width="20px" src="/images/CommodityDetailImage/more.png" alt="更多" title="更多"/>
+		      <div className="bottom-title">
+            <span>尖货</span>
+            <span className="bottom-title-pic"></span>
           </div>
 		    </Link>
       </div>

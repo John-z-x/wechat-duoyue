@@ -27,13 +27,17 @@ class Nav extends Component {
     let navsCode = navsData.map( (item, i) =>
   		<div className="nav-item left" key={i}>
 				<Link to={item.href}>
-        <img src={item.imgUrl} alt={item.title} title={item.title} width="60%"/>
+          <div className="nav-img-wrapper">
+            <div className="nav-img-container">
+              <img src={item.imgUrl} alt={item.title} title={item.title} width="60%"/>
+            </div>
+          </div>
         <span className="category-name">{item.title}</span>
 				</Link>
   		</div>
     );
   	return (
-      <nav className="nav clearfix">
+      <nav className="Nav nav clearfix">
       	{navsCode}
       </nav>
   	);

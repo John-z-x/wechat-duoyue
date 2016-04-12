@@ -27,6 +27,13 @@
     white-space: nowrap;
     text-overflow: ellipsis;
   }
+  .img-common {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $w100;
+    height: 100%;
+  }
   background-color: $bgColorWhite;
   font-size: $fontSize14;
   line-height: 22px;
@@ -41,7 +48,6 @@
     line-height: 39px;
     background-color: $bgColorWhite;
     .favorites-type {
-      float: left;
       width: $w47;
       height: 37px;
       margin-right: 5px;
@@ -68,20 +74,21 @@
           box-shadow: $bsColorC9;
         }
         .book-item {
-          float: left;
           margin: 5px 12% 5px 0;
           width: $w23;
           color: $fontColor3;
           text-align: center;
           &:nth-of-type(3n) {
-            float: left;
             margin: 5px 0 5px 0;
-            width: $w23;
-            color: $fontColor3;
           }
-          .book-img {
-            box-shadow: $bsColorC9;
-            width: $w100;
+          .book-img-container {
+            position: relative;
+            padding-top: 142.8572%;/*140*200*/
+            .book-img {
+              @extend .img-common;
+              box-shadow: $bsColorC9;
+              width: $w100;
+            } 
           }
           .book-name {
             @extend .omission;
@@ -110,14 +117,12 @@
         border-bottom: $borderD;
         padding: 10px 10px 13px 10px;
         .title {
-          @extend .omission;
-          float: left;
-          padding: 5px;
-          width: $w80;
           display: inline-block;
+          width: $w80;
+          padding: 5px;
+          @extend .omission;
         }
         .delete {
-          float: right;
           width: 14px;
           height: 14px;
           background: url(/images/close_article.png) no-repeat center;

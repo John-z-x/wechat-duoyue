@@ -33,10 +33,10 @@
   $backgroundColor7da1b4: #7da1b4;
   
   /*width*/
-  $width25: 25%;
-  $width33: 33%;
-  $width50: 50%;
-  $width100: 100%;
+  $w25: 25%;
+  $w33: 33%;
+  $w50: 50%;
+  $w100: 100%;
   /*一行*/
   @mixin a-line {
     overflow: hidden;
@@ -69,26 +69,36 @@
     text-overflow: ellipsis;
     -webkit-box-orient: vertical;
   }
+  .img-common {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $w100;
+    height: 100%;
+  }
   a {
     text-decoration: none;
   }
   .blank40 {
     height: 40px;
   }
-
   .BookInfo {
     .book-cover {
       padding: 25px;
       text-align: center;
-      img {
-        width: $width50;
-        border: 0;
-        vertical-align: top;
+      width: $w50;
+      margin: 0 auto;
+      box-sizing: content-box;
+      .book-cover-container {
+        position: relative;
+        padding-top: 142.8752%;
+        img {
+          @extend .img-common;
+        }
       }
-
     }
     .book-info {
-      padding: 10px 0 10px 0;
+      padding: 10px 0;
       border-top: $borderColorE;
       border-bottom: $borderColorE;
       background-color: $backgroundColorFA;
@@ -107,17 +117,25 @@
         padding: 20px 100px;
         .book-buy,.book-consult {
           display: inline-block;
-          width: $width50;
+          width: $w50;
           .icon-box-title {
-            padding: 5px 0px 5px 0px;
+            padding: 5px 0px;
             text-align: center;
             color: $fontColor7;
           }
           .book-buy-icon {
+            width: 25px;
+            height: 25px;
+            display: block;
+            margin: auto;
             background: url(/images/icon_buy.png);
             @include buy-consult-icon;
           }
           .book-consult-icon {
+            width: 25px;
+            height: 25px;
+            display: block;
+            margin: auto;
             background: url(/images/server.png);
             @include buy-consult-icon;
           }
@@ -125,12 +143,15 @@
       }
       .book-desc {
         padding: 10px 30px;
-        .book-desc-box {
+        .list-box {
+          padding: 30px 0px 10px 0px;
           border-top: $borderColorE;
-          padding: 20px 0 10px 0;
+          &:nth-last-child(2) {
+            border-bottom: $borderColorE;
+          }
           .book-desc-title {
             display: inline-block;
-            width: $width100;
+            width: $w100;
             padding: 0 0 10px 0;
             font-size: $fontSize14;
             text-align: center;
@@ -140,10 +161,6 @@
             font-size: $fontSize12;
             color: $fontColor7;
           }
-        }
-        .book-read-box {
-          padding: 25px 0 15px 0;
-          border-top: $borderColorE;
           .book-read-btn {
             display: block;
             width: 160px;
@@ -155,10 +172,6 @@
             text-align: center;
             margin-top: 5px;
           }
-        }
-        .list-box {
-          padding: 30px 0px 10px 0px;
-          border-top: $borderColorE;
           .list-icon {
             background: url(/images/shuoming.png);
             @include book-icon;
@@ -173,7 +186,7 @@
           }
           .book-list-title {
             display: inline-block;
-            width: $width100;
+            width: $w100;
             padding: 10px 0;
             text-align: center;
             font-size: $fontSize14;
@@ -183,7 +196,7 @@
             color: $fontColor7;
             height: 30px;
             line-height: 30px;
-            width: $width100;
+            width: $w100;
             @include a-line;
           }
           .book-detail-content {
@@ -195,19 +208,16 @@
             }
           }
         }
-        .book-buy-box {
-          padding: 20px 0 10px 0;
+        .book-buy-btn {
+          width: 200px;
+          margin: 20px auto 10px auto;
+          padding: 12px 0px;
           border-top: $borderColorE;
-          .book-buy-btn {
-            width: 200px;
-            margin: auto;
-            padding: 12px 0px;
-            background-color:  $backgroundColor61c3a2;
-            border-radius: 25px;
-            text-align: center;
-            font-size: $fontSize16;
-            color: $fontColorF;
-          }
+          background-color:  $backgroundColor61c3a2;
+          border-radius: 25px;
+          text-align: center;
+          font-size: $fontSize16;
+          color: $fontColorF;
         }
       }
     }
@@ -220,22 +230,20 @@
     padding-bottom: 10px;
     text-align: center;
     }
-    .green-title {
-      font-size: $fontSize14;
-      padding-bottom: 10px;
-      text-align: center;
-      color:  $fontColor61c3a2;
-    }
     .RecItem {
       box-sizing: border-box;
-      width: $width33;
+      width: $w33;
       padding: 5px;
       display: inline-block;
       vertical-align: top;
       .rec-item-pic {
         padding: 20px 25px 0 25px;
-        img {
-          width: $width100;
+        .item-pic-container {
+          position: relative;
+          padding-top: 142.8752%;
+          img {
+            @extend .img-common;
+          }  
         }
       }
       .rec-item-title {
@@ -262,7 +270,7 @@
     border-top: $borderColorE;
     color:  $fontColor3;
     .bottom-link-box {
-      width: $width100;
+      width: $w100;
       .bottom-link-title {
         display: inline-block;
         height: 29px;

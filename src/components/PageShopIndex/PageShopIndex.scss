@@ -22,15 +22,23 @@
   $bgColorF6: #f6f6f6;
   $bgColorE1: #e1e1e1;
   $bgColorDB: #dbdbdb;
-  $w100: 100%;
-  $w85: 85%;
-  $w455: 45.5%;
-  $w25: 25%;
   $w15: 15%;
+  $w25: 25%;
+  $w455: 45.5%;
+  $w60: 60%;
+  $w85: 85%;
+  $w100: 100%;
+  .img-common {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $w100;
+    height: 100%;
+  }
   /* nav -start*/
   .nav {
     width: $w100;
-    padding: 16px 0 2px 0;
+    padding: 10px 0 2px 0;
     overflow-x: scroll;
     overflow-y: hidden;
     .nav-box {
@@ -40,9 +48,21 @@
       width: $w25;
       text-align: center;
       display: block;
+      .nav-img-wrapper {
+        width: $w60;
+        margin: 0 auto;
+        .nav-img-container {
+          position: relative;
+          padding-top: 100%;
+          img{
+            @extend .img-common;
+          }
+        }
+      }
       .category-name {
         display: inline-block;
         width: $w100;
+        padding-top: 10px;
         text-align: center;
         font-size: $fontSize14;
         font-family: $fontStack;
@@ -143,15 +163,19 @@
     .shop-item {
       box-sizing: border-box;
       margin: 10px 0 3px 3%;
-      height: 200px;
       width: $w455;
       background-color: $colorWhite;
       border: $borderColorE1;
       box-shadow: 1px 1px 2px $colorDDD;
       border-radius: 3px;
-      .goods-img {
-        border-top-left-radius: 2px;
-        border-top-right-radius: 2px;
+      .goods-img-container {
+        position: relative;
+        padding-top: 100%;
+        .goods-img {
+          @extend .img-common;
+          border-top-left-radius: 2px;
+          border-top-right-radius: 2px;
+        }
       }
       .goods-title {
         overflow: hidden;
@@ -170,6 +194,9 @@
         font-size: $fontSize16;
         line-height: 1em;
         color: $fontColor77cdb0;
+        &:before {
+          content: '￥';
+        }
       }
     }
   }

@@ -15,9 +15,11 @@ class FavoritesBook extends React.Component {
           <div className="clearfix my-books" >
             { this.props.data.bookData.map((item,i) => {
                 return (
-                  <div className="book-item" key={item.bookId}>
+                  <div className="book-item left" key={item.bookId}>
                     <Link to={`/danpin/bookbuy/${item.bookId}`}>
-                      <img src={item.src} alt="书籍封面" title="书籍封面" className="book-img"/>
+                      <div className="book-img-container">
+                        <img src={item.src} alt="书籍封面" title="书籍封面" className="book-img"/>
+                      </div>
                       <div className="book-name">{item.bookName}</div>
                     </Link>
                     <div className="book-delete" onClick={() => this.deleteFavoritesBook(item.bookId)}>删除</div>

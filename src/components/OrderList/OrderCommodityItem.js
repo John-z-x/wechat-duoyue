@@ -13,10 +13,10 @@ class OrderCommodityItem extends React.Component {
 				}
 		return (
 		  <li className=" OrderCommodityItem clearfix" key={data.id}>
-				<div className="commodity-image">
+				<div className="commodity-image left">
 				 <img src={data.src} alt="订单商品图" title="订单商品图" width="100%"/>
 				</div>
-				<div className="commodity-title">
+				<div className="commodity-title left">
 				  {data.title}
 				  {showPrice}
 				</div>

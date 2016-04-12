@@ -18,8 +18,8 @@ class OrderListContent extends React.Component {
  						<div className="order-item" key={orderItem.orderId}>
 							<Link to={`/orderlist/${orderItem.id}/display`}>
 								<div className="order-title clearfix">
-									<div className="order-status">{orderItem.status}</div>
-									<div className="order-number">订单号：{orderItem.orderNum}</div>
+									<div className="order-status left">{orderItem.status}</div>
+									<div className="order-number right">订单号：{orderItem.orderNum}</div>
 								</div>
 								<ul className="order-commodity">
 								{
@@ -32,8 +32,8 @@ class OrderListContent extends React.Component {
 								</ul>
 							</Link>
 								<div className="order-information clearfix">
-									<div className="order-pay">实付款：<span className="pay-money">￥{orderItem.pay}</span></div>
-									<div className="order-date">{orderItem.date}</div>
+									<div className="order-pay left">实付款：<span className="pay-money">￥{orderItem.pay}</span></div>
+									<div className="order-date right">{orderItem.date}</div>
 								</div>
 								<div className="order-delete">删除</div>
  						</div>
@@ -42,7 +42,7 @@ class OrderListContent extends React.Component {
 				}
 		}
 		return(
-			<div className="OrderBox">
+			<div className="OrderListContent OrderBox">
 				<div className="my-order">我的订单</div>
 				<div className="OrderListContent">
 					{OrderContent}

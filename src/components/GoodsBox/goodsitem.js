@@ -4,9 +4,9 @@ class GoodsItem extends React.Component {
 	render() {
 		const { data } = this.props;
 		return (
-			<li className="goods-item flex">
+			<li className="GoodsItem goods-item flex">
 				<div className="goods-img left">
-					<img src={data.headUrl} alt="图片" width="70" height="70"/>
+					<img src={data.headUrl} alt="图片" title="图片" />
 				</div>
 				<div className="goods-detail left">
 					<div className="goods-title">{data.title}</div>

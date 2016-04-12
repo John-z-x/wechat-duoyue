@@ -6,9 +6,11 @@ class SliderItem extends React.Component {
 		const item = this.props.data;
 		let title = this.props.title;
 		return (
-			<li className="slider-item" key={item.id} >
+			<li className="SliderItem slider-item" key={item.id} >
 				<Link to={item.href || '#'} >
-					<img src={item.url} alt={item.title} title={item.title} width="100%" height="100%"/>
+					<div className="slider-img-container">
+            <img src={item.url} alt={item.title} title={item.title} />
+          </div>
 					{title && <span className="slider-item-title">{item.title}</span> }
 				</Link>
       </li> 

@@ -15,7 +15,9 @@ class RecommendBookModule extends React.Component {
 							return (
 								<li className="cell" key={i}>
 									<Link to={item.href}>
-										<img className="bk-cover" src={item.src} alt={item.title}/>
+										<div className="book-cover">
+                      <img className="bk-cover" src={item.src} alt={item.title}/>
+                    </div>
 										<h4 className="bk-title">{item.title}</h4>
 										<span className="bk-price rem">{item.price}</span>
 									</Link>

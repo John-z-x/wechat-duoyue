@@ -69,7 +69,7 @@ class BookDetail extends React.Component {
             <CollectButton onFavorChange={this.onFavorChange.bind(this)}/>
           </CommonHeader>
           <BookInfo data={Bookdata}/>
-          <RecList title="相关图书" data={Recdata} classname="green-title"/>
+          <RecList title="相关图书" data={Recdata}/>
           <div className="bottom-blank"></div>
           <ToDanpin title="书城"/>
           {

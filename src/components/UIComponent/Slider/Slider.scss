@@ -5,6 +5,7 @@
   /*fontcolor*/
   $fontColorA: #aaa;
   /*border*/
+  $borderD: 1px solid #ddd;
   $border262C3A2: 2px solid #62c3a2;
   /*bgcolor*/
   $bgColorA: #aaa;
@@ -12,18 +13,30 @@
   /*width*/
   $w100: 100%;
 	position: relative;
-	height: 200px;
 	width: $w100;
 	overflow: hidden;
+  .img-common {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $w100;
+    height: 100%;
+  }
 	.slider-ul {
 		white-space: nowrap;
-		height: 100%;
 		width: $w100;
     .slider-item {
       position: relative;
       display: inline-block;
       width: $w100;
-      height: 100%;
+      border-bottom: $borderD;
+      .slider-img-container {
+        position: relative;
+        padding-top: 42.8572%;/*700*300*/
+        img {
+          @extend .img-common;
+        }  
+      }
       .slider-item-title {
         display: block;
         position: absolute;
@@ -43,7 +56,7 @@
 	.slider-dot {
 		position: absolute;
 		left: 0;
-		bottom: 0;
+		bottom: 5px;
 		height: 30px;
 		line-height: 30px;
 		z-index: 9999;

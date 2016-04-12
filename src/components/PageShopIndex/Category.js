@@ -10,7 +10,7 @@ class Category extends React.Component {
    	);
    
  	  return (
- 			<li className="category clearfix">
+ 			<li className="Category clearfix">
         <header className="category-header clearfix">
  					<div className="category-title left" style={{backgroundImage: "url(" + local.categoryUrl + ")"}}>{server.title}</div>
           <Link to={`/shop/goodslist/${server.id}`}>

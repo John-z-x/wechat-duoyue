@@ -20,7 +20,7 @@ class SortNav extends React.Component {
 							return (
 								<li className="cell" key={i}>
 									<Link to={item.href}>
-										<img className="sort-icon" src={item.src} alt={item.title}/>
+										<img className="sort-icon" src={item.src} alt={item.title} title={item.title}/>
 										<h4 className="sort-title">{item.title}</h4>
 									</Link>
 								</li>

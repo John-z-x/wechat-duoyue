@@ -37,13 +37,13 @@
   $backgroundColor7da1b4: #7da1b4;
   
   /*width*/
-  $width25: 25%;
-  $width32: 32%;
-  $width33: 33%;
-  $width35: 35%;
-  $width50: 50%;
-  $width55: 55%;
-  $width100: 100%;
+  $w25: 25%;
+  $w32: 32%;
+  $w33: 33%;
+  $w35: 35%;
+  $w50: 50%;
+  $w55: 55%;
+  $w100: 100%;
   
   /*浮动大小*/
   @mixin float-width($direction,$sizing) {
@@ -56,7 +56,7 @@
     width: 5px;
     height: 5px;
     border-radius: 5px;
-    margin: 5px 0;
+    margin: 0 5px;
     background-color: $bgColor;
   }
     /*一行*/
@@ -74,15 +74,22 @@
     background-size: 400px;
     vertical-align: bottom;
   }
-
+  
+  .img-common {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $w100;
+    height: 100%;
+  }
   .UserInfo {
     padding: 0px 20px 0;
     height: 90px;
     background-color: $backgroundColorF;
     .user-new-img {
-      text-align: left;
+      text-align: center;
       padding-top: 10px;
-      max-width: $width35;
+      max-width: $w35;
       img {
         width: 50px;
         height: 50px;
@@ -97,7 +104,7 @@
       }
     }
     .user-table {
-      width: $width55;
+      width: $w55;
       padding-top: 30px;
       text-align: center;
       font-size: $fontSize10;
@@ -107,7 +114,7 @@
         border-right: $borderColorE;
       }
       .user-table-td {
-        width: $width32;
+        width: $w32;
         display: inline-block;
         a {
           text-decoration: none;
@@ -128,11 +135,11 @@
     background-color: $backgroundColorF8;
     border-bottom: $borderColorE;
     border-top: $borderColorE;
-    width: $width100;
+    width: $w100;
   }
 
   .BookShelf {
-    width: $width100;
+    width: $w100;
     background-color: $backgroundColorF;
     overflow: hidden;
     color: $fontColor3;
@@ -143,7 +150,7 @@
       .line {
         height: 1px;
         background-color: $backgroundColorE;
-        width: $width100;
+        width: $w100;
       }
       .title {
         z-index: 1000;
@@ -182,16 +189,20 @@
               margin: 5px 0;
               color: $fontColor3;
             }
-            .book-img {
-              box-shadow: 1px 3px 5px $backgroundColorC9;
-              width: $width100;
+            .book-img-container{
+              position: relative;
+              padding-top: 142.8572%;/*200*140*/
+              .book-img {
+                @extend .img-common;
+                box-shadow: 1px 3px 5px $backgroundColorC9;
+              }  
             }
             .book-name {
               color: $fontColor3;
               padding-top: 10px;
               text-align: center;
               @include a-line;
-              width: $width100;
+              width: $w100;
               height: 22px;
               line-height: 11px;
               font-size: $fontSize10;
@@ -201,16 +212,18 @@
       }
     }
     .page-dots {
-      width: $width100;
+      width: $w100;
       text-align: center;
       position: absolute;
       bottom: 15px;
       left: 0;
       .SliderDot {
-        .slider_dot_hover {
+        text-indent: 2px;
+        text-align: center;
+        .slider-dot-hover {
           @include slider-dot(#62c3a2);
         }
-        .slider_dot_item {
+        .slider-dot-item {
           @include slider-dot(#b4b4b4);
         }
       }
@@ -223,12 +236,12 @@
       position: absolute;
       left: 0;
       bottom: 0;
-      width: $width100;
+      width: $w100;
     }
   }
 
   .ToSocialArea {
-    width: $width100;
+    width: $w100;
     background-color: $backgroundColorF;
     position: fixed;
     bottom: 0;

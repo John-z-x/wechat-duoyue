@@ -31,10 +31,10 @@ class CommentItem extends React.Component {
 		return (
 			<div className="CommentItem">
 				<div className="info-wrap clearfix">
-					<div className="user-avatar">
+					<div className="user-avatar left">
 						<img className={classNames('one',{'avatar': this.state.avatarState})} src={userAvatar} alt="userAvatar" onLoad={::this.showSelf }/>
 					</div>
-					<div className="user-info">
+					<div className="user-info left">
 						<h4 className="user-name a-line ">{nickName}</h4>
 						<time className="comment-time a-line">{time}</time>
 					</div>
