@@ -3,17 +3,11 @@ import { routerMiddleware } from 'react-router-redux';
 import rootReducer from '../reducers';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import DevTools from '../containers/DevTools';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 import createHashHistory from 'history/lib/createHashHistory';
 
 const debug = process.env.NODE_ENV !== 'production';
-const middlewares = debug ? [ thunk,  routerMiddleware(history) ] : [ thunk, logger(),  routerMiddleware(history)];
-
-let devTools = [];
-if(!__DEVTOOLS__) {
-  devTools = [ DevTools.instrument()];
-}
+const middlewares = debug ? [ thunk, logger(), routerMiddleware(history) ] : [ thunk, routerMiddleware(history)];
 
 export default function configureStore(history, initialState) {
 
@@ -21,8 +15,7 @@ export default function configureStore(history, initialState) {
       rootReducer,
       initialState,
       compose(
-          applyMiddleware(...middlewares),
-          ...devTools
+          applyMiddleware(...middlewares)
       )
   )
 
