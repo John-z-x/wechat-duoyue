@@ -37,7 +37,7 @@ class GoodsList extends React.Component {
       <div className="GoodsList">
         <GoodsListHeader />
         <section className="goods-list-box clearfix">
-          <GoodsListTitle data={headerData[typeId].headerText} />
+          <GoodsListTitle data={headerText} />
           <ul>
             {
               GoodsListData.map( (item, index) => {

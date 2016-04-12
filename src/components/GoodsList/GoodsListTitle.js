@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 
 class GoodsListTitle extends React.Component {
   render() {
@@ -12,5 +12,7 @@ class GoodsListTitle extends React.Component {
   }
 }
 
-
 export default GoodsListTitle;
+GoodsListTitle.propTypes={
+  data:PropTypes.string.isRequired
+}
