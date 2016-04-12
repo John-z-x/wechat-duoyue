@@ -1,0 +1,110 @@
+.GoodsList{
+  $fontStack: 'FZLTXHJW';
+  $fontSize14: 14px;
+  $fontSize16: 16px;
+  $colorWhite: #fff;
+  $fontColor77cdb0: #77cdb0;
+  $colorDDD: #ddd;
+  $borderE2: 1px solid #e2e2e2;
+  $w100: 100%;
+  $w455: 45.5%;
+  .goods-search{
+      width:100%;
+      height:40px;
+      border-top:1px solid #E0E0E0;
+      border-bottom:1px solid #E0E0E0;
+      .goods-search-div{
+        height:30px;
+        width:70%;
+        background-color:#F6F6F6;
+        border-radius:5px;
+        margin-left:15px;
+        margin-top:4px;
+        padding-top:3px;     
+        .goods-search-img{
+          width:22px;
+          height: 22px;
+          margin:0 5px;
+          background-image: url("/images/CommodityDetailImage/icon_Search.png");
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+        }
+        .goods-search-input{
+          border:0;
+          background-color:#F6F6F6;  
+          height:22px;
+        }
+      }
+      .goods-search-buttom{
+        border:0;
+        background-color:#fff;
+        font-size:18px;
+        font-family: 'FZLTXHJW';
+        height:30px;
+        margin-top:6px;
+        margin-right:10px;
+      }
+    }
+  .goods-list-box {
+    background-image: url('http://www.duoyue.me/wechat/1018/3021/images/shangcheng/shangcheng_bg.png');
+    background-repeat: repeat;
+    .goods-list-title {
+      width: $w100;
+      text-align: center;
+      background: transparent;
+      .title-image {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background-image: url('http://www.duoyue.me/wechat/1018/3021/images/shangcheng/jingpingremai.png');
+        background-position: top center;
+        background-size: 40px 40px;
+        background-repeat: no-repeat;
+      }
+      .title-name {
+        display: block;
+        text-align: center;
+        line-height: 16px;
+        font-size: $fontSize16;
+        margin-bottom: 5px;
+      }
+    }
+    .shop-item {
+      box-sizing: border-box;
+      margin: 10px 0 3px 3%;
+      height: 208px;
+      width: $w455;
+      background-color: $colorWhite;
+      border: $borderE2;
+      box-shadow: 1px 1px 2px $colorDDD;
+      border-radius: 3px;
+    }
+    .goods-title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      font-size: $fontSize14;
+      line-height: 22px;
+      height: 40px;
+      margin: 5px;
+      font-family: $fontStack;
+    }
+    .goods-price {
+      display: block;
+      margin: 10px 5px 5px 5px;
+      font-size: $fontSize16;
+      line-height: 1em;
+      color: $fontColor77cdb0;
+      &:before {
+        content: "￥";
+        margin: 0 3px;
+      }
+    }
+    .goods-img {
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
+    }
+  }
+}

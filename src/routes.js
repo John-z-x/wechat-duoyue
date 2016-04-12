@@ -27,6 +27,7 @@ import BookSourceList from './components/BookDetail/BookSourceList';
 
 import GoodsList from './components/GoodsList/GoodsList';
 import CommodityDetail from './components/CommodityDetail/CommodityDetail';
+import GoodsSearch from './components/GoodsSearch/GoodsSearch';
 
 import Favorites from './components/Favorites/Favorites';
 
@@ -79,6 +80,7 @@ export default (
       <IndexRoute component={ShopPageIndexHome} />
       <Route path="goodslist/:typeId" component={GoodsList}/>
       <Route path="goodsbuy/:id" component={CommodityDetail}/>
+      <Route path="goodssearch" component={GoodsSearch}/>
     </Route>
 
     <Route path="source" component={SourcePage}>
