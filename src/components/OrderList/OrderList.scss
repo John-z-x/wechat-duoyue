@@ -37,11 +37,9 @@
             border-bottom: $borderE;
             line-height: 36px;
             .order-status {
-              float: left;
               font-size: $fontSize16;
             }
             .order-number {
-              float: right;
               font-size: $fontSize12;
             }
           }
@@ -57,12 +55,10 @@
                 border-bottom: 0;
               }
               .commodity-image{
-                float: left;
                 width: 60px;
                 padding: 10px; 
               }
               .commodity-title {
-                float: left;
                 padding: 10px;
               }
             }
@@ -71,14 +67,12 @@
             padding: 10px 10px 0;
             border-top: $borderE;
             .order-pay {
-              float: left;
               color: $fontColor3;
               .pay-money {
                 color: $fontColorF30;
               }
             }
             .order-date {
-              float: right;
               font-size: $fontSize12;
               color: $fontColor9;
             }

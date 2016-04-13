@@ -7,7 +7,7 @@ class CommentWriteGuide extends React.Component {
 	}
 	render() {
 		return (
-			<div className="comment-write-guide clearfix">
+			<div className="CommentWriteGuide comment-write-guide clearfix">
 				<div className="write-comment-btn" onClick={ this.props.func && ::this.onClick}>
 					<em className="icon"></em>写评论
 				</div>

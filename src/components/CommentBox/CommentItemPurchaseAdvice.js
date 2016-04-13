@@ -12,10 +12,10 @@ class CommentItemPurchaseAdvice extends React.Component {
 		return (
 			<div className="CommentItemPurchaseAdvice">
 				<div className="question-wrap clearfix">
-					<div className="question-avatar">
+					<div className="question-avatar left">
 						<em className="avatar">Q</em>
 					</div>
-					<p className="text">{text}</p>
+					<p className="text left">{text}</p>
 				</div>
 			</div>
 		);

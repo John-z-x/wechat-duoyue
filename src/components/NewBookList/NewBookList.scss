@@ -4,7 +4,16 @@
   $fontColor3: #333;
   $fontColor61c3a2: #61c3a2;
   $bgColorWhite: #fff;
-  
+  $w33: 33.33%;
+  $w70: 70%;
+  $w100: 100%;
+  .img-common {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $w100;
+    height: 100%;
+  }
   background-color: $bgColorWhite;
   .book-list-title{
     color: $fontColor61c3a2;
@@ -14,7 +23,7 @@
   }
   .books {
     .book-list-title {
-      width: 100%;
+      width: $w100;
       height: 60px;
       line-height: 60px;
       text-align: center;
@@ -23,12 +32,23 @@
     .BookItem {
       display: inline-block;
       box-sizing: border-box;
-      width: 33.33%;
+      width: $w33;
       padding: 5%;
       font-size: $fontSize12;
       text-align: center;
       color: $fontColor61c3a2;
       margin-bottom: 20px;
+      .bookitem-wrap {
+        width: $w70;
+        margin: 5px auto;
+        .news-img-container {
+          position: relative;
+          padding-top: 142.8572%;/*140*200*/
+          img {
+            @extend .img-common;
+          }
+        }
+      }
       .book-title {
         display: block;
         height: 3em;

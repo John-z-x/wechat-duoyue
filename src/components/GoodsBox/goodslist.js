@@ -16,7 +16,7 @@ class GoodsList extends React.Component {
 			itemNodes.push(<li className="nullBox" key="nullBox">您的购物车已经空了</li>)
 		}
 		return (
-			<ul className="cart-goods" >
+			<ul className="GoodsList cart-goods" >
           {itemNodes}
 			</ul>
 		);

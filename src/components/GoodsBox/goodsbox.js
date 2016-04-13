@@ -32,7 +32,7 @@ class GoodsBox extends React.Component {
 		const { data, actions } = this.props;
     actions.showConfirm = this.showConfirm.bind(this);
 		return (
-			<div className="shopping-goods">
+			<div className="GoodsBox shopping-goods">
 				<ConfirmTop modifyCover={actions.modifyCover} loadData={actions.loadData}/>
 				<GoodsList data={data} actions={actions} />
 				<ConfirmFooter data={data} />

@@ -17,21 +17,28 @@
   $backgroundColorF0: #f0f0f0;
   $backgroundColorF8: #f8f8f8;
     /*常用border*/
-  $borderColorC: 1px solid #ccc;
-  $borderColorD: 1px solid #ddd;
-  $borderColorE4: 1px solid #e4e4e4;
-  $borderColor61c3a2: 1px solid #61c3a2;
-  $borderColorE: 1px solid #eee;
-  $borderColorCB: 1px solid #cbcbcb;
+  $borderC: 1px solid #ccc;
+  $borderD: 1px solid #ddd;
+  $borderE4: 1px solid #e4e4e4;
+  $border61c3a2: 1px solid #61c3a2;
+  $borderE: 1px solid #eee;
+  $borderCB: 1px solid #cbcbcb;
   /*width*/
-  $width25: 25%;
-  $width33: 33%;
-  $width50: 50%;
-  $width100: 100%;
+  $w25: 25%;
+  $w33: 33%;
+  $w50: 50%;
+  $w100: 100%;
   /*font-family*/
   $fontFamilyYaHei: 'Microsoft YaHei';
   
-	width: $width100;
+  .img-common {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $w100;
+    height: 100%;
+  }
+	width: $w100;
 	height: 100%;
 	background-color: $backgroundColorF;
 	margin: 0;
@@ -40,8 +47,8 @@
 		text-decoration: none;
 	}
 	.banner-content {
-		border-top: $borderColorE;
-		border-bottom: $borderColorE;
+		border-top: $borderE;
+		border-bottom: $borderE;
 		padding: 5px;
 		.banner-content-title {
 			font-size: $fontSize16;
@@ -52,9 +59,13 @@
 			color: $fontColor7;
 		}
 	}
-	#banner-pic img {
-		width: $width100;
-	}
+	.detail-pic-container {
+    position: relative;
+    padding-top: 56%;
+    img {
+      @extend .img-common;
+    }
+  }
 	.cover {
 		background-color: transparent;
 	}
@@ -77,10 +88,10 @@
     -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
     justify-content: space-between;
-		width: $width100;
+		width: $w100;
 		height: 53px;
 		padding: 5px 0;
-		border-top: $borderColorD;
+		border-top: $borderD;
 		background-color: $backgroundColorF8;
 		.cancel-btn, 
 		.submit-btn {
@@ -113,7 +124,7 @@
 			display: block;
 			height: 40px;
 			margin-top: 2px;
-			border: $borderColorCB;
+			border: $borderCB;
 			border-radius: 5px;
 			background-color: transparent;
 			resize: none;

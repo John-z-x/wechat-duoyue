@@ -7,7 +7,11 @@ class BookItem extends React.Component {
     return (
       <div className="BookItem">
         <Link to={data.href}>
-          <img src={data.src} width="70%" alt={data.name} title={data.name}/>
+          <div className="bookitem-wrap">
+            <div className="news-img-container">
+              <img src={data.src} alt={data.name} title={data.name}/>
+            </div>
+          </div>
           <span className="book-title">{data.title}</span>
           <span className="book-price">{data.price}</span>
         </Link>

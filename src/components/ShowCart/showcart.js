@@ -10,7 +10,7 @@ class ShowCart extends React.Component {
 	  });
 		if (num > 0) {
 			return (
-				<div className="shopping-cart" onClick={modifyCover}>
+				<div className="ShowCart shopping-cart" onClick={modifyCover}>
 					<div className="goods-num">{num}</div>
 				</div>
 			);

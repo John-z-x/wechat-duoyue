@@ -7,7 +7,9 @@ class BookListItem extends React.Component {
     const data = this.props.data;
     return (
       <div className="BookListItem">
-        <img src={data.imgUrl} alt="书籍封面" title="书籍封面" className="book-img"/>
+        <div className="book-img-container">
+          <img src={data.imgUrl} alt="书籍封面" title="书籍封面" className="book-img"/>
+        </div>
         <span className="book-title">{data.name}</span>
         <span className="book-price">{data.price}</span>
       </div>

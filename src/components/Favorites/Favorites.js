@@ -16,8 +16,8 @@ let TabItemsData = {
   ],
   tabClass: {
     tabBox: "favorites-classify  clearfix",
-    tabItemOn: "favorites-type type-over",
-    tabItemDefault: "favorites-type"
+    tabItemOn: "favorites-type left type-over",
+    tabItemDefault: "favorites-type left"
   }
 }
 
