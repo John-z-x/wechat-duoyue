@@ -87,11 +87,9 @@
   .BookListRight {
     width: $w80;
     height: 100%;
-    position: relative;
+    padding: 0 20px;
     background-color: $backgroundColorF;
     .top {
-      width: $w80;
-      margin: 0 10%;
       position: relative;
       height: 30px;
       .header-line {
@@ -118,8 +116,7 @@
     .BookListItem {
       width: $w50;
       float: left;
-      height: 220px;
-      padding-left: 10%;
+      padding: 0 10px;
       background-color: $backgroundColorF;
       .book-img-container{
         position: relative;

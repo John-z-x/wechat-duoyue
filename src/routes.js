@@ -60,6 +60,10 @@ import SocialDetail from './components/SocialArea/SocialDetail';
 
 import ConfirmOrder from './components/ConfirmOrder/ConfirmOrder';
 
+import WeChatPayHome from './components/WeChatPayPanel/home';
+import WeChatPay from './components/WeChatPayPanel/WeChatPayPanel';
+import WeChatPaySend from'./components/WeChatPayPanel/WeChatPaySend';
+
 import NotFound from './components/NotFound/NotFound';
 
 export default (
@@ -128,7 +132,13 @@ export default (
 
     <Route path="confirmorder" component={ConfirmOrder}>
     </Route>
-
+    
+    <Route path="pay" component={WeChatPay}>
+      <IndexRoute component={WeChatPayHome} />
+      <Route path="paysend" component={WeChatPaySend}/>
+    </Route>
+   
+    
     <Route path="*" component={NotFound} />
   </Route>
 )
