@@ -37,7 +37,7 @@ class CollectButton extends React.Component {
     notonClass = imgsClass ? defaultClass.noFavor + " " +imgsClass.noFavor : defaultClass.noFavor;
     classnames = this.state.isFavor ? onClass : notonClass ;
     return (
-      <span className={classnames +" head-btn right"} onClick={this.toggleFavor}></span>
+      <span className={"CollectButton head-btn right " + classnames } onClick={this.toggleFavor}></span>
     );
   }
 }

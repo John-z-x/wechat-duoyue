@@ -15,12 +15,12 @@ class FavoritesArticle extends React.Component {
           <div className="article-box">
             { data.articleData.map((item, i) => {
                   return (
-                    <Link to={`/everyday/${item.articleId}/display`} key={item.articleId}>
-                      <div className="favorites-article clearfix">
-                        <div className="title">{item.title}</div>
-                        <div className="delete" onClick={() => this.deleteFavoritesArticle(item.articleId)}></div>
+                      <div className="favorites-article clearfix" key={item.articleId}>
+                        <Link to={`/everyday/${item.articleId}/display`} >
+                          <div className="title left">{item.title}</div>
+                        </Link>
+                        <div className="delete right" onClick={() => this.deleteFavoritesArticle(item.articleId)}></div>
                       </div>
-                    </Link>
                   );
                 }
             )

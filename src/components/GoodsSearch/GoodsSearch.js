@@ -1,18 +1,13 @@
 import React from 'react';
 
 import withStyles from '../../decorators/withStyles';
-import styles from './GoodsList.scss';
+import styles from './GoodsSearch.scss';
 
-import GoodsListHeader from './GoodsListHeader';
-import GoodsListTitle from './GoodsListTitle';
+import GoodsListHeader from '../GoodsList/GoodsListHeader';
+import GoodsListTitle from '../GoodsList/GoodsListTitle';
 import CategoryItem from '../PageShopIndex/CategoryItem';
+import GoodsSearchInput from './GoodsSearchInput';
 
-const headerData = [
-  {'headerId': 0, 'headerText': '搜索结果'},
-  {'headerId': 1, 'headerText': '精品热卖'},
-  {'headerId': 2, 'headerText': '重磅推荐'},
-  {'headerId': 3, 'headerText': '新品速递'},
-];
 
 const GoodsListData = [
   {"id": "1","name": "加入色影无忌", "href": "/shop/goodsbuy/1","imgUrl": "http://file.duoyue.me/upload/product/20151208/2015_12_08_212851760.jpg", "price": 300.00},
@@ -22,22 +17,21 @@ const GoodsListData = [
 ]
 
 @withStyles(styles)
-class GoodsList extends React.Component {
+class GoodsSearch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       goods: []
     }
   }
+
   render() {
-    const { typeId } = this.props.params;
-    let headerText;
-    headerData.map((item)=>{if(item.headerId==typeId){headerText=item.headerText;}})
-    return (
+    return (      
       <div className="GoodsList">
         <GoodsListHeader />
+        <GoodsSearchInput />
         <section className="goods-list-box clearfix">
-          <GoodsListTitle data={headerText} />
+          <GoodsListTitle data={"重磅推荐"} />
           <ul>
             {
               GoodsListData.map( (item, index) => {
@@ -48,9 +42,9 @@ class GoodsList extends React.Component {
             }
           </ul>
         </section>
-      </div>
+      </div>   
     );
   }
 }
 
-export default GoodsList;
+export default GoodsSearch;

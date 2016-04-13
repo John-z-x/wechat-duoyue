@@ -5,16 +5,16 @@ class ConfirmItem extends React.Component {
     const data = this.props.data;
     return (
       <li className="ConfirmItem flex">
-	      <div className="item-img">
+	      <div className="item-img left">
           <img src={data.headUrl} alt="商品图片" title="商品图片"/>
         </div>
-        <div className="item-info">
+        <div className="item-info left">
           <ul>
             <li className="item-name">{data.title}</li>
             <li className="item-detail">
               <span className="price-signal">￥</span>
               <span className="item-price">{data.price}</span>
-              <span className="item-count">×{' '+data.num}</span>
+              <span className="item-count right">×{' '+data.num}</span>
             </li>
           </ul>
         </div>    

@@ -48,8 +48,7 @@
     height: 36px;
     opacity: 0.8;
     display: block;
-    background-image: url("../../../../assets/images/cart_icon.png");
-    background-repeat: no-repeat;
+    background: url("../../../../assets/images/cart_icon.png") no-repeat;
     background-size: 100% 100%;
     .goods-num {
       position: absolute;
@@ -62,7 +61,7 @@
       font-size: $fontSize10;
       line-height: 15px;
       border-radius: 15px;
-      background-color: #62c3a2;
+      background-color: $bgColor62C3A2;
       color: $fontColorF;
       z-index: 100;
       display: block;
@@ -93,9 +92,8 @@
         height: 25px;
         margin-right: 10px;
         margin-top: 7.5px;
-        background-image: url("../../../../assets/images/cancel.png");
+        background: url("../../../../assets/images/cancel.png") no-repeat;
         background-size: 100% 100%;
-        background-repeat: no-repeat;
       }
     }
     .cart-goods {
@@ -120,6 +118,11 @@
         background: $bgColorF;
         .goods-img {
           margin-left: 20px;
+          img {
+            width: 70px;
+            height: 70px;
+            border: $borderC;
+          }
         }
         .goods-detail {
           margin-left: 10px;

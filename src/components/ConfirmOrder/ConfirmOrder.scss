@@ -135,7 +135,6 @@
             border-bottom: 0 solid transparent;
           }
           .item-img {
-            float: left;
             width: 70px;
             height: 70px;
             border: $borderC;
@@ -147,7 +146,6 @@
             }
           }
           .item-info {
-            float: left;
             height: 70px;
             margin-left: 15px;
             flex: 3;
@@ -185,7 +183,6 @@
                 }
                 .item-count {
                   @extend .omission;
-                  float: right;
                   max-width: 65px;
                   text-align: right;
                 }

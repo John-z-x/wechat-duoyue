@@ -22,6 +22,7 @@ let shopIndexData = {
   Categorys: [
     {
       server: {
+        "id":1,
         title: "精品热卖",
         items: [
           {"id": "1","name": "木质纹理，丝丝入心", "href": "/shop/goodsbuy/1", "imgUrl": "http://file.duoyue.me/upload/product/20160224/2016_02_24_203735155_b.jpg", "price": 52.80},
@@ -37,6 +38,7 @@ let shopIndexData = {
     },
     {
       server: {
+        "id":2,
         title: "重磅推荐",
         items: [
           {"id": "1","name": "加入色影无忌", "href": "/shop/goodsbuy/1","imgUrl": "http://file.duoyue.me/upload/product/20151208/2015_12_08_212851760.jpg", "price": 300.00},

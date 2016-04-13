@@ -149,7 +149,9 @@ class BookShelf extends React.Component {
                 if(i >= page * this.PAGE_COUNT && i < (page + 1) * this.PAGE_COUNT) {
                   return (
                     <Link to={item.href} key={i}>
-                      <img src={item.src} alt="书籍封面" className="book-img" title={item.bookName}/>
+                      <div className="book-img-container">
+                        <img src={item.src} alt={item.bookName} className="book-img" title={item.bookName}/>
+                      </div>
                       <div className="book-name">{item.bookName}</div>
                     </Link>
                   );

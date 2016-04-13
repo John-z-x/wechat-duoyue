@@ -26,6 +26,7 @@
   $w60: 60%;
   $w80: 80%;
   $w89: 89%;
+  $w90: 90%;
   $w100: 100%;
   
   background-color: $bgColorWhite;
@@ -69,7 +70,6 @@
       margin-left: 15px;
       border-bottom: $borderE5;
       .user-avatar {
-      	float: left;
         width: 30px;
         height: 30px;
         border: $borderE5;
@@ -87,7 +87,6 @@
         }
       }
       .user-info {
-      	float: left;
         padding-left: 10px;
         color: $fontColor3;
         .user-name {
@@ -167,7 +166,6 @@
 		padding: 10px;
 		.question-wrap {
 			.question-avatar {
-				float: left;
 				width: 25px;
 				height: 100%;
 				color: $fontColorF;
@@ -181,8 +179,7 @@
 				}
 			}
 			.text {
-				float: left;
-				width: 90%;
+				width: $w90;
 				padding-left: 10px;
 			}
 		}

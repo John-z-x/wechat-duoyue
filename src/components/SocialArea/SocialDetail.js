@@ -35,8 +35,8 @@ class SocialDetail extends React.Component {
 						<ReturnButton/>
 						<CommentButton OnCommentClick={ onModifyCover }/>
 					</CommonHeader>
-					<div id="banner-pic">
-			      <img src="http://file.duoyue.me/upload/group/logo/20151126/2015_11_26_160438732.jpg" title="logo"/>
+					<div id="banner-pic" className="detail-pic-container">
+			      <img src="http://file.duoyue.me/upload/group/logo/20151126/2015_11_26_160438732.jpg" alt="logo" title="logo"/>
 			    </div>
 			    <div className="banner-content" >
 		        <div className="banner-content-title">{dataArray.title}</div>

@@ -92,7 +92,7 @@ class HotNews extends React.Component {
 			totalItemCode = itemCode.concat([<li className="news-content" key={news.length}>{news[0].content}</li>]);
 		}
 		return (
-			<section className="hot-news">
+			<section className="HotNews hot-news">
         <div className="hot-box">
         	<span className="hot">热门</span>
         </div>

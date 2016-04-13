@@ -34,6 +34,13 @@
     border-bottom: $borderE6;
     text-align: center;
   }
+  .img-common {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $w100;
+    height: 100%;
+  }
   font-size: $fontSize14;
   line-height: 22px;
   table-layout: fixed;
@@ -114,9 +121,13 @@
       height: 220px;
       padding-left: 10%;
       background-color: $backgroundColorF;
-      .book-img {
-        width: $w80;
-        margin: 10px auto;
+      .book-img-container{
+        position: relative;
+        padding-top: 142.8572%;/*140*200*/
+        margin: 5px auto;
+        .book-img {
+          @extend .img-common;
+        }
       }
       .book-title {
         display: block;

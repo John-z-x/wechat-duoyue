@@ -11,62 +11,73 @@
   $fontColor7: #777;
   $fontColor9: #999;
   /*bg-color*/
-  $backgroundColorF: #fff;
-  $backgroundColor61c3a2: #61c3a2;
-  $backgroundColor62c3a2: #62c3a2;
-  $backgroundColorF0: #f0f0f0;
-  $backgroundColorF8: #f8f8f8;
+  $bgColorF: #fff;
+  $bgColor61c3a2: #61c3a2;
+  $bgColor62c3a2: #62c3a2;
+  $bgColorF0: #f0f0f0;
+  $bgColorF8: #f8f8f8;
     /*常用border*/
-  $borderColorC: 1px solid #ccc;
-  $borderColorD: 1px solid #ddd;
-  $borderColorE4: 1px solid #e4e4e4;
-  $borderColor61c3a2: 1px solid #61c3a2;
-  $borderColorE: 1px solid #eee;
+  $borderC: 1px solid #ccc;
+  $borderD: 1px solid #ddd;
+  $borderE4: 1px solid #e4e4e4;
+  $border61c3a2: 1px solid #61c3a2;
+  $borderE: 1px solid #eee;
   /*width*/
-  $width25: 25%;
-  $width33: 33%;
-  $width50: 50%;
-  $width100: 100%;
+  $w25: 25%;
+  $w33: 33%;
+  $w50: 50%;
+  $w100: 100%;
   /*font-family*/
   $fontFamilyYaHei: 'Microsoft YaHei';
 
 
-	width: $width100;
+	width: $w100;
 	height: 100%;
-	background-color: $backgroundColorF8;
+	background-color: $bgColorF8;
 	margin: 0;
 	a {
 		color: $fontColor3;
 		text-decoration: none;
 	}
+  .img-common {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $w100;
+    height: 100%;
+  }
 	.SocialAreaHome {
 		.SocialAreaItem {
 			.title {
 				text-align: center;
 				font-size: $fontSize20;
 				padding: 15px 20px 2px 20px;
-				background-color: $backgroundColorF8;
-				border-top: $borderColorD;
+				background-color: $bgColorF8;
+				border-top: $borderD;
 			}
 			.intra {
-				background-color: $backgroundColorF8;
+				background-color: $bgColorF8;
 				text-align: center;
 				padding: 0px 20px 10px 20px;
 				font-size: $fontSize12;
 				color: $fontColor9;
 			}
-			 .bg-pic {
-				width: $width100;
-		  }
+      .topic-pic-container {
+        position: relative;
+        padding-top: 56%;
+        .bg-pic {
+          @extend .img-common;
+        }
+      }
 	    .user {
 				min-height: 100px;
 				padding-bottom: 20px;
-				border-bottom: $borderColorD;
+				border-bottom: $borderD;
 				.user-pic {
 					position: absolute;
 					z-index: 1;
 					text-align: center;
-					width: $width100;
+					width: $w100;
 					margin-top: -35px;
 					img {
 						width: 70px;
@@ -89,7 +100,7 @@
 		  }
 		  .end {
 				height: 30px;
-				background-color: $backgroundColorF0;
+				background-color: $bgColorF0;
 		  }
 		}
 	}

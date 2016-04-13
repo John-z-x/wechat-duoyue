@@ -2,18 +2,17 @@ import React from 'react';
 import CommonHeader from '../HeaderComponents/CommonHeader';
 import ReturnButton  from '../HeaderComponents/ReturnButton';
 import SearchButton from '../HeaderComponents/SearchButton';
+import { Link } from 'react-router';
 
 class GoodsListHeader extends React.Component {
   render() {
     return (
         <CommonHeader>
           <ReturnButton />
-          <SearchButton />
+          <Link to={`/shop/goodssearch`}>
+            <SearchButton />
+          </Link>
         </CommonHeader>
-      //<div className="header">
-      //  <span className="click-goback left"></span>
-      //  <span className="search-goods right"></span>
-      //</div>
     );
   }
 }

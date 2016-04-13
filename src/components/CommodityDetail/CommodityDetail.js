@@ -44,7 +44,7 @@ class CommodityDetail extends React.Component {
 						<SearchButton />
 					</CommonHeader>
 				 <div className="CommodityDetailContent">
-           <Slider data={commodityDetailData.SliderList} style={{height: '287px'}} />
+           <Slider data={commodityDetailData.SliderList}/>
 					 <div className="content">
 						 <div className="goods-title">
 							 茶席何味，品生活之味，不同主题、根据主人不同心情设计的茶席。

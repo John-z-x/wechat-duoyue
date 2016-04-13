@@ -5,7 +5,7 @@ import classnames from 'classnames';
 class Cover extends React.Component {
 	render() {
     return (
-			<div className="cover" onClick={this.props.modifyCover}>
+			<div className="Cover cover" onClick={this.props.modifyCover}>
 				{this.props.children}
 			</div>
     );

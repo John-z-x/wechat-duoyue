@@ -9,7 +9,7 @@ class ConfirmFooter extends React.Component {
       num += parseInt(item.num);
     })
 		return (
-			<div className="confirm-footer clearfix">
+			<div className="ConfirmFooter confirm-footer clearfix">
 				<div className="confirm-footer-left fontFZ left">
 					<div className="total">
 						<span>合计： ￥</span>
