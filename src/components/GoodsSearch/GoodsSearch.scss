@@ -1,18 +1,29 @@
 .GoodsList{
   $fontStack: 'FZLTXHJW';
+  /*fontsize*/
   $fontSize14: 14px;
   $fontSize16: 16px;
   $fontSize18: 18px;
-  $colorWhite: #fff;
-  $fontColor77cdb0: #77cdb0;
-  $colorDDD: #ddd;
+  /*fontcolor*/
+  $fontColor77CDB0: #77cdb0;
+  $bsColorD: #ddd;
+  /*border*/
   $borderE2: 1px solid #e2e2e2;
   $borderE0: 1px solid #e0e0e0;
+  /*bgcolor*/
   $bgColorF6: #f6f6f6;
   $bgColorWhite: #fff;
+  /*width*/
   $w455: 45.5%;
   $w70: 70%;
   $w100: 100%;
+  .img-common {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $w100;
+    height: 100%;
+  }
   .goods-search{
       width: $w100;
       height: 40px;
@@ -73,13 +84,21 @@
     .shop-item {
       box-sizing: border-box;
       margin: 10px 0 3px 3%;
-      height: 208px;
       width: $w455;
-      background-color: $colorWhite;
+      background-color: $bgColorWhite;
       border: $borderE2;
-      box-shadow: 1px 1px 2px $colorDDD;
+      box-shadow: 1px 1px 2px $bsColorD;
       border-radius: 3px;
     }
+    .goods-img-container {
+        position: relative;
+        padding-top: 100%;
+        .goods-img {
+          @extend .img-common;
+          border-top-left-radius: 2px;
+          border-top-right-radius: 2px;
+        }
+      }
     .goods-title {
       overflow: hidden;
       text-overflow: ellipsis;
@@ -97,15 +116,11 @@
       margin: 10px 5px 5px 5px;
       font-size: $fontSize16;
       line-height: 1em;
-      color: $fontColor77cdb0;
+      color: $fontColor77CDB0;
       &:before {
         content: "￥";
         margin: 0 3px;
       }
-    }
-    .goods-img {
-      border-top-left-radius: 2px;
-      border-top-right-radius: 2px;
     }
   }
 }

@@ -1,0 +1,115 @@
+.WeChatPayPanel {
+  $fontStack: '\5FAE\8F6F\96C5\9ED1',Arial, Helvetica, sans-serif;
+  /*fontsize*/
+  $fontSize14: 14px;
+  $fontSize18: 18px;
+  $fontSize22: 22px;
+  /*fontcolor*/
+  $fontColor7: #777;
+  $fontColor9: #999;
+  $fontColorF: #fff;
+  $fontColorF30: #f30;
+  $fontColor0C0: #0c0;
+  /*border*/
+  $borderDD: 1px dashed #ddd;
+  /*bgcolor*/
+  $bgColor04BA00: #04ba00;
+  /*width*/
+  $w60: 60%;
+  .omission {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+  }
+  font-family: $fontStack;
+  font-size: $fontSize14;
+  line-height: 22px;
+  .WeChatPayHome{
+    .confirm-payment {
+      padding: 30px;
+      .payment-title{
+        font-size: $fontSize22;
+        text-align: center;
+        padding-bottom: 15px;
+        color: $fontColor7;
+        border-bottom: $borderDD;
+      }
+      .payment-detail{
+        padding: 15px 0;
+        border-bottom: $borderDD;
+        ul {
+          li {
+            @extend .omission;
+            span{
+              display: inline-block;
+              &:first-child {
+                width: 80px;
+                color: $fontColor9;
+                text-align: right;
+              }
+            }
+            &:last-child {
+              span {
+                &:nth-child(n+3){
+                  display: block;
+                  text-indent: 80px;  
+                }
+              }
+            }
+          }
+        }
+      }
+      .payment-btn{
+        width: $w60;
+        margin: 25px auto;
+        padding: 12px 0;
+        background-color: $bgColor04BA00;
+        font-size: $fontSize18;
+        color: $fontColorF;
+        text-align: center;
+      }
+    }
+  }
+  .WeChatPaySend {
+    .payment-sending {
+      padding: 0 30px;
+      .sending-title{
+        font-size: $fontSize22;
+        text-align: center;
+        padding-bottom: 15px;
+        color: $fontColor7;
+        border-bottom: $borderDD;
+      }
+      .sending-detail{
+        padding: 15px 0;
+        border-bottom: $borderDD;
+        ul {
+          li {
+            @extend .omission;
+            span{
+              display: inline-block;
+              &:first-child {
+                width: 50px;
+                color: $fontColor9;
+                text-align: right;
+              }
+            }
+            &:first-child {
+              span {
+                &:last-child {
+                  color: $fontColorF30;
+                  font-size: $fontSize22; 
+                }
+              }
+            }
+          }
+        }
+      }
+      .sending-msg {
+        padding-top: 20px;
+        text-align: center;
+        color: $fontColor0C0;
+      }
+    }
+  }
+}
