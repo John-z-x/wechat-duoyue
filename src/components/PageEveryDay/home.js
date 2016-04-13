@@ -32,7 +32,16 @@ class EverydayPageHome extends React.Component {
       arrPrePage: [0], //获取每页滚动高度
       bottomDisplay: false, //页面加载完底部显示判断
     }
+    this.finishLoad = true;
     Utils.bindMethods(this, "onChildChanged");
+  }
+
+  componentWillUnmount(){
+    this.props.everydayActions.everydayListRemove();
+  }
+  
+  componentWillMount(){
+
   }
 
   componentDidMount() {
@@ -43,12 +52,16 @@ class EverydayPageHome extends React.Component {
   //每页数据加载
   onChildChanged(){
     let everyData = this.props.list;
-
     this.props.everydayActions.everydayListLoadMore(everyData[0]);
-
     //获取保存每次滚动高度，以判断当前进入第几页
-    let arrPrePage = this.state.arrPrePage;
-    arrPrePage.push(document.documentElement.scrollHeight);
+    if(this.finishLoad){
+      let arrPrePage = this.state.arrPrePage;
+      arrPrePage.push(document.documentElement.scrollHeight);
+      this.finishLoad = false;
+    }else{
+      this.finishLoad = true;
+      return;
+    }  
   }
 
   render() {

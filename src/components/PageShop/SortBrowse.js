@@ -21,13 +21,13 @@ class SortBrowse extends React.Component {
 								<Link to={item.href} className="cell clearfix" key={i}>
 									<div className="cell-img left">
                     <div className="cell-img-container">
-                      <img src={item.src} alt={item.bkTitle} title={item.bkTitle} />
+                      <img src={item.bookTypePic} alt={item.title} title={item.title} />
                     </div>
                   </div>
 									<div className="cell-text left">
-										<h3 className="sort-title">{item.sortTitle}</h3>
-										<h5 className="bk-num-wrap">书籍:<span className="bk-num">{item.num}</span></h5>
-										<h5 className="bk-title">{item.bkTitle}</h5>
+										<h3 className="sort-title">{item.title}</h3>
+										<h5 className="bk-num-wrap">书籍:<span className="bk-num">{item.bookCount}</span></h5>
+										<h5 className="bk-title">{item.dtitle}</h5>
 									</div>
 								</Link>
 							)

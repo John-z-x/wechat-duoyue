@@ -5,6 +5,7 @@ import { Link } from 'react-router';
 class RecommendBookModule extends React.Component {
 	render() {
     let {data} = this.props;
+		if(!data.data) return null;
 		return (
 			<div className="RecommendBookModule">
 				<div className="recmd-box bdr-mg bg-white">

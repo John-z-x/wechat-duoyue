@@ -1,0 +1,18 @@
+{
+  "new": [
+    {"id": 1, "href": "/danpin/bookbuy/6227", "src": "http://file.duoyue.me/upload/book/book/20151127/2015_11_27_144239031_cut_c.jpg", "title": "他来了请闭眼", "price": 31.50},
+    {"id": 2, "href": "/danpin/bookbuy/6227", "src": "http://file.duoyue.me/upload/book/book/20151103/2015_11_03_213307947_cut_c.png", "title": "那些年我们追过的女孩", "price": 17.34},
+    {"id": 3, "href": "/danpin/bookbuy/6227", "src": "http://file.duoyue.me/upload/book/book/20151130/2015_11_30_200105765_cut_c.jpg", "title": "微微一笑", "price": 17.34},
+    {"id": 4, "href": "/danpin/bookbuy/6227", "src": "http://file.duoyue.me/upload/book/book/20151130/2015_11_30_194709749_cut_c.jpg", "title": "那些年我们追过的女孩", "price": 17.34},
+    {"id": 5, "href": "/danpin/bookbuy/6227", "src": "http://file.duoyue.me/upload/book/book/20151207/2015_12_07_095558591_cut_c.jpg", "title": "微微一笑倾人城", "price": 17.34},
+    {"id": 6, "href": "/danpin/bookbuy/6227", "src": "http://file.duoyue.me/upload/book/book/20151128/2015_11_28_094742682_cut_c.jpg", "title": "销魂殿", "price": 35}
+  ],
+  "hot": [
+    {"id": 11, "href": "/danpin/bookbuy/6227", "src": "http://file.duoyue.me/upload/book/book/20151214/2015_12_14_170654945_cut_c.jpg", "title": "他来了请闭眼", "price": 31.50},
+    {"id": 12, "href": "/danpin/bookbuy/6227", "src": "http://file.duoyue.me/upload/book/book/20151207/2015_12_07_095558591_cut_c.jpg", "title": "那些年我们追过的女孩", "price": 17.34},
+    {"id": 13, "href": "/danpin/bookbuy/6227", "src": "http://file.duoyue.me/upload/book/book/20151130/2015_11_30_200105765_cut_c.jpg", "title": "微微一笑", "price": 17.34},
+    {"id": 14, "href": "/danpin/bookbuy/6227", "src": "http://file.duoyue.me/upload/book/book/20151130/2015_11_30_194709749_cut_c.jpg", "title": "那些年我们追过的女孩", "price": 17.34},
+    {"id": 15, "href": "/danpin/bookbuy/6227", "src": "http://file.duoyue.me/upload/book/book/20151201/2015_12_01_110431890_cut_c.jpg", "title": "微微一笑倾人城", "price": 17.34},
+    {"id": 16, "href": "/danpin/bookbuy/6227", "src": "http://file.duoyue.me/upload/book/book/20151128/2015_11_28_094742682_cut_c.jpg", "title": "销魂殿", "price": 35}
+  ]
+}

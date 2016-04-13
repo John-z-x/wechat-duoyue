@@ -5,10 +5,11 @@ import source from './source';
 import comment from './comment';
 import everyday from './everyday';
 import slide from './slide';
+import danpin from './danpin/index';
 import { routerReducer as routing } from 'react-router-redux';
 
-
 const rootReducer = combineReducers({
+	danpin,
 	cover,
 	cart,
 	source,
@@ -16,6 +17,6 @@ const rootReducer = combineReducers({
   everyday,
   slide,
 	routing
-})
+});
 
 export default rootReducer;

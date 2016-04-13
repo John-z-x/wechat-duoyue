@@ -1,5 +1,5 @@
 'use strict';
-import { RECEIVED_EVERYDAY_LIST, RECEIVED_EVERYDAY_LIST_DATA} from '../constants/constants';
+import { RECEIVED_EVERYDAY_LIST, RECEIVED_EVERYDAY_LIST_DATA,RECEIVED_EVERYDAY_LIST_REMOVE} from '../constants/constants';
 
 
 export default function everyday(state = [], action) {
@@ -8,6 +8,8 @@ export default function everyday(state = [], action) {
      return action.list;
     case RECEIVED_EVERYDAY_LIST_DATA: 
      return state.concat(action.data);
+    case RECEIVED_EVERYDAY_LIST_REMOVE:
+     return [];
     default :
       return state;
   }
