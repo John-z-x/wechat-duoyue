@@ -130,6 +130,22 @@ class ScrollPage extends React.Component {
 
   //滚动加载
   componentDidMount() {
+    let oBox = document.getElementById("EverydayTopic");
+    let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    let windowH = document.documentElement.clientHeight;
+    let arrPrePage = this.state.arrPrePage;
+    let prePage = this.state.prePage;
+ 
+    if(scrollTop > prePage) {
+       this.isScrollUpDown('down',arrPrePage);
+    } else {
+       this.isScrollUpDown('up',arrPrePage);
+    }
+    this.setState({
+        prePage: scrollTop,
+    })
+  
+    arrPrePage.push(document.documentElement.scrollHeight);
     window.addEventListener("scroll", this.onScrollListAdd, false);
   }
 
