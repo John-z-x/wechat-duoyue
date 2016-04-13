@@ -22,6 +22,7 @@ class HotNews extends React.Component {
 		let height = node.parentNode.offsetHeight, count = this.state.news.length, _this = this;
 
 		let animate = function(end) {
+			window.clearTimeout(this.timerAnimate);
 			let speed = -1, ANIMATE_TIME = 10;
 			let autoAnimate = function() {
 	      if(this.state.top + speed > end) {
