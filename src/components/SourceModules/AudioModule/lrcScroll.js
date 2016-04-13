@@ -1,4 +1,3 @@
-import $ from 'jquery';
 
 let LrcScroll = {
   lrcDomClass: '#lrc_list',
@@ -10,10 +9,11 @@ let LrcScroll = {
   regex_time: /\[(\d+)\:((?:\d+)(?:\.\d+)?)\]/g,
   hasLrc: false,
   callback: null,
-  interval: 0.3,
+  interval: 0.1,
   handle: null,
 
   init: function(lrcText) {
+    this.lrcDOM = document.querySelector(this.lrcDomClass);
     this.list.length = 0;
     if(typeof lrcText !== 'string' || !lrcText.length) {
       this.stop();
@@ -43,9 +43,8 @@ let LrcScroll = {
         this.list.push([keyTime, itemText]);
       }
     }
-
-    let lrcLi = this.replaceTemplate(this.list), lrcUlList = $(this.lrcDomClass);
-    lrcUlList.html('').html(lrcLi);
+    let lrcLi = this.replaceTemplate(this.list);
+    this.lrcDOM.innerHTML = lrcLi;
   },
 
   replaceTemplate: function(list){
@@ -59,7 +58,7 @@ let LrcScroll = {
       outputHtml = "当前歌曲暂时没有字幕";
       this.hasLrc = false;
     }
-    $(this.lrcDomClass).css("marginTop", this.marginTop);
+    LrcScroll.lrcDOM.style.marginTop = this.marginTop + "px";
     return outputHtml;
   },
 
@@ -97,15 +96,74 @@ let LrcScroll = {
       if(tmp == m )break;
       m = tmp;
     }
-
     if(m == this.m) return;
     this.m = m;
+
     let _this = this;
-    let currentLrc = $(_this.lrcDomClass).children().removeClass(_this.hoverClass).eq(m).addClass(_this.hoverClass);
-    tmp = currentLrc.next().offset().top-currentLrc.parent().offset().top - _this.marginTop;
+    let currentLrc = this.toggleStyle(m);
+    tmp = currentLrc.nextElementSibling.offsetTop - currentLrc.parentNode.offsetTop - _this.marginTop;
     tmp = tmp > 0 ? tmp * -1 : 0;
-    $(_this.lrcDomClass).animate({'marginTop': tmp + 'px'}, _this.interval * 1000);
+    this.animate(tmp);
+  },
+
+  animate: function(tmp) {
+    const SPEED = 1;
+    let marginTop, speed, lrcDom = this.lrcDOM, _this = this;
+    let isBottom = this.checkIfBottom(tmp);
+    if(isBottom != tmp) {
+      lrcDom.style.marginTop = isBottom + "px";
+      return;
+    }
+    let play = () => {
+      window.clearTimeout(_this.lrcScroll);
+      marginTop = parseInt(lrcDom.style.marginTop, 10);
+      if(Math.abs(marginTop-tmp) > 40) {
+        lrcDom.style.marginTop = tmp + "px";
+        return;
+      }
+
+      if(tmp > marginTop) {
+        speed = 3;
+        if(marginTop + speed < tmp) {
+          lrcDom.style.marginTop = marginTop + SPEED + "px";
+          speed++;
+          _this.lrcScroll = window.setTimeout(play, _this.interval * 1000);
+        }else {
+          lrcDom.style.marginTop = tmp + "px";
+        }
+      }else {
+        speed = -3;
+        if(marginTop + speed > tmp) {
+          speed--;
+          lrcDom.style.marginTop = marginTop + speed + "px";
+          _this.lrcScroll = window.setTimeout(play, _this.interval * 1000);
+        }else {
+          lrcDom.style.marginTop = tmp + "px";
+        }
+      }
+
+    };
+    play();
+  },
+
+  toggleStyle: function(m) {
+    let items = this.lrcDOM.querySelectorAll("li");
+    let itemsArray = [].slice.call(items);
+    itemsArray.map( (item, index) => {
+      item.className = (index == m) ? this.hoverClass : "";
+    });
+    return items[m];
+  },
+
+  checkIfBottom: function(tmp) {
+    let lrcHeight = this.lrcDOM.offsetHeight,
+        contentHeight = document.querySelector(".page-right").querySelector(".content").offsetHeight;
+    if( lrcHeight < contentHeight/2 - 20) {
+      return false;
+    }
+    return (lrcHeight + tmp < contentHeight/2 ) ? -(lrcHeight - contentHeight/2) : tmp;
   }
+
 };
 
 export default LrcScroll;
