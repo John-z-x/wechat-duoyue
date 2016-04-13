@@ -1,11 +1,15 @@
 'use strict';
 import { RECEIVED_BOOK_LIST, RECEIVED_BOOK_TYPE, RECEIVED_SLIDER_LIST } from '../constants/constants';
 
+import BookType from '../models/BookType';
+
 export const fetchBooktype = () => {
   let data = require("../../assets/MockData/danpin/book_type_data.json");
   return dispatch => {
-
-    return dispatch(receivedBooktype(data));
+    let bookTypes = data.map((json) => {
+      return new BookType(json);
+    });
+    return dispatch(receivedBooktype(bookTypes));
   };
 };
 
