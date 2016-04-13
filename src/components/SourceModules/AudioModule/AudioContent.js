@@ -5,13 +5,13 @@ import utils from '../../../utils/utils.js';
 import RelateRecommend from './RelateRecommend';
 import LrcScroll from './LrcScroll';
 
+const WIDTH = document.documentElement.clientWidth;
 class AudioContent extends React.Component {
   constructor (props) {
     super(props);
-    this.width = document.documentElement.clientWidth;
     this.state =  {
       index: 1,  //判断处于哪一个界面
-      left: -this.width, //用于界面滚动
+      left: -WIDTH, //用于界面滚动
       overInfo: false, //判断描述信息是否超出
       showInfo: false, //是否显示全部描述信息
       isFavor: false, //是否点赞
@@ -126,23 +126,22 @@ class AudioContent extends React.Component {
 
   touchEnd(e) {
     let moveX = this.moveX, index = this.state.index;
-    let width = document.documentElement.clientWidth;
     this.moveX = 0;
     if(moveX < 0 ) {
       if(moveX < -50 ) {
         if(this.state.index < 2) {
           this.setState({
             index: index + 1,
-            left: -(index+1)*width
+            left: -(index+1)*WIDTH
           });
         }else {
           this.setState({
-            left: -index*width
+            left: -index*WIDTH
           });
         }
       }else {
         this.setState({
-          left: -index*width
+          left: -index*WIDTH
         })
       }
     }else {
@@ -150,16 +149,16 @@ class AudioContent extends React.Component {
         if(this.state.index > 0) {
           this.setState({
             index: index - 1,
-            left: -(index-1)*width
+            left: -(index-1)*WIDTH
           });
         }else {
           this.setState({
-            left: -index*width
+            left: -index*WIDTH
           });
         }
       }else {
         this.setState({
-          left: -index*width
+          left: -index*WIDTH
         });
       }
     }
@@ -194,7 +193,7 @@ class AudioContent extends React.Component {
     return (
       <div className="AudioContent flex-container"ref="container">
         <div className="slider-page" id="sliderPage" style={{marginLeft: left}}>
-          <div className="page-left" id="pageLeft" style={{width: this.width+"px"}}>
+          <div className="page-left" id="pageLeft" style={{width: WIDTH}}>
             <div className="music-detail">
               <div className="detail-pic">
                 <img src={data.picture} alt="专辑封面" id="detailCover" />
@@ -219,7 +218,7 @@ class AudioContent extends React.Component {
             <RelateRecommend dataList={dataList}/>
           </div>
 
-          <div className="page-center flex-item" style={{width: this.width+"px"}}>
+          <div className="page-center flex-item" style={{width: WIDTH}}>
             <div className="album-pic">
               <img className="album-cover" src={data.picture} style={{"animationPlayState": ab}} />
             </div>
@@ -244,7 +243,7 @@ class AudioContent extends React.Component {
             </div>
           </div>
 
-          <div className="page-right" id="pageRight" style={{width: this.width+"px"}}>
+          <div className="page-right" id="pageRight" style={{width: WIDTH}}>
             <div className="content" >
               <ul ref="lrc" id="lrc_list">
                 </ul>

@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import SliderDot from '../UIComponent/Slider/SliderDot';
 import utils from '../../utils/utils';
 
+const WIDTH = document.documentElement.clientWidth;
 class BookShelf extends React.Component {
 
   constructor(props) {
@@ -13,7 +14,6 @@ class BookShelf extends React.Component {
       left: 0
     };
     this.isSlidering = false;
-    this.winWidth = document.documentElement.clientWidth;
     this.PAGE_COUNT = 6;
     utils.bindMethods(this, "touchStart", "touchMove", "touchEnd", "slide", "playAnimate");
   }
@@ -37,40 +37,40 @@ class BookShelf extends React.Component {
   touchEnd(e) {
     if(this.isSlidering) return;
     const MOVE_DISTANCE = 50;
-    let moveX = this.moveX, width = this.winWidth, end,
+    let moveX = this.moveX, end,
         pageNumber = Math.ceil(this.props.data.bookData.length / this.PAGE_COUNT),
         index = this.state.index;
     this.moveX = 0;
     if(moveX < 0) {
       if(moveX < -MOVE_DISTANCE) {
         if(index < pageNumber - 1) {
-          end = -( index + 1) * width;
+          end = -( index + 1) * WIDTH;
           this.setState({
             index: index + 1
           });
           this.playAnimate("left", end);
         } else {
-          end = -index * width;
+          end = -index * WIDTH;
           this.playAnimate("right", end);
         }
       } else {
-        end = -index * width;
+        end = -index * WIDTH;
         this.playAnimate("right", end);
       }
     } else {
       if(moveX > MOVE_DISTANCE) {
         if(index > 0) {
-          end = -(index - 1) * width;
+          end = -(index - 1) * WIDTH;
           this.setState({
             index: index - 1
           });
           this.playAnimate("right", end);
         } else {
-          end = -index * width;
+          end = -index * WIDTH;
           this.playAnimate("left", end);
         }
       } else {
-        end = -index * width;
+        end = -index * WIDTH;
         this.playAnimate("left", end);
       }
     }
@@ -85,7 +85,7 @@ class BookShelf extends React.Component {
   playAnimate(direction, end) {
     //direction 图片滚动的方向
     let speed, _this = this;
-    let width = this.winWidth;
+    let width = WIDTH;
     const SPEED = 20, ANIMATE_TIME = 10;
 
     function animate() {
@@ -142,7 +142,7 @@ class BookShelf extends React.Component {
   getBookShelfBox(page) {
     let { bookData } = this.props.data;
     return (
-        <div className="bookWrap left" key={page} style={{width: this.winWidth}}>
+        <div className="bookWrap left" key={page} style={{width: WIDTH}}>
           <div className="my-books clearfix">
             {
               bookData.map((item, i) => {
@@ -165,7 +165,7 @@ class BookShelf extends React.Component {
     let {bookData} = this.props.data, bookCodeLength, bookCode = [], bookBoxWidth,
         windowHeight = document.documentElement.clientHeight;
         bookCodeLength = Math.ceil(bookData.length / this.PAGE_COUNT);
-        bookBoxWidth = this.winWidth * bookCodeLength;
+        bookBoxWidth = WIDTH * bookCodeLength;
     for (let i = 0; i < bookCodeLength; i++) {
       bookCode.push(this.getBookShelfBox(i));
     }

@@ -1,11 +1,12 @@
 import React from 'react';
 
+const WIDTH = document.documentElement.clientWidth;
 class RelateRecommend extends React.Component {
 
   constructor(props) {
     super(props);
     let ITEM_WIDTH = 140;
-    this.MixLeft = -(this.props.dataList.length)*ITEM_WIDTH + document.documentElement.clientWidth;
+    this.MixLeft = -(this.props.dataList.length)*ITEM_WIDTH + WIDTH;
     this.state = {
       left: 0
     }

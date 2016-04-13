@@ -3,6 +3,7 @@ import {findDOMNode} from 'react-dom';
 
 import AlbumShowDesc from './AlbumShowDesc';
 
+const WIDTH = document.documentElement.clientWidth;
 class AlbumShowPic extends React.Component {
 
   constructor(props) {
@@ -17,7 +18,6 @@ class AlbumShowPic extends React.Component {
       scaleLevel: 1 //控制缩放比例来控制节点
     };
     this.scale = 1; //用于记录缩放停顿后的缩放比例
-    this.winWidth = document.documentElement.clientWidth;
     this.winHeight = document.documentElement.clientHeight;
     this.startDistance = 0; //开始缩放时的距离
     this.moveXWhenScale = 0; //缩放时的距离
@@ -81,36 +81,36 @@ class AlbumShowPic extends React.Component {
 
   touchEnd(e) {
     let BACK_SPEED = 0.02, BACK_TIME = 10, MOVE_TRESHOLD = 50,
-        width = this.winWidth, _this = this, {index, scaleLevel, left} = this.state,
+        _this = this, {index, scaleLevel, left} = this.state,
         end;
     if(this.touchstartLength == 1) {
       let moveX = this.moveX, sliderListLength = this.props.data.length;
       if(scaleLevel > 1) {
-        this.moveXWhenScale = left - ( -(index * this.winWidth) - (this.centerX / (scaleLevel - 1)));
+        this.moveXWhenScale = left - ( -(index * WIDTH) - (this.centerX / (scaleLevel - 1)));
       }
       if(moveX < 0) {   //左滑
         if(!this.testIfAnimate("right")) return;
         if(moveX < -MOVE_TRESHOLD) {
           if(index < sliderListLength - 1) {
-            end = -(index + 1) * width;
+            end = -(index + 1) * WIDTH;
             this.playAnimate("left", end);
             this.setState({
               index: index + 1
             });
             this.reChangeScale();
           } else {
-            end = -(index + scaleLevel - 1) * width;
+            end = -(index + scaleLevel - 1) * WIDTH;
             this.playAnimate("right", end);
           }
         } else {
-          end = -(index + scaleLevel - 1) * width;
+          end = -(index + scaleLevel - 1) * WIDTH;
           this.playAnimate("right", end);
         }
       } else if(moveX > 0) {  //右滑
         if(!this.testIfAnimate("left")) return;
         if(moveX > MOVE_TRESHOLD) {
           if(index > 0) {
-            end = -(index - 1) * width;
+            end = -(index - 1) * WIDTH;
             this.playAnimate("right", end);
             this.setState({
               index: index - 1
@@ -121,7 +121,7 @@ class AlbumShowPic extends React.Component {
             this.playAnimate("left", end);
           }
         } else {
-          end = -index * width;
+          end = -index * WIDTH;
           this.playAnimate("left", end);
         }
       }
@@ -130,7 +130,7 @@ class AlbumShowPic extends React.Component {
       this.scale = this.state.scaleLevel;
       if(this.moveDistance == 0) {
         this.setState({
-          left: -index * width
+          left: -index * WIDTH
         });
         this.reChangeScale();
       }
@@ -201,13 +201,13 @@ class AlbumShowPic extends React.Component {
   }
 
   testIfAnimate(direction) {
-    let {left, index, scaleLevel} = this.state, width = this.winWidth;
+    let {left, index, scaleLevel} = this.state;
     if(direction == "left") {
-      if(left >= -index * width) {
+      if(left >= -index * WIDTH) {
         return true;
       }
     } else if(direction == "right") {
-      if(left <= -(index + scaleLevel - 1) * width) {
+      if(left <= -(index + scaleLevel - 1) * WIDTH) {
         return true;
       }
     }
@@ -241,7 +241,7 @@ class AlbumShowPic extends React.Component {
         moveTop = (this.winHeight - img.offsetHeight) / 2,
         moveLeft;
     if(scaleLevel < this.SCALE_MAX && scaleLevel >= 1) {
-      moveLeft = -index * this.winWidth - this.centerX * (scaleLevel - 1) + this.moveXWhenScale * (scaleLevel - 1) * 0.66;
+      moveLeft = -index * WIDTH - this.centerX * (scaleLevel - 1) + this.moveXWhenScale * (scaleLevel - 1) * 0.66;
       this.setState({
         left: moveLeft,
         top: moveTop
@@ -265,10 +265,10 @@ class AlbumShowPic extends React.Component {
 
   render() {
     let {data, count, display}=this.props, {isScale, index, left, top, scaleLevel} = this.state, itemClassDefault = "AlbumShowPicItem left", itemClass;
-    let scaleWidth = scaleLevel * this.winWidth;
+    let scaleWidth = scaleLevel * WIDTH;
     return (
         <div>
-          <ul className="AlbumShowPic" style={{ marginLeft: left, marginTop: top, width: this.winWidth*(count+2)}}
+          <ul className="AlbumShowPic" style={{ marginLeft: left, marginTop: top, width: WIDTH*(count+2)}}
               ref="slide"
               onTouchStart={::this.touchStart} onTouchMove={::this.touchMove} onTouchEnd={::this.touchEnd}>
             {
@@ -285,11 +285,11 @@ class AlbumShowPic extends React.Component {
                   if(i == index) {  //给放大的属性
                     itemWidth = scaleWidth;
                   } else {
-                    itemWidth = this.winWidth;
+                    itemWidth = WIDTH;
                   }
                 } else {
                   itemClass = itemClassDefault;
-                  itemWidth = this.winWidth;
+                  itemWidth = WIDTH;
                 }
                 if(scaleLevel >= 1) {
                   return (
@@ -299,8 +299,8 @@ class AlbumShowPic extends React.Component {
                   )
                 } else {
                   return (
-                      <li className={itemClass} key={i} ref={`pic${i}`} style={{width: this.winWidth}}>
-                        <img src={item.src} style={{width: scaleWidth, marginLeft: this.winWidth*(1 - scaleLevel)/2}}
+                      <li className={itemClass} key={i} ref={`pic${i}`} style={{width: WIDTH}}>
+                        <img src={item.src} style={{width: scaleWidth, marginLeft: WIDTH*(1 - scaleLevel)/2}}
                              alt={item.title} title={item.title} />
                       </li>
                   )

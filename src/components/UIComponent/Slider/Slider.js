@@ -6,6 +6,8 @@ import SliderDot from './SliderDot';
 import withStyles from '../../../decorators/withStyles';
 import styles from './Slider.scss';
 
+const WIDTH = document.documentElement.clientWidth;
+
 @withStyles(styles)
 class Slider extends React.Component {
   static defaultProps = {
@@ -15,10 +17,9 @@ class Slider extends React.Component {
 
   constructor (props) {
     super(props);
-    let width = document.documentElement.clientWidth;
     this.state =  {
       index: 1,
-      left: -width,
+      left: -WIDTH,
     };
     this.isSlidering = false;
     this.SLIDER_TIME = 3000;
@@ -26,7 +27,6 @@ class Slider extends React.Component {
   }
 
   touchStart(e) {
-    //console.log(this);
     e.preventDefault();
     window.clearInterval(this.timer);
     this.touchstart = e.targetTouches;
@@ -46,56 +46,52 @@ class Slider extends React.Component {
   touchEnd(e) {
     e.preventDefault();
     if(this.isSlidering) return;
-    let moveX = this.moveX, sliderList = this.props.data;
-    let width = document.documentElement.clientWidth;
-
+    let { index } = this.state, moveX = this.moveX, sliderList = this.props.data, end = 0;
+    let sliderLength = sliderList.length;
     this.moveX = 0;
     if(moveX < 0 ) {
       if(moveX < -50 ) {
-        let end = -(this.state.index + 1)*width;
-        if(this.state.index < sliderList.length) {
-          this.setState({index: this.state.index + 1});
+        end = -(index + 1)*WIDTH;
+        if(index < sliderLength) {
+          this.setState({index: index + 1});
         }else {
           this.setState({index: 1});
         }
         this.playAnimate("left", end);
       }else {
-        let end = -this.state.index*width;
+        end = -index*WIDTH;
         this.playAnimate("right", end);
       }
     }else {
       if(moveX > 50) {
-        let end = -(this.state.index - 1)*width;
-        if(this.state.index > 1) {
-          this.setState({index: this.state.index - 1});
+        end = -(index - 1)*WIDTH;
+        if(index > 1) {
+          this.setState({index: index - 1});
         }else {
-          this.setState({index: sliderList.length});
+          this.setState({index: sliderLength});
         }
         this.playAnimate("right", end);
       }else {
-        let end = -this.state.index * width;
+        let end = -index * WIDTH;
         this.playAnimate("left", end);
       }
     }
-    //console.log(this.SLIDE_TIME);
-    this.timer = window.setInterval(this.autoPlay.bind(this), this.SLIDER_TIME);
+    this.timer = window.setInterval(::this.autoPlay, this.SLIDER_TIME);
   }
 
   slide(node) {
-    let _self = this;
-    node.addEventListener("touchstart", _self.touchStart.bind(_self), false);
-    node.addEventListener('touchmove', _self.touchMove.bind(_self), false);
-    node.addEventListener('touchend', _self.touchEnd.bind(_self), false);
-    //console.log(this.state);
-    this.timer = window.setInterval(_self.autoPlay.bind(this) , _self.SLIDER_TIME);
+    node.addEventListener("touchstart", ::this.touchStart, false);
+    node.addEventListener('touchmove', ::this.touchMove, false);
+    node.addEventListener('touchend', ::this.touchEnd, false);
+    this.timer = window.setInterval(::this.autoPlay, this.SLIDER_TIME);
   }
 
   playAnimate(direction, end) {
     //direction 图片滚动的方向
-    //console.log(direction + "" + end);
     let speed, _self = this;
-    let width = document.documentElement.clientWidth;
+
     function animate() {
+      window.clearTimeout(_self.animate);
       if( direction === "left") {
         speed = -20;
         if(_self.state.left + speed> end) {
@@ -104,11 +100,11 @@ class Slider extends React.Component {
           _self.isSlidering = true;
           _self.animate = setTimeout(animate, 10);
         }else {
-          _self.setState({left: -_self.state.index*width});
+          _self.setState({left: -_self.state.index*WIDTH});
           _self.isSlidering = false;
         }
       }else {
-        speed = 20
+        speed = 20;
         if(_self.state.left + speed < end) {
           _self.setState({left: _self.state.left + speed});
           speed++;
@@ -116,21 +112,20 @@ class Slider extends React.Component {
           _self.animate = setTimeout(animate, 10);
 
         }else {
-          _self.setState({left: -_self.state.index*width});
+          _self.setState({left: -_self.state.index*WIDTH});
           _self.isSlidering = false;
-          //console.log(_self.state.index);
         }
       }
-      //console.log(_self.state.index)
     }
     animate();
   }
 
   autoPlay() {
-    let width = document.documentElement.clientWidth, _self = this, sliderList = this.props.data;
-    let end = -(_self.state.index + 1)*width;
-    if(_self.state.index < sliderList.length) {
-      _self.setState({index: _self.state.index + 1});
+    let { index } = this.state, _self = this, sliderList = this.props.data;
+    let sliderLength = sliderList.length;
+    let end = -(index + 1)* WIDTH;
+    if(index < sliderLength) {
+      _self.setState({index: index + 1});
     }else {
       _self.setState({index: 1});
     }
@@ -143,19 +138,18 @@ class Slider extends React.Component {
 
   componentWillUnmount() {
     let node = this.refs.slide;
-    node.removeEventListener("touchstart", this.touchStart.bind(this), false);
-    node.removeEventListener('touchmove', this.touchMove.bind(this), false);
-    node.removeEventListener('touchend', this.touchEnd.bind(this), false);
+    node.removeEventListener("touchstart", ::this.touchStart, false);
+    node.removeEventListener('touchmove', ::this.touchMove, false);
+    node.removeEventListener('touchend', ::this.touchEnd, false);
     window.clearInterval(this.timer);
     window.clearTimeout(this.animate);
   }
   render() {
     const sliderList = this.props.data;
     const { dots, title } = this.props;
-    //console.log(this.props.data);
     let items, itemCode;
     if( sliderList.length > 0) {
-      items = sliderList.map( function(item, i) {
+      items = sliderList.map((item, i)=> {
             return <SliderItem  title={title} data={item} key={i + 1}/>;
           }
       )
