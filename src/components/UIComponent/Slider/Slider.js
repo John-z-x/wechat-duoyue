@@ -27,7 +27,6 @@ class Slider extends React.Component {
   }
 
   touchStart(e) {
-    e.preventDefault();
     window.clearInterval(this.timer);
     this.touchstart = e.targetTouches;
     this.startX = this.touchstart[0].pageX;
@@ -44,7 +43,6 @@ class Slider extends React.Component {
   }
 
   touchEnd(e) {
-    e.preventDefault();
     if(this.isSlidering) return;
     let { index } = this.state, moveX = this.moveX, sliderList = this.props.data, end = 0;
     let sliderLength = sliderList.length;
