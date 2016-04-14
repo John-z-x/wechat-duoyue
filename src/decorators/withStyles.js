@@ -46,7 +46,7 @@ function withStyles(styles) {
 
     componentWillMount() {
       if (canUseDOM) {
-        invariant(styles.use, `The style-loader must be configured with reference-counted API.`);
+        invariant(styles.use, `abc.`);
         styles.use();
       } else {
         this.context.onInsertCss(styles.toString());

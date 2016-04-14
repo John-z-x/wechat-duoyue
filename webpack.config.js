@@ -48,6 +48,7 @@ module.exports = {
 
     }),
     new webpack.optimize.CommonsChunkPlugin('common.js'),
+    new ExtractTextPlugin('[name].css', {  allChunks: true})
   ],
   module: {
     loaders: [
@@ -59,17 +60,21 @@ module.exports = {
       },
 
       {
+        test: /\.scss$/i,
+        loader: ExtractTextPlugin.extract('style/useable', 'css-loader!postcss-loader!sass-loader')
+      },
+      {
         test: /\.css$/i,
         exclude: /\.useable\.css$/,
-        loader:  'style-loader/useable!css-loader!postcss-loader',
-        include: path.join(__dirname, 'assets', 'css')
+        loader:  ExtractTextPlugin.extract('style/useable', 'css-loader')
+
       },
       { test: /\.useable\.css$/, loader: "style/useable!css" },
 
-      {
-        test: /\.scss$/,
-        loaders: ['style-loader/useable', 'css?root='+__dirname+'/assets', 'resolve-url', 'sass']
-      },
+      //{
+      //  test: /\.scss$/,
+      //  loaders: ['style-loader/useable', 'css?root='+__dirname+'/assets', 'resolve-url', 'sass']
+      //},
       {
         test: /\.(png|jpe?g|gif|svg|)$/,
         loader: 'url-loader?limit=8192&name=images/[name].[ext]'

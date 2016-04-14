@@ -1,8 +1,4 @@
 
-// .CommonHeader .header{
-//   z-index: 11002 !important;
-// }
-
 .ModifyStyle {
   $fontSize18: 18px;
   $fontSize25: 25px;
@@ -41,11 +37,6 @@
     border-style: outset solid solid;
     border-width: 18px;
   }
-  // .tu {
-  //   position: absolute;
-  //   right: 73px;
-  //   top: -12px;
-  // }
   .top-white {
     &:before {
       @extend .top-common;
