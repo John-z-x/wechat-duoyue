@@ -3,7 +3,7 @@ import { Route, IndexRoute } from 'react-router';
 
 /* Five header modules */
 import App from './components/App/App';
-import ShopPage from './pages/ShopPage';
+import DanpinPage from './pages/DanpinPage';
 import ShopIndexPage from './pages/ShopIndexPage';
 import EverydayPage from './pages/EverydayPage';
 import SourcePage from './pages/SourcePage';
@@ -11,7 +11,7 @@ import UserMenuPage from './pages/UserMenuPage';
 
 /* Five home page for header modules */
 import EverydayPageHome from './components/PageEveryDay/home';
-import ShopPageHome from './components/PageShop/home';
+import DanpinPageHome from './components/PageDanpin/home';
 import ShopPageIndexHome from './components/PageShopIndex/home';
 import SourcePageHome from './components/PageSource/home';
 
@@ -68,9 +68,11 @@ import NotFound from './components/NotFound/NotFound';
 
 export default (
   <Route path="/" component={App} onEnter= {getRoute}>
-    <IndexRoute component={ShopPageHome} />
-    <Route path="danpin" component={ShopPage}>
-      <IndexRoute component={ShopPageHome}/>
+    <IndexRoute component={DanpinPageHome} />
+    <Route path="danpin" component={DanpinPage}>
+
+      
+      <IndexRoute component={DanpinPageHome}/>
       <Route path="books" component={BookType}/>
       <Route path="booklist/:typeIndex" component={BookList}/>
       <Route path="bookbuy/:id" component={BookDetail}/>

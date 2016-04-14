@@ -15,21 +15,33 @@ import styles from './Cart.scss';
 
 @withStyles(styles)
 class Cart extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      coverShow: false
+    }
+  }
+
+  modifyCover() {
+    this.setState({
+      coverShow: !this.state.coverShow
+    })
+  }
 
   componentDidMount() {
     this.props.actions.loadData(1);
   }
 
 	render() {
-    const { cover, data, actions } = this.props;
+    const { data, actions } = this.props, { coverShow } = this.state;
 		return (
 			<div className="Cart">
-      { cover &&
+      { coverShow &&
         <Cover>
-          <GoodsBox data={data} actions={actions} />
+          <GoodsBox data={data} actions={actions} modifyCover={::this.modifyCover}/>
         </Cover>
       }
-        <ShowCart data={data} modifyCover={actions.modifyCover}/>
+        <ShowCart data={data} modifyCover={::this.modifyCover}/>
 			</div>
 		);
 	}

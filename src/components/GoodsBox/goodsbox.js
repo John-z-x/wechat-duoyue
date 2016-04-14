@@ -24,16 +24,16 @@ class GoodsBox extends React.Component {
   showConfirm(id) {
     this.setState({
       modalDisplay: true
-    })
+    });
     this.id = id;
   }
 
 	render() {
-		const { data, actions } = this.props;
+		const { data, actions, modifyCover } = this.props;
     actions.showConfirm = this.showConfirm.bind(this);
 		return (
 			<div className="GoodsBox shopping-goods">
-				<ConfirmTop modifyCover={actions.modifyCover} loadData={actions.loadData}/>
+				<ConfirmTop modifyCover={modifyCover} loadData={actions.loadData}/>
 				<GoodsList data={data} actions={actions} />
 				<ConfirmFooter data={data} />
       {
