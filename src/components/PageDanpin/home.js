@@ -10,6 +10,7 @@ import React, { PropTypes } from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as danpinActions from '../../actions/DanpinActions';
+import { slideDataLoad } from '../../actions/SlideActions';
 
 import Slider from '../UIComponent/Slider/Slider';
 import SortNav from './SortNav';
@@ -17,23 +18,26 @@ import RecommendBookModule from './RecommendBookModule';
 import SortBrowse from './SortBrowse';
 
 import withStyles from '../../decorators/withStyles';
-import styles from './PageShop.scss';
+import styles from './PageDanpin.scss';
 
 @withStyles(styles)
-class ShopPageHome extends React.Component {
+class DanpinPageHome extends React.Component {
 
   componentWillMount() {
-    const { fetchBookListData, fetchBooktype, fetchSliderList } = this.props.actions ;
+    const {
+        actions: {fetchBookListData, fetchBooktype},
+        slideDataLoad
+    } = this.props;
     fetchBooktype();
     fetchBookListData('new');
     fetchBookListData('hot');
-    fetchSliderList();
+    slideDataLoad("danpin");
   }
 
   render() {
     let { sliderList, sortData, newbksData, hotbksData, sortBrowseData } = this.props;
     return (
-        <div className="ShopPage">
+        <div className="DanpinPageHome">
           <Slider data={sliderList}/>
           <SortNav sortData={sortData}/>
           <RecommendBookModule data={newbksData}/>
@@ -44,9 +48,14 @@ class ShopPageHome extends React.Component {
   }
 }
 
-ShopPageHome.propTypes = {
-  sortData: PropTypes.object.isRequired
-}
+DanpinPageHome.propTypes = {
+  sliderList: PropTypes.array.isRequired,
+  sortData: PropTypes.object.isRequired,
+  newbksData: PropTypes.object.isRequired,
+  hotbksData: PropTypes.object.isRequired,
+  sortBrowseData: PropTypes.object.isRequired
+};
+
 
 function mapStateToProps(state) {
   const {
@@ -88,11 +97,12 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(danpinActions, dispatch)
+    actions: bindActionCreators(danpinActions, dispatch),
+    slideDataLoad: bindActionCreators(slideDataLoad, dispatch)
   };
 }
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(ShopPageHome);
+)(DanpinPageHome);

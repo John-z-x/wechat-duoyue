@@ -8,13 +8,18 @@
 
 class BookType {
   constructor(json) {
-    this.id = json.id;
-    this.href = json.href;
+    this.id = json.id || 0;
+    this.href = BookType.createHref(json.id);
     this.bookTypeIcon = json.bookTypeIcon;
     this.bookTypePic = json.bookTypePic;
     this.title = json.title;
-    this.bookCount = json.bookCount;
+    this.bookCount = json.bookCount || 0;
     this.dtitle = json.dtitle;
+  }
+
+  static createHref(typeid) {
+    let id = typeid || -1;
+    return `/danpin/booklist/${id}`;
   }
 }
 

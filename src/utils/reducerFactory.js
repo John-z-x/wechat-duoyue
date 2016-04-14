@@ -11,7 +11,7 @@ export default function reducerFactory(initialState, actionFunc) {
     console.log(action.type);
     const reduceFn = actionFunc[action.type];
     if(!reduceFn) return state;
-
+    
     return {...state, ...reduceFn(state, action) };
   }
 }

@@ -1,18 +1,21 @@
 'use strict';
-import fetch from 'isomorphic-fetch';
+import Banner from '../models/Banner';
 import { RECEIVED_SLIDE_DATA } from '../constants/constants';
 
-export function slideDataLoad(typeIndex) {
+export const slideDataLoad = (typeIndex) => {
   return dispatch => {
-    var json = require('../../assets/MockData/slide_data.json');
-    return dispatch(receiveSlideData(json,typeIndex));
+    let json = require('../../assets/MockData/slide_data.json');
+    let dataArray = json[`${typeIndex}Slide`].map( (json) => {
+      return new Banner(json);
+    });
+    return dispatch(receiveSlideData(dataArray, typeIndex));
   }
-}
+};
 
-function receiveSlideData(data,typeIndex) {
+const receiveSlideData = (data, typeIndex) => {
   return {
     type: RECEIVED_SLIDE_DATA,
     typeIndex,
     data
   }
-}
+};

@@ -2,6 +2,7 @@
 import { RECEIVED_BOOK_LIST, RECEIVED_BOOK_TYPE, RECEIVED_SLIDER_LIST } from '../constants/constants';
 
 import BookType from '../models/BookType';
+import BookDetail from '../models/BookDetail';
 
 export const fetchBooktype = () => {
   let data = require("../../assets/MockData/danpin/book_type_data.json");
@@ -22,9 +23,11 @@ const receivedBooktype = (data) => {
 
 export const fetchBookListData = (endPoint) => {
   let data = require('../../assets/MockData/danpin/book_list_data.json');
-  console.log(data[endPoint]);
   return dispatch => {
-    return dispatch(receivedBookList(data[endPoint], endPoint));
+    let dataArray = data[endPoint].map( (json) => {
+      return new BookDetail(json);
+    });
+    return dispatch(receivedBookList(dataArray, endPoint));
   }
 };
 
@@ -37,7 +40,7 @@ const receivedBookList = (data, endPoint) => {
 };
 
 export const fetchSliderList = () => {
-  let data = require('../../assets/MockData/danpin/slider_data.json');
+  let data = require('../../assets/MockData/slide_data.json');
   return dispatch => {
     return dispatch(receivedSliderList(data));
   }

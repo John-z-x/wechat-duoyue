@@ -6,8 +6,8 @@
 
 'use strict';
 
-import { RECEIVED_BOOK_TYPE, RECEIVED_BOOK_LIST, RECEIVED_SLIDER_LIST } from '../../constants/constants';
-import reduceFactory from '../../utils/reducerFactory';
+import { RECEIVED_BOOK_TYPE, RECEIVED_BOOK_LIST, RECEIVED_SLIDE_DATA } from '../constants/constants';
+import reduceFactory from '../utils/reducerFactory';
 
 const initialState = {
   bookType: [],
@@ -17,9 +17,9 @@ const initialState = {
 
 const actionFunc = {
   [RECEIVED_BOOK_TYPE]: (state, action) => ({bookType: action.data}),
-  [RECEIVED_BOOK_LIST]: (state, action) => ({bookList:  Object.assign({}, state,
+  [RECEIVED_BOOK_LIST]: (state, action) => ({bookList:  Object.assign({}, state.bookList,
       { [action.endPoint]: action.data})}),
-  [RECEIVED_SLIDER_LIST]: (state, action) => ({sliderList: action.data})
+  [RECEIVED_SLIDE_DATA]: (state, action) => ({sliderList: action.data})
 }
 
 export default reduceFactory(initialState, actionFunc);

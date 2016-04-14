@@ -2,7 +2,6 @@
 [
   {
     "id": 1,
-    "href": "/danpin/booklist/1",
     "bookTypeIcon": "http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_160912826.png",
     "bookTypePic": "http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_114515099_cut_c.jpg",
     "title": "经典文学",
@@ -11,7 +10,6 @@
   },
   {
     "id": 2,
-    "href": "/danpin/booklist/2",
     "bookTypeIcon": "http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_160850125.png",
     "bookTypePic": "http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_114459939_cut_c.jpg",
     "title": "青春文学",
@@ -20,7 +18,6 @@
   },
   {
     "id": 3,
-    "href": "/danpin/booklist/3",
     "bookTypeIcon": "http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_160819925.png",
     "bookTypePic": "http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_114438009_cut_c.jpg",
     "title": "职场进阶",
@@ -29,7 +26,6 @@
   },
   {
     "id": 4,
-    "href": "/danpin/booklist/4",
     "bookTypeIcon": "http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_160753929.png",
     "bookTypePic": "http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_114417681_cut_c.jpg",
     "title": "网络文学",

@@ -4,9 +4,6 @@ import { Link } from 'react-router';
 
 class SortBrowse extends React.Component {
 
-	static propTypes = {
-		data: PropTypes.object
-	};
 
 	render() {
 		let { data } = this.props;
@@ -39,5 +36,11 @@ class SortBrowse extends React.Component {
 		);
 	}
 }
+
+SortBrowse.propsType = {
+	data: PropTypes.object.isRequired({
+		data: PropTypes.array.isRequired
+	})
+};
 
 export default SortBrowse;

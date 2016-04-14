@@ -4,10 +4,6 @@ import { Link } from 'react-router';
 
 class SortNav extends React.Component {
 
-	static propTypes = {
-		sortData: PropTypes.object
-	};
-
 	render() {
 		const { sortData } = this.props;
 		return (
@@ -33,5 +29,11 @@ class SortNav extends React.Component {
 		);
 	}
 }
+
+SortNav.propTypes = {
+	sortData: PropTypes.object.isRequired({
+		data: PropTypes.array.isRequired
+	})
+};
 
 export default SortNav;
