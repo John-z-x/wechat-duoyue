@@ -9,7 +9,7 @@
    }*/
 
 @mixin dy-font-face($font-name) {
-  src: url('/assets/fonts/#{$font-name}.ttf') format('truetype');
+  src: url('/fonts/#{$font-name}.ttf') format('truetype');
   font: {
     family: $font-name;
     style:  normal;

@@ -59,10 +59,7 @@ module.exports = {
         include: path.join(__dirname, 'src')
       },
 
-      {
-        test: /\.scss$/i,
-        loader: ExtractTextPlugin.extract('style/useable', 'css-loader!postcss-loader!sass-loader')
-      },
+
       {
         test: /\.css$/i,
         exclude: /\.useable\.css$/,
@@ -71,10 +68,18 @@ module.exports = {
       },
       { test: /\.useable\.css$/, loader: "style/useable!css" },
 
-      //{
-      //  test: /\.scss$/,
-      //  loaders: ['style-loader/useable', 'css?root='+__dirname+'/assets', 'resolve-url', 'sass']
-      //},
+      {
+        test: /\.scss$/i,
+        loader: ExtractTextPlugin.extract('style/useable', 'css-loader', 'sass-loader'),
+        exclude: path.join(__dirname, 'src'),
+        include: path.join(__dirname, 'assets')
+      },
+      {
+        test: /\.scss$/,
+        loaders: ['style-loader/useable', 'css?root='+__dirname+'/assets', 'resolve-url', 'sass'],
+        exclude: path.join(__dirname, 'assets'),
+        include: path.join(__dirname, 'src')
+      },
       {
         test: /\.(png|jpe?g|gif|svg|)$/,
         loader: 'url-loader?limit=8192&name=images/[name].[ext]'
