@@ -6,7 +6,7 @@
 
 'use strict';
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as danpinActions from '../../actions/DanpinActions';
@@ -42,6 +42,10 @@ class ShopPageHome extends React.Component {
         </div>
     );
   }
+}
+
+ShopPageHome.propTypes = {
+  sortData: PropTypes.object.isRequired
 }
 
 function mapStateToProps(state) {
