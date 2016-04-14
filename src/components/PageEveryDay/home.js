@@ -28,11 +28,11 @@ class EverydayPageHome extends React.Component {
     this.state = {
       everyData: this.props.list, //页面数据
       everyPage: 1, //当前页码 
-      totalPage: 3, //总页码 
+      totalPage: 5, //总页码 
       arrPrePage: [0], //获取每页滚动高度
       bottomDisplay: false, //页面加载完底部显示判断
     }
-    this.finishLoad = true;
+    this.loading = false;
     Utils.bindMethods(this, "onChildChanged");
   }
 
@@ -40,10 +40,6 @@ class EverydayPageHome extends React.Component {
     this.props.everydayActions.everydayListRemove();
   }
   
-  componentWillMount(){
-
-  }
-
   componentDidMount() {
     this.props.slideActions.slideDataLoad("everydaySlide");
     this.props.everydayActions.everydayListLoad();
@@ -52,16 +48,27 @@ class EverydayPageHome extends React.Component {
   //每页数据加载
   onChildChanged(){
     let everyData = this.props.list;
-    this.props.everydayActions.everydayListLoadMore(everyData[0]);
-    //获取保存每次滚动高度，以判断当前进入第几页
-    if(this.finishLoad){
-      let arrPrePage = this.state.arrPrePage;
+    let everyPage = this.state.everyPage;
+    let totalPage = this.state.totalPage;
+    let arrPrePage = this.state.arrPrePage;
+
+    if (this.loading) return;
+    this.loading = true;
+    let _self = this;
+    setTimeout(function() {
+
+      _self.loading = false;
+      if(everyPage > totalPage){
+        _self.setState({
+          bottomDisplay: true,
+        })
+        return; 
+      }
+      _self.props.everydayActions.everydayListLoadMore(everyData[0]);
       arrPrePage.push(document.documentElement.scrollHeight);
-      this.finishLoad = false;
-    }else{
-      this.finishLoad = true;
-      return;
-    }  
+
+    }, 500)
+
   }
 
   render() {
@@ -79,7 +86,7 @@ class EverydayPageHome extends React.Component {
                       <div className="item-title">
                         <img src={src} className="juhe-icon-wenzhang"/>
                         <span className="article-icon"></span>
-                        · 文章 ·
+                        {index}· 文章 ·
                       </div>
                       <EverydayContent data={everyday}/>
                       <EveryDayDates data={everyday}/>
