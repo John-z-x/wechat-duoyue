@@ -1,176 +1,318 @@
-﻿
-html, body {
-  width: 100%;
-  height: 100%;
-}
-h1, h2, h3, h4, h5, h6 {
-  font-weight: lighter;
-}
+﻿@import 'variables';
+@import 'mixin';
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin: 0;
-	padding: 0;
+//从base.scss拿出来的公用类
+.hidden {
+    display: none !important;
 }
-html {
-  height: 100%;
-}
-ul,
-li {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-body {
-	margin: 0;
-	padding: 0;
-/*  font-family: "FZLTXHJW";*/
-}
-img {
-	border: 0 none;
-	vertical-align: top;
-}
-em {
-	font-style:normal;
-}
-button::-moz-focus-inner {
-	padding:0;
-	border:none;
-}
-button {
-  -webkit-appearance: none;
-  border: 0;
-  outline: 0;
-}
-a {
-	overflow: hidden;
-  text-decoration: none;
-  color: #333;
-}
-.wrapper {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-}
-.fontFz {
-	font-family: "FZLTXHJW";
-}
-.hide {
-	display: none;
-}
-.show {
-	display: block;
-}
-.left {
-	float: left;
-}
-.right {
-	float: right;
-}
-.clearfix:after {
-	display: block;
-  content:".";
-	height: 0;
-	visibility: hidden;
-	clear: both;
-	font-size: 0;
-	line-height: 0;
+.code-bg {
+    padding: 1em;
+    margin: 8px 0;
+    border-radius: 3px;
+    background-color: #fafafa;
+    box-shadow: 0 0 2px #d0d0d0;
 }
 .clearfix {
-	overflow: hidden;
+    @extend %clearfix;
 }
-.clearfix{
-	*zoom:1;
+
+.left {
+    float: left;
 }
-.line2only {
-  overflow: hidden;
-  word-wrap: break-word;
-  text-overflow: ellipsis; 
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+.right {
+    float: right;
 }
-.block {
-  display: block;
+.a-line {
+    @extend %ellipsis;
 }
-.cover {
-	position: fixed;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, .5);
-	z-index: 10100;
+
+/*flex layout*/
+
+.dis-flex {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
 }
 .row-flex {
-  -moz-box-orient: horizontal;
-  -webkit-box-orient: horizontal;
-  -moz-box-direction: normal;
-  -webkit-box-direction: normal;
-  -moz-box-lines: multiple;
-  -webkit-box-lines: multiple;
-  -ms-flex-flow: row wrap;
-  -webkit-flex-flow: row wrap;
-  flex-flow: row wrap;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
 }
-.col-flex{
-  -moz-box-orient: vertical;
-  -webkit-box-orient: vertical;
-  -moz-box-direction: normal;
-	-webkit-box-direction: normal;
-  -moz-box-lines: multiple;
-  -webkit-box-lines: multiple;
-  -webkit-flex-flow: column wrap;
-  -ms-flex-flow: column wrap;
-  flex-flow: column wrap;
+.col-flex {
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
 }
-.flex{
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
+.main-center {
+    @include center-flex($direction: x);
 }
-.center{
-  -moz-box-pack: center;
-  -webkit-box-pack: center;
-  box-pack:center;
-  -moz-box-align: center;
-  -webkit-box-align: center;
-  box-align: center;
-  box-pack:center;
-  -ms-flex-pack:center;
-  display: -ms-flexbox;
-  -ms-flex-align:center;
-  justify-content:center;
-  align-items: center;
+.cross-center {
+    @include center-flex($direction: y);
+}
+
+/*不放大*/
+
+.flex-grow0 {
+    -webkit-flex-grow: 0;
+    flex-grow: 0;
+}
+
+/*不缩小*/
+
+.flex-shrink0 {
+    -webkit-flex-shrink: 0;
+    flex-shrink: 0;
+}
+.wrapper {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.hide {
+    display: none;
+}
+.show {
+    display: block;
+}
+.line2only {
+    @extend %ellipsis-lines;
+}
+.block {
+    display: block;
+}
+.cover {
+    @extend %fixed-top;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 10100;
+}
+.row-flex {
+    -moz-box-orient: horizontal;
+    -webkit-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -webkit-box-direction: normal;
+    -moz-box-lines: multiple;
+    -webkit-box-lines: multiple;
+    -ms-flex-flow: row wrap;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+}
+.col-flex {
+    -moz-box-orient: vertical;
+    -webkit-box-orient: vertical;
+    -moz-box-direction: normal;
+    -webkit-box-direction: normal;
+    -moz-box-lines: multiple;
+    -webkit-box-lines: multiple;
+    -webkit-flex-flow: column wrap;
+    -ms-flex-flow: column wrap;
+    flex-flow: column wrap;
+}
+.flex {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+.center {
+    @extend %center-flex;
 }
 
 /*common visual css*/
+
 .bdr-mg {
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
-  margin: 10px 0;
-}
-.bg-white {
-  background-color: #fff;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    margin: 10px 0;
 }
 .f-level-title {
-  margin-top: 1em;
-  font-size: 14px;
-  font-weight: lighter;
-  line-height: 3em;
-  color: #62c3a2;
-  text-align: center;
+    margin-top: 1em;
+    font-size: 14px;
+    font-weight: lighter;
+    line-height: 3em;
+    color: #62c3a2;
+    text-align: center;
 }
 .rem::before {
-  content: '￥';
+    content: '￥';
+}
+.dot {
+    text-indent: -1000px;
 }
 
-.dot {
-  text-indent: -1000px;
+
+
+
+
+
+
+// 新增公用类 2016/4/13
+// -----------------------------------------------------------------------------
+
+//Button
+.btn {
+  @extend %btn-basic;
+  @include btn-size;
 }
+.btn-green {
+  @include btn-color;
+}
+.btn-outline-green {
+  @include btn-color($textColor: $green, $bgColor: $white, $borderColor: $green);
+}
+.btn-block{
+  display: block;
+  width: 100%;
+}
+.btn-pill{
+  border-radius:100px;
+}
+
+
+//Label
+.label {
+    display: inline;
+    padding: .2em .4em .2em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em
+}
+.label:empty {
+    display: none
+}
+.btn .label {
+    position: relative;
+    top: -1px
+}
+.label-green {
+    background-color: $green;
+    color: $white;
+}
+
+
+//Text Align
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
+}
+.text-center {
+    text-align: center;
+}
+
+//Text Colors
+.text-gray3 {
+    color: $gray3;
+}
+.text-gray6 {
+    color: $gray6;
+}
+.text-gray9 {
+    color: $gray9;
+}
+.text-green {
+    color: $green;
+}
+
+
+
+//Background
+.bg-white {
+    color: $gray3;
+    background-color: $white;
+}
+.bg-grayF {
+    color: $gray3;
+    background-color: $grayF;
+}
+.bg-green {
+    color: $white;
+    background-color: $green;
+}
+
+
+
+//Table
+
+
+//Solidline
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 1px;
+    overflow: hidden;
+    border:0;
+    border-top: 1px solid $colorBorder;
+}
+
+
+
+//Font size
+$a: 12;
+@while $a <=20 {
+    .f#{$a} {
+        font-size: $a * 1px;
+    }
+    $a: $a + 2;
+}
+
+//Width
+$b:50;
+@while $b<=100 {
+    .w#{$b} {
+        width: $b * 1%;
+    }
+    $b: $b + 10;
+}
+
+//MarginTop MarginBottom
+$c:10;
+@while $c<=30 {
+    .mb#{$c} {
+        margin-bottom: $c * 1px;
+    }
+    .mt#{$c} {
+        margin-top: $c * 1px;
+    }
+    $c: $c + 10;
+}
+
+
+//FontFamily
+.fontFz {
+    font-family: "FZLTXHJW";
+}
+
+
+//Others
+.center-block{
+  @extend %center-block;
+}
+.container{
+    min-width: 320px;
+    max-width:640px;
+    width:100%;
+    @extend %center-block;
+    padding-left: $basePadding;
+    padding-right: $basePadding;
+}
+
+
