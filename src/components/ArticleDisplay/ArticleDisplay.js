@@ -17,6 +17,9 @@ import ModifyStyle from '../Modals/ModifyStyle';
 import withStyles from '../../decorators/withStyles';
 import styles from './ArticleDisplay.scss';
 
+import * as localStorge from '../../utils/storage.js';
+import Utils from '../../utils/utils.js';
+
 @withStyles(styles)
 class ArticleDisplay extends React.Component {
   constructor(props) {
@@ -25,7 +28,41 @@ class ArticleDisplay extends React.Component {
       fontModifyDisplay: false,
       fontSize: 18,
       color: "white"
+    };
+    this.articleKey=`"article_${this.props.params.id}`;
+    Utils.bindMethods(this, "populateStorage", "setArticleStyles","checkLocalStorage");
+  }
+
+  componentWillUnmount(){
+    this.populateStorage();
+  }
+  
+  componentDidMount(){
+    this.checkLocalStorage();
+  }
+
+  checkLocalStorage(){
+    if(!localStorge.get(this.articleKey)) {
+      this.populateStorage();//设置默认localStorage
+    } else {
+      this.setArticleStyles();
     }
+  }
+
+  populateStorage(){
+    const { fontSize,color  }=this.state;
+    let stateValue=JSON.stringify({"color":color,"fontSize":fontSize});
+    localStorge.put(this.articleKey,stateValue);
+  }
+
+  setArticleStyles(){
+    let localStorgeValue=JSON.parse(localStorge.get(this.articleKey));
+    let color=localStorgeValue.color;
+    let fontSize=localStorgeValue.fontSize;
+    this.setState({
+      color: color, 
+      fontSize: fontSize
+    })
   }
 
   onCommentClick() {
@@ -52,26 +89,26 @@ class ArticleDisplay extends React.Component {
       case "white":
         this.setState({
           color: "white"
-        });
+        },::this.populateStorage);
         break;
       case "black":
         this.setState({
           color: "black"
-        });
+        },::this.populateStorage);
         break;
       case "big":
         fontsize = this.state.fontSize;
         (fontsize < MaxFontSize) &&
         this.setState({
           fontSize: fontsize+2
-        });
+        },::this.populateStorage);
         break;
       case "small":
         fontsize = this.state.fontSize;
         (fontsize > MinFontSize ) &&
         this.setState({
           fontSize: fontsize-2
-        });
+        },::this.populateStorage);
         break;
       default :
         return null;
