@@ -31,7 +31,7 @@ class DanpinPageHome extends React.Component {
     fetchBooktype();
     fetchBookListData('new');
     fetchBookListData('hot');
-    slideDataLoad("danpin");
+    slideDataLoad("danpinSlide");
   }
 
   render() {
@@ -50,9 +50,9 @@ class DanpinPageHome extends React.Component {
 
 DanpinPageHome.propTypes = {
   sliderList: PropTypes.array.isRequired,
-  sortData: PropTypes.object.isRequired,
-  newbksData: PropTypes.object.isRequired,
-  hotbksData: PropTypes.object.isRequired,
+  sortData: PropTypes.object,
+  newbksData: PropTypes.object,
+  hotbksData: PropTypes.object,
   sortBrowseData: PropTypes.object.isRequired
 };
 
