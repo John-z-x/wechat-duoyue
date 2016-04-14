@@ -15,6 +15,9 @@ import ArticleFontStyleModify from '../Modals/ArticleFontStyleModify';
 import ProgressController from '../UIComponent/ProgressController/ProgressController';
 import CatalogArea from './CatalogArea';
 
+import * as localStorge from '../../utils/storage.js';
+import Utils from '../../utils/utils.js';
+
 let data = {
 	'title': '有师兄的师妹像棵草',
 	"article": "芳准道：那道法大会也没什么意思，说的都是都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。芳准道：那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。芳准道：那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。芳准道：那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。芳准道：那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。芳准道：那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。芳准道：那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。芳准道：那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。芳准道：那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。芳准道：那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。芳准道：那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。芳准道：那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。芳准道：那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。芳准道：那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。芳准道：那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。芳准道：那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。芳准道：那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。芳准道：那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。芳准道：那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。芳准道：那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。那道法大会也没什么意思，说的都是些陈词滥调，待在那里也是浪费时间，若不是师父与那灵闵道人是旧识，为师才懒得应付。"
@@ -22,8 +25,8 @@ let data = {
 
 @withStyles(styles)
 class BookRead extends React.Component{
-	constructor(){
-		super();
+	constructor(props){
+		super(props);
 		this.state = {
 			canvasHeight: document.documentElement.clientHeight, //容器的高度
 			pageOver: -1, //当前页数
@@ -34,10 +37,13 @@ class BookRead extends React.Component{
 			catalogAreaDisplay: false, //显示章节
 			color: "white", //控制颜色
 			zoomLevel: 0, //字体缩放的大小
-			fontFamily: "YaHei" //字体样式
+			fontFamily: "YaHei", //字体样式
+			chapter:1,
 		};
+		this.bookReadKey="book_" + this.props.params.id;
 		this.zoomLevelMax = 2;
 		this.moveDistance = 0;
+		Utils.bindMethods(this, "populateStorage", "setBookStyles","checkLocalStorage","setZoomCallback","goToLastPage");
 	}
 
 	touchStart(e){
@@ -79,15 +85,55 @@ class BookRead extends React.Component{
 		}
 	}
 
+	checkLocalStorage(){
+		if(!localStorge.get(this.bookReadKey)) {
+		  this.populateStorage();//设置默认localStorage
+		} else {
+		  this.setBookStyles();
+		}
+	}
+
+  populateStorage(){
+  	const { color,zoomLevel,fontFamily,pageOver,pageTotal,progressValue,chapter }=this.state;
+  	let stateValue = JSON.stringify({"color":color,"zoomLevel":zoomLevel,"fontFamily":fontFamily,"pageOver":pageOver,"pageTotal":pageTotal,"progressValue":progressValue,"chapter":chapter});
+  	localStorge.put(this.bookReadKey,stateValue);
+
+  }
+
+	setBookStyles(){
+		let localStorgeValue = JSON.parse(localStorge.get(this.bookReadKey));
+		const { color,zoomLevel,fontFamily,pageOver,pageTotal,progressValue,chapter }=localStorgeValue;
+		this.setState({
+			color: color, 
+			zoomLevel: zoomLevel, 
+			fontFamily: fontFamily,
+			pageOver:pageOver,
+			pageTotal:pageTotal,
+			progressValue:progressValue,
+			chapter:chapter
+		})
+	}
+
+	goToLastPage(){
+    let localStorgeValue = JSON.parse(localStorge.get(this.bookReadKey));
+		let pageOver = localStorgeValue.pageOver;
+		let pageTotal = this.state.pageTotal;
+		this.setState({
+			pageOver: pageOver,
+			progressValue: pageOver/pageTotal
+		})
+	}
+	
 	componentDidMount(){
 		let optionCanvas = findDOMNode(this.refs.optionCanvas);
 		optionCanvas.addEventListener('touchstart', ::this.touchStart, false);
 		optionCanvas.addEventListener('touchmove', ::this.touchMove, false);
 		optionCanvas.addEventListener('touchend', ::this.touchEnd, false);
-		this.reSize();
+		this.reSizeStart();
 		this.setState({
 			pageOver: 1,
-		})
+		},::this.checkLocalStorage);
+		
 	}
 
 	componentWillUnmount(){
@@ -95,6 +141,7 @@ class BookRead extends React.Component{
 		optionCanvas.removeEventListener('touchstart', ::this.touchStart, false);
 		optionCanvas.removeEventListener('touchmove', ::this.touchMove, false);
 		optionCanvas.removeEventListener('touchend', ::this.touchEnd, false);
+		this.populateStorage();
 	}
 
 	onOptionCanvasClick(e) {
@@ -124,14 +171,14 @@ class BookRead extends React.Component{
 			case "end":
 				this.setState({
 					pageOver: pageOver
-				});
+				},::this.populateStorage);
 				break;
 			default:
 				return null;
 		}
 	}
 
-	reSize() {
+	reSizeStart() {
 		let textCanvas = findDOMNode(this.refs.textCanvas);
 		const HEADER_HEIGHT = 40,
 				  fontSize = [16, 20, 24],
@@ -146,6 +193,21 @@ class BookRead extends React.Component{
 		});
 	}
 
+	reSize() {
+		let textCanvas = findDOMNode(this.refs.textCanvas);
+		const HEADER_HEIGHT = 40,
+				  fontSize = [16, 20, 24],
+				  contentHeight = document.documentElement.clientHeight - HEADER_HEIGHT;
+    let lineHeight = fontSize[this.state.zoomLevel]*1.5,
+				canvasHeight = contentHeight - Math.floor(contentHeight%lineHeight),
+				pageTotal = Math.ceil(textCanvas.offsetHeight/canvasHeight);
+		this.setState({
+			canvasHeight: canvasHeight,
+			pageTotal: pageTotal,
+      progressValue: 1/pageTotal
+		},::this.populateStorage);
+	}
+
 	goToPage(type, index) {
 		let { pageOver,headerAndFooterShow, pageTotal } = this.state;
 		switch(type) {
@@ -154,7 +216,7 @@ class BookRead extends React.Component{
 				this.setState({
 					pageOver: pageOver - 1,
 					progressValue: (pageOver - 1) /pageTotal
-				});
+				},::this.populateStorage);
 				break;
 			case "toggle":
 				this.setState({
@@ -166,13 +228,13 @@ class BookRead extends React.Component{
 				this.setState({
 					pageOver: pageOver + 1,
 					progressValue: (pageOver + 1)/(pageTotal)
-				});
+				},::this.populateStorage);
 				break;
 			case "jump":
 				this.setState({
 					pageOver: index,
 					progressValue: index/pageTotal
-				});
+				},::this.populateStorage);
 				break;
 			default:
 				return null;
@@ -181,22 +243,27 @@ class BookRead extends React.Component{
 
 	zoom(type) {
 		let { zoomLevel } = this.state;
+		console.log(zoomLevel);
 	  switch(type) {
 			case "in":
 				zoomLevel > 0 &&
 				this.setState({
-					zoomLevel: zoomLevel - 1
-				}, ::this.reSize);
+					zoomLevel: (parseInt(zoomLevel) - 1)
+				}, ::this.setZoomCallback);
 				break;
 			case "out":
 				zoomLevel < this.zoomLevelMax &&
 				this.setState({
-					zoomLevel: zoomLevel + 1
-				}, ::this.reSize);
+					zoomLevel: (parseInt(zoomLevel) + 1)
+				}, ::this.setZoomCallback);
 				break;
 			default:
 				return null;
 		}
+	}
+
+	setZoomCallback(){
+		this.reSize();
 	}
 
 	onHeaderFontClick() {
@@ -227,14 +294,20 @@ class BookRead extends React.Component{
 		}else {
 			this.setState({
 				[type]: value
-			})
+			}, ::this.populateStorage);
 		}
+	}
 
+	chapterChange(chapterIndex){
+		console.log(chapterIndex);
+		this.setState({
+			chapter:chapterIndex
+		},::this.populateStorage)
 	}
 
 	render(){
 		let { pageOver, pageTotal, headerAndFooterShow, progressValue, canvasHeight, catalogAreaDisplay, zoomLevel,
-				fontChangeDisplay, color, fontFamily} = this.state;
+				fontChangeDisplay, color, fontFamily,chapter} = this.state;
 		let zoomClass = "font-size-"+zoomLevel;
 		let pageOverValue = progressValue*pageTotal;
 		let zIndex = headerAndFooterShow ? 10009 : 11002, footerHeight = headerAndFooterShow ? 50 : 0;
@@ -251,7 +324,7 @@ class BookRead extends React.Component{
 				</HeaderComponents>
 				{
 					catalogAreaDisplay &&
-					<CatalogArea chapter={1} onReturn={::this.onMenuButtonClick}/>
+					<CatalogArea chapter={chapter} chapterChange={::this.chapterChange} onReturn={::this.onMenuButtonClick}/>
 				}
 				<div className={"forColor "+color}></div>
 				<div id="pageTitleShow" className={"pageTitleShow "+color} style={{zIndex: zIndex}}>{data.title}</div>

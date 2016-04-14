@@ -20,6 +20,9 @@ import styles from './AudioModule.scss';
 
 import LrcScroll from './LrcScroll';
 
+import * as localStorge from '../../../utils/storage.js';
+import Utils from '../../../utils/utils.js';
+
 const alertContent = {
   "img": "http://www.duoyue.me/wechat/1018/3021/images/top/save.png",
   "content": "此资源暂时不提供下载功能"
@@ -88,7 +91,33 @@ class AudioModule extends React.Component {
       progressValue: 0, //歌曲的进度
       isPlaying: true //是否正在播放
     };
+    this.audioKey="sound_" + this.props.params.id;
+    Utils.bindMethods(this, "populateStorage", "setAudioStyles","checkLocalStorage");
   }
+
+  checkLocalStorage(){
+    if(!localStorge.get(this.audioKey)) {
+      this.populateStorage();//设置默认localStorage
+    } else {
+      this.setAudioStyles();
+    }
+  }
+
+  populateStorage(){
+    const { soundIndex  }=this.state;
+    let stateValue={"soundIndex":soundIndex};
+    statevalue=JSON.stringify(statevalue);
+    localStorge.put(this.audioKey,stateValue);
+  }
+
+  setAudioStyles(){
+    let localStorgeValue=JSON.parse(localStorge.get(this.audioKey));
+    let soundIndex=localStorgeValue.soundIndex;
+    this.setState({
+      soundIndex: soundIndex
+    })
+  }
+
 
   //自动播放
   componentDidMount() {
@@ -99,6 +128,7 @@ class AudioModule extends React.Component {
     audio.play();
     audio.addEventListener("timeupdate", _self.updateProgress.bind(this), false);
     audio.addEventListener("ended", () =>  _self.onControllClick("next") , false);
+    this.checkLocalStorage();
   }
 
   //歌曲进度条控制
@@ -144,7 +174,7 @@ class AudioModule extends React.Component {
       case "prev":
         this.setState({
           soundIndex: prev
-        });
+        },::this.populateStorage);
         break;
       case "pause":
         if(!this.state.isPlaying) {
@@ -160,7 +190,7 @@ class AudioModule extends React.Component {
       case "next":
         this.setState({
           soundIndex: next
-        });
+        },::this.populateStorage);
         break;
       default :
         return null;
@@ -171,7 +201,8 @@ class AudioModule extends React.Component {
     let audio = this.refs.audio, _self = this;
     window.clearTimeout(this.downLoadTimer);
     audio.removeEventListener("timeupdate", _self.updateProgress.bind(this), false);
-    audio.removeEventListener("ended", () =>  _self.onControllClick("next") , false);
+    audio.removeEventListener("ended", () =>  _self.onControllClick("next") , false); 
+    this.populateStorage();
   }
   //显示隐藏搜索列表
   onListClick() {
@@ -183,7 +214,7 @@ class AudioModule extends React.Component {
   onChooseClick(index) {
     this.setState({
       soundIndex: index
-    });
+    },::this.populateStorage);
   }
 
   onProgressControll(type, progressValue) {
