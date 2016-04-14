@@ -38,7 +38,7 @@ class SortBrowse extends React.Component {
 }
 
 SortBrowse.propsType = {
-	data: PropTypes.object.isRequired({
+	data: PropTypes.shape({
 		data: PropTypes.array.isRequired
 	})
 };

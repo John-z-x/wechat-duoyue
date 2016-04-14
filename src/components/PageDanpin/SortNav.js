@@ -31,7 +31,7 @@ class SortNav extends React.Component {
 }
 
 SortNav.propTypes = {
-	sortData: PropTypes.object.isRequired({
+	sortData: PropTypes.shape({
 		data: PropTypes.array.isRequired
 	})
 };
