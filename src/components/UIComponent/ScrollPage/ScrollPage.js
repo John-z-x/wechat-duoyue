@@ -37,7 +37,6 @@ class ScrollPage extends React.Component {
     }
   }
 
-
   //滚动加载数据
   onScrollListAdd(){
     let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
@@ -49,6 +48,7 @@ class ScrollPage extends React.Component {
     let totalPage = this.state.totalPage;
 
     this.onScrollPage();
+
     if (scrollTop > prePage) {
       this.isScrollUpDown('down',arrPrePage);
     } else {
@@ -67,7 +67,6 @@ class ScrollPage extends React.Component {
       })
       return;
     }
-    
   }
 
 
@@ -102,26 +101,22 @@ class ScrollPage extends React.Component {
       for (let i = 0; i < arrPrePageNum; i++) {
         if (scrollTop + windowH  < arrPrePage[i]) {
           this.setState({
-            everyPage:i,
+            everyPage: i,
           })
           break;
         }
       }
     } else {
       for (let i = 0; i < arrPrePageNum; i++) {
-        if (scrollTop < arrPrePage[i]) {
+        if (scrollTop + 500 < arrPrePage[i]) {
           this.setState({
             everyPage: i,
           })
           break;
         }
       }
+
     }
-  }
-
-  //滚动前页面内容数据变化，绑定解除
-  componentWillMount(){
-
   }
 
   componentWillUnmount() {
