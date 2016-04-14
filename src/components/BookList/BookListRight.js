@@ -5,11 +5,11 @@ class BookListRight extends React.Component {
   render() {
     const booklistdata = this.props.booklistdata;
     return (
-      <div className="BookListRight right">
+      <div className="BookListRight">
         <section className="top">
           <div className="header-line"></div>
           <div className="header-title">
-            共<span>{booklistdata.length}</span>本
+            <span>共{booklistdata.length}本</span>
           </div>
         </section>
         {
