@@ -4,7 +4,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { modifyCover } from '../../actions/ShoppingCartActions';
 import * as CommentActions from '../../actions/CommentActions';
 
 import CommonHeader from '../HeaderComponents/CommonHeader.js';
@@ -30,10 +29,10 @@ class BookConsult extends React.Component {
 				<CommonHeader>
 					<ReturnButton/>
 				</CommonHeader>
-				<CommentBox data={ data } actions={ actions }>
+				<CommentBox data={ data } actions={ actions } url="3">
 					<CommentCommonHeader title="购买咨询" />
 					<CommentList comments={ data } actions={actions} Item={CommentItemPurchaseAdvice} />
-	        <CommentForm actions={ actions } modifyCoverFunc={ onModifyCover } id= { data.length }/>
+	        <CommentForm actions={ actions } id= { data.length }/>
 				</CommentBox>
 			</div>
 		);
@@ -42,14 +41,12 @@ class BookConsult extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    cover: state.cover,
     data: state.comment,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    onModifyCover: bindActionCreators(modifyCover, dispatch),
     actions: bindActionCreators(CommentActions, dispatch)
   };
 }

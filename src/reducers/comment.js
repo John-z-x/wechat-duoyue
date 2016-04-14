@@ -25,7 +25,16 @@ const toComment = (state, action) => {
 const comment = (state = [], action) => {
 	switch(action.type) {
 		case RECEIVED_COMMENT:
-			return action.data.concat(state);
+			if (state.length > 0 && action.data.length == 1) {
+        return action.data.concat(state.filter((item) => {
+            if (item.id !== action.data.id) {
+              return true;
+            }
+          }
+        ))
+      } else {
+        return action.data;
+      }
     case ADD_COMMENT:
       return [action.json].concat(state);
     case TOGGLE_PRAISE:

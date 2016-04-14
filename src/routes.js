@@ -4,7 +4,7 @@ import { Route, IndexRoute } from 'react-router';
 /* Five header modules */
 import App from './components/App/App';
 import DanpinPage from './pages/DanpinPage';
-import ShopIndexPage from './pages/ShopIndexPage';
+import ShopIndexPage from './pages/ShopPage';
 import EverydayPage from './pages/EverydayPage';
 import SourcePage from './pages/SourcePage';
 import UserMenuPage from './pages/UserMenuPage';
@@ -12,7 +12,7 @@ import UserMenuPage from './pages/UserMenuPage';
 /* Five home page for header modules */
 import EverydayPageHome from './components/PageEveryDay/home';
 import DanpinPageHome from './components/PageDanpin/home';
-import ShopPageIndexHome from './components/PageShopIndex/home';
+import ShopPageHome from './components/PageShop/home';
 import SourcePageHome from './components/PageSource/home';
 
 import BookList from './components/BookList/BookList';
@@ -83,7 +83,7 @@ export default (
     </Route>
 
     <Route path="shop" component={ShopIndexPage}>
-      <IndexRoute component={ShopPageIndexHome} />
+      <IndexRoute component={ShopPageHome} />
       <Route path="goodslist/:typeId" component={GoodsList}/>
       <Route path="goodsbuy/:id" component={CommodityDetail}/>
       <Route path="goodssearch" component={GoodsSearch}/>

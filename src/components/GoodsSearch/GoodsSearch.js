@@ -5,7 +5,7 @@ import styles from './GoodsSearch.scss';
 
 import GoodsListHeader from '../GoodsList/GoodsListHeader';
 import GoodsListTitle from '../GoodsList/GoodsListTitle';
-import CategoryItem from '../PageShopIndex/CategoryItem';
+import CategoryItem from '../PageShop/CategoryItem';
 import GoodsSearchInput from './GoodsSearchInput';
 
 

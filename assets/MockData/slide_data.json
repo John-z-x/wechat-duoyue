@@ -47,5 +47,21 @@
       "title": "基督山伯爵"
     }
   ],
+  "shopSlide": [
+    {
+      "id": 0,
+      "url": "/shop/goodsbuy/",
+      "target": "0",
+      "fileurl": "http://file.duoyue.me/upload/columninfo/20151224/2015_12_24_144217145.jpg",
+      "title": "抱枕"
+    },
+    {
+      "id": 1,
+      "url": "/shop/goodsbuy/",
+      "target": "1",
+      "fileurl": "http://file.duoyue.me/upload/columninfo/20151224/2015_12_24_144600085.jpg",
+      "title": "积木"
+    }
+  ],
   "default": []
 }

@@ -5,7 +5,7 @@ import styles from './GoodsList.scss';
 
 import GoodsListHeader from './GoodsListHeader';
 import GoodsListTitle from './GoodsListTitle';
-import CategoryItem from '../PageShopIndex/CategoryItem';
+import CategoryItem from '../PageShop/CategoryItem';
 
 const headerData = [
   {'headerId': 0, 'headerText': '搜索结果'},

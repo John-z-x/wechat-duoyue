@@ -4,7 +4,6 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { modifyCover } from '../../../actions/ShoppingCartActions';
 import * as CommentActions from '../../../actions/CommentActions';
 
 import CommonHeader from '../../HeaderComponents/CommonHeader.js';
@@ -24,9 +23,23 @@ import styles from './SourceComment.scss';
 
 @withStyles(styles)
 class SourceComment extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			cover: false
+		};
+		this.onModifyCover = this.onModifyCover.bind(this);
+	}
+
+	onModifyCover() {
+		let coverState = this.state.cover ? false : true;
+		this.setState({
+			cover: coverState
+		});
+	}
 
 	render() {
-		const { onModifyCover, actions, data } = this.props;
+		const { actions, data } = this.props;
 		return (
 			<div className="SourceComment main-wrap">
 				<CommonHeader>
@@ -36,12 +49,12 @@ class SourceComment extends React.Component {
 					<CommentCommonHeader title="精彩内容" count={ data.length }/>
 					<CommentList comments={ data } actions={actions} Item={CommentItem} />
 	        {
-	          this.props.cover && 
-	          <Cover modifyCover={ onModifyCover }>
-	            <CommentForm actions={ actions } modifyCoverFunc={ onModifyCover } id= { data.length }/>
+	          this.state.cover &&
+	          <Cover modifyCover = { this.onModifyCover }>
+	            <CommentForm actions={ actions } modifyCoverFunc={ this.onModifyCover } id= { data.length }/>
 	          </Cover>
 	        }
-	        <CommentWriteGuide func={ onModifyCover } count={data.length}/>
+	        <CommentWriteGuide func={ this.onModifyCover } count={data.length}/>
 				</CommentBox>
 			</div>
 		);
@@ -50,14 +63,12 @@ class SourceComment extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    cover: state.cover,
     data: state.comment,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    onModifyCover: bindActionCreators(modifyCover, dispatch),
     actions: bindActionCreators(CommentActions, dispatch)
   };
 }
