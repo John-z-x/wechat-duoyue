@@ -4,23 +4,19 @@ import { Link } from 'react-router';
 
 class SortNav extends React.Component {
 
-	static propTypes = {
-		sortData: PropTypes.object
-	};
-
 	render() {
 		const { sortData } = this.props;
 		return (
 			<div className="SortNav">
 				<div className="hot-sort-box bdr-mg bg-white">
-					<h2 className="f-level-title">{this.props.sortData.title}</h2>
+					<h2 className="f-level-title">{sortData.title}</h2>
 					<ul className="hot-sort-content dis-flex">
 					{
 						sortData.data.map((item,i) => {
 							return (
 								<li className="cell" key={i}>
 									<Link to={item.href}>
-										<img className="sort-icon" src={item.src} alt={item.title} title={item.title}/>
+										<img className="sort-icon" src={item.bookTypeIcon} alt={item.title}/>
 										<h4 className="sort-title">{item.title}</h4>
 									</Link>
 								</li>
@@ -33,5 +29,11 @@ class SortNav extends React.Component {
 		);
 	}
 }
+
+SortNav.propTypes = {
+	sortData: PropTypes.object.isRequired({
+		data: PropTypes.array.isRequired
+	})
+};
 
 export default SortNav;

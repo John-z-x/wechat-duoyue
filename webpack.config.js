@@ -6,7 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const outputDir = './dist';
 
 module.exports = {
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'eval',
   target: 'web',
   entry: [
     'babel-polyfill',
@@ -31,20 +31,20 @@ module.exports = {
       title: 'Wechat Duoyue',
       filename: 'index.html',
       template: 'index.template.html',
-      "files": {
-        "css": [ "common.css" ],
-        "js": [ "common.js", "bundle.js"],
-        "chunks": {
-          "head": {
-            "entry": "common.js",
-            "css": [ "app.scss" ]
-          },
-          "main": {
-            "entry": "bundle.js",
-            "css": []
-          },
-        }
-      }
+      //"files": {
+      //  "css": [ "common.css" ],
+      //  "js": [ "common.js", "bundle.js"],
+      //  "chunks": {
+      //    "head": {
+      //      "entry": "common.js",
+      //      "css": [ "app.scss" ]
+      //    },
+      //    "main": {
+      //      "entry": "bundle.js",
+      //      "css": []
+      //    },
+      //  }
+      //}
 
     }),
     new webpack.optimize.CommonsChunkPlugin('common.js'),
@@ -93,9 +93,6 @@ module.exports = {
 
   resolve: {
     extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx', 'json'],
-  },
-  devServer: {
-    historyApiFallback: true
   }
 
 };

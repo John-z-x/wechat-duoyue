@@ -1,5 +1,6 @@
 // 'use strict';
 import React from 'react';
+import { findDOMNode } from 'react-dom';
 import { Link } from 'react-router';
 import TopMaskerLayer from './TopMaskerLayer';
 import AudioContent from './AudioContent';
@@ -121,7 +122,7 @@ class AudioModule extends React.Component {
 
   //自动播放
   componentDidMount() {
-    let audio = this.refs.audio, _self = this;
+    let audio = findDOMNode(this.refs.audio), _self = this;
     this.setState({
       isPlaying: true
     });
