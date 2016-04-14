@@ -1,4 +1,7 @@
-@import 'variables',
-'font',
-'base',
-'common';
+@charset "UTF-8";
+
+@import 'variables';
+@import 'mixin';
+@import 'font';
+@import 'base';
+@import 'common';
