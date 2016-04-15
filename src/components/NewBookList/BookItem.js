@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import { Link } from 'react-router';
 
 class BookItem extends React.Component {
@@ -9,7 +9,7 @@ class BookItem extends React.Component {
         <Link to={data.href}>
           <div className="bookitem-wrap">
             <div className="news-img-container">
-              <img src={data.src} alt={data.name} title={data.name}/>
+              <img src={data.bookPic} alt={data.title} title={data.title}/>
             </div>
           </div>
           <span className="book-title">{data.title}</span>
@@ -19,4 +19,5 @@ class BookItem extends React.Component {
     );
   }
 }
+
 export default BookItem;
