@@ -8,7 +8,8 @@ class SourceBox extends React.Component {
     super(props);
     this.state = {
       left: [],
-      right: []
+      right: [],
+      isToEnd: false
     };
     this.finishLoading = true;
     this.index = 1;
@@ -59,6 +60,14 @@ class SourceBox extends React.Component {
     //1.优化加载显示
   }
 
+  componentDidUpdate() {
+    if (!(this.props.list.length > 0)) {
+      this.setState({
+        isToEnd: true
+      });
+    }
+  }
+
   distribution(nextProps) {
     let list  = nextProps == undefined ? this.props.list : nextProps.list, parentBox, _self = this;
     list.map( (item) =>  {
@@ -66,7 +75,7 @@ class SourceBox extends React.Component {
       img.src = item.pic;
       img.onload = () => {
         loadImg(item);
-      }
+      };
     });
 
     function loadImg(item) {
@@ -111,9 +120,13 @@ class SourceBox extends React.Component {
               }
             </div>
           </div>
-          <footer className="bottom">
+          {
+            this.state.isToEnd &&
+            <footer className="bottom">
              已经加载到底部了。。。
-          </footer>
+            </footer>
+          }
+          
         </section>
     );
   }

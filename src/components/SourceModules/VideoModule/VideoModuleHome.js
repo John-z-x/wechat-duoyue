@@ -2,9 +2,6 @@
 import React ,{ PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
-import { modifyCover } from '../../../actions/ShoppingCartActions';
-
 import { Link } from 'react-router';
 
 import VideoPoster from './VideoPoster.js';
@@ -14,12 +11,9 @@ import BrowseMoreBtn from './BrowseMoreBtn.js';
 import CommonHeader from '../../HeaderComponents/CommonHeader.js';
 import ReturnButton from '../../HeaderComponents/ReturnButton';
 import CommentButton from '../../HeaderComponents/CommentButton';
-import Cover from '../../Cover/Cover';
 import DownLoadButton from '../../HeaderComponents/DownLoadButton';
 import CollectButton from '../../HeaderComponents/CollectButton';
 
-import CommentBox from '../../CommentBox/CommentBox';
-import CommentForm from '../../CommentBox/CommentForm';
 import withStyles from '../../../decorators/withStyles';
 import styles from './VideoModule.scss';
 
@@ -59,13 +53,13 @@ class VideoModuleHome extends React.Component {
 				{ this.props.children }
 				<CommonHeader>
 					<ReturnButton/>
+					<CollectButton />
 					<Link to="/source/commentpage">
 						<CommentButton/>
 					</Link>
 					<Link to="/source/downloadpage">
 						<DownLoadButton/>
 					</Link>
-					<CollectButton />
 				</CommonHeader>
 				<VideoPoster data={displayData}/>
 				<VideoDescription data={displayData} index={this.state.videoIndex}/>
@@ -75,21 +69,5 @@ class VideoModuleHome extends React.Component {
 		);
 	}
 }
-
-function mapStateToProps(state) {
-  return {
-    cover: state.cover
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    onModifyCover: bindActionCreators(modifyCover, dispatch)
-  };
-}
-VideoModuleHome = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(VideoModuleHome)
 
 export default VideoModuleHome;

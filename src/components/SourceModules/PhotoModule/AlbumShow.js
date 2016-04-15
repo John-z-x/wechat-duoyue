@@ -6,7 +6,7 @@ import CollectButton from '../../HeaderComponents/CollectButton';
 import DownLoadButton from '../../HeaderComponents/DownLoadButton';
 import CommentButton from '../../HeaderComponents/CommentButton';
 import AlbumShowPic from './AlbumShowPic';
-import  ShowDown from './ShowDown';
+import ShowDown from './ShowDown';
 
 import withStyles from '../../../decorators/withStyles';
 import styles from './PhotoModule.scss';
@@ -34,7 +34,7 @@ class AlbumShow extends React.Component {
 
 
   toShowDown(e) {
-		e.stopPropagation();
+		//e.stopPropagation();
   	 this.setState({
       ifShow: !this.state.ifShow,
     })
@@ -53,7 +53,9 @@ class AlbumShow extends React.Component {
 					<CommonHeader>
 						<ReturnButton/>
 						<DownLoadButton OnDownLoadClick={::this.toShowDown}/>
-						<CommentButton />
+						<Link to={`/source/commentpage`}>
+							<CommentButton />
+						</Link>
 						<CollectButton/>
 					</CommonHeader>
 				}

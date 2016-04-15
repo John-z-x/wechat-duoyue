@@ -12,10 +12,13 @@ class ConfirmFooter extends React.Component {
 			<div className="ConfirmFooter confirm-footer clearfix">
 				<div className="confirm-footer-left fontFZ left">
 					<div className="total">
-						<span>合计： ￥</span>
-						<span>{money}</span>
+						<span>合计：</span>
+						<span className="rmb">{money}</span>
 					</div>
-					<div className="carriage">5.00</div>
+					<div className="carriage">
+						<span>运费：</span>
+						<span className="rmb">5.00</span>
+					</div>
 				</div>
 				<Link to="/confirmorder" className="confirm-footer-right right" >
 					<span>去结算(</span>

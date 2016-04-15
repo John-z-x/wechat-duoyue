@@ -35,6 +35,7 @@
   /*width*/
   $w25: 25%;
   $w33: 33%;
+  $w42: 42%;
   $w50: 50%;
   $w100: 100%;
   /*一行*/
@@ -86,7 +87,7 @@
     .book-cover {
       padding: 25px;
       text-align: center;
-      width: $w50;
+      width: $w42;
       margin: 0 auto;
       box-sizing: content-box;
       .book-cover-container {

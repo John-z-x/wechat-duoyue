@@ -22,7 +22,7 @@ class SourcePdfZoomBox extends React.Component {
 		if (startX0 < (pageWidth * 0.3)) {
 			type = "prev";
 		}else if ((startX0 > (pageWidth * 0.3)) && (startX0 < (pageWidth * 0.6))) {
-			type = "toggle"
+			type = "toggle";
 		}else if (startX0 > (pageWidth * 0.6)) {
 			type= "next";
 		}

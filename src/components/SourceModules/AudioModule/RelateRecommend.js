@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const WIDTH = document.documentElement.clientWidth;
 class RelateRecommend extends React.Component {
@@ -52,9 +53,11 @@ class RelateRecommend extends React.Component {
             {
               dataList.map( (item, index) =>
                 <li className="recommend-item" key={index}>
-                  <img src={item.picture} alt="fengmian" height="102" width="100%"/>
-                  <span className="recommend-title">{item.title}</span>
-                  <span className="recommend-num">共{index}首</span>
+                  <Link to={`/source/audio/${item.id}`}>
+                    <img src={item.picture} alt="fengmian" height="102" width="100%"/>
+                    <span className="recommend-title">{item.title}</span>
+                    <span className="recommend-num">共{index}首</span>
+                  </Link>
                 </li>
               )
             }

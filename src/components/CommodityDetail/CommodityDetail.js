@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Link } from 'react-router';
 
 import CommonHeader from '../HeaderComponents/CommonHeader';
 import ReturnButton  from '../HeaderComponents/ReturnButton';
@@ -41,7 +42,9 @@ class CommodityDetail extends React.Component {
 	  	<div className="CommodityDetail">
 					<CommonHeader>
 						<ReturnButton />
-						<SearchButton />
+						<Link to={`/shop/goodssearch`}>
+							<SearchButton/>
+						</Link>
 					</CommonHeader>
 				 <div className="CommodityDetailContent">
            <Slider data={commodityDetailData.SliderList}/>

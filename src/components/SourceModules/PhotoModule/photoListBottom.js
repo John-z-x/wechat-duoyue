@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 class PhotoListBottom extends React.Component {
 	render() {
@@ -19,7 +20,9 @@ class PhotoListBottom extends React.Component {
 	              <div className="logo-text-up">武汉理工数字中心</div>
 	              <div className="logo-text-down" >每天多学一点点</div>
 	            </div>
-	            <button className="logo-button right">前往首页</button>
+	            <Link to={`/source`}>
+	            	<button className="logo-button right">前往首页</button>
+	            </Link>
 	          </div>
 	      </div>
       </div>

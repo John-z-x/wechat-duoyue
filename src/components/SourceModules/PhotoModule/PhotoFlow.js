@@ -111,9 +111,7 @@ class PhotoFlow extends React.Component {
           </div>		
 				</div>
         <div className="bottomBox" style={{"visibility":this.state.visibility}}>
-          <Link to="/source">
-            <PhotoListBottom/>
-          </Link>
+          <PhotoListBottom/>
         </div>
 			</div>
 		);
