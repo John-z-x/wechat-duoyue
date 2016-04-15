@@ -15,11 +15,11 @@ import CommentItem from './CommentItem';
 
 import Cover from '../Cover/Cover';
 
-import withStyles from '../../decorators/withStyles';
+////import withstyles from '../../decorators/withStyles';
 import styles from './CommentBox.scss';
 
 
-@withStyles(styles)
+//@withStyles(styles)
 class CommentBox extends React.Component {
 	constructor(props) {
 		super(props);

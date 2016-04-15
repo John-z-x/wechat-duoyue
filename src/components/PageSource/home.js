@@ -10,7 +10,7 @@ import SourceBox from './SourceBox';
 import * as sourceActions from '../../actions/SourceActions';
 import * as slideActions from '../../actions/SlideActions';
 
-import withStyle from '../../decorators/withStyles';
+//import withStyle from '../../decorators/withStyles';
 import styles from './SourcePage.scss';
 
 
@@ -25,7 +25,7 @@ let TabItemsData = {
   }
 }
 
-@withStyle(styles)
+//@withStyle(styles)
 class SourcePageHome extends React.Component {
 
   constructor(props) {

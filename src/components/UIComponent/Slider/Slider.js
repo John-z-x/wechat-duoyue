@@ -3,12 +3,12 @@ import React from 'react';
 import SliderItem from './SliderItem';
 import SliderDot from './SliderDot';
 
-import withStyles from '../../../decorators/withStyles';
+////import withstyles from '../../../decorators/withStyles';
 import styles from './Slider.scss';
 
 const WIDTH = document.documentElement.clientWidth;
 
-@withStyles(styles)
+//@withStyles(styles)
 class Slider extends React.Component {
   static defaultProps = {
     dots: true,

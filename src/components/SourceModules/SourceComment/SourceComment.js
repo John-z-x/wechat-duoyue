@@ -19,10 +19,10 @@ import CommentItem from '../../CommentBox/CommentItem';
 
 import Cover from '../../Cover/Cover';
 
-import withStyles from '../../../decorators/withStyles';
+////import withstyles from '../../../decorators/withStyles';
 import styles from './SourceComment.scss';
 
-@withStyles(styles)
+//@withStyles(styles)
 class SourceComment extends React.Component {
 
 	render() {

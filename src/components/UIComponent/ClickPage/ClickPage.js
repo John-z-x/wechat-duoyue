@@ -2,10 +2,10 @@ import React from 'react';
 import PageLink from './PageLink';
 
 import Utils from '../../../utils/utils.js';
-import withStyles from '../../../decorators/withStyles';
+////import withstyles from '../../../decorators/withStyles';
 import styles from './ClickPage.scss';
 
-@withStyles(styles)
+//@withStyles(styles)
 class ClickPage extends React.Component {
   constructor(props) {
     super(props);

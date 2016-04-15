@@ -2,7 +2,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import { Link } from 'react-router';
-import withStyles from '../../../decorators/withStyles';
+////import withstyles from '../../../decorators/withStyles';
 import CommonHeader from '../../HeaderComponents/CommonHeader.js';
 import ReturnButton from '../../HeaderComponents/ReturnButton';
 import CommentButton from '../../HeaderComponents/CommentButton';
@@ -46,7 +46,7 @@ const data = [
 	];
 const nowIndex = 3;
 
-@withStyles(styles)
+//@withStyles(styles)
 class SourcePdfCatalogPage extends React.Component {
 	constructor(props) {
 		super(props);

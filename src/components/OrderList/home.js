@@ -4,7 +4,7 @@ import OrderListContent from './OrderListContent';
 import CommonHeader from '../HeaderComponents/CommonHeader';
 import ReturnButton from '../HeaderComponents/ReturnButton';
 
-import withStyles from '../../decorators/withStyles';
+////import withstyles from '../../decorators/withStyles';
 import styles from './OrderList.scss';
 
 const orderData = [
@@ -39,7 +39,7 @@ const orderData = [
 
 ]
 
-@withStyles(styles)
+//@withStyles(styles)
 class OrderListHome extends React.Component {
   render() {
   	return(

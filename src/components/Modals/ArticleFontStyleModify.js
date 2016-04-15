@@ -1,6 +1,6 @@
 import React from 'react';
 
-import withStyles from '../../decorators/withStyles';
+////import withstyles from '../../decorators/withStyles';
 import styles from './ArticleFontStyleModify.scss';
 
 // const color = {
@@ -22,7 +22,7 @@ import styles from './ArticleFontStyleModify.scss';
 //   }
 // }
 
-@withStyles(styles)
+//@withStyles(styles)
 class ArticleFontStyleModify extends React.Component{
 
   constructor(props) {

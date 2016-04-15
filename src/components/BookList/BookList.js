@@ -1,6 +1,6 @@
 import React from 'react';
 
-import withStyles from '../../decorators/withStyles';
+////import withstyles from '../../decorators/withStyles';
 import styles from './BookList.scss';
 
 import CommonHeader from '../HeaderComponents/CommonHeader';
@@ -79,7 +79,7 @@ const BookListData = [
   {name: "三体", type:1, imgUrl: "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_172836293_cut_c.jpg", "price": 170}
 ]
 
-@withStyles(styles)
+////@withStyles(styles)
 class BookList extends React.Component {
   constructor(props) {
     super(props);

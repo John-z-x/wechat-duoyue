@@ -9,7 +9,7 @@ import OrderStatus from './OrderStatus';
 import PriceInformation from './PriceInformation';
 
 
-import withStyles from '../../decorators/withStyles';
+////import withstyles from '../../decorators/withStyles';
 import styles from './OrderDisplay.scss';
 
 const OrderDisplayData = {
@@ -37,7 +37,7 @@ const OrderDisplayData = {
 		'actualPay':'1800'
 	}
 }
-@withStyles(styles)
+//@withStyles(styles)
 class OrderDisplay extends React.Component {
 	render() {
 		return(

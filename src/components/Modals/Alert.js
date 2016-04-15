@@ -1,9 +1,9 @@
 import React from 'react';
 
-import withStyles from '../../decorators/withStyles';
+////import withstyles from '../../decorators/withStyles';
 import styles from './Alert.scss';
 
-@withStyles(styles)
+//@withStyles(styles)
 class Alert extends React.Component {
   render() {
     const content = this.props.content;

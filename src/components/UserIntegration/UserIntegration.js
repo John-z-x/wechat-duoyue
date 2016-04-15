@@ -1,10 +1,10 @@
 import React from 'react';
 import ReturnButton from '../HeaderComponents/ReturnButton';
 import CommonHeader from '../HeaderComponents/CommonHeader';
-import withStyles from '../../decorators/withStyles';
+////import withstyles from '../../decorators/withStyles';
 import styles from './UserIntegration.scss';
 
-@withStyles(styles)
+//@withStyles(styles)
 class UserIntegration extends React.Component{
 	render(){
 		return (

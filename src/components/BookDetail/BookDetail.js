@@ -1,6 +1,6 @@
 import React from 'react';
 
-import withStyles from '../../decorators/withStyles';
+////import withstyles from '../../decorators/withStyles';
 import styles from './BookDetail.scss';
 
 import CommonHeader from '../HeaderComponents/CommonHeader';
@@ -36,7 +36,7 @@ const alertContent = {
   "content": "收藏成功"
 };
 
-@withStyles(styles)
+////@withStyles(styles)
 class BookDetail extends React.Component {
 
   constructor(props) {

@@ -6,7 +6,7 @@ import CommonHeader from '../HeaderComponents/CommonHeader';
 import Tab from '../UIComponent/Tab/Tab';
 import ReturnButton from '../HeaderComponents/ReturnButton';
 
-import withstyles from '../../decorators/withStyles';
+////import withstyles from '../../decorators/withStyles';
 import styles from './Favorites.scss';
 
 
@@ -37,7 +37,7 @@ let dataArray = {
   ]
 };
 
-@withstyles(styles)
+////@withstyles(styles)
 class Favorites extends React.Component {
 	constructor(props) {
 		super(props);

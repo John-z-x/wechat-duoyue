@@ -5,7 +5,7 @@ import CommonHeader from '../../HeaderComponents/CommonHeader';
 import ReturnButton from '../../HeaderComponents/ReturnButton';
 
 
-import withStyles from '../../../decorators/withStyles';
+////import withstyles from '../../../decorators/withStyles';
 import styles from './SourceBuy.scss';
 
 const sourceBuyData = {
@@ -16,7 +16,7 @@ const sourceBuyData = {
 
 }
 
-@withStyles(styles)
+//@withStyles(styles)
 class SourceBuy extends React.Component {
  render() {
  	return(

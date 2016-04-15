@@ -3,10 +3,10 @@ import EveryDayPageNum from './EveryDayPageNum';
 import EveryDayScrollBottom from './EveryDayScrollBottom';
 
 import Utils from '../../../utils/utils.js';
-import withStyles from '../../../decorators/withStyles';
+////import withstyles from '../../../decorators/withStyles';
 import styles from './ScrollPage.scss';
 
-@withStyles(styles)
+//@withStyles(styles)
 class ScrollPage extends React.Component {
   constructor(props) {
     super(props);

@@ -2,7 +2,7 @@ import React from 'react';
 import PhotoFlow from './PhotoFlow';
 import CommonHeader from '../../HeaderComponents/CommonHeader';
 import ReturnButton from '../../HeaderComponents/ReturnButton';
-import withStyles from '../../../decorators/withStyles';
+////import withstyles from '../../../decorators/withStyles';
 import styles from './PhotoModule.scss';
 
 const photoData = [
@@ -30,7 +30,7 @@ const photoData2 = [
 
 ];
 
-@withStyles(styles)
+//@withStyles(styles)
 class PhotoList extends React.Component {
 
 	render() {

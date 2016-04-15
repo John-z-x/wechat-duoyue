@@ -1,6 +1,6 @@
 import React from 'react';
 
-import withStyles from '../../decorators/withStyles';
+////import withstyles from '../../decorators/withStyles';
 import styles from './ModifyStyle.scss';
 
 const color = {
@@ -30,7 +30,7 @@ const color = {
   }
 };
 
-@withStyles(styles)
+//@withStyles(styles)
 class ModifyStyle extends React.Component {
 
   constructor(props) {

@@ -8,7 +8,7 @@ import CommentButton from '../../HeaderComponents/CommentButton';
 import AlbumShowPic from './AlbumShowPic';
 import  ShowDown from './ShowDown';
 
-import withStyles from '../../../decorators/withStyles';
+////import withstyles from '../../../decorators/withStyles';
 import styles from './PhotoModule.scss';
 
 
@@ -22,7 +22,7 @@ const AlbumShowData = [
 ],
 count=AlbumShowData.length;
 
-@withStyles(styles)
+//@withStyles(styles)
 class AlbumShow extends React.Component {
 	constructor (props) {
 		super(props);

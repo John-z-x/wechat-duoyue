@@ -4,7 +4,7 @@ import SocialAreaItem from './SocialAreaItem';
 import CommonHeader from '../HeaderComponents/CommonHeader';
 import ReturnButton from '../HeaderComponents/ReturnButton';
 
-import withStyles from '../../decorators/withStyles';
+////import withstyles from '../../decorators/withStyles';
 import styles from './SocialArea.scss';
 
 var dataArray =
@@ -42,7 +42,7 @@ var dataArray =
 			}
 		]
 
-@withStyles(styles)
+//@withStyles(styles)
 class SocialAreaHome extends React.Component {
 
 	render() {

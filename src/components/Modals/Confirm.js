@@ -1,9 +1,9 @@
 import React from 'react';
 
-import withStyles from '../../decorators/withStyles';
+////import withstyles from '../../decorators/withStyles';
 import styles from './Confirm.scss';
 
-@withStyles(styles)
+//@withStyles(styles)
 class Confirm extends React.Component {
   constructor(props) {
     super(props);

@@ -12,7 +12,7 @@ import Nav from './Nav';
 import HotNews from './HotNews';
 import Category from './Category';
 
-import withStyles from '../../decorators/withStyles';
+////import withstyles from '../../decorators/withStyles';
 import styles from './PageShopIndex.scss';
 
 let shopIndexData = {
@@ -58,7 +58,7 @@ let shopIndexData = {
   ]
 };
 
-@withStyles(styles)
+//@withStyles(styles)
 class ShopIndexPageHome extends React.Component {
 
   render() {

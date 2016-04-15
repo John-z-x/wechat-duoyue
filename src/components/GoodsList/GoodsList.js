@@ -1,6 +1,6 @@
 import React from 'react';
 
-import withStyles from '../../decorators/withStyles';
+////import withstyles from '../../decorators/withStyles';
 import styles from './GoodsList.scss';
 
 import GoodsListHeader from './GoodsListHeader';
@@ -21,7 +21,7 @@ const GoodsListData = [
   {"id": "4","name": "[lollipop] 项链|春风十里", "href": "/shop/goodsbuy/1","imgUrl": "http://file.duoyue.me/upload/product/20151201/2015_12_01_204854611.jpg", "price": 460.00}
 ]
 
-@withStyles(styles)
+//@withStyles(styles)
 class GoodsList extends React.Component {
   constructor(props) {
     super(props);

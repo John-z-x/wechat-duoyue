@@ -1,9 +1,9 @@
 import React from 'react';
 
-import withstyles from '../../decorators/withStyles';
+//import withstyles from '../../decorators/withStyles';
 import styles from './CommonHeader.scss';
 
-@withstyles(styles)
+//@withstyles(styles)
 class CommonHeader extends React.Component {
   render() {
     let { color} = this.props;

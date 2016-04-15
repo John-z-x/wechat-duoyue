@@ -1,7 +1,7 @@
 import React from 'react';
 
 import BookListContent from './BookListContent';
-import withStyles from '../../decorators/withStyles';
+////import withstyles from '../../decorators/withStyles';
 import styles from './BookType.scss';
 
 import Tab from '../UIComponent/Tab/Tab';
@@ -78,7 +78,7 @@ const BookTypeData3 = [
   {title:"网络文学",num:5,desc:"品书会让生活染上香气",src:"http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_114515099_cut_c.jpg"}
 ]
 
-@withStyles(styles)
+////@withStyles(styles)
 class BookType extends React.Component {
   constructor(props) {
     super(props);

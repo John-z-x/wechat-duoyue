@@ -1,6 +1,6 @@
 import React from 'react';
 
-import withStyles from '../../decorators/withStyles';
+////import withstyles from '../../decorators/withStyles';
 import styles from './CatalogArea.scss';
 
 let dataArray = [
@@ -21,7 +21,7 @@ let dataArray = [
   {'title':'第一章 的卡卡的就','id':15}
 ];
 
-@withStyles(styles)
+////@withStyles(styles)
 class CatalogArea extends React.Component{
 
   render(){

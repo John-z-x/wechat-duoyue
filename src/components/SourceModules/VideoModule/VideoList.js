@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import CommonHeader from '../../HeaderComponents/CommonHeader.js';
 import ReturnButton from '../../HeaderComponents/ReturnButton';
-import withStyles from '../../../decorators/withStyles';
+////import withstyles from '../../../decorators/withStyles';
 import styles from './VideoModule.scss';
 
 const data = [
@@ -22,7 +22,7 @@ const data = [
   
   ];
 
-@withStyles(styles)
+//@withStyles(styles)
 class VideoList extends React.Component {
 
 	render() {

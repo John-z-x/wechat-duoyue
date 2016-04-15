@@ -2,7 +2,7 @@
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 import { Link } from 'react-router';
-import withStyles from '../../decorators/withStyles';
+////import withstyles from '../../decorators/withStyles';
 import styles from './PageHeader.scss';
 import _ from 'lodash';
 
@@ -13,7 +13,7 @@ const headerData = [
   {'headerId': 4, 'headerText': '书城', 'headerClassName': 'juhe_menu_shucheng', 'headerHref': '/danpin'}
 ];
 
-@withStyles(styles)
+//@withStyles(styles)
 class PageHeader extends React.Component {
   activeNavigationLink(id) {
     this.setState({

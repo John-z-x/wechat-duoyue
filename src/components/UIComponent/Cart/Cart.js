@@ -10,10 +10,10 @@ import Cover from '../../Cover/Cover';
 import ShowCart from '../../ShowCart/ShowCart';
 import GoodsBox from '../../GoodsBox/GoodsBox';
 
-import withStyles from '../../../decorators/withStyles';
+////import withstyles from '../../../decorators/withStyles';
 import styles from './Cart.scss';
 
-@withStyles(styles)
+//@withStyles(styles)
 class Cart extends React.Component {
 
   componentDidMount() {

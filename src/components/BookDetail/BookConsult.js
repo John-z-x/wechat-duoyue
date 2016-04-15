@@ -18,10 +18,10 @@ import CommentCommonHeader from '../CommentBox/CommentCommonHeader';
 import CommentWriteGuide from '../CommentBox/CommentWriteGuide';
 import CommentItemPurchaseAdvice from '../CommentBox/CommentItemPurchaseAdvice';
 
-import withStyles from '../../decorators/withStyles';
+////import withstyles from '../../decorators/withStyles';
 import styles from './BookConsult.scss';
 
-@withStyles(styles)
+////@withStyles(styles)
 class BookConsult extends React.Component {
 	render() {
 		const { onModifyCover, actions, data } = this.props;

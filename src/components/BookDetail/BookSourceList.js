@@ -3,7 +3,7 @@ import BookSourceBox from './BookSourceBox';
 import CommonHeader from '../HeaderComponents/CommonHeader';
 import ReturnButton from '../HeaderComponents/ReturnButton';
 
-import withStyles from '../../decorators/withStyles';
+////import withstyles from '../../decorators/withStyles';
 import styles from './BookSourceList.scss';
 
 var dataArray =
@@ -50,7 +50,7 @@ var dataArray =
 	}
 ];
 
-@withStyles(styles)
+////@withStyles(styles)
 class BookSourceList extends React.Component {
 	render(){
 		let SourceBoxes = dataArray.map((item) =>{

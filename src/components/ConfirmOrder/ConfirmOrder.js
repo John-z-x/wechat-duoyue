@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import withStyles from '../../decorators/withStyles';
+////import withstyles from '../../decorators/withStyles';
 import styles from './ConfirmOrder.scss';
 import { loadData } from '../../actions/ShoppingCartActions';
 
@@ -16,7 +16,7 @@ import WeChatPayBottom from './WeChatPayBottom';
 import AddressEditor from './AddressEditor';
 import ConfirmAddress from './ConfirmAddress';
 
-@withStyles(styles)
+//@withStyles(styles)
 class ConfirmOrder extends React.Component {
   constructor(props) {
     super(props);

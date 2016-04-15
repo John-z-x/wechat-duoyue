@@ -14,10 +14,10 @@ import * as slideActions from '../../actions/SlideActions';
 
 import Utils from '../../utils/utils.js';
 
-import withStyles from '../../decorators/withStyles';
+////import withstyles from '../../decorators/withStyles';
 import styles from './PageEveryDay.scss';
 
-@withStyles(styles)
+//@withStyles(styles)
 class EverydayPageHome extends React.Component {
   static propTypes = {
     children: PropTypes.any

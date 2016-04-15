@@ -8,7 +8,7 @@ import CollectButton from '../../HeaderComponents/CollectButton';
 import DownLoadButton from '../../HeaderComponents/DownLoadButton';
 import CommentButton from '../../HeaderComponents/CommentButton';
 
-import withStyles from '../../../decorators/withStyles';
+////import withstyles from '../../../decorators/withStyles';
 import styles from './PhotoModule.scss';
 
 const photoGalleryData = {
@@ -18,7 +18,7 @@ const photoGalleryData = {
 	'pageNum':'7'
 };
 
-@withStyles(styles)
+//@withStyles(styles)
 class PhotoModuleHome extends React.Component {
 constructor(props) {
     super(props);

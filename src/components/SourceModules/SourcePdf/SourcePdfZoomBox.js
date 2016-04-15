@@ -2,10 +2,10 @@
 import React, { PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 
-import withStyles from '../../../decorators/withStyles';
+////import withstyles from '../../../decorators/withStyles';
 import styles from './SourcePdf.scss';
 
-@withStyles(styles)
+//@withStyles(styles)
 class SourcePdfZoomBox extends React.Component {
 	constructor(props) {
 		super(props);

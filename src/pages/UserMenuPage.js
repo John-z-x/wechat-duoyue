@@ -14,7 +14,7 @@ import BookShelf from '../components/PageUserMenu/BookShelf';
 import UserInfo from '../components/PageUserMenu/UserInfo';
 import ToSocialArea from '../components/PageUserMenu/ToSocialArea';
 
-import withStyles from '../decorators/withStyles';
+////import withstyles from '../decorators/withStyles';
 import styles from '../components/PageUserMenu/PageUserMenu.scss';
 
 var dataArray = {
@@ -47,7 +47,7 @@ var dataArray = {
 
 };
 
-@withStyles(styles)
+//@withStyles(styles)
 class UserMenuPage extends React.Component {
   render(){
     return (

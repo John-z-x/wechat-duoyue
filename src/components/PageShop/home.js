@@ -13,7 +13,7 @@ import SortNav from './SortNav';
 import RecommendBookModule from './RecommendBookModule';
 import SortBrowse from './SortBrowse';
 
-import withStyles from '../../decorators/withStyles';
+////import withstyles from '../../decorators/withStyles';
 import styles from './PageShop.scss';
 
 let shopData = {
@@ -68,7 +68,7 @@ let shopData = {
   ]
 }
 
-@withStyles(styles)
+////@withStyles(styles)
 class ShopPageHome extends React.Component {
 
   render() {

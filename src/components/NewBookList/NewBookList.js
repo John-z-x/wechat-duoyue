@@ -2,7 +2,7 @@ import React from 'react';
 
 import CommonHeader from '../HeaderComponents/CommonHeader';
 import ReturnButton from '../HeaderComponents/ReturnButton';
-import withStyles from '../../decorators/withStyles';
+////import withstyles from '../../decorators/withStyles';
 import styles from './NewBookList.scss';
 import BookItem from './BookItem';
 
@@ -30,7 +30,7 @@ const  newbooksData =
   }
 ]
 
-@withStyles(styles)
+//@withStyles(styles)
 class NewBookList extends React.Component {
   constructor(props) {
     super(props);

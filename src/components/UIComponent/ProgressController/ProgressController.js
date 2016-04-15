@@ -1,10 +1,10 @@
 import React from 'react';
 import { findDOMNode } from 'react-dom';
 
-import widthStyles from '../../../decorators/withStyles';
+//import widthStyles from '../../../decorators/withStyles';
 import styles from "./ProgressController.scss";
 
-@widthStyles(styles)
+//@widthStyles(styles)
 class ProgressController extends React.Component {
 
   touchStartProgress(e) {

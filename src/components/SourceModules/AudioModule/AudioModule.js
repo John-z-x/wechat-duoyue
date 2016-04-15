@@ -16,7 +16,7 @@ import DownLoadButton from '../../HeaderComponents/DownLoadButton';
 
 import Alert from '../../Modals/Alert';
 
-import withStyles from '../../../decorators/withStyles';
+////import withstyles from '../../../decorators/withStyles';
 import styles from './AudioModule.scss';
 
 import LrcScroll from './LrcScroll';
@@ -77,7 +77,7 @@ const soundList = [
   }
 ];
 
-@withStyles(styles)
+//@withStyles(styles)
 class AudioModule extends React.Component {
   constructor(props) {
     super(props);

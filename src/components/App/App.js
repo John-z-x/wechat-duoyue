@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import PageHeader from '../PageHeader/PageHeader';
 import Cart from '../UIComponent/Cart/Cart';
-import withStyles from '../../decorators/withStyles';
+////import withstyles from '../../decorators/withStyles';
 import styles from './App.scss';
 
-@withStyles(styles)
+//////@withStyles(styles)
 class App extends React.Component {
 
    requireHeader(path) {

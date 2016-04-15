@@ -14,10 +14,10 @@ import CollectButton from '../HeaderComponents/CollectButton';
 import Modal from "../Modals/Modal";
 import ModifyStyle from '../Modals/ModifyStyle';
 
-import withStyles from '../../decorators/withStyles';
+////import withstyles from '../../decorators/withStyles';
 import styles from './ArticleDisplay.scss';
 
-@withStyles(styles)
+////@withStyles(styles)
 class ArticleDisplay extends React.Component {
   constructor(props) {
     super(props);

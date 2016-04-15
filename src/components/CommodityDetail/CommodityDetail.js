@@ -11,7 +11,7 @@ import CommodityDetailOperate from './CommodityDetailOperate';
 import Slider from '../UIComponent/Slider/Slider';
 import CommodityDetailCollection from './CommodityDetailCollection';
 
-import withStyles from '../../decorators/withStyles';
+////import withstyles from '../../decorators/withStyles';
 import styles from './CommodityDetail.scss';
 
 
@@ -34,7 +34,7 @@ let commodityDetailData = {
 	},
 };
 
-@withStyles(styles)
+//@withStyles(styles)
 class CommodityDetail extends React.Component {
 	render() {
 	  return(

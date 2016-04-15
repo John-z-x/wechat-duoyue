@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
-@import 'variables';
-@import 'mixin';
-@import 'font';
-@import 'base';
-@import 'common';
+@import '_variables.scss';
+@import '_mixin.scss';
+@import '_font.scss';
+@import '_base.scss';
+@import '_common.scss';

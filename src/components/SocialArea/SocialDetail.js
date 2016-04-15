@@ -17,7 +17,7 @@ import CommentItem from '../CommentBox/CommentItem';
 
 import Cover from '../Cover/Cover';
 
-import withStyles from '../../decorators/withStyles';
+////import withstyles from '../../decorators/withStyles';
 import styles from './SocialDetail.scss';
 
 const dataArray = {
@@ -25,7 +25,7 @@ const dataArray = {
 	intra: '足球已经越来越位人痴迷，足球场的设计也越来越美观，你喜欢哪种足球体育场呢？'
 };
 
-@withStyles(styles)
+//@withStyles(styles)
 class SocialDetail extends React.Component {
 	render() {
 		const { actions, data, onModifyCover } = this.props;

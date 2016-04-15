@@ -7,7 +7,7 @@ import EverydayContent from './EverydayContent';
 import EveryDayDates from './EveryDayDates';
 import ClickPage from './ClickPage';
 import Utils from '../../utils/utils.js';
-import withStyles from '../../decorators/withStyles';
+////import withstyles from '../../decorators/withStyles';
 import styles from './PageEveryDay.scss';
 
 let everyData = [
@@ -23,7 +23,7 @@ let EverydayData ={
     {"id": "2", "url": require('../../../../assets/images/sixth.jpg'), "title": ""},
   ]
 };
-@withStyles(styles)
+//@withStyles(styles)
 class EverydayPageHome extends React.Component {
   static propTypes = {
     children: PropTypes.any

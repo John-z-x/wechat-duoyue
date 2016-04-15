@@ -1,9 +1,9 @@
 import React from 'react';
 
-import withStyles from '../../decorators/withStyles';
+////import withstyles from '../../decorators/withStyles';
 import styles from './Modal.scss';
 
-@withStyles(styles)
+//@withStyles(styles)
 class Modal extends React.Component {
   render() {
     let classname = this.props.className ? this.props.className : "";

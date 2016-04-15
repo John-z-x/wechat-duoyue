@@ -2,7 +2,7 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
-import withStyles from '../../../decorators/withStyles';
+////import withstyles from '../../../decorators/withStyles';
 import styles from './SourcePdf.scss';
 
 import CommonHeader from '../../HeaderComponents/CommonHeader.js';
@@ -21,7 +21,7 @@ let pdfDataList = require("../../../../assets/MockData/pdf_imgs.json");
 // 	content: "这是最后一页"
 // };
 
-@withStyles(styles)
+//@withStyles(styles)
 class SourcePdfHome extends React.Component {
 	constructor(props) {
 		super(props);

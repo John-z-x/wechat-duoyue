@@ -28,6 +28,9 @@ module.exports = {
       test: /(\.jsx|\.js)$/,
       compressor: {
         warnings: false
+      },
+      mangle: {
+        except: ['$super', '$', 'exports', 'require']
       }
     }),
     new HtmlWebpackPlugin({

@@ -2,11 +2,11 @@ import React from 'react';
 import  GalleryFrontCover from './GalleryFrontCover';
 
 
-import withStyles from '../../../decorators/withStyles';
+////import withstyles from '../../../decorators/withStyles';
 import styles from './PhotoModule.scss';
 
 
-@withStyles(styles)
+//@withStyles(styles)
 class PhotoModule extends React.Component { 
 	render() {
 		return(

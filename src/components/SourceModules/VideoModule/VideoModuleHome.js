@@ -20,7 +20,7 @@ import CollectButton from '../../HeaderComponents/CollectButton';
 
 import CommentBox from '../../CommentBox/CommentBox';
 import CommentForm from '../../CommentBox/CommentForm';
-import withStyles from '../../../decorators/withStyles';
+////import withstyles from '../../../decorators/withStyles';
 import styles from './VideoModule.scss';
 
 const videoData = {
@@ -35,7 +35,7 @@ const videoData = {
 	]
 };
 
-@withStyles(styles)
+//@withStyles(styles)
 class VideoModuleHome extends React.Component {
 
 	constructor(props) {
