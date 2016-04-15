@@ -107,7 +107,7 @@ class AudioModule extends React.Component {
   populateStorage(){
     const { soundIndex  }=this.state;
     let stateValue={"soundIndex":soundIndex};
-    statevalue=JSON.stringify(statevalue);
+    stateValue=JSON.stringify(stateValue);
     localStorge.put(this.audioKey,stateValue);
   }
 

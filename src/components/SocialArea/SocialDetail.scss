@@ -72,8 +72,20 @@
 	.comment-list {
 		padding-bottom: 0!important;
 		.text {
-			padding-left: 33px;
+			padding-left: 43px;
+      font-size: $fontSize16!important;
 		}
+    .user-avatar{
+      width: 40px!important;
+      height: 40px!important;
+    }
+    .a-line{
+      font-size: $fontSize14!important;
+    }
+    .comment-img{
+      padding: 5px 43px!important;
+    }
+
 	}
 	.CommentForm {
 		position: fixed;

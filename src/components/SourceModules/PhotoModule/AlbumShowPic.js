@@ -310,7 +310,7 @@ class AlbumShowPic extends React.Component {
           </ul>
           {
             display &&
-              <AlbumShowDesc data={data[index]} count={this.moveX}/>
+              <AlbumShowDesc data={data[index]} count={data.length}/>
           }
         </div>
     );

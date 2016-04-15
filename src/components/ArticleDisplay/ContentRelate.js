@@ -1,5 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
+import { Link } from 'react-router';
 
 //相关阅读
 class ContentRelate extends React.Component {
@@ -46,7 +47,9 @@ class ContentRelate extends React.Component {
       {
         this.state.contentlist.map((list) => {
           return(
-            <div className="relate-title" key={list.id} style={{color: fontColor}}>{list.relateTitle}</div>
+            <Link to={`/everyday/${list.id}/display/`}>
+              <div className="relate-title" key={list.id} style={{color: fontColor}}>{list.relateTitle}</div>
+            </Link>
           );
         })
       }

@@ -1,18 +1,26 @@
 import React from 'react';
-
+import Alert from '../Modals/Alert';
 class AddressEditor extends React.Component {
 
   closeModal(ifSubmit) {
     let submit = this.props.submitAddress;
-    if(ifSubmit) {
-      submit({
-        name: this.refs.name.value,
-        phoneNumber: this.refs.phoneNumber.value,
-        address: this.refs.address.value
-      })
-    }else {
-      submit(false);
+    const name = this.refs.name.value.trim(),
+          phoneNumber = this.refs.phoneNumber.value.trim(),
+          address = this.refs.address.value.trim();
+    if (name && phoneNumber && address) {
+      if(ifSubmit) {
+        submit({
+          name: name,
+          phoneNumber: phoneNumber,
+          address: address
+        });
+      }else {
+        submit(false);
+      }
+    } else {
+      alert("必须全都填写额！");
     }
+    
   }
 
   render() {

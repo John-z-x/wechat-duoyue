@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 class OrderStatus extends React.Component {
 	render() {
@@ -16,9 +17,11 @@ class OrderStatus extends React.Component {
 								订单编号：{data.num}
 							</div>
 						</div>
-						<div className="pay-way right">
-							{data.way}
-						</div>
+						<Link to={`/pay/`} >
+							<div className="pay-way right">
+								{data.way}
+							</div>
+						</Link>
 					</div>
 					<div className="thank-point">感谢您在RAYS购物，欢迎您的再次光临！</div>
 				</div>

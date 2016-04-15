@@ -39,6 +39,9 @@ class SourcePdfHome extends React.Component {
 		let { index, showHeaderAndFooter } = this.state;
 		switch(type) {
 			case "prev": //前一页
+				this.setState({
+					showHeaderAndFooter: false
+				});
 				index > 0 &&
 				this.setState({
 					index: index - 1,
@@ -51,6 +54,9 @@ class SourcePdfHome extends React.Component {
 				});
 				break;
 			case "next": //下一个
+				this.setState({
+					showHeaderAndFooter: false
+				});
 				index < pdfDataList.length - 1 &&
 				this.setState({
 					index: index + 1,
@@ -74,7 +80,8 @@ class SourcePdfHome extends React.Component {
 				break;
 			case "end":
         this.setState({
-					index: index
+					index: index,
+					showHeaderAndFooter: false
 				});
 				break;
 			default :

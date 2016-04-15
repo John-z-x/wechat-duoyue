@@ -4,13 +4,14 @@ class AlbumShowDesc extends React.Component {
 	render(){
     let { count, data } = this.props;
     let { title, disc, index } = data;
+    console.log(count)
 		return(
       <div className="AlbumShowDesc">
         <div className="pic-comment-title">{title}</div>
         <div className="pic-comment-text left">{disc}</div>
         <div className="pic-page" >
           <span className="page-now-num">{index}</span>
-          <span  className="page-total-num" >{count}</span>
+          <span className="page-total-num" >{count}</span>
         </div>
       </div>
     );

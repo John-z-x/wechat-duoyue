@@ -21,6 +21,7 @@
   $fontColor7DA0B4: #7DA0B4;
   /*border*/
   $borderC: 1px solid #ccc;
+  $border3: 1px solid #333;
   $border62C3A2: 1px solid #62c3a2;
   /*bgcolor*/
   $bgColorF: #fff;
@@ -159,7 +160,9 @@
               font-size: $fontSize12;
             }
             .classify-price {
-              padding-top: 4px;
+              border-radius: 3px;
+              border: $borderC;
+              margin-top: 4px;
               margin-right: 10px;
               .goods-classify {
                 padding: 0;
@@ -170,10 +173,11 @@
                 text-align: center;
                 line-height: 21px;
                 font-size: $fontSize12;
-                border: $borderC;
                 &:nth-child(2) {
-                  border-left: 0;
-                  border-right: 0;
+                  width: 28px;
+                  border-left: $borderC;
+                  border-right: $borderC;
+                  color: $fontColor3;
                 }
               }
             }

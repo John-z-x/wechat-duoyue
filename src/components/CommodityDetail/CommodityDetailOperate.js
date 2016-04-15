@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 class CommodityDetailOperate extends React.Component {
 	render() {
@@ -8,11 +9,11 @@ class CommodityDetailOperate extends React.Component {
 			    <div className="addcart left" id="addcart">
 			      加入购物车
 			    </div>
-			    <a href="">
+			    <Link to={`/ConfirmOrder`}>
 		        <div className="settle left">
 		          去结算
 		        </div>
-			    </a>
+			    </Link>
 			  </footer>
       </div>
 	  );

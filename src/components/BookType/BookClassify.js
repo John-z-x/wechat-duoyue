@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 class BookClassify extends React.Component {
   render() {
@@ -9,7 +10,7 @@ class BookClassify extends React.Component {
     }else {
       bookClassify = data.map((type,id) => {
         return(
-          <a  href="" key={id}>
+          <Link  to={`/danpin/booklist/${id}`}  >
             <div className="classify-box">
               <div className="classify-book-bg clearfix">
                 <div className="classify-book-word">
@@ -22,7 +23,7 @@ class BookClassify extends React.Component {
                 </div>
               </div>
             </div>
-          </a>
+          </Link>
         );
       })
     }

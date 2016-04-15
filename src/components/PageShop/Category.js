@@ -13,7 +13,7 @@ class Category extends React.Component {
  			<li className="Category clearfix">
         <header className="category-header clearfix">
  					<div className="category-title left">{ data.title }</div>
-          <Link to={`/shop/goodslist/${data.data.id}`}>
+          <Link to={ data.href }>
             <span className="more right"></span>
           </Link>
         </header>
