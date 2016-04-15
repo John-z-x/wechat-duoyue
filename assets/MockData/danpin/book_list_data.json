@@ -74,5 +74,210 @@
       "title": "销魂殿",
       "price": 35
     }
+  ],
+  "type": [
+    {
+      "id": 1,
+      "title": "三体",
+      "typeid": 0,
+      "book_pic": "http://file.duoyue.me/upload/book/book/20151118/2015_11_18_140358570_cut_c.jpg",
+      "price": 150
+    },
+    {
+      "id": 2,
+      "title": "三体",
+      "typeid": 1,
+      "book_pic": "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_182029270_cut_c.jpg",
+      "price": 160
+    },
+    {
+      "id": 3,
+      "title": "三体",
+      "typeid": 2,
+      "book_pic": "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_172836293_cut_c.jpg",
+      "price": 170
+    },
+    {
+      "id": 4,
+      "title": "三体",
+      "typeid": 3,
+      "book_pic": "http://file.duoyue.me/upload/book/book/20151118/2015_11_18_140358570_cut_c.jpg",
+      "price": 180
+    },
+    {
+      "id": 5,
+      "title": "三体",
+      "typeid": 0,
+      "book_pic": "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_182029270_cut_c.jpg",
+      "price": 190
+    },
+    {
+      "id": 6,
+      "title": "三体",
+      "typeid": 2,
+      "book_pic": "http://file.duoyue.me/upload/book/book/20151201/2015_12_01_110431890_cut_c.jpg",
+      "price": 100
+    },
+    {
+      "id": 7,
+      "title": "三体",
+      "typeid": 0,
+      "book_pic": "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_182029270_cut_c.jpg",
+      "price": 160
+    },
+    {
+      "id": 8,
+      "title": "三体",
+      "typeid": 3,
+      "book_pic": "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_172836293_cut_c.jpg",
+      "price": 170
+    },
+    {
+      "id": 9,
+      "title": "三体",
+      "typeid": 0,
+      "book_pic": "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_182029270_cut_c.jpg",
+      "price": 160
+    },
+    {
+      "id": 10,
+      "title": "三体",
+      "typeid": 3,
+      "book_pic": "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_172836293_cut_c.jpg",
+      "price": 170
+    },
+    {
+      "id": 11,
+      "title": "三体",
+      "typeid": 0,
+      "book_pic": "http://file.duoyue.me/upload/book/book/20151118/2015_11_18_140358570_cut_c.jpg",
+      "price": 180
+    },
+    {
+      "id": 12,
+      "title": "三体",
+      "typeid": 2,
+      "book_pic": "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_182029270_cut_c.jpg",
+      "price": 190
+    },
+    {
+      "id": 13,
+      "title": "三体",
+      "typeid": 3,
+      "book_pic": "http://file.duoyue.me/upload/book/book/20151201/2015_12_01_110431890_cut_c.jpg",
+      "price": 100
+    },
+    {
+      "id": 14,
+      "title": "三体",
+      "typeid": 1,
+      "book_pic": "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_182029270_cut_c.jpg",
+      "price": 160
+    },
+    {
+      "id": 15,
+      "title": "三体",
+      "typeid": 0,
+      "book_pic": "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_172836293_cut_c.jpg",
+      "price": 170
+    },
+    {
+      "id": 16,
+      "title": "三体",
+      "typeid": 1,
+      "book_pic": "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_182029270_cut_c.jpg",
+      "price": 160
+    },
+    {
+      "id": 17,
+      "title": "三体",
+      "typeid": 0,
+      "book_pic": "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_172836293_cut_c.jpg",
+      "price": 170
+    },
+    {
+      "id": 21,
+      "title": "三体",
+      "typeid": 2,
+      "book_pic": "http://file.duoyue.me/upload/book/book/20151118/2015_11_18_140358570_cut_c.jpg",
+      "price": 180
+    },
+    {
+      "id": 22,
+      "title": "三体",
+      "typeid": 0,
+      "book_pic": "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_182029270_cut_c.jpg",
+      "price": 190
+    },
+    {
+      "id": 23,
+      "title": "三体",
+      "typeid": 0,
+      "book_pic": "http://file.duoyue.me/upload/book/book/20151201/2015_12_01_110431890_cut_c.jpg",
+      "price": 100
+    },
+    {
+      "id": 24,
+      "title": "三体",
+      "typeid": 0,
+      "book_pic": "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_182029270_cut_c.jpg",
+      "price": 160
+    },
+    {
+      "id": 25,
+      "title": "三体",
+      "typeid": 0,
+      "book_pic": "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_172836293_cut_c.jpg",
+      "price": 170
+    },
+    {
+      "id": 31,
+      "title": "三体",
+      "typeid": 3,
+      "book_pic": "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_182029270_cut_c.jpg",
+      "price": 160
+    },
+    {
+      "id": 29,
+      "title": "三体",
+      "typeid": 2,
+      "book_pic": "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_172836293_cut_c.jpg",
+      "price": 170
+    },
+    {
+      "id": 62,
+      "title": "三体",
+      "typeid": 3,
+      "book_pic": "http://file.duoyue.me/upload/book/book/20151118/2015_11_18_140358570_cut_c.jpg",
+      "price": 180
+    },
+    {
+      "id": 512,
+      "title": "三体",
+      "typeid": 3,
+      "book_pic": "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_182029270_cut_c.jpg",
+      "price": 190
+    },
+    {
+      "id": 45324,
+      "title": "三体",
+      "typeid": 1,
+      "book_pic": "http://file.duoyue.me/upload/book/book/20151201/2015_12_01_110431890_cut_c.jpg",
+      "price": 100
+    },
+    {
+      "id": 423,
+      "title": "三体",
+      "typeid": 1,
+      "book_pic": "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_182029270_cut_c.jpg",
+      "price": 160
+    },
+    {
+      "id": 52,
+      "title": "三体",
+      "typeid": 1,
+      "book_pic": "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_172836293_cut_c.jpg",
+      "price": 170
+    }
   ]
 }

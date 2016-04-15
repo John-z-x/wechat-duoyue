@@ -13,7 +13,9 @@ class BookInfo extends React.Component {
 	    	</div>
 	    	<div className="book-info">
 	    		<div className="book-title">{data.title}</div>
-	    		<div className="sell-price">￥ {data.price}</div>
+					{
+						data.price && <div className="sell-price">￥ {data.price}</div>
+					}
 	    		<div className="button-area">
             <Link to='/confirmorder' className="book-buy">
               <span className="book-buy-icon"/>
@@ -54,7 +56,6 @@ class BookInfo extends React.Component {
             	<div className="pub-title">作/译者：<span>{data.author}</span></div>
             	<div className="pub-title">出版社： <span>{data.publishHouse}</span></div>
             	<div className="pub-title">出版时间：<span>{data.publishDate}</span></div>
-            	<div className="pub-title">ISBN：<span>{data.isbn}</span></div>
             	<div className="pub-title">ISBN：<span>{data.isbn}</span></div>
             	</div>
             </div>    	
