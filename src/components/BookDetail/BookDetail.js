@@ -1,4 +1,8 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
+
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import { fetchBookDetail, fetchBookRelatedList } from '../../actions/DanpinActions';
 
 import withStyles from '../../decorators/withStyles';
 import styles from './BookDetail.scss';
@@ -61,15 +65,22 @@ class BookDetail extends React.Component {
     window.clearTimeout(this.successModalTimer);
   }
 
+  componentWillMount() {
+    const {fetchBookDetail, fetchBookRelatedList} = this.props.actions;
+    fetchBookDetail();
+    fetchBookRelatedList();
+  }
+
   render() {
+    const { bookData, recData } = this.props;
     return (
         <div className="BookDetail">
           <CommonHeader>
             <ReturnButton />
-            <CollectButton onFavorChange={this.onFavorChange.bind(this)}/>
+            <CollectButton onFavorChange={::this.onFavorChange}/>
           </CommonHeader>
-          <BookInfo data={Bookdata}/>
-          <RecList title="相关图书" data={Recdata}/>
+          <BookInfo data={bookData}/>
+          <RecList title="相关图书" data={recData}/>
           <div className="bottom-blank"></div>
           <ToDanpin title="书城"/>
           {
@@ -79,6 +90,27 @@ class BookDetail extends React.Component {
         </div>
     );
   }
+}
+
+BookDetail.propTypes = {
+  bookData: PropTypes.object.isRequired,
+  recData: PropTypes.array.isRequired
 };
 
-export default BookDetail;
+const mapStateToProps = (state) => {
+  return {
+    bookData: state.danpin.bookDetail,
+    recData: state.danpin.bookList
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators({fetchBookDetail, fetchBookRelatedList}, dispatch)
+  }
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(BookDetail);

@@ -39,7 +39,7 @@ class RecommendBookModule extends React.Component {
 
 RecommendBookModule.propTypes = {
 	data: PropTypes.shape({
-	  data: PropTypes.array.isRequired
+	  data: PropTypes.array
 	})
 };
 
