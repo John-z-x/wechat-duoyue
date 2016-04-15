@@ -9,8 +9,9 @@ class RecItem extends React.Component {
 				<Link to={data.href}>
 					<div className="rec-item-pic">
             <div className="item-pic-container">
-						  <img src={data.imgUrl} alt="推荐封面" title="推荐封面"/>
+						  <img src={data.bookPic} alt="推荐封面" title="推荐封面"/>
             </div>
+						
 					</div>
 					<div className="rec-item-title">{data.title}</div>
 					<div className="rec-price">￥{data.price}</div>

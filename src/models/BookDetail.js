@@ -18,7 +18,7 @@ class BookDetail {
     this.isbn = json.ISBN || "";
     this.desc = json.desc || "";
     this.title = json.title || "";
-    this.price = this.price || 0;
+    this.price = json.price || 0;
     this.ebookPrice = json.ebook_price || "";
     this.dtitle = json.dtitle || "";
     this.isFavor = json.isFavor || false;
