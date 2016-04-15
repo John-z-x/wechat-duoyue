@@ -22,7 +22,7 @@ class RecList extends React.Component {
 }
 
 RecList.propTypes = {
-  data: PropTypes.array
+  //data: PropTypes.array
 };
 
 export default RecList;

@@ -71,11 +71,11 @@ function mapStateToProps(state) {
       title: "本周新书推荐",
       data: bookList.new,
       recmdText: '查看更多新书',
-      href: "/danpin/newbooklist/0"
+      href: "/danpin/newbooklist/new"
     },
     hotbksData: {
       title: "本周热点推荐",
-      href: "/danpin/newbooklist/1",
+      href: "/danpin/newbooklist/hot",
       data: bookList.hot,
       recmdText: '查看更多推荐'
     },
