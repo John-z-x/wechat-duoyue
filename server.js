@@ -28,7 +28,7 @@ app.get('*', function (req, res) {
 	res.sendFile(path.join(__dirname, viewDir, 'index.html'));
 });
 
-app.listen(app.get('port'), 'localhost', function (err) {
+app.listen(app.get('port'), '192.168.88.72', function (err) {
 	if (err) {
 		console.error(err);
 		return;

@@ -1,5 +1,6 @@
-﻿@import 'variables';
-@import 'mixin';
+﻿@charset "UTF-8";
+
+@import 'function';
 
 //从base.scss拿出来的公用类
 .hidden {
@@ -297,9 +298,9 @@ $c:10;
 
 
 //FontFamily
-.fontFz {
-    font-family: "FZLTXHJW";
-}
+// .fontFz {
+//     font-family: "FZLTXHJW";
+// }
 
 
 //Others
@@ -307,10 +308,6 @@ $c:10;
   @extend %center-block;
 }
 .container{
-    min-width: 320px;
-    max-width:640px;
-    width:100%;
-    @extend %center-block;
     padding-left: $basePadding;
     padding-right: $basePadding;
 }

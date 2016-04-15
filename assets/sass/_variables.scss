@@ -1,3 +1,6 @@
+@charset "UTF-8";
+
+
 // switch
 //-----------------------------------------------------	
 $borderBoxSwitch:                true !default; // true为*{box-sizing:border-box;}
@@ -62,8 +65,8 @@ $zIndexOverlay:                  4000 !default; // 默认高于header和footer�
 
 // margin
 //-----------------------------------------------------	
-$baseMargin:                     20px !default;
-$basePadding:                    10px !default;
+$baseMargin:                     20px !default;//默认DIV的外边距
+$basePadding:                    10px !default;//默认DIV的内边距
 
 
 // header,footer等的高度
