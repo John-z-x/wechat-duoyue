@@ -1,0 +1,56 @@
+{
+  "hot": [
+    {
+      "id": 1, 
+      "pro_name": "木质纹理，丝丝入心",
+      "pro_pic1": "http://file.duoyue.me/upload/product/20160224/2016_02_24_203735155_b.jpg", 
+      "pro_price": 52.8
+    }, 
+    {
+      "id": 2, 
+      "pro_name": "[翩翩]刺绣手镯｜大赢刺绣",
+      "pro_pic1": "http://file.duoyue.me/upload/product/20151201/2015_12_01_204655415.jpg", 
+      "pro_price": 398
+    }, 
+    {
+      "id": 3, 
+      "pro_name": "真亚麻小包",
+      "pro_pic1": "http://file.duoyue.me/upload/product/20151201/2015_12_01_203701224.jpg", 
+      "pro_price": 175
+    }, 
+    {
+      "id": 4, 
+      "pro_name": "[lollipop] 项链|春风十里",
+      "pro_pic1": "http://file.duoyue.me/upload/product/20151201/2015_12_01_204854611.jpg", 
+      "pro_price": 460
+    }
+  ],
+  "recommend": [
+    {
+      "id": 6, 
+      "pro_name": "加入色影无忌",
+      "pro_pic1": "http://file.duoyue.me/upload/product/20151208/2015_12_08_212851760.jpg", 
+      "pro_price": 300
+    }, 
+    {
+      "id": 7, 
+      "pro_name": "加入色影无忌",
+      "pro_pic1": "http://file.duoyue.me/upload/product/20151201/2015_12_01_204655415.jpg", 
+      "pro_price": 398
+    }, 
+    {
+      "id": 8, 
+      "pro_name": "加入色影无忌",
+      "pro_pic1": "http://file.duoyue.me/upload/product/20151201/2015_12_01_203701224.jpg", 
+      "pro_price": 175
+    }, 
+    {
+      "id": 9, 
+      "pro_name": "加入色影无忌",
+      "pro_pic1": "http://file.duoyue.me/upload/product/20151201/2015_12_01_204854611.jpg", 
+      "pro_price": 460
+    }
+  ]
+}
+
+

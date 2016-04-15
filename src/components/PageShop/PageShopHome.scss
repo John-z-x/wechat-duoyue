@@ -1,9 +1,5 @@
-﻿/*
-* pancheng
-* shangcheng index
-*/
-
-.ShopIndexPage {
+﻿
+.PageShopHome {
   $fontStack: 'FZLTXHJW';
   $fontSize10: 10px;
   $fontSize12: 12px;
@@ -155,6 +151,7 @@
         background-repeat: no-repeat;
         background-size: 100% 50%;
         background-position: center;
+        background-image: url(/images/commodityDetailImage/more.png);
         .more-text {
           color: $fontColor74cdaf;
         }

@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { modifyCover } from '../../actions/ShoppingCartActions';
 import * as CommentActions from '../../actions/CommentActions';
 
 import CommonHeader from '../HeaderComponents/CommonHeader.js';
@@ -27,13 +26,28 @@ const dataArray = {
 
 @withStyles(styles)
 class SocialDetail extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			cover: false
+		};
+		this.onModifyCover = this.onModifyCover.bind(this);
+	}
+
+	onModifyCover() {
+		let coverState = this.state.cover ? false : true;
+		this.setState({
+			cover: coverState
+		});
+	}
+
 	render() {
-		const { actions, data, onModifyCover } = this.props;
+		const { actions, data } = this.props;
 		return (
 				<div className="SocialDetail" >
 					<CommonHeader>
 						<ReturnButton/>
-						<CommentButton OnCommentClick={ onModifyCover }/>
+						<CommentButton OnCommentClick={ this.onModifyCover }/>
 					</CommonHeader>
 					<div id="banner-pic" className="detail-pic-container">
 			      <img src="http://file.duoyue.me/upload/group/logo/20151126/2015_11_26_160438732.jpg" alt="logo" title="logo"/>
@@ -45,9 +59,9 @@ class SocialDetail extends React.Component {
 				  <CommentBox data={ data } actions={ actions } url="3">
 						<CommentList comments={ data } actions={actions} Item={CommentItem} />
 		        {
-		          this.props.cover && 
-		          <Cover modifyCover={ onModifyCover }>
-		            <CommentForm actions={ actions } id= { data.length }/>
+		          this.state.cover && 
+		          <Cover modifyCover={ this.onModifyCover }>
+		            <CommentForm actions={ actions } modifyCoverFunc={ this.onModifyCover } id= { data.length }/>
 		          </Cover>
 		        }
 					</CommentBox>
@@ -57,16 +71,13 @@ class SocialDetail extends React.Component {
 }
 
 function mapStateToProps(state) {
-	console.log(state)
   return {
-  	cover: state.cover,
     data: state.comment,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-  	onModifyCover: bindActionCreators(modifyCover, dispatch),
     actions: bindActionCreators(CommentActions, dispatch)
   };
 }

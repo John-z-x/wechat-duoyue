@@ -58,6 +58,7 @@ class CommentItem extends React.Component {
 CommentItem.propTypes = {
   praise: PropTypes.bool,
   praiseNum: PropTypes.number,
+  text: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
   text: PropTypes.string.isRequired,
   userAvatar: PropTypes.string.isRequired,

@@ -1,17 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router';
-
-const news = [
-	{"id": "1", "content": "同样的温度，为什么在诶方式狼，在南方却冻成狗"},
-	{"id": "2", "content": "我不告诉你怎么做到10W+,我只告诉你如何有一个想做到10w+的野心，哈哈哈啊，凑字数"},
-	{"id": "3", "content": "从亚马逊为啥呢么会推出月报"}
-];
+import React, { Component, PropTypes } from 'react';
+import  { Link } from 'react-router';
 
 class HotNews extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			news: [],
 			top: 0,
 			index: 0
 		};
@@ -19,7 +12,7 @@ class HotNews extends React.Component {
 	}
   
 	slider(node) {
-		let height = node.parentNode.offsetHeight, count = this.state.news.length, _this = this;
+		let height = this.refs.navsBox.offsetHeight, count = this.props.data.length, _this = this;
 
 		let animate = function(end) {
 			window.clearTimeout(this.timerAnimate);
@@ -65,9 +58,6 @@ class HotNews extends React.Component {
 
   componentDidMount() {
   	let sliderBox = this.refs.navs;
-		this.setState({
-			news: news,
-		});
 		this.Timer = setTimeout(() => {::this.slider(sliderBox)} , this.SETOUT_TIME);
   }
 
@@ -78,21 +68,25 @@ class HotNews extends React.Component {
 	}
 
 	render() {
-		const news = this.state.news;
+		const { data } = this.props;
 		let totalItemCode;
-		let itemCode = news.map( (item, i) => 
-			<li className="news-content" key={`news${item.id}`}>
+		let itemCode = data.map( (item, i) => 
+			<li className="news-content" key={ i }>
 				<Link to={`/everyday/${item.id}/display`}>
-        	{item.content}
+        	{item.title}
 				</Link>
 			</li>
 		);
 		totalItemCode = itemCode;
-		if( news.length > 0) {
-			totalItemCode = itemCode.concat([<li className="news-content" key={news.length}>{news[0].content}</li>]);
+		if( data.length > 0) {
+			totalItemCode = itemCode.concat([<li className="news-content" key={data.length}>
+				<Link to={`/everyday/${data[0].id}/display`}>
+					{data[0].title}
+				</Link>
+			</li>]);
 		}
 		return (
-			<section className="HotNews hot-news">
+			<section className="HotNews hot-news" ref="navsBox">
         <div className="hot-box">
         	<span className="hot">热门</span>
         </div>
@@ -102,6 +96,10 @@ class HotNews extends React.Component {
 			</section>
 		);
 	}
+}
+
+HotNews.propTypes = {
+	data: PropTypes.array
 }
 
 export default HotNews;

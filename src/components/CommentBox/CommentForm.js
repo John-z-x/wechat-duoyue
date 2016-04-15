@@ -17,12 +17,12 @@ class CommentForm extends React.Component {
     }
     //this.props.actions.addCommentTo(value);
     this.props.actions.fetchComment("2");
-    value = '';
-    this.props.modifyCoverFunc();
+    this.refs.inputBox.value = '';
+    this.props.modifyCoverFunc && this.props.modifyCoverFunc();
   }
   cancelSubmit(e) {
     e.stopPropagation();
-    this.props.modifyCoverFunc();
+    this.props.modifyCoverFunc && this.props.modifyCoverFunc();
   }
   componentDidmount() {
 

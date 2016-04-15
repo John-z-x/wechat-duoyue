@@ -1,0 +1,26 @@
+[
+  {
+    "id": 0, 
+    "href": "/shop/goodslist/1", 
+    "type_name": "尖货",  
+    "type_icon": "http://file.duoyue.me/upload/producttype/20151217/2015_12_17_152044543.png"
+  }, 
+  {
+    "id": 1, 
+    "href": "/shop/goodslist/2", 
+    "type_name": "学堂", 
+    "type_icon": "http://file.duoyue.me/upload/producttype/20151217/2015_12_17_152124594.png"
+  }, 
+  {
+    "id": 2, 
+    "href": "/shop/goodslist/3", 
+    "type_name": "文品", 
+    "type_icon": "http://file.duoyue.me/upload/producttype/20151217/2015_12_17_152131944.png"
+  }, 
+  {
+    "id": 3, 
+    "href": "/shop/goodslist/4", 
+    "type_name": "玩意", 
+    "type_icon": "http://file.duoyue.me/upload/producttype/20151217/2015_12_17_152143375.png"
+  }
+]
