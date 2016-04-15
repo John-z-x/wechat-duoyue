@@ -2,14 +2,14 @@
   "everydaySlide": [
     {
       "id": "1",
-      "url": "/everyday",
+      "url": "/everyday/",
       "target": "0/display",
       "fileurl": "http://file.duoyue.me/upload/columninfo/20151225/2015_12_25_103305103.jpg",
       "title": "hello"
     },
     {
       "id": "2",
-      "url": "/everyday",
+      "url": "/everyday/",
       "target": "1/display",
       "fileurl": "http://file.duoyue.me/upload/columninfo/20151225/2015_12_25_103451212.jpg",
       "title": "hello"

@@ -1,4 +1,8 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+
+import {fetchBookListData, fetchBooktype} from '../../actions/DanpinActions';
 
 import withStyles from '../../decorators/withStyles';
 import styles from './BookList.scss';
@@ -8,116 +12,103 @@ import ReturnButton from '../HeaderComponents/ReturnButton';
 import Tab from '../UIComponent/Tab/Tab';
 import BookListRight from './BookListRight';
 
-const TabItemsData = {
-  content: [
-    {
-      title: "经典文学",
-      pic: {
-        default: "url('http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_160912826.png')",
-        on: "url('http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_160918791.png')"
-      }
-    },
-    {
-      title: "青春文学",
-      pic: {
-        default: "url('http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_160850125.png')",
-        on: "url('http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_160857590.png')"
-      }
-    },
-    {
-      title: "职场进阶",
-      pic: {
-        default: "url('http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_160819925.png')",
-        on: "url('http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_160826813.png')"
-      }
-    },
-    {
-      title: "网络文学",
-      pic: {
-        default: "url('http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_160753929.png')",
-        on: "url('http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_160806126.png')"
-      }
-    }
-
-  ],
-  tabClass: {
-    tabBox: "Tab",
-    tabItemDefault: "menu-item",
-    tabItemOn: "menu-item-on"
-  }
-}
-
-const BookListData = [
-  {name: "三体", type:0, imgUrl: "http://file.duoyue.me/upload/book/book/20151118/2015_11_18_140358570_cut_c.jpg", "price": 150},
-  {name: "三体", type:1, imgUrl: "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_182029270_cut_c.jpg", "price": 160},
-  {name: "三体", type:2, imgUrl: "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_172836293_cut_c.jpg", "price": 170},
-  {name: "三体", type:3, imgUrl: "http://file.duoyue.me/upload/book/book/20151118/2015_11_18_140358570_cut_c.jpg", "price": 180},
-  {name: "三体", type:0, imgUrl: "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_182029270_cut_c.jpg", "price": 190},
-  {name: "三体", type:2, imgUrl: "http://file.duoyue.me/upload/book/book/20151201/2015_12_01_110431890_cut_c.jpg", "price": 100},
-  {name: "三体", type:0, imgUrl: "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_182029270_cut_c.jpg", "price": 160},
-  {name: "三体", type:3, imgUrl: "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_172836293_cut_c.jpg", "price": 170},
-  {name: "三体", type:0, imgUrl: "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_182029270_cut_c.jpg", "price": 160},
-  {name: "三体", type:3, imgUrl: "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_172836293_cut_c.jpg", "price": 170},
-  {name: "三体", type:0, imgUrl: "http://file.duoyue.me/upload/book/book/20151118/2015_11_18_140358570_cut_c.jpg", "price": 180},
-  {name: "三体", type:2, imgUrl: "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_182029270_cut_c.jpg", "price": 190},
-  {name: "三体", type:3, imgUrl: "http://file.duoyue.me/upload/book/book/20151201/2015_12_01_110431890_cut_c.jpg", "price": 100},
-  {name: "三体", type:1, imgUrl: "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_182029270_cut_c.jpg", "price": 160},
-  {name: "三体", type:0, imgUrl: "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_172836293_cut_c.jpg", "price": 170},
-  {name: "三体", type:1, imgUrl: "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_182029270_cut_c.jpg", "price": 160},
-  {name: "三体", type:0, imgUrl: "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_172836293_cut_c.jpg", "price": 170},
-  {name: "三体", type:2, imgUrl: "http://file.duoyue.me/upload/book/book/20151118/2015_11_18_140358570_cut_c.jpg", "price": 180},
-  {name: "三体", type:0, imgUrl: "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_182029270_cut_c.jpg", "price": 190},
-  {name: "三体", type:0, imgUrl: "http://file.duoyue.me/upload/book/book/20151201/2015_12_01_110431890_cut_c.jpg", "price": 100},
-  {name: "三体", type:0, imgUrl: "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_182029270_cut_c.jpg", "price": 160},
-  {name: "三体", type:0, imgUrl: "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_172836293_cut_c.jpg", "price": 170},
-  {name: "三体", type:3, imgUrl: "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_182029270_cut_c.jpg", "price": 160},
-  {name: "三体", type:2, imgUrl: "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_172836293_cut_c.jpg", "price": 170},
-  {name: "三体", type:3, imgUrl: "http://file.duoyue.me/upload/book/book/20151118/2015_11_18_140358570_cut_c.jpg", "price": 180},
-  {name: "三体", type:3, imgUrl: "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_182029270_cut_c.jpg", "price": 190},
-  {name: "三体", type:1, imgUrl: "http://file.duoyue.me/upload/book/book/20151201/2015_12_01_110431890_cut_c.jpg", "price": 100},
-  {name: "三体", type:1, imgUrl: "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_182029270_cut_c.jpg", "price": 160},
-  {name: "三体", type:1, imgUrl: "http://file.duoyue.me/upload/book/book/20151126/2015_11_26_172836293_cut_c.jpg", "price": 170}
-]
-
 @withStyles(styles)
 class BookList extends React.Component {
   constructor(props) {
     super(props);
     this.type = this.props.params.typeIndex;
-    console.log(this.type);
-    this.state = {
-      typeList: [],
-      type: this.type
+    this.loaded = true;
+    this.tabData = {};
+  }
+
+  componentWillReceiveProps(np) {
+    const { tabItemsData , actions} = np, _this = this;
+    let npt = tabItemsData.content[0], tpt = this.props.tabItemsData.content[0];
+
+    if( typeof npt != undefined && npt != tpt && this.loaded) {
+      tabItemsData.content.map( (item, index) => {
+        _this.tabData[index] = item.id;
+      });
+      this.loaded = false;
+      actions.fetchBookListData({"type": "type", "typeid": this.getIndex()});
     }
-    this.onTypeChange = this.onTypeChange.bind(this);
+  }
+
+  getIndex() {
+    let data = this.tabData;
+    for(let i in data) {
+      if(data[i] == this.type) {
+        return i;
+      }
+    }
   }
 
   onTypeChange(index) {
-    let typeDataList;
-    this.type = index;
-    typeDataList = BookListData.filter( (item) => {
-      return item.type == this.type;
-    })
-    this.setState({
-      typeList: typeDataList
-    })
+    const {fetchBookListData} = this.props.actions;
+    let id = this.tabData[index];
+    typeof id != undefined && fetchBookListData({"type": "type", "typeid": this.tabData[index]});
   }
 
-  componentDidMount() {
-    this.onTypeChange(this.type);
+  componentWillMount() {
+    const {fetchBooktype} = this.props.actions;
+    fetchBooktype();
   }
 
   render() {
+    const {tabItemsData, bookList} = this.props;
     return (
-      <div className="BookList">
-        <CommonHeader>
-          <ReturnButton />
-        </CommonHeader>
-        <Tab TabItemsData={TabItemsData} onTypeChange={this.onTypeChange} typeIndex={this.state.type}/>
-        <BookListRight booklistdata = {this.state.typeList}/>
-      </div>
+        <div className="BookList">
+          <CommonHeader>
+            <ReturnButton />
+          </CommonHeader>
+          <Tab TabItemsData={tabItemsData} onTypeChange={::this.onTypeChange} typeIndex={this.type}/>
+          <BookListRight booklistdata={bookList}/>
+        </div>
     );
   }
 }
 
-export default BookList;
+BookList.propTypes = {
+  tabItemsData: PropTypes.object,
+  bookList: PropTypes.array.isRequired
+};
+
+const mapStateToProps = (state) => {
+  const {bookType, bookList: {type}} = state.danpin;
+  const typeData = bookType.map( (json) => {
+    return {
+      "id": json.id,
+      "title": json.title,
+      "pic": {
+        "default": `url(${json.bookTypeIcon})`,
+        "on": `url(${json.bookTypeIconHigh})`
+      }
+    }
+  });
+
+  const tabItemsData = {
+    "content": typeData,
+    "tabClass": {
+      tabBox: "Tab",
+      tabItemDefault: "menu-item",
+      tabItemOn: "menu-item-on"
+    }
+  };
+
+  return {
+    tabItemsData: tabItemsData,
+    bookList: type
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators({fetchBookListData, fetchBooktype}, dispatch)
+  }
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(BookList);
+

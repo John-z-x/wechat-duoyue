@@ -29,8 +29,8 @@ class DanpinPageHome extends React.Component {
         slideDataLoad
     } = this.props;
     fetchBooktype();
-    fetchBookListData('new');
-    fetchBookListData('hot');
+    fetchBookListData({"type": "new", "num": 6});
+    fetchBookListData({"type": "hot", "num": 6});
     slideDataLoad("danpinSlide");
   }
 

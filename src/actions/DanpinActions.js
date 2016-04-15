@@ -29,13 +29,18 @@ const receivedBooktype = (data) => {
 };
 
 //取出热门和最新的数据
-export const fetchBookListData = (endPoint) => {
+export const fetchBookListData = (options) => {
+  const {type, typeid, num } = options;
   let data = require('../../assets/MockData/danpin/book_list_data.json');
   return dispatch => {
-    let dataArray = data[endPoint].map((json) => {
+    let dataArray = data[type].filter( (json) => {
+      return typeof typeid != undefined ? json.typeid == typeid : true;
+    })
+    .slice(0, num)
+    .map((json) => {
       return new BookDetail(json);
     });
-    return dispatch(receivedBookList(dataArray, endPoint));
+    return dispatch(receivedBookList(dataArray, type));
   }
 };
 

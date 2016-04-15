@@ -3,7 +3,7 @@ import BookListItem from './BookListItem';
 
 class BookListRight extends React.Component {
   render() {
-    const booklistdata = this.props.booklistdata;
+    const booklistdata = this.props.booklistdata || [];
     return (
       <div className="BookListRight">
         <section className="top">

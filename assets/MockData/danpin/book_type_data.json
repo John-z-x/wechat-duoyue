@@ -1,36 +1,38 @@
-
 [
   {
-    "id": 1,
-    "bookTypeIcon": "http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_160912826.png",
-    "bookTypePic": "http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_114515099_cut_c.jpg",
+    "id": 0,
+    "book_type_icon": "http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_160912826.png",
+    "book_type_icon_high": "http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_160918791.png",
+    "book_type_pic": "http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_114515099_cut_c.jpg",
     "title": "经典文学",
     "bookCount": "5",
     "dtitle": "品书会让生活染上香气"
   },
   {
-    "id": 2,
-    "bookTypeIcon": "http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_160850125.png",
-    "bookTypePic": "http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_114459939_cut_c.jpg",
+    "id": 1,
+    "book_type_icon": "http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_160850125.png",
+    "book_type_icon_high": "http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_160857590.png",
+    "book_type_pic": "http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_114459939_cut_c.jpg",
     "title": "青春文学",
     "bookCount": "5",
     "dtitle": "品书会让生活染上香气"
   },
   {
-    "id": 3,
-    "bookTypeIcon": "http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_160819925.png",
-    "bookTypePic": "http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_114438009_cut_c.jpg",
+    "id": 2,
+    "book_type_icon": "http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_160819925.png",
+    "book_type_icon_high": "http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_160826813.png",
+    "book_type_pic": "http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_114438009_cut_c.jpg",
     "title": "职场进阶",
     "bookCount": "5",
     "dtitle": "品书会让生活染上香气"
   },
   {
-    "id": 4,
-    "bookTypeIcon": "http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_160753929.png",
-    "bookTypePic": "http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_114417681_cut_c.jpg",
+    "id": 3,
+    "book_type_icon": "http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_160753929.png",
+    "book_type_icon_high": "http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_160806126.png",
+    "book_type_pic": "http://file.duoyue.me/upload/book/booktype/20151130/2015_11_30_114417681_cut_c.jpg",
     "title": "网络文学",
     "bookCount": "5",
     "dtitle": "品书会让生活染上香气"
   }
-
 ]
